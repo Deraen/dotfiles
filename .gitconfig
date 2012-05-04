@@ -1,0 +1,35 @@
+[user]
+	name = Juho Teperi
+	email = juho.teperi@tut.fi
+[github]
+	user = Deraen
+	token = abe229f011b874c7c270864c6894f078
+[alias]
+	co = checkout
+  prunelocal = !sh -c 'git branch --merged | grep -v "^*" | xargs git branch -d'
+
+  pruneorigin = prune-remote origin
+
+  ##################
+  # Helper aliases #
+  ##################
+
+  # prune-remote <remote name>
+  prune-remote = !sh -c 'git fetch $1 && git remote-master-merged $1 | xargs git push --delete $1' -
+
+  # remote-master-merged <remote name>
+  remote-master-merged = !sh -c 'git remote-merged-refs \"$1\" master' -
+
+  # remote-merged-refs <remote name> <destination branch name>
+  remote-merged-refs = !sh -c 'git branch -r --merged $2 | grep \"^  $1/\" | cut -d/ -f2- | grep -vx $2' -
+
+  untracked = ls-files -o -X /home/juho/.gitignore
+
+  co = checkout
+
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+
+
+[core]
+[color]
+	ui = auto

@@ -78,4 +78,3 @@ export DEBEMAIL="juho.teperi@tut.fi"
 
 alias tutg++='g++'
 
-alias git-untracked='git ls-files -o -X ~/.gitignore'
