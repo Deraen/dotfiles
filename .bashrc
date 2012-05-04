@@ -55,7 +55,10 @@ alias la='ls -A'
 alias l='ls -CF'
 alias apt-add-key='apt-key adv --keyserver keyserver.ubuntu.com --recv-keys '
 
-alias less="less -R"
+export EDITOR="nano"
+export MOST_EDITOR="nano"
+export PAGER="most"
+export LESS="-R"
 alias ccze="ccze -A"
 
 alias make-kernel="CONCURRENCY_LEVEL=`getconf _NPROCESSORS_ONLN` fakeroot make-kpkg --initrd --append-to-version=-custom kernel_image kernel_headers"
