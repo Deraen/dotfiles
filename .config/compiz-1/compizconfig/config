@@ -1,0 +1,15 @@
+[gnome_session]
+backend = ini
+profile = 
+integration = true
+plugin_list_autosort = true
+
+[general]
+profile = 
+integration = true
+
+[general_ubuntu]
+profile = 
+backend = ini
+integration = false
+
