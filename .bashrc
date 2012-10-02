@@ -62,7 +62,7 @@ alias ccze="ccze -A"
 PATH="/home/juho/.local/bin:$PATH"
 
 if [ "$HOSTNAME" = "juho-desktop" ]; then
-    PATH="/raid/opt/modelsim/modelsim_ase/linux:/raid/opt/android-sdk-linux_x86/platform-tools:/raid/opt/android-sdk-linux_x86/tools:$PATH"
+    PATH="/raid/opt/modelsim/modelsim_ase/linux:/raid/opt/android-sdk-linux_x86/platform-tools:/raid/opt/android-sdk-linux_x86/tools:/raid/opt/android-ndk-r7-crystax-5.beta2/:$PATH"
 elif [[ "$HOSTNAME" = "juho-laptop" ]]; then
     PATH="/opt/modelsim/modelsim_ase/linux:/opt/android-sdk-linux_x86/platform-tools:/opt/android-sdk-linux_x86/tools:$PATH"
 fi
