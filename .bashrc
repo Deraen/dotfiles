@@ -215,3 +215,6 @@ PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
