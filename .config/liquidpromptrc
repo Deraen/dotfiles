@@ -36,7 +36,7 @@ LP_HOSTNAME_ALWAYS=0
 # Do you want to display the user, even if he is the same than the logged one?
 # Defaults to 1 (always display the user)
 # set to 0 if you want to hide the logged user (it will always display different users)
-LP_USER_ALWAYS=1
+LP_USER_ALWAYS=0
 
 # Do you want to display the percentages of load/batteries along with their
 # corresponding marks? Set to 0 to only print the colored marks.
@@ -93,7 +93,7 @@ LP_ENABLE_BZR=1
 
 # Show time of the last prompt display
 # Recommended value is 0
-LP_ENABLE_TIME=0
+LP_ENABLE_TIME=1
 
 # When showing time, use an analog clock instead of numeric values.
 # The analog clock is "accurate" to the nearest half hour.
@@ -113,7 +113,7 @@ LP_ENABLE_TITLE=0
 LP_ENABLE_SCREEN_TITLE=0
 
 # Use differents colors for differents hosts you SSH in
-LP_ENABLE_SSH_COLORS=0
+LP_ENABLE_SSH_COLORS=1
 
 # Specify a list of complete and colon (":") separated paths in which, all vcs
 # will be disabled
