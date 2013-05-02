@@ -1,6 +1,4 @@
 [submodule "bin"]
 	path = bin
 	url = juho-git:bin.git
-[submodule ".bash_it"]
-	path = .bash_it
-	url = http://github.com/revans/bash-it.git
+	ignore = dirty
