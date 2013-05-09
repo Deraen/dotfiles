@@ -1,0 +1,25 @@
+#!/bin/bash
+
+HOSTNAME=$(hostname -s)
+TEMP_INPUT="temp2_input"
+if [ "$HOSTNAME" = "juho-desktop" ]; then
+	TEMP_INPUT="temp3_input"
+fi
+
+cd /sys/devices/platform/it87.656
+
+echo 1 > pwm1_enable
+
+while true; do
+	TEMP=$(cat $TEMP_INPUT)
+	if [ ${TEMP} -gt 43000 ]; then
+		PWM="220"
+	elif [ ${TEMP} -gt 37000 ]; then
+		PWM="170"
+	else
+		PWM="130"
+	fi
+
+	echo ${PWM} > pwm1
+	sleep 10
+done
