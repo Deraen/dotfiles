@@ -1,7 +1,3 @@
-[submodule "bin"]
-	path = bin
-	url = juho-git:bin.git
-	ignore = dirty
 [submodule ".local/share/liquidprompt"]
 	path = .local/share/liquidprompt
 	url = https://github.com/nojhan/liquidprompt.git
