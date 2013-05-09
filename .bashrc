@@ -38,74 +38,43 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias apt-add-key='apt-key adv --keyserver keyserver.ubuntu.com --recv-keys '
+alias ccze="ccze -A"
 
+export DEBFULLNAME="Juho Teperi"
+export DEBEMAIL="juho.teperi@tut.fi"
 export EDITOR="nano"
 export MOST_EDITOR="nano"
 export PAGER="most"
 export LESS="-R"
-alias ccze="ccze -A"
 
-PATH="/home/juho/.local/bin:$PATH"
-
-if [ "$HOSTNAME" = "juho-desktop" ]; then
-    PATH="/raid/opt/modelsim/modelsim_ase/linux:/raid/opt/android-sdk-linux_x86/platform-tools:/raid/opt/android-sdk-linux_x86/tools:/raid/opt/android-ndk/:$PATH"
-elif [[ "$HOSTNAME" = "juho-laptop" ]]; then
-    PATH="/opt/modelsim/modelsim_ase/linux:/opt/android-sdk-linux_x86/platform-tools:/opt/android-sdk-linux_x86/tools:/opt/android-ndk/:$PATH"
-fi
-
-export DEBFULLNAME="Juho Teperi"
-export DEBEMAIL="juho.teperi@tut.fi"
-
-alias tutg++='g++'
-
-extract () {
-  if [ $# -ne 1 ]
-  then
-    echo "Error: No file specified."
-    return 1
-  fi
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2) tar xvjf $1   ;;
-            *.tar.gz)  tar xvzf $1   ;;
-            *.bz2)     bunzip2 $1    ;;
-            *.rar)     unrar x $1    ;;
-            *.gz)      gunzip $1     ;;
-            *.tar)     tar xvf $1    ;;
-            *.tbz2)    tar xvjf $1   ;;
-            *.tgz)     tar xvzf $1   ;;
-            *.zip)     unzip $1      ;;
-            *.Z)       uncompress $1 ;;
-            *.7z)      7z x $1       ;;
-            *)         echo "'$1' cannot be extracted via extract" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
+function addPath {
+    [[ -d "$1" ]] && export PATH="$1:$PATH"
 }
 
-[[ -s "$HOME/bin/liquidprompt/liquidprompt" ]] && source "$HOME/bin/liquidprompt/liquidprompt"
+function addSource {
+    [[ -s "$1" ]] && source "$1"
+}
 
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+addPath "$HOME/.local/bin"
+addPath /raid/opt/modelsim/modelsim_ase/linux
+addPath /raid/opt/android-sdk-linux_x86/platform-tools
+addPath /raid/opt/android-sdk-linux_x86/tools
+addPath /raid/opt/android-ndk
+addPath /opt/modelsim/modelsim_ase/linux
+addPath /opt/android-sdk-linux_x86/platform-tools
+addPath /opt/android-sdk-linux_x86/tools
+addPath /opt/android-ndk
+addPath "$HOME/.rvm/bin"
+addPath "/usr/local/heroku/bin"
 
+addSource "$HOME/.local/share/liquidprompt/liquidprompt"
+addSource "$HOME/.pythonbrew/etc/bashrc"
+addSource "$HOME/.rvm/scripts/rvm"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# Home git repo, don't show untracked files on status
+cd $HOME && git config status.showUntrackedFiles no
