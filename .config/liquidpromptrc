@@ -93,7 +93,7 @@ LP_ENABLE_BZR=0
 
 # Show time of the last prompt display
 # Recommended value is 0
-LP_ENABLE_TIME=1
+LP_ENABLE_TIME=0
 
 # When showing time, use an analog clock instead of numeric values.
 # The analog clock is "accurate" to the nearest half hour.
@@ -118,5 +118,7 @@ LP_ENABLE_SSH_COLORS=1
 # Specify a list of complete and colon (":") separated paths in which, all vcs
 # will be disabled
 LP_DISABLED_VCS_PATH=""
+
+LP_ENABLE_TEMP=0
 
 # vim: set et sts=4 sw=4 tw=120 ft=sh:
