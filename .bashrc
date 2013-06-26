@@ -52,6 +52,8 @@ export MOST_EDITOR="nano"
 export PAGER="most"
 export LESS="-R"
 
+export npm_config_prefix="$HOME/.local"
+
 function addPath {
     [[ -d "$1" ]] && export PATH="$1:$PATH"
 }
