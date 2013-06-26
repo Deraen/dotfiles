@@ -69,7 +69,9 @@ addPath /raid/opt/android-sdk-linux_x86/tools
 addPath /raid/opt/android-ndk
 addPath /opt/modelsim/modelsim_ase/linux
 addPath /opt/android-sdk-linux_x86/platform-tools
+addPath "/Applications/Android Studio.app/sdk/platform-tools"
 addPath /opt/android-sdk-linux_x86/tools
+addPath "/Applications/Android Studio.app/sdk/tools"
 addPath /opt/android-ndk
 addPath "$HOME/.rvm/bin"
 addPath "/usr/local/heroku/bin"
