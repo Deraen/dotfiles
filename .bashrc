@@ -54,6 +54,14 @@ export LESS="-R"
 
 export npm_config_prefix="$HOME/.local"
 
+function exportIfExists {
+    [[ -d "$2" ]] && export "$1"="$2"
+}
+
+exportIfExists ANDROID_HOME "/raid/opt/android-sdk-linux_x86"
+exportIfExists ANDROID_HOME "/opt/android-sdk-linux_x86"
+exportIfExists ANDROID_HOME "/Applications/Android Studio.app/sdk"
+
 function addPath {
     [[ -d "$1" ]] && export PATH="$1:$PATH"
 }
