@@ -60,7 +60,7 @@ function exportIfExists {
 
 exportIfExists ANDROID_HOME "/raid/opt/android-sdk-linux_x86"
 exportIfExists ANDROID_HOME "/opt/android-sdk-linux_x86"
-exportIfExists ANDROID_HOME "/Applications/Android Studio.app/sdk"
+exportIfExists ANDROID_HOME "$HOME/.local/android-sdk"
 
 function addPath {
     [[ -d "$1" ]] && export PATH="$1:$PATH"
