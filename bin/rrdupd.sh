@@ -1,4 +1,6 @@
 #!/bin/sh
+# Author: Juho Teperi
+
 DIR=/raid/var/rrdtool
 
 HOSTNAME=$(hostname -s)

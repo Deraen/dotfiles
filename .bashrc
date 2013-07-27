@@ -33,11 +33,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -46,7 +41,7 @@ alias apt-add-key='apt-key adv --keyserver keyserver.ubuntu.com --recv-keys '
 alias ccze="ccze -A"
 
 export DEBFULLNAME="Juho Teperi"
-export DEBEMAIL="juho.teperi@tut.fi"
+export DEBEMAIL="juho.teperi@iki.fi"
 export EDITOR="nano"
 export MOST_EDITOR="nano"
 export PAGER="most"

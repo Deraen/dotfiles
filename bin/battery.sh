@@ -1,4 +1,6 @@
 #!/bin/sh
+# Author: Juho Teperi
+
 BAT=/sys/class/power_supply/BAT0
 INTERVAL=30
 

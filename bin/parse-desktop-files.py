@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Author: Juho Teperi
+
 from xdg.BaseDirectory import load_data_paths
 from xdg.DesktopEntry import DesktopEntry
 from glob import glob

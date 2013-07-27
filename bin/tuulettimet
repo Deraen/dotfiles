@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: Juho Teperi
 
 HOSTNAME=$(hostname -s)
 TEMP_INPUT="temp2_input"

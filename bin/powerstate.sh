@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: Juho Teperi
 
 echo Sound powersave: $(</sys/module/snd_hda_intel/parameters/power_save)
 echo

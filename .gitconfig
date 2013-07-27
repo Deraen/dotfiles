@@ -1,9 +1,6 @@
 [user]
 	name = Juho Teperi
-	email = juho.teperi@tut.fi
-[github]
-	user = Deraen
-	token = abe229f011b874c7c270864c6894f078
+	email = juho.teperi@iki.fi
 [alias]
 	co = checkout
   prunelocal = !sh -c 'git branch --merged | grep -v "^*" | xargs git branch -d'

@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: Juho Teperi
 
 DIR=/raid/var/rrdtool
 if [ ! -f "$DIR/lammot.rrd" ]; then
