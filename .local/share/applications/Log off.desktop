@@ -1,0 +1,3 @@
+[Desktop Entry]
+Name=Log off
+Exec=i3-msg exit

@@ -1,0 +1,3 @@
+[Desktop Entry]
+Name=Suspend
+Exec=i3lock && dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend

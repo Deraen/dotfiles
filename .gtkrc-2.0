@@ -1,0 +1,9 @@
+gtk-theme-name = "Ambiance"
+gtk-icon-theme-name = "Deraen"
+
+style "foofonts"
+{
+    font_name = "Ubuntu 10"
+}
+widget_class "*" style "foofonts"
+gtk-font-name = "Ubuntu 10"
