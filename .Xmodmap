@@ -2,6 +2,3 @@ pointer = 1 2 3 4 5 7 6 8 9 11 12 10
 
 keycode 134 = Super_R NoSymbol Super_R
 keycode 135 = Alt_R Meta_R Alt_R Meta_R
-
-keycode 112 = Prior XF86AudioLowerVolume Prior
-keycode 117 = Next XF86AudioRaiseVolume Prior
