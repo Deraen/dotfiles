@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /home/juho/bin
+sudo -u juho ./pwrmgr.py > /dev/null &
