@@ -1,0 +1,16 @@
+xkb_keymap {
+    xkb_keycodes  { include "evdev+aliases(qwerty)" };
+    xkb_types     { include "complete"  };
+    xkb_compat    { include "complete"  };
+    xkb_symbols   {
+        include "pc+fi+inet(evdev)"
+
+        key <LALT> {[ Alt_L,  Meta_L ]};
+        key <RWIN> {[ Super_R ]};
+        key <LWIN> {[ Super_L ]};
+        key <MENU> {[ Alt_R, Meta_R ]};
+        modifier_map Mod1   { Alt_L, Alt_R, Meta_L, Meta_R };
+        modifier_map Mod4   { Super_L, Super_R };
+    };
+    xkb_geometry  { include "pc(pc105)" };
+};
