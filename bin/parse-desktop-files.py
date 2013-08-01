@@ -6,8 +6,16 @@ from xdg.DesktopEntry import DesktopEntry
 from glob import glob
 from re import sub
 
+# To remove duplicates
+data = {}
+
 for d in load_data_paths("applications"):
     for app in glob(d + "/*.desktop"):
         desktop = DesktopEntry(app)
-        if (not desktop.getHidden() and not desktop.getNoDisplay()):
-            print(desktop.getName() + "\t" + sub(r'(?i)(%U|%F)', '', desktop.getExec()))
+        name = desktop.getName()
+
+        if (not desktop.getHidden() and not desktop.getNoDisplay()) and name not in data:
+            data[name] = sub(r'(?i)(%U|%F)', '', desktop.getExec())
+
+for name, cmd in data.items():
+    print('{}\t{}'.format(name, cmd))

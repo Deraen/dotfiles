@@ -2,14 +2,17 @@
 
 exec nm-applet
 exec gnome-sound-applet
+
+exec --no-startup-id pwrmgr.py
+exec --no-startup-id python Source/mplugd/mplugd/mplugd.py -v
 exec --no-startup-id dropbox start
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id gnome-keyring-daemon --start
+exec --no-startup-id xautolock -time 5 -locker "i3lock -c ff9999; dbus-send --system --print-reply --dest='org.freedesktop.UPower' /org/freedesktop/UPower org.freedesktop.UPower.Suspend"
 
 set $mod Mod4
 set $bg #3C3B37
 
-font pango:Ubuntu 11
+font pango:Ubuntu 10
 # class                 border  backgr. text    indicator
 client.focused          #4c7899 #285577 #ffffff #2e9ef4
 client.focused_inactive #333333 #5f676a #ffffff #484e50
@@ -26,7 +29,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Q kill
 
 exec_always "parse-desktop-files.py > ~/.cache/desktopfiles.txt"
-bindsym $mod+r exec --no-startup-id "cat ~/.cache/desktopfiles.txt | cut -f1 | dmenu -i -b -nb '$bg' -nf '#fff' -sb '#955' -fn 'Ubuntu-18' | grep -f - ~/.cache/desktopfiles.txt | cut -f2 | bash -"
+bindsym $mod+r exec --no-startup-id $(cat ~/.cache/desktopfiles.txt | cut -f1 | dmenu -i -b -nb '$bg' -nf '#fff' -sb '#955' -fn 'Ubuntu-18' | grep -f - ~/.cache/desktopfiles.txt | cut -f2)
 
 # change focus
 bindsym $mod+j focus left
@@ -126,7 +129,7 @@ bindsym $mod+Shift+exclam move container to workspace $www
 bindsym $mod+Shift+quotedbl move container to workspace $irc
 bindsym $mod+Shift+numbersign move container to workspace $dev
 bindsym $mod+Shift+currency move container to workspace $files
-bindsym $mod+Shift+percent move container to workspace $video
+bindsym $mod+Shift+percent move container to workspace 5
 bindsym $mod+Shift+ampersand move container to workspace 6
 bindsym $mod+Shift+slash move container to workspace 7
 bindsym $mod+Shift+parenleft move container to workspace 8

@@ -1,6 +1,9 @@
 #!/bin/sh
 
-xrandr --output DVI-I-3 --rotate left
-xrandr --output DVI-I-2 --right-of DVI-I-3
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export GNOME_KEYRING_PID
 
 exec i3
