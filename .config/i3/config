@@ -6,28 +6,34 @@ exec gnome-sound-applet
 exec --no-startup-id dropbox start
 exec --no-startup-id xautolock -time 10 -locker "i3lock -c ff9999; dbus-send --system --print-reply --dest='org.freedesktop.UPower' /org/freedesktop/UPower org.freedesktop.UPower.Suspend"
 
+exec --no-startup-id test $HOSTNAME = "juho-laptop" && pwrmgr.py
+exec --no-startup-id test $HOSTNAME = "juho-laptop" && xautolock -time 5 -locker "i3lock -c ff9999; dbus-send --system --print-reply --dest='org.freedesktop.UPower' /org/freedesktop/UPower org.freedesktop.UPower.Suspend"
+
+# Dmenu
+exec_always "parse-desktop-files.py > ~/.cache/desktopfiles.txt"
+bindsym $mod+r exec --no-startup-id $(cat ~/.cache/desktopfiles.txt | cut -f1 | dmenu -i -b -nb '$bg' -nf '#fff' -sb '#955' -fn 'Ubuntu-18' | grep -f - ~/.cache/desktopfiles.txt | cut -f2)
+
+bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py
+
+# Preferences
 set $mod Mod4
 set $bg #3C3B37
 
 font pango:Ubuntu 10
+
 # class                 border  backgr. text    indicator
 client.focused          #4c7899 #285577 #ffffff #2e9ef4
 client.focused_inactive #333333 #5f676a #ffffff #484e50
 client.unfocused        $bg     $bg     #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
+focus_follows_mouse no
+workspace_auto_back_and_forth yes
 floating_modifier $mod
 
-focus_follows_mouse no
-
-workspace_auto_back_and_forth yes
-
+# Launch
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Q kill
-
-exec_always "parse-desktop-files.py > ~/.cache/desktopfiles.txt"
-bindsym $mod+r exec --no-startup-id $(cat ~/.cache/desktopfiles.txt | cut -f1 | dmenu -i -b -nb '$bg' -nf '#fff' -sb '#955' -fn 'Ubuntu-18' | grep -f - ~/.cache/desktopfiles.txt | cut -f2)
-bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py
 
 # change focus
 bindsym $mod+j focus left
@@ -35,11 +41,13 @@ bindsym $mod+l focus down
 bindsym $mod+h focus up
 bindsym $mod+k focus right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+bindsym $mod+a focus parent
+bindsym $mod+d focus child
 
 # move focused window
 bindsym $mod+Shift+J move left
@@ -47,60 +55,44 @@ bindsym $mod+Shift+L move down
 bindsym $mod+Shift+H move up
 bindsym $mod+Shift+K move right
 
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# layout
 bindsym $mod+b split h
-
-# split in vertical orientation
 bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
-
-# change container layout (stacked, tabbed, default)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout default
 bindsym $mod+space layout toggle all
-
-# toggle tiling / floating
+bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 #  bindsym $mod+space focus mode_toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-bindsym $mod+d focus child
-
-# switch to workspace
-
-for_window [class="Gnome-control-center"] floating enable
-
+# Workspaces
 set $www 1: WWW
 set $irc 2: IRC
 set $dev 3: DEV
 set $files 4: FILES
-set $video F1: VIDEO
-set $games F2: GAMES
+set $music F1: MUSIC
+set $video F2: VIDEO
+set $games F3: GAMES
 workspace "$irc" output DVI-I-3
 
+# Defaults
 assign [class="Google-chrome"] → $www
 assign [class="Quasselclient"] → $irc
 assign [class="Sublime_text"] → $dev
 assign [class="Transmission-remote-gtk"] → $files
 assign [class="Nautilus"] → $files
 assign [class="Smplayer2"] → $video
-for_window [class="Spotify"] move scratchpad
-for_window [class="Keepassx"] move scratchpad
 assign [class="Steam"] → $games
+assign [class="Spotify"] → $music
+for_window [class="Keepassx"] move scratchpad
 
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
@@ -115,13 +107,9 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-
-bindsym $mod+F1 workspace "$video"
-bindsym $mod+F2 workspace "$games"
-
-# move focused container to workspace
-bindsym $mod+Shift+x move container to output right
-bindsym $mod+x move workspace to output right
+bindsym $mod+F1 workspace "$music"
+bindsym $mod+F2 workspace "$video"
+bindsym $mod+F3 workspace "$games"
 
 bindsym $mod+Shift+exclam move container to workspace $www
 bindsym $mod+Shift+quotedbl move container to workspace $irc
@@ -133,22 +121,25 @@ bindsym $mod+Shift+slash move container to workspace 7
 bindsym $mod+Shift+parenleft move container to workspace 8
 bindsym $mod+Shift+parenright move container to workspace 9
 bindsym $mod+Shift+equal move container to workspace 10
-bindsym $mod+Shift+F1 move container to workspace "$video"
-bindsym $mod+Shift+F2 move container to workspace "$games"
+bindsym $mod+Shift+F1 move container to workspace "$music"
+bindsym $mod+Shift+F2 move container to workspace "$video"
+bindsym $mod+Shift+F3 move container to workspace "$games"
+
+# Move container/workspace to other output
+bindsym $mod+Shift+x move container to output right
+bindsym $mod+x move workspace to output right
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
-
 bindsym $mod+minus scratchpad show
-bindsym $mod+F5 [class="Spotify"] scratchpad show
-bindsym $mod+F6 [class="Keepassx"] scratchpad show
+bindsym $mod+F6 exec keepassx.sh
 
 # I3
 bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# pulse audio volume control
+# Spotify, pulseaudio
 bindsym Mod1+Delete exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym Mod1+Home exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym Mod1+End exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
@@ -156,6 +147,7 @@ bindsym Mod1+Page_Up exec ponymix unmute && ponymix -N increase 2
 bindsym Mod1+Page_Down exec ponymix unmute && ponymix -N decrease 2
 bindsym Mod1+Insert exec ponymix -N toggle
 
+# Screenshots
 bindsym Print exec scrot -e 'mv $f ~/Dropbox/Screenshots'
 bindsym Mod1+Print exec scrot -s -e 'mv $f ~/Dropbox/Screenshots'
 

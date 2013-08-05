@@ -1,6 +1,3 @@
 [submodule ".local/share/liquidprompt"]
 	path = .local/share/liquidprompt
 	url = https://github.com/nojhan/liquidprompt.git
-[submodule ".config/awesome/tyrannical"]
-	path = .config/awesome/tyrannical
-	url = https://github.com/Elv13/tyrannical.git

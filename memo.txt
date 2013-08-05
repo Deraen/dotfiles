@@ -1,0 +1,106 @@
+# GIT ylikirjoita untracked files
+# committaa eka omat päivitykset
+git fetch # hae päivitykset
+git branch old # omat versio talteen
+git reset --hard origin/master # pakotetaan uuteen
+git merge -s ours origin/master old # Mergetään lokaalit muutokset mutta origin ylikirjoittaa
+
+# Misc
+shnsplit -f filename.cue -o flac filename.flac
+
+openssl req -new -nodes -out req.pem -config ./openssl.cnf
+openssl ca -out cert.pem -config ./openssl.cnf -infiles req.pem
+
+# For example, to trust a root CA certificate for issuing SSL server certificates, use
+certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n <certificate nickname> -i <certificate filename>
+
+# Copy ssh keys to user@host to enable password-less ssh logins.
+ssh-copy-id user@host
+
+git merge -s recursive -X theirs origin/master
+
+# Mplugd dep
+sudo pip install --upgrade svn+svn://svn.code.sf.net/p/python-xlib/code/trunk#egg=python-xlib
+
+# G500 settings
+sudo ./g500_control /dev/usb/hiddev0 --urr_default --as_default --dpi_3 400 400 700 700 1200 1200 dpi_btn_up
+
+# Vimium settings
+http*://mail.google.com/*
+http*://www.google.com/reader/*
+http*://www.feedly.com/*
+http*://*newsblur.com/*
+http*://www.irccloud.com/*
+
+unmap h
+unmap l
+map h goBack
+map l goForward
+map H scrollLeft
+map L scrollRight
+unmap J
+unmap gt
+unmap K
+unmap gT
+map gj previousTab
+map gk nextTab
+unmap /
+unmap n
+unmap N
+unmap <c-e>
+unmap <c-y>
+
+sadjklewcmpgh
+
+# Wine stuff
+__GL_FSAA_MODE
+__GL_THREADED_OPTIMIZATIONS=1 WINEDEBUG=-all WINEPREFIX=~/.wine64 wine64 wow-64
+
+
+
+########
+
+sudo !!
+	Run the last command as root
+	Useful when you forget to use sudo for a command. "!!" grabs the last run command.
+!!:gs/foo/bar
+	Runs previous command replacing foo by bar every time that foo appears
+	Very useful for rerunning a long command changing some arguments globally.
+	As opposed to ^foo^bar, which only replaces the first occurrence of foo, this one changes every occurrence.
+echo "!!" > foo.sh
+
+cd -
+	change to the previous working directory
+
+^foo^bar
+	Runs previous command but replacing foo with bar
+
+!*
+	Reuse all parameter of the previous command line
+	!* is all of the arguments to the previous command rather than just the last one.
+
+'ALT+.' or '<ESC> .'
+	Place the argument of the most recent command on the shell
+
+disown -a && exit
+	Close shell keeping all subprocess running
+
+diff <(sort file1) <(sort file2)
+	diff two unsorted files without creating temporary files
+	bash/ksh subshell redirection (as file descriptors) used as input to diff
+
+rm !(*.foo|*.bar|*.baz)
+	Delete all files in a folder that don't match a certain file extension
+
+!:-
+	Insert the last command without the last argument (bash)
+
+strace -ff -e trace=write -e write=1,2 -p SOME_PID
+	intercept stdout/stderr of another process
+
+sed -n '10,20p' <filename>
+	Print all the lines between 10 and 20 of a file
+
+date -d@123456789
+	Convert seconds to human-readable format
+
