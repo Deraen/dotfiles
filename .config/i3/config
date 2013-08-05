@@ -91,7 +91,7 @@ assign [class="Nautilus"] → $files
 assign [class="Smplayer2"] → $video
 assign [class="Steam"] → $games
 assign [class="Spotify"] → $music
-for_window [class="Keepassx"] move scratchpad
+for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
