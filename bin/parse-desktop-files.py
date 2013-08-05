@@ -15,7 +15,7 @@ for d in load_data_paths("applications"):
         name = desktop.getName()
 
         if (not desktop.getHidden() and not desktop.getNoDisplay()) and name not in data:
-            data[name] = sub(r'(?i)(%U|%F)', '', desktop.getExec())
+            data[name] = sub(r'(?i)(%U|%F|\")', '', desktop.getExec())
 
 for name, cmd in data.items():
     print('{}\t{}'.format(name, cmd))

@@ -13,11 +13,13 @@ pow_iface = None
 
 def handle_lidclose(*args):
     closed = pow_prop_iface.Get('', 'LidIsClosed')
-    if closed:
-        print("lid is closed, suspending")
+    battery = pow_prop_iface.Get('', 'OnBattery')
+    lowbattery = pow_prop_iface.Get('', 'OnLowBattery')
+    if battery and (closed or lowbattery):
+        lidstatus = "closed" if closed else "open"
+        batterystatus = "yes" if lowbattery else "no"
+        print("Suspending. Lid: {}. Low Battery: {}".format(lidstatus, batterystatus))
         pow_iface.Suspend()
-    else:
-        print("lid is open")
 
 
 def main():

@@ -31,7 +31,7 @@ LP_PATH_KEEP=2
 # Do you want to display the hostname, even if not connected through network?
 # Defaults to 0 (do not display hostname when localy connected)
 # set to 1 if you want to always see the hostname
-LP_HOSTNAME_ALWAYS=1
+LP_HOSTNAME_ALWAYS=0
 
 # Do you want to display the user, even if he is the same than the logged one?
 # Defaults to 1 (always display the user)
@@ -41,11 +41,11 @@ LP_USER_ALWAYS=0
 # Do you want to display the percentages of load/batteries along with their
 # corresponding marks? Set to 0 to only print the colored marks.
 # Defaults to 1 (display percentages)
-LP_PERCENTS_ALWAYS=1
+LP_PERCENTS_ALWAYS=0
 
 # Do you want to use the permissions feature ?
 # Recommended value is 1
-LP_ENABLE_PERM=1
+LP_ENABLE_PERM=0
 
 # Do you want to use the shorten path feature ?
 # Recommended value is 1
@@ -61,11 +61,11 @@ LP_ENABLE_JOBS=1
 
 # Do you want to use the load feature ?
 # Recommended value is 1
-LP_ENABLE_LOAD=1
+LP_ENABLE_LOAD=0
 
 # Do you want to use the batt feature ?
 # Recommended value is 1
-LP_ENABLE_BATT=1
+LP_ENABLE_BATT=0
 
 # Do you want to use vcs features with root account
 # Recommended value is 0

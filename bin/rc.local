@@ -1,3 +1,4 @@
 #!/bin/sh
 cd /home/juho/bin
-sudo -u juho ./pwrmgr.py > /dev/null &
+# Run as root because normal user isn't authorized to access Upower without Xsession
+./pwrmgr.py | logger -t "pwrmgr" &

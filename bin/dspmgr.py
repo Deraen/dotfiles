@@ -44,7 +44,6 @@ def getInfo():
     disabled = set()
 
     for line in output:
-        # print(line)
         status = search('(?P<name>\w*) (?P<status>\w*)', line)
         info = search('(?P<w>\d+)x(?P<h>\d+)\+(?P<x>\d+)\+(?P<y>\d+) (?P<rotate>inverted|left|right|)', line)
         name = status.group('name')
@@ -84,11 +83,11 @@ def build(connected, active, disabled, config):
     enable = set([x for x in config['modes']])
 
     # Disable active outputs that we aren't going to use
-    disable = set(active) - enable
+    disable = active - enable
     print("Disable", disable)
 
     # Enable monitors we are going to use and aren't already active
-    enable -= set(active)
+    enable -= active
     print("Enable", enable)
 
     commands = []

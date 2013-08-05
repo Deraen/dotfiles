@@ -80,6 +80,9 @@ addPath "$HOME/.rvm/bin"
 addPath "/usr/local/heroku/bin"
 
 addSource "$HOME/.local/share/liquidprompt/liquidprompt"
+LP_BRACKET_OPEN=""
+LP_BRACKET_CLOSE=""
+
 addSource "$HOME/.pythonbrew/etc/bashrc"
 addSource "$HOME/.rvm/scripts/rvm"
 
