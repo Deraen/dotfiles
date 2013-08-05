@@ -1,4 +1,5 @@
 #!/bin/sh
 cd /home/juho/bin
 # Run as root because normal user isn't authorized to access Upower without Xsession
-./pwrmgr.py | logger -t "pwrmgr" &
+# python -u => disable stdout buffering (glib mainloop brokes it or smth)
+python -u ./pwrmgr.py | logger -t "pwrmgr" &
