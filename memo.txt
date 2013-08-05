@@ -56,7 +56,14 @@ sadjklewcmpgh
 __GL_FSAA_MODE
 __GL_THREADED_OPTIMIZATIONS=1 WINEDEBUG=-all WINEPREFIX=~/.wine64 wine64 wow-64
 
+# /etc/default/keyboard
+XKBMODEL="pc105"
+XKBLAYOUT="fi"
+XKBVARIANT=""
+XKBOPTIONS="terminate:ctrl_alt_bksp,altwin:alt_super_win"
 
+# /etc/lightdm/lightdm.conf
+greeter-session=lightdm-gtk-greeter
 
 ########
 
