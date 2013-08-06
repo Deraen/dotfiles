@@ -146,6 +146,8 @@ bindsym Mod1+Home exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spo
 bindsym Mod1+End exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 bindsym Mod1+Page_Up exec ponymix unmute && ponymix -N increase 2
 bindsym Mod1+Page_Down exec ponymix unmute && ponymix -N decrease 2
+bindsym XF86AudioRaiseVolume exec ponymix unmute && ponymix -N increase 2
+bindsym XF86AudioLowerVolume exec ponymix unmute && ponymix -N decrease 2
 bindsym Mod1+Insert exec ponymix -N toggle
 
 # Screenshots
