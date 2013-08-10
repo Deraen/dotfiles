@@ -80,7 +80,7 @@ set $files 4: FILES
 set $music F1: MUSIC
 set $video F2: VIDEO
 set $games F3: GAMES
-workspace "$irc" output DVI-I-3
+workspace "$irc" output DVI-D-0
 
 # Defaults
 assign [class="Google-chrome"] → $www
@@ -92,6 +92,8 @@ assign [class="Smplayer2"] → $video
 assign [class="Steam"] → $games
 assign [class="Spotify"] → $music
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
+for_window [class="Wine" title="^(World of Warcraft)$"] border none
+for_window [class="Google-chrome"] border pixel 2
 
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
@@ -130,7 +132,7 @@ bindsym $mod+x move workspace to output right
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+bindsym $mod+minus scratchpad show, floating disable
 bindsym $mod+F6 exec keepassx.sh
 
 # I3

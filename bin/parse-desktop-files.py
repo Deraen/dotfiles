@@ -15,7 +15,12 @@ for d in load_data_paths("applications"):
         name = desktop.getName()
 
         if (not desktop.getHidden() and not desktop.getNoDisplay()) and name not in data:
-            data[name] = sub(r'(?i)(%U|%F|\")', '', desktop.getExec())
+            # Remove %u, %U, %f, %F from commands
+            cmd = sub(r'(?i)(%U|%F)', '', desktop.getExec())
+            # Android studio cmd is surrounded by ", bash won't like that
+            if cmd[0] == "\"" and cmd[-1] == "\"":
+                cmd = cmd[1:-1]
+            data[name] = cmd
 
 for name, cmd in data.items():
     print('{}\t{}'.format(name, cmd))

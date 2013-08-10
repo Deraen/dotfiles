@@ -33,6 +33,18 @@ config = [
         'config': {
             'DP1': {'left-of': 'LVDS1'}
         }
+    },
+    {
+        'connected': ['DVI-D-0', 'DVI-I-1'],
+        'modes': {
+            'DVI-D-0': {'mode': '1920x1200', 'rotate': 'left'},
+            'DVI-I-1': {'mode': '2560x1440'},
+        },
+        # FIXME: Duplicated settings
+        'config': {
+            'DVI-D-0': {'mode': '1920x1200', 'pos': '0x0', 'rotate': 'left'},
+            'DVI-I-1': {'mode': '2560x1440', 'right-of': 'DVI-D-0'}
+        }
     }]
 
 
@@ -44,7 +56,7 @@ def getInfo():
     disabled = set()
 
     for line in output:
-        status = search('(?P<name>\w*) (?P<status>\w*)', line)
+        status = search('(?P<name>[\w-]*) (?P<status>\w*)', line)
         info = search('(?P<w>\d+)x(?P<h>\d+)\+(?P<x>\d+)\+(?P<y>\d+) (?P<rotate>inverted|left|right|)', line)
         name = status.group('name')
         if status.group('status') == 'connected':
