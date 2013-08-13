@@ -3,10 +3,10 @@
 #
 from subprocess import Popen, PIPE
 
-from re import search, sub
+from re import search
 from yaml import load
 
-config = load(open(".config/displays.yaml", 'r'))
+config = load(open('.config/displays.yaml', 'r'))
 maxdisplays = config['maxdisplays']
 
 
@@ -64,15 +64,15 @@ def buildOpt(key, val):
 
 
 def build(connected, active, disabled, selected):
-    print("Connected", connected)
+    print('Connected', connected)
 
     enable = set([x for x, y in selected.items() if y is not False])
 
     # Disable active outputs that we aren't going to use
     disable = active - enable
-    print("Disable", disable)
+    print('Disable', disable)
 
-    print("Enable", enable)
+    print('Enable', enable)
 
     postcommands = []
     commands = []
@@ -113,7 +113,7 @@ def build(connected, active, disabled, selected):
                 current.append(name)
 
         else:
-            print("Impossible config?")
+            print('Impossible config?')
             return
 
         print('current', current)
@@ -133,7 +133,7 @@ def run(commands):
 
 
 def main():
-    print("# DSPMGR")
+    print('# DSPMGR')
 
     connected, active, disabled = getInfo()
 
@@ -145,11 +145,11 @@ def main():
     if not commands:
         return
 
-    print("Commands")
+    print('Commands')
     print(commands)
 
     run(commands)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

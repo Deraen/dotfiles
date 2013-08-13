@@ -16,9 +16,9 @@ def handle_lidclose(*args):
     battery = pow_prop_iface.Get('', 'OnBattery')
     lowbattery = pow_prop_iface.Get('', 'OnLowBattery')
     if battery and (closed or lowbattery):
-        lidstatus = "closed" if closed else "open"
-        batterystatus = "yes" if lowbattery else "no"
-        print("Suspending. Lid: {}. Low Battery: {}".format(lidstatus, batterystatus))
+        lidstatus = 'closed' if closed else 'open'
+        batterystatus = 'yes' if lowbattery else 'no'
+        print('Suspending. Lid: {}. Low Battery: {}'.format(lidstatus, batterystatus))
         pow_iface.Suspend()
 
 
@@ -37,11 +37,11 @@ def main():
     pow_iface = dbus.Interface(power_proxy,
                                'org.freedesktop.UPower')
 
-    print("Registering a signal receiver for upower events...")
+    print('Registering a signal receiver for upower events...')
 
     bus.add_signal_receiver(handle_lidclose,
-                            dbus_interface="org.freedesktop.UPower",
-                            signal_name="Changed")
+                            dbus_interface='org.freedesktop.UPower',
+                            signal_name='Changed')
 
     loop = gobject.MainLoop()
     loop.run()
