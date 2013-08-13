@@ -9,29 +9,22 @@ default = 0
 config = [
     {
         'connected': ['LVDS1'],
-        'modes': {
+        'config': {
             'LVDS1': {'auto': True}
-        },
-        'config': {}
+        }
     },
     {
         'connected': ['LVDS1', 'DP2', 'DP3'],
-        'modes': {
-            'DP2': {'mode': '1920x1200', 'rotate': 'left'},
-            'DP3': {'mode': '2560x1440'}
-        },
         'config': {
-            'DP3': {'right-of': 'DP2', 'primary': True}
+            'DP2': {'mode': '1920x1200', 'rotate': 'left'},
+            'DP3': {'mode': '2560x1440', 'right-of': 'DP2', 'primary': True}
         }
     },
     {
         'connected': ['LVDS1', 'DP1'],
-        'modes': {
-            'LVDS1': {'auto': True},
-            'DP1': {'auto': True}
-        },
         'config': {
-            'DP1': {'left-of': 'LVDS1'}
+            'LVDS1': {'auto': True},
+            'DP1': {'auto': True, 'left-of': 'LVDS1'}
         }
     },
     {
@@ -89,19 +82,18 @@ def buildOpt(key, val):
     return r
 
 
-def build(connected, active, disabled, config):
+def build(connected, active, disabled, selected):
     print("Connected", connected)
 
-    enable = set([x for x in config['modes']])
+    enable = set([x for x in selected['config']])
 
     # Disable active outputs that we aren't going to use
     disable = active - enable
     print("Disable", disable)
 
-    # Enable monitors we are going to use and aren't already active
-    enable -= active
     print("Enable", enable)
 
+    postcommands = []
     commands = []
 
     # Enable and disable outputs
@@ -121,16 +113,23 @@ def build(connected, active, disabled, config):
                 command = ['xrandr']
 
             current.remove(name)
-        elif len(current) < maxdisplays and enable:
+        elif enable:
             name = enable.pop()
-            modes = config['modes'][name]
+            config = selected['config'][name]
 
             command += ['--output', name]
 
-            for x, y in modes.items():
-                command += buildOpt(x, y)
+            for x, y in config.items():
+                # If this monitor is positioned relative to another
+                # and another monitor isn't activated yet, delay positionin
+                if x in ['right-of', 'left-of', 'top-of', 'bottom-of'] and y not in set(current):
+                    postcommands += ['--output', name]
+                    postcommands += buildOpt(x, y)
+                else:
+                    command += buildOpt(x, y)
 
-            current.append(name)
+            if len(current) < maxdisplays and name not in current:
+                current.append(name)
 
         else:
             print("Impossible config?")
@@ -138,11 +137,7 @@ def build(connected, active, disabled, config):
 
         print('current', current)
 
-    # Set positions etc
-    for name, val in config['config'].items():
-        command += ['--output', name]
-        for x, y in val.items():
-            command += buildOpt(x, y)
+    command += postcommands
 
     if len(command) > 1:
         commands.append(command)
