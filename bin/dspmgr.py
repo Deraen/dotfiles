@@ -2,43 +2,12 @@
 # -*- coding: utf-8 -*-
 #
 from subprocess import Popen, PIPE
-from re import search
 
-maxdisplays = 2
-default = 0
-config = [
-    {
-        'connected': ['LVDS1'],
-        'config': {
-            'LVDS1': {'auto': True}
-        }
-    },
-    {
-        'connected': ['LVDS1', 'DP2', 'DP3'],
-        'config': {
-            'DP2': {'mode': '1920x1200', 'rotate': 'left'},
-            'DP3': {'mode': '2560x1440', 'right-of': 'DP2', 'primary': True}
-        }
-    },
-    {
-        'connected': ['LVDS1', 'DP1'],
-        'config': {
-            'LVDS1': {'auto': True},
-            'DP1': {'auto': True, 'left-of': 'LVDS1'}
-        }
-    },
-    {
-        'connected': ['DVI-D-0', 'DVI-I-1'],
-        'modes': {
-            'DVI-D-0': {'mode': '1920x1200', 'rotate': 'left'},
-            'DVI-I-1': {'mode': '2560x1440'},
-        },
-        # FIXME: Duplicated settings
-        'config': {
-            'DVI-D-0': {'mode': '1920x1200', 'pos': '0x0', 'rotate': 'left'},
-            'DVI-I-1': {'mode': '2560x1440', 'right-of': 'DVI-D-0'}
-        }
-    }]
+from re import search, sub
+from yaml import load
+
+config = load(open(".config/displays.yaml", 'r'))
+maxdisplays = config['maxdisplays']
 
 
 def getInfo():
@@ -69,10 +38,22 @@ def getInfo():
 
 
 def select(connected):
-    for c in config:
-        if connected == set(c['connected']):
+    print('Connected', connected)
+    for c in config['displays']:
+        enabled = set([x for x, y in c.items()])
+        print('Checking config', enabled)
+        if connected == enabled:
             return c
-    return config[default]
+
+    # If no config fully matched
+    # Find first config which can be used (don't care if there are unconfigured outputs connected)
+    for c in config['displays']:
+        enabled = set([x for x, y in c.items() if y is not False])
+        print('Checking config for partial match', enabled)
+        if enabled.issubset(connected):
+            return c
+
+    return
 
 
 def buildOpt(key, val):
@@ -85,7 +66,7 @@ def buildOpt(key, val):
 def build(connected, active, disabled, selected):
     print("Connected", connected)
 
-    enable = set([x for x in selected['config']])
+    enable = set([x for x, y in selected.items() if y is not False])
 
     # Disable active outputs that we aren't going to use
     disable = active - enable
@@ -115,13 +96,13 @@ def build(connected, active, disabled, selected):
             current.remove(name)
         elif enable:
             name = enable.pop()
-            config = selected['config'][name]
+            config = selected[name]
 
             command += ['--output', name]
 
             for x, y in config.items():
                 # If this monitor is positioned relative to another
-                # and another monitor isn't activated yet, delay positionin
+                # and another monitor isn't activated yet, delay positioning
                 if x in ['right-of', 'left-of', 'top-of', 'bottom-of'] and y not in set(current):
                     postcommands += ['--output', name]
                     postcommands += buildOpt(x, y)

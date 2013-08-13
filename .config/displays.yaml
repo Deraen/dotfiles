@@ -1,0 +1,24 @@
+--- # DSPMGR conf
+maxdisplays: 2
+displays:
+- LVDS1:
+    auto: Yes
+- LVDS1: false
+  DP2:
+    mode: 1920x1200
+    rotate: left
+  DP3:
+    mode: 2560x1440
+    right-of: DP2
+    primary: Yes
+- LVDS1:
+    auto: Yes
+  DP1:
+    auto: Yes
+    left-of: LVDS1
+- DVI-D-0:
+    mode: 1920x1200
+    rotate: left
+  DVI-I-1:
+    mode: 2560x1200
+    right-of: DVI-D-0
