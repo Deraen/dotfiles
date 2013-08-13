@@ -3,7 +3,7 @@ maxdisplays: 2
 displays:
 - LVDS1:
     auto: Yes
-- LVDS1: false
+- LVDS1: No
   DP2:
     mode: 1920x1200
     rotate: left
