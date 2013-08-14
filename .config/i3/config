@@ -94,6 +94,7 @@ assign [class="Spotify"] → $music
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 for_window [class="Wine" title="^(World of Warcraft)$"] border none
 for_window [class="Google-chrome"] border pixel 2
+for_window [class="Google-chrome" title="Google Keep"] border normal, floating enable
 
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
