@@ -85,7 +85,7 @@ workspace "$irc" output DVI-D-0
 # Defaults
 assign [class="Google-chrome"] → $www
 assign [class="Quasselclient"] → $irc
-assign [class="Sublime_text"] → $dev
+assign [class="Sublime_text" title="^.*(Sublime Text).*$"] → $dev
 assign [class="Transmission-remote-gtk"] → $files
 assign [class="Nautilus"] → $files
 assign [class="Smplayer2"] → $video
@@ -93,7 +93,7 @@ assign [class="Steam"] → $games
 assign [class="Spotify"] → $music
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 for_window [class="Wine" title="^(World of Warcraft)$"] border none
-for_window [class="Google-chrome"] border pixel 2
+for_window [class="^(Google-chrome|Sublime_text|Quasselclient|Spotify)$"] border pixel 2
 for_window [class="Google-chrome" title="Google Keep"] border normal, floating enable
 
 bindsym $mod+Tab workspace next_on_output
