@@ -60,17 +60,21 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # layout
-bindsym $mod+b split h
-bindsym $mod+v split v
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout default
-bindsym $mod+space layout toggle all
+# <
+bindcode $mod+94 split v
+# >
+bindcode $mod+shift+94 split h
+bindsym $mod+Tab layout toggle all
 bindsym $mod+f fullscreen
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-#  bindsym $mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+c move scratchpad
+bindsym $mod+v scratchpad show, floating disable
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 # Workspaces
 set $www 1: WWW
@@ -97,9 +101,6 @@ for_window [class="^(Google-chrome|Sublime_text|Quasselclient|Spotify|Eclipse)$"
 for_window [class="Google-chrome" title="Google Keep"] border normal, floating enable
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
-
-bindsym $mod+Tab workspace next_on_output
-bindsym $mod+Shift+Tab workspace prev_on_output
 
 bindsym $mod+1 workspace "$www"
 bindsym $mod+2 workspace "$irc"
@@ -134,8 +135,6 @@ bindsym $mod+Shift+x move container to output right
 bindsym $mod+x move workspace to output right
 
 # Scratchpad
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show, floating disable
 bindsym $mod+F6 exec keepassx.sh
 
 # I3
