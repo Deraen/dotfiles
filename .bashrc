@@ -47,6 +47,8 @@ export MOST_EDITOR="nano"
 export PAGER="most"
 export LESS="-R"
 
+export TERM="xterm-256color"
+
 export npm_config_prefix="$HOME/.local"
 
 function exportIfExists {
