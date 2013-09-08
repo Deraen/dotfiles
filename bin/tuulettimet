@@ -13,7 +13,9 @@ echo 1 > pwm1_enable
 
 while true; do
 	TEMP=$(cat $TEMP_INPUT)
-	if [ ${TEMP} -gt 43000 ]; then
+	if [ ${TEMP} -gt 57000 ]; then
+		PWM="255"
+	elif [ ${TEMP} -gt 43000 ]; then
 		PWM="220"
 	elif [ ${TEMP} -gt 37000 ]; then
 		PWM="170"
