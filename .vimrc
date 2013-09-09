@@ -204,3 +204,5 @@ let g:UltiSnipsExpandTrigger="<c-J>"
 " let g:UltiSnipsListSnippets="<c-$>"
 " let g:UltiSnipsJumpForwardTrigger="<c-J>"
 " let g:UltiSnipsJumpBackwardTrigge="<c-k>"
+
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
