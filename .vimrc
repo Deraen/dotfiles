@@ -9,8 +9,8 @@ call vundle#rc()
 
 " Bundle 'LaTeX-Box-Team/LaTeX-Box'
 " Bundle 'PeterRincker/vim-argumentative' " kielet?
-" Bundle 'Shougo/unite-outline'
-" Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite-outline'
+Bundle 'Shougo/unite.vim'
 " Bundle 'arecarn/crunch'
 " Bundle 'b4winckler/vim-angry'
 " Bundle 'baabelfish/a.vim'
@@ -199,8 +199,8 @@ vnoremap ¤ :g/.*/norm!
 nnoremap <silent><space>t :Gitv<CR>
 inoremap <C-c> <ESC>
 
-let g:ycm_key_list_select_completion = ['<C-Space>', '<Down>']
-let g:UltiSnipsExpandTrigger="<TAB>"
+" let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
+let g:UltiSnipsExpandTrigger="<c-J>"
 " let g:UltiSnipsListSnippets="<c-$>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpForwardTrigger="<c-J>"
 " let g:UltiSnipsJumpBackwardTrigge="<c-k>"
