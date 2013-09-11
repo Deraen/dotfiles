@@ -6,29 +6,28 @@ filetype off
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-
+" Bundle 'tsukkee/unite-tag'
 " Bundle 'LaTeX-Box-Team/LaTeX-Box'
-" Bundle 'PeterRincker/vim-argumentative' " kielet?
+Bundle 'Shougo/vimproc'
+Bundle 'PeterRincker/vim-argumentative'
 Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/unite.vim'
 " Bundle 'arecarn/crunch'
-" Bundle 'b4winckler/vim-angry'
-" Bundle 'baabelfish/a.vim'
+Bundle 'b4winckler/vim-angry'
+Bundle 'baabelfish/a.vim'
 " Bundle 'chrisbra/NrrwRgn'
 " Bundle 'dag/vim-fish'
-" Bundle 'glts/vim-textobj-comment'
-" Bundle 'jwhitley/vim-matchit'
-" Bundle 'kana/vim-textobj-entire'
-" Bundle 'kana/vim-textobj-indent'
-" Bundle 'kana/vim-textobj-user'
-" Bundle 'kurkale6ka/vim-pairs'
+Bundle 'glts/vim-textobj-comment'
+Bundle 'jwhitley/vim-matchit'
+Bundle 'kana/vim-textobj-entire'
+Bundle 'kana/vim-textobj-indent'
+Bundle 'kana/vim-textobj-user'
+Bundle 'kurkale6ka/vim-pairs'
 " Bundle 'mattn/emmet-vim'
-" Bundle 'mhinz/vim-signify'
-" Bundle 'mhinz/vim-startify'
+Bundle 'mhinz/vim-signify'
+Bundle 'mhinz/vim-startify'
 " Bundle 'mrtazz/DoxygenToolkit.vim'
-" Bundle 'scottymoon/vim-twilight'
-" Bundle 'tsukkee/unite-tag'
-" Bundle 'vim-scripts/VisIncr'
+" Bundle 'vim-scripts/VisIncr' # Incr other than numbers
 " Bundle 'vim-scripts/ZoomWin'
 " Bundle 'vim-scripts/django.vim'
 Bundle 'AndrewRadev/switch.vim'
@@ -173,7 +172,8 @@ nnoremap <F5> :GundoToggle<CR>
 " Sama kun sublimen C-r
 nnoremap <silent><space>f m':Unite -hide-status-line outline<CR>
 " Sama kun sublimen C-p
-nnoremap <silent><space>p :CommandT<CR>
+" nnoremap <silent><space>p :CommandT<CR>
+nnoremap <silent><space>p :Unite file_rec/async<CR>
 
 " Projektissa ettimiseen Ackilla
 " <C-r><C-w> ottaa kursorin alla olevan sanan -> :h <C-r>
@@ -206,3 +206,47 @@ let g:UltiSnipsExpandTrigger="<c-J>"
 " let g:UltiSnipsJumpBackwardTrigge="<c-k>"
 
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+set pastetoggle=<M-p>
+
+let g:airline_detect_whitespace=0
+let g:airline_linecolumn_prefix = '¶'
+let g:airline_branch_prefix = ''
+let g:airline_paste_symbol = 'ρ'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_powerline_fonts=0
+let g:airline_enable_branch=1
+let g:airline_enable_syntastic=0
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_javascript_checkers = ['jslint']
+let g:airline_detect_paste=1
+let g:airline_detect_iminsert=0
+let g:airline_theme='badwolf'
+let g:airline_detect_modified=1
+let g:airline_exclude_preview = 0
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'v',
+    \ 'V'  : 'V',
+    \ '^V' : '^V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '^S' : 'S',
+    \ }
+
+let g:skybison_fuzz = 1
+
+let g:signify_sign_overwrite = 0
+let g:signify_mapping_next_hunk = '<leader>gj'
+let g:signify_mapping_prev_hunk = '<leader>gk'
+let g:signify_sign_add               = '»'
+let g:signify_sign_change            = '∙'
+let g:signify_sign_delete            = '«'
+let g:signify_sign_delete_first_line = '-'
+
+vnoremap ¤ :g/.*/norm! 
