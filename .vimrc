@@ -9,6 +9,8 @@ call vundle#rc()
 " Bundle 'tsukkee/unite-tag'
 " Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'Shougo/vimproc'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'Yggdroot/indentLine'
 Bundle 'PeterRincker/vim-argumentative'
 Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/unite.vim'
@@ -59,7 +61,6 @@ Bundle 'vim-scripts/Bck'
 Bundle 'vim-scripts/L9'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'vim-scripts/Vimchant'
-Bundle 'wincent/Command-T'
 " Bundle 'vim-scripts/slimv.vim' "Korvaa vimClojuren?
 
 filetype plugin indent on
@@ -87,6 +88,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
+set list
 set listchars=""
 set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶,nbsp:█
 set nobackup
@@ -105,10 +107,13 @@ set smartindent
 set smarttab
 set ttimeout
 set ttimeoutlen=0
-set wildignore+=*/bower_components/*,*/node_modules/*,*/site-packages/*,*/tmp/*,*.so,*.swp,*.zip,*/doxygen/*,*.o,*.pyc,*.aux,*.toc,*.tar,*.gz,*.svg,*.mdr,*.mdzip,*.blg,*.bbl,*.out,*.log,*.zip,*.pdf,*.bst,*.jpeg,*.jpg,*.png,*.a,*.so,*.exe,*.dll,*.bak,*.,*.class,*.meta,*.lock,*.orig,*.jar,*/hg/*,git/*,*/bzr/*
+" set wildignore+=*/public/components/*,*/bower_components/*,*/node_modules/*,*/site-packages/*,*/tmp/*,*.so,*.swp,*.zip,*/doxygen/*,*.o,*.pyc,*.aux,*.toc,*.tar,*.gz,*.svg,*.mdr,*.mdzip,*.blg,*.bbl,*.out,*.log,*.zip,*.pdf,*.bst,*.jpeg,*.jpg,*.png,*.a,*.so,*.exe,*.dll,*.bak,*.,*.class,*.meta,*.lock,*.orig,*.jar,*/hg/*,git/*,*/bzr/*
+" set wildignore+=*/public/*
 set wildmenu
+set wildmode=longest,list
+set wildignorecase
 set wrapmargin=0
-" Tää on oikeesti kiva
+set nonumber
 set relativenumber
 
 " Voi jäytää ehkä
@@ -123,12 +128,27 @@ set softtabstop=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:droid_transparent = 0
+let g:droid_day = 0
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+" match ExtraWhitespace /\s\+$/
+" match ExtraWhitespace /\S\+\s\+$/
+" match ExtraWhitespace /\s\+$/
+" match ExtraWhitespace /[^\t]\zs\t\+/
+" match ExtraWhitespace /\s\+$\| \+\ze\t/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd InsertLeave * redraw!
+
 syntax on
 if has("gui_running")
   colorscheme twilight
 elseif &t_Co == 256 
-  colorscheme molokai
+  colorscheme droid256
 endif
+" hi NonText ctermfg=160 ctermbg=233 cterm=none
 
 " Color erase fix
 if &term =~ '256color'
@@ -172,8 +192,9 @@ nnoremap <F5> :GundoToggle<CR>
 " Sama kun sublimen C-r
 nnoremap <silent><space>f m':Unite -hide-status-line outline<CR>
 " Sama kun sublimen C-p
-" nnoremap <silent><space>p :CommandT<CR>
-nnoremap <silent><space>p :Unite file_rec/async<CR>
+nnoremap <silent><space>p :Unite -silent file_rec/async<CR>
+nnoremap <silent><space>y :Unite -silent history/yank<CR>
+nnoremap <silent><space>s :Startify<CR>
 
 " Projektissa ettimiseen Ackilla
 " <C-r><C-w> ottaa kursorin alla olevan sanan -> :h <C-r>
@@ -249,4 +270,25 @@ let g:signify_sign_change            = '∙'
 let g:signify_sign_delete            = '«'
 let g:signify_sign_delete_first_line = '-'
 
+let g:indentLine_color_term = 237
+let g:indentLine_char = '│'
 vnoremap ¤ :g/.*/norm! 
+if version >= 702
+  autocmd BufWinLeave * call clearmatches()
+endif
+let g:unite_source_history_yank_enable = 1
+let g:unite_enable_start_insert = 1
+let g:unite_enable_ignore_case = 1
+let g:unite_split_rule = 'bot'
+let g:unite_winheight = 15
+
+call unite#custom_source('menu', 'matchers', ['matcher_fuzzy'])
+call unite#custom_source('source', 'matchers', ['matcher_fuzzy'])
+call unite#custom_source('outline', 'matchers', ['matcher_fuzzy'])
+call unite#custom_source('history/yank', 'matchers', ['matcher_fuzzy'])
+call unite#custom_source('file_rec/async', 'matchers', ['matcher_fuzzy'])
+call unite#custom_source('file_rec/async', 'ignore_pattern', '\(.*/\(\(public\|dist\)\/components/\|node_modules\)\|\.grunt\).*')
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_register_as_syntastic_checker = 1
+
