@@ -48,7 +48,7 @@ export PAGER="most"
 export LESS="-R"
 
 export TERM="rxvt-unicode-256color"
-if [ "$HOSTNAME" -eq "alpha-144" ]; then
+if [ "$HOSTNAME" = "alpha-144.srv.hosting.fi" ]; then
     export TERM="xterm"
 fi
 
