@@ -48,6 +48,9 @@ export PAGER="most"
 export LESS="-R"
 
 export TERM="rxvt-unicode-256color"
+if [ "$HOSTNAME" -eq "alpha-144" ]; then
+    export TERM="xterm"
+fi
 
 export npm_config_prefix="$HOME/.local"
 

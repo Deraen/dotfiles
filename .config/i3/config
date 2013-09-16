@@ -4,7 +4,7 @@ exec nm-applet
 exec gnome-sound-applet
 
 exec --no-startup-id dropbox start
-exec --no-startup-id test $HOSTNAME = "juho-laptop" && xautolock -time 5 -locker "i3lock -c ff9999; suspend.py"
+exec --no-startup-id test $HOSTNAME = "juho-laptop" && xautolock -time 4 -locker "i3lock -c ff9999; suspend.py"
 
 # Dmenu
 exec_always "parse-desktop-files.py > ~/.cache/desktopfiles.txt"
@@ -95,7 +95,7 @@ assign [class="Steam"] → $games
 assign [class="Spotify"] → $music
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 for_window [class="Wine" title="^(World of Warcraft)$"] border none
-for_window [class="^(Google-chrome|Sublime_text|Quasselclient|Spotify|Eclipse)$"] border pixel 2
+for_window [class="^(Google-chrome|X-www-browser|Sublime_text|Quasselclient|Spotify|Eclipse)$"] border pixel 2
 for_window [class="Google-chrome" title="Google Keep"] border normal, floating enable
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
