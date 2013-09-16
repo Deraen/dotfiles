@@ -25,6 +25,7 @@ Bundle 'kana/vim-textobj-entire'
 Bundle 'kana/vim-textobj-indent'
 Bundle 'kana/vim-textobj-user'
 Bundle 'kurkale6ka/vim-pairs'
+Bundle 'vim-scripts/Auto-Pairs'
 " Bundle 'mattn/emmet-vim'
 Bundle 'mhinz/vim-signify'
 Bundle 'mhinz/vim-startify'
@@ -59,8 +60,10 @@ Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/Bck'
 Bundle 'vim-scripts/L9'
-Bundle 'vim-scripts/VimClojure'
 Bundle 'vim-scripts/Vimchant'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-classpath'
+Bundle 'guns/vim-clojure-static'
 " Bundle 'vim-scripts/slimv.vim' "Korvaa vimClojuren?
 
 filetype plugin indent on
@@ -144,7 +147,7 @@ autocmd InsertLeave * redraw!
 
 syntax on
 if has("gui_running")
-  colorscheme twilight
+  colorscheme droid256
 elseif &t_Co == 256 
   colorscheme droid256
 endif
@@ -287,8 +290,36 @@ call unite#custom_source('source', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('outline', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('history/yank', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('file_rec/async', 'matchers', ['matcher_fuzzy'])
-call unite#custom_source('file_rec/async', 'ignore_pattern', '\(.*/\(\(public\|dist\)\/components/\|node_modules\)\|\.grunt\).*')
+call unite#custom_source('file_rec/async', 'ignore_pattern', '\(.*/\(\(public\|dist\|app\)\/components/\|node_modules\)\|\.grunt\).*')
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_identifier_chars = '_-/.><'
 let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_semantic_triggers = { 'clojure' : ['(', '/'] }
 
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+set guioptions-=T  "remove toolbar
+nnoremap K i<CR><Esc>k$
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
