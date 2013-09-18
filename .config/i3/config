@@ -4,7 +4,7 @@ exec nm-applet
 exec gnome-sound-applet
 
 exec --no-startup-id dropbox start
-exec --no-startup-id test $HOSTNAME = "juho-laptop" && xautolock -time 4 -locker "i3lock -c ff9999; suspend.py"
+exec --no-startup-id test $HOSTNAME = "juho-laptop" && xautolock -time 15 -locker "i3lock -c ff9999; suspend.py"
 
 # Dmenu
 exec_always "parse-desktop-files.py > ~/.cache/desktopfiles.txt"

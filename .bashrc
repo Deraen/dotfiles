@@ -42,8 +42,8 @@ alias ccze="ccze -A"
 
 export DEBFULLNAME="Juho Teperi"
 export DEBEMAIL="juho.teperi@iki.fi"
-export EDITOR="nano"
-export MOST_EDITOR="nano"
+export EDITOR="vim"
+export MOST_EDITOR="vim"
 export PAGER="most"
 export LESS="-R"
 

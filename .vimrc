@@ -65,6 +65,7 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 " Bundle 'vim-scripts/slimv.vim' "Korvaa vimClojuren?
+Bundle 'groenewege/vim-less'
 
 filetype plugin indent on
 setlocal spell spelllang=en_us
@@ -242,7 +243,7 @@ let g:airline_right_sep = '◀'
 let g:airline_powerline_fonts=0
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=0
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_javascript_checkers = ['jslint']
 let g:airline_detect_paste=1
 let g:airline_detect_iminsert=0
@@ -306,8 +307,6 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'SeaGreen3'],
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
     \ ['darkmagenta', 'DarkOrchid3'],
     \ ['Darkblue',    'firebrick3'],
     \ ['darkgreen',   'RoyalBlue3'],
@@ -315,10 +314,10 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+au VimEnter,FileType clojure RainbowParenthesesToggle
+au Syntax,FileType clojure RainbowParenthesesLoadRound
+au Syntax,FileType clojure RainbowParenthesesLoadSquare
+au Syntax,FileType clojure RainbowParenthesesLoadBraces
 set guioptions-=T  "remove toolbar
 nnoremap K i<CR><Esc>k$
 cnoremap <C-j> <Down>
