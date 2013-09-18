@@ -1,71 +1,62 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" Bundle 'tsukkee/unite-tag'
-" Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'Shougo/vimproc'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'Yggdroot/indentLine'
-Bundle 'PeterRincker/vim-argumentative'
-Bundle 'Shougo/unite-outline'
-Bundle 'Shougo/unite.vim'
-" Bundle 'arecarn/crunch'
-Bundle 'b4winckler/vim-angry'
-Bundle 'baabelfish/a.vim'
-" Bundle 'chrisbra/NrrwRgn'
-" Bundle 'dag/vim-fish'
-Bundle 'glts/vim-textobj-comment'
-Bundle 'jwhitley/vim-matchit'
-Bundle 'kana/vim-textobj-entire'
-Bundle 'kana/vim-textobj-indent'
-Bundle 'kana/vim-textobj-user'
-Bundle 'kurkale6ka/vim-pairs'
-Bundle 'vim-scripts/Auto-Pairs'
-" Bundle 'mattn/emmet-vim'
-Bundle 'mhinz/vim-signify'
-Bundle 'mhinz/vim-startify'
-" Bundle 'mrtazz/DoxygenToolkit.vim'
-" Bundle 'vim-scripts/VisIncr' # Incr other than numbers
-" Bundle 'vim-scripts/ZoomWin'
-" Bundle 'vim-scripts/django.vim'
-Bundle 'AndrewRadev/switch.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'baabelfish/vim-droid256'
-Bundle 'bling/vim-airline'
-Bundle 'drmikehenry/vim-fixkey'
-Bundle 'gmarik/vundle'
-Bundle 'gregsexton/gitv'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'kana/vim-arpeggio'
-Bundle 'pangloss/vim-javascript'
-Bundle 'paradigm/SkyBison'
-Bundle 'rainbow_parentheses.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'sjl/gundo.vim'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tomasr/molokai'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-abolish'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/Bck'
-Bundle 'vim-scripts/L9'
-Bundle 'vim-scripts/Vimchant'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
-" Bundle 'vim-scripts/slimv.vim' "Korvaa vimClojuren?
-Bundle 'groenewege/vim-less'
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+
+NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'Deraen/seoul256.vim'
+NeoBundle 'PeterRincker/vim-argumentative'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'b4winckler/vim-angry'
+NeoBundle 'baabelfish/a.vim'
+NeoBundle 'baabelfish/vim-droid256'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'drmikehenry/vim-fixkey'
+NeoBundle 'glts/vim-textobj-comment'
+NeoBundle 'gregsexton/gitv'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'jwhitley/vim-matchit'
+NeoBundle 'kana/vim-arpeggio'
+NeoBundle 'kana/vim-textobj-entire'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kurkale6ka/vim-pairs'
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'mhinz/vim-startify'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'paradigm/SkyBison'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-classpath'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-fireplace'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'vim-scripts/Bck'
+NeoBundle 'vim-scripts/L9'
+NeoBundle 'vim-scripts/Vimchant'
+NeoBundle 'vim-scripts/rainbow_parentheses.vim'
 
 filetype plugin indent on
 setlocal spell spelllang=en_us
@@ -120,14 +111,14 @@ set wrapmargin=0
 set nonumber
 set relativenumber
 
-" Voi jäytää ehkä
 set regexpengine=0
 
-" Tab settings
 set numberwidth=2
 set shiftwidth=2
 set softtabstop=2
 
+set undofile
+set undodir=~/.vim/undo
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
@@ -137,22 +128,20 @@ let g:droid_day = 0
 
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-" match ExtraWhitespace /\s\+$/
-" match ExtraWhitespace /\S\+\s\+$/
-" match ExtraWhitespace /\s\+$/
-" match ExtraWhitespace /[^\t]\zs\t\+/
-" match ExtraWhitespace /\s\+$\| \+\ze\t/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd InsertLeave * redraw!
 
 syntax on
-if has("gui_running")
-  colorscheme droid256
-elseif &t_Co == 256 
-  colorscheme droid256
-endif
-" hi NonText ctermfg=160 ctermbg=233 cterm=none
+let g:seoul256_background = 234
+
+" set g:solarized_termcolors = 256
+" set g:solarized_termtrans=1
+" colorscheme droid256
+" colorscheme solarized
+" colorscheme molokai
+set background=dark
+colorscheme seoul256
 
 " Color erase fix
 if &term =~ '256color'
@@ -190,14 +179,14 @@ nnoremap <M-w> <C-w><C-w>
 nmap <; <Plug>Argumentative_MoveLeft
 nmap >; <Plug>Argumentative_MoveRight
 
-" Undohistoria. Itse en käytä.
-nnoremap <F5> :GundoToggle<CR>
+nnoremap ä :w<CR>
 
 " Sama kun sublimen C-r
 nnoremap <silent><space>f m':Unite -hide-status-line outline<CR>
 " Sama kun sublimen C-p
 nnoremap <silent><space>p :Unite -silent file_rec/async<CR>
 nnoremap <silent><space>y :Unite -silent history/yank<CR>
+nnoremap <silent><space>b :Unite -silent buffer_tab<CR>
 nnoremap <silent><space>s :Startify<CR>
 
 " Projektissa ettimiseen Ackilla
@@ -322,3 +311,8 @@ set guioptions-=T  "remove toolbar
 nnoremap K i<CR><Esc>k$
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
+
+let g:arpeggio_timeoutlen=20
+call arpeggio#map('i', '', 0, 'jk', '<Esc>')
+
+NeoBundleCheck
