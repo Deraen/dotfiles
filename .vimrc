@@ -55,13 +55,11 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'vim-scripts/Bck'
 NeoBundle 'vim-scripts/L9'
 NeoBundle 'vim-scripts/Vimchant'
 NeoBundle 'vim-scripts/rainbow_parentheses.vim'
-NeoBundle 'amiorin/vim-project'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'guns/xterm-color-table.vim'
+NeoBundle 'bling/vim-bufferline'
 
 NeoBundleCheck
 
@@ -109,57 +107,31 @@ set smartindent
 set smarttab
 set ttimeout
 set ttimeoutlen=0
-" set wildignore+=*/public/components/*,*/bower_components/*,*/node_modules/*,*/site-packages/*,*/tmp/*,*.so,*.swp,*.zip,*/doxygen/*,*.o,*.pyc,*.aux,*.toc,*.tar,*.gz,*.svg,*.mdr,*.mdzip,*.blg,*.bbl,*.out,*.log,*.zip,*.pdf,*.bst,*.jpeg,*.jpg,*.png,*.a,*.so,*.exe,*.dll,*.bak,*.,*.class,*.meta,*.lock,*.orig,*.jar,*/hg/*,git/*,*/bzr/*
-" set wildignore+=*/public/*
 set wildmenu
 set wildmode=longest,list
 set wildignorecase
 set wrapmargin=0
 set nonumber
 set relativenumber
+set scrolloff=100
 
-set regexpengine=0
+" Use old one as new one might be slower?
+" set regexpengine=0
 
-set numberwidth=2
+set numberwidth=3
 set shiftwidth=2
 set softtabstop=2
 
 set undofile
 set undodir=~/.vim/undo
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:droid_transparent = 0
-let g:droid_day = 0
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd InsertLeave * redraw!
-
 syntax on
-let g:seoul256_background = 234
 
-" set g:solarized_termcolors = 256
-" set g:solarized_termtrans=1
-" colorscheme droid256
-" colorscheme solarized
-" colorscheme molokai
 set background=dark
-" colorscheme seoul256
-colorscheme jellybeans
+colorscheme seoul256
 
-" Color erase fix
-if &term =~ '256color'
-  set t_ut=
-endif
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = 'ö'
 " Pakko korjaukset
 nnoremap ' `
@@ -178,10 +150,12 @@ nnoremap <M-J> J
 nnoremap <M-K> K
 nnoremap <M-L> L
 nnoremap <M-q> <C-w>c
+inoremap <M-q> <Esc><C-w>c:echo ""<cr>
 nnoremap <M-c> :tabclose<cr>:echo ""<cr>
 nnoremap <M-n> <C-w>v
 nnoremap <M-m> <C-w>s
-nnoremap <M-w> <C-w><C-w>
+" nnoremap <M-w> <C-w><C-w>
+nnoremap <M-w> :bd<cr>
 
 " Liikuttaa parametreja
 " nmap <; <Plug>Argumentative_MoveLeft
@@ -195,13 +169,26 @@ nnoremap <silent><space>f m':Unite -hide-status-line outline<CR>
 nnoremap <silent><space>p :Unite -silent file_rec/async<CR>
 nnoremap <silent><space>y :Unite -silent history/yank<CR>
 nnoremap <silent><space>b :Unite -silent buffer_tab<CR>
-nnoremap <silent><space>s :Welcome<CR>
+nnoremap <silent><space>s :Startify<CR>
 
-" Projektissa ettimiseen Ackilla
-" <C-r><C-w> ottaa kursorin alla olevan sanan -> :h <C-r>
-" nnoremap <silent><space>bf :Bck FIXME<CR>
-" nnoremap <silent><space>bt :Bck TODO<CR>
-" nnoremap <silent><space>bw :Bck <C-r><C-w><CR>
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  nmap <backspace> <C-w>c
+endfunction
+
+function! ColorPicker() range
+  let color = ""
+  " if a:firstline==1 && a:lastline==line('$')
+    normal! gv"xy
+    let color = "--color=" . @x
+    echom color
+  " endif
+  let @z = system("zenity --color-selection" . color . " | cut -c 1-3,6-7,10-11 | tr -d \"\n\"")
+  normal! "zp
+endfunction
+
+nnoremap <silent><space>c :call ColorPicker()<CR>
+vnoremap <silent><space>c :call ColorPicker()<CR>
 
 " Lisää ja vähentää seuraavasta numerosta
 nnoremap + <C-a>
@@ -221,29 +208,38 @@ vnoremap ¤ :g/.*/norm!
 nnoremap <silent><space>t :Gitv<CR>
 inoremap <C-c> <ESC>
 
-" let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
+nnoremap K i<CR><Esc>k$
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+
 let g:UltiSnipsExpandTrigger="<c-J>"
 " let g:UltiSnipsListSnippets="<c-$>"
 " let g:UltiSnipsJumpForwardTrigger="<c-J>"
 " let g:UltiSnipsJumpBackwardTrigge="<c-k>"
 
+fun! StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  silent! %s/\s\+$//e
+  call cursor(l, c)
+endfun
+nnoremap <silent><space>dt :call StripTrailingWhitespaces()<CR>
+
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+autocmd InsertLeave * set nopaste
 
-set pastetoggle=<M-p>
-
-let g:airline#extensions#tabline#enabled = 1
+" Airline
+" let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_whitespace=0
 let g:airline_linecolumn_prefix = '¶'
 let g:airline_branch_prefix = ''
 let g:airline_paste_symbol = 'ρ'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '◀'
 let g:airline_powerline_fonts=1
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
 let g:airline_detect_paste=1
 let g:airline_detect_iminsert=0
-" let g:airline_theme='badwolf'
+let g:airline_theme='wombat'
 let g:airline_detect_modified=1
 let g:airline_exclude_preview = 0
 let g:airline_mode_map = {
@@ -259,26 +255,27 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '^S' : 'S',
     \ }
+let g:bufferline_show_bufnr = 0
 
+" Syntastic
 let g:syntastic_python_checkers = ['pep8']
-let g:syntastic_javascript_checkers = ['jslint']
+let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_mode_map = {
+      \ 'mode': 'active',
+      \ 'active_filetypes': [],
+      \ 'passive_filetypes': [],
+      \ }
+let g:syntastic_error_symbol='✕'
+let g:syntastic_warning_symbol='✕'
+let g:syntastic_enable_highlighting = 0
 
-let g:skybison_fuzz = 1
-
-let g:signify_sign_overwrite = 0
+" Signify
+let g:signify_sign_overwrite = 1
 let g:signify_mapping_next_hunk = '<leader>gj'
 let g:signify_mapping_prev_hunk = '<leader>gk'
-" let g:signify_sign_add               = '»'
-" let g:signify_sign_change            = '∙'
-" let g:signify_sign_delete            = '«'
-" let g:signify_sign_delete_first_line = '-'
 
-let g:indentLine_color_term = 237
-let g:indentLine_char = '│'
-vnoremap ¤ :g/.*/norm! 
-if version >= 702
-  autocmd BufWinLeave * call clearmatches()
-endif
+" Unite
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_enable_ignore_case = 1
@@ -290,48 +287,13 @@ call unite#custom_source('source', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('outline', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('history/yank', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('file_rec/async', 'matchers', ['matcher_fuzzy'])
-call unite#custom_source('file_rec/async', 'ignore_pattern', '\(.*/\(\(public\|dist\|app\)\/components/\|node_modules\)\|\.grunt\).*')
 
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_identifier_chars = '_-/.><'
-let g:ycm_register_as_syntastic_checker = 1
-let g:ycm_semantic_triggers = { 'clojure' : ['(', '/'] }
-
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-au VimEnter,FileType clojure RainbowParenthesesToggle
-au Syntax,FileType clojure RainbowParenthesesLoadRound
-au Syntax,FileType clojure RainbowParenthesesLoadSquare
-au Syntax,FileType clojure RainbowParenthesesLoadBraces
-set guioptions-=T  "remove toolbar
-nnoremap K i<CR><Esc>k$
-cnoremap <C-j> <Down>
-cnoremap <C-k> <Up>
-
-let g:arpeggio_timeoutlen=20
-call arpeggio#map('i', '', 0, 'jk', '<Esc>')
-
-" Sets all ignores for unite
 function! SetUniteIgnores(...)
-  " Add patterns to be ignored always
   let unite_ignore_always = [
     \'.git'
   \]
 
+  let regex = []
   let patterns = unite_ignore_always + a:000
   for value in patterns
     call add(regex, '\(' . value . '\)')
@@ -339,18 +301,49 @@ function! SetUniteIgnores(...)
 
   call unite#custom_source('file_rec/async', 'ignore_pattern', join(regex,'\|'))
 endfun
-autocmd BufReadPost,FileType javascript  call SetUniteIgnores(".*/app/components")
 
-let g:project_use_nerdtree = 1
-set rtp+=~/.vim/bundle/vim-project/
-call project#rc("~/Source")
+call SetUniteIgnores(".*/public/components/.*", ".*/dist/.*", "node_modules/.*", ".tmp", ".grunt")
 
-Project 'osre2'
-Project 'metosin'
-Project 'ircclientclj'
-Project 'skillwebsite'
-Project 'skillproject'
-Project 'nappi'
-Project '3DSelain'
-File    '~/.vimrc', 'vimrc'
-File    '~/.config/i3/config', 'i3 config'
+" ycm
+" let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_identifier_chars = '_-/.><'
+let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_semantic_triggers = {
+      \ 'clojure' : ['(', '/']
+      \ }
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
+
+" Rainbow parenthesis
+au VimEnter,FileType clojure RainbowParenthesesToggle
+au Syntax,FileType clojure RainbowParenthesesLoadRound
+au Syntax,FileType clojure RainbowParenthesesLoadSquare
+au Syntax,FileType clojure RainbowParenthesesLoadBraces
+
+" Arpegio
+let g:arpeggio_timeoutlen=20
+call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
+
+" Hightlight trailing spaces
+function! EnableTrailingHightlight()
+  if exists('b:noTrailingHightlight')
+    return
+  endif
+  match ExtraWhitespace /\s\+$/
+endfunction
+
+autocmd InsertEnter * match
+autocmd InsertLeave * call EnableTrailingHightlight()
+autocmd FileType unite let b:noTrailingHighlight = 1
+" autocmd InsertLeave * redraw!
+
+if version >= 702
+  autocmd BufWinLeave * call clearmatches()
+endif
+
+" Random
+let g:indentLine_char = '│'
+let g:skybison_fuzz = 1
+
