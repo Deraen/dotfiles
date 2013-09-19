@@ -316,3 +316,20 @@ let g:arpeggio_timeoutlen=20
 call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 
 NeoBundleCheck
+
+" Sets all ignores for unite
+function SetUniteIgnores(...)
+  " Add patterns to be ignored always
+  let unite_ignore_always = [
+    \'.git'
+  \]
+
+  let patterns = unite_ignore_always + a:000
+  for value in patterns
+    call add(regex, '\(' . value . '\)')
+  endfor
+
+  call unite#custom_source('file_rec/async', 'ignore_pattern', join(regex,'\|'))
+endfun
+autocmd BufReadPost,FileType javascript  call SetUniteIgnores(".*/app/components")
+
