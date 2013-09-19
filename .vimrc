@@ -45,7 +45,6 @@ NeoBundle 'paradigm/SkyBison'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tomasr/molokai'
-NeoBundle 'tomasr/molokai'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-abolish'
 NeoBundle 'tpope/vim-classpath'
@@ -60,6 +59,9 @@ NeoBundle 'vim-scripts/Bck'
 NeoBundle 'vim-scripts/L9'
 NeoBundle 'vim-scripts/Vimchant'
 NeoBundle 'vim-scripts/rainbow_parentheses.vim'
+NeoBundle 'amiorin/vim-project'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'nanotech/jellybeans.vim'
 
 NeoBundleCheck
 
@@ -146,7 +148,8 @@ let g:seoul256_background = 234
 " colorscheme solarized
 " colorscheme molokai
 set background=dark
-colorscheme seoul256
+" colorscheme seoul256
+colorscheme jellybeans
 
 " Color erase fix
 if &term =~ '256color'
@@ -181,8 +184,8 @@ nnoremap <M-m> <C-w>s
 nnoremap <M-w> <C-w><C-w>
 
 " Liikuttaa parametreja
-nmap <; <Plug>Argumentative_MoveLeft
-nmap >; <Plug>Argumentative_MoveRight
+" nmap <; <Plug>Argumentative_MoveLeft
+" nmap >; <Plug>Argumentative_MoveRight
 
 nnoremap ä :w<CR>
 
@@ -192,13 +195,13 @@ nnoremap <silent><space>f m':Unite -hide-status-line outline<CR>
 nnoremap <silent><space>p :Unite -silent file_rec/async<CR>
 nnoremap <silent><space>y :Unite -silent history/yank<CR>
 nnoremap <silent><space>b :Unite -silent buffer_tab<CR>
-nnoremap <silent><space>s :Startify<CR>
+nnoremap <silent><space>s :Welcome<CR>
 
 " Projektissa ettimiseen Ackilla
 " <C-r><C-w> ottaa kursorin alla olevan sanan -> :h <C-r>
-nnoremap <silent><space>bf :Bck FIXME<CR>
-nnoremap <silent><space>bt :Bck TODO<CR>
-nnoremap <silent><space>bw :Bck <C-r><C-w><CR>
+" nnoremap <silent><space>bf :Bck FIXME<CR>
+" nnoremap <silent><space>bt :Bck TODO<CR>
+" nnoremap <silent><space>bw :Bck <C-r><C-w><CR>
 
 " Lisää ja vähentää seuraavasta numerosta
 nnoremap + <C-a>
@@ -228,20 +231,19 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 
 set pastetoggle=<M-p>
 
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_whitespace=0
 let g:airline_linecolumn_prefix = '¶'
 let g:airline_branch_prefix = ''
 let g:airline_paste_symbol = 'ρ'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_powerline_fonts=0
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '◀'
+let g:airline_powerline_fonts=1
 let g:airline_enable_branch=1
-let g:airline_enable_syntastic=0
-let g:syntastic_python_checkers = ['pep8']
-let g:syntastic_javascript_checkers = ['jslint']
+let g:airline_enable_syntastic=1
 let g:airline_detect_paste=1
 let g:airline_detect_iminsert=0
-let g:airline_theme='badwolf'
+" let g:airline_theme='badwolf'
 let g:airline_detect_modified=1
 let g:airline_exclude_preview = 0
 let g:airline_mode_map = {
@@ -258,15 +260,18 @@ let g:airline_mode_map = {
     \ '^S' : 'S',
     \ }
 
+let g:syntastic_python_checkers = ['pep8']
+let g:syntastic_javascript_checkers = ['jslint']
+
 let g:skybison_fuzz = 1
 
 let g:signify_sign_overwrite = 0
 let g:signify_mapping_next_hunk = '<leader>gj'
 let g:signify_mapping_prev_hunk = '<leader>gk'
-let g:signify_sign_add               = '»'
-let g:signify_sign_change            = '∙'
-let g:signify_sign_delete            = '«'
-let g:signify_sign_delete_first_line = '-'
+" let g:signify_sign_add               = '»'
+" let g:signify_sign_change            = '∙'
+" let g:signify_sign_delete            = '«'
+" let g:signify_sign_delete_first_line = '-'
 
 let g:indentLine_color_term = 237
 let g:indentLine_char = '│'
@@ -336,3 +341,16 @@ function! SetUniteIgnores(...)
 endfun
 autocmd BufReadPost,FileType javascript  call SetUniteIgnores(".*/app/components")
 
+let g:project_use_nerdtree = 1
+set rtp+=~/.vim/bundle/vim-project/
+call project#rc("~/Source")
+
+Project 'osre2'
+Project 'metosin'
+Project 'ircclientclj'
+Project 'skillwebsite'
+Project 'skillproject'
+Project 'nappi'
+Project '3DSelain'
+File    '~/.vimrc', 'vimrc'
+File    '~/.config/i3/config', 'i3 config'
