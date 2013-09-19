@@ -1,3 +1,6 @@
+" NeoBundle:
+" git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -12,9 +15,9 @@ NeoBundle 'Deraen/seoul256.vim'
 NeoBundle 'PeterRincker/vim-argumentative'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': './install.sh --clang-completer --system-libclang'}}
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'b4winckler/vim-angry'
@@ -57,6 +60,8 @@ NeoBundle 'vim-scripts/Bck'
 NeoBundle 'vim-scripts/L9'
 NeoBundle 'vim-scripts/Vimchant'
 NeoBundle 'vim-scripts/rainbow_parentheses.vim'
+
+NeoBundleCheck
 
 filetype plugin indent on
 setlocal spell spelllang=en_us
@@ -315,10 +320,8 @@ cnoremap <C-k> <Up>
 let g:arpeggio_timeoutlen=20
 call arpeggio#map('i', '', 0, 'jk', '<Esc>')
 
-NeoBundleCheck
-
 " Sets all ignores for unite
-function SetUniteIgnores(...)
+function! SetUniteIgnores(...)
   " Add patterns to be ignored always
   let unite_ignore_always = [
     \'.git'

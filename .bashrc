@@ -70,6 +70,7 @@ function addSource {
     [[ -s "$1" ]] && source "$1"
 }
 
+addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
 addPath /raid/opt/modelsim/modelsim_ase/linux
 addPath /raid/opt/android-sdk-linux_x86/platform-tools

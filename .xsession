@@ -1,5 +1,7 @@
 #!/bin/sh
 
+source /home/$USER/.profile
+
 nm-applet &
 gnome-sound-applet &
 dropbox start &
