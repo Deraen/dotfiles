@@ -302,7 +302,7 @@ function! SetUniteIgnores(...)
   call unite#custom_source('file_rec/async', 'ignore_pattern', join(regex,'\|'))
 endfun
 
-call SetUniteIgnores(".*/public/components/.*", ".*/dist/.*", "node_modules/.*", ".tmp", ".grunt")
+call SetUniteIgnores(".*/public/components/.*", ".*/dist/.*", "node_modules/.*", ".tmp", ".grunt", "env", ".*.pyc")
 
 " ycm
 " let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
