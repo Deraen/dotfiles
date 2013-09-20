@@ -116,7 +116,7 @@ set relativenumber
 set scrolloff=100
 
 " Use old one as new one might be slower?
-" set regexpengine=0
+set regexpengine=0
 
 set numberwidth=3
 set shiftwidth=2
@@ -288,21 +288,7 @@ call unite#custom_source('outline', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('history/yank', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('file_rec/async', 'matchers', ['matcher_fuzzy'])
 
-function! SetUniteIgnores(...)
-  let unite_ignore_always = [
-    \'.git'
-  \]
-
-  let regex = []
-  let patterns = unite_ignore_always + a:000
-  for value in patterns
-    call add(regex, '\(' . value . '\)')
-  endfor
-
-  call unite#custom_source('file_rec/async', 'ignore_pattern', join(regex,'\|'))
-endfun
-
-call SetUniteIgnores(".*/public/components/.*", ".*/dist/.*", "node_modules/.*", ".tmp", ".grunt", "env", ".*.pyc")
+let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden -g ""'
 
 " ycm
 " let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
