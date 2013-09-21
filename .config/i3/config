@@ -1,10 +1,10 @@
 # i3 config file (v4)
 
 # Dmenu
-exec_always "parse-desktop-files.py > ~/.cache/desktopfiles.txt"
-bindsym $mod+r exec --no-startup-id $(cat ~/.cache/desktopfiles.txt | cut -f1 | dmenu -i -b -nb '$bg' -nf '#fff' -sb '#955' -fn 'Ubuntu-18' | grep -f - ~/.cache/desktopfiles.txt | cut -f2)
+exec_always "parse-desktop-files.py | sort -t \"	\" > ~/.cache/desktopfiles.txt"
+bindsym $mod+r exec --no-startup-id $(dmenu.sh)
 
-bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py
+bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py && rndbg.sh
 
 # Preferences
 set $mod Mod4
@@ -51,6 +51,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+Ctrl+h resize shrink width 40 px or 4 ppt
+bindsym $mod+Ctrl+l resize grow width 40 px or 4 ppt
+bindsym $mod+Ctrl+j resize shrink height 40 px or 4 ppt
+bindsym $mod+Ctrl+k resize grow height 40 px or 4 ppt
+
 # layout
 # <
 bindcode $mod+94 split v
@@ -93,6 +98,7 @@ for_window [class="^(Google-chrome|X-www-browser|Sublime_text|Quasselclient|Spot
 for_window [class="Google-chrome" title="Google Keep"] border normal, floating enable
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
+for_window [class="Steam" title="^(Steam - .*|Friends)$"] floating enable
 
 bindsym $mod+1 workspace "$www"
 bindsym $mod+2 workspace "$irc"

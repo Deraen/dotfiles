@@ -176,19 +176,20 @@ function! s:unite_settings()
   nmap <backspace> <C-w>c
 endfunction
 
-function! ColorPicker() range
-  let color = ""
-  " if a:firstline==1 && a:lastline==line('$')
-    normal! gv"xy
-    let color = "--color=" . @x
-    echom color
-  " endif
-  let @z = system("zenity --color-selection" . color . " | cut -c 1-3,6-7,10-11 | tr -d \"\n\"")
-  normal! "zp
+function! ColorPicker(insert)
+  let color = '\#' . expand('<cword>')
+  let @z = system("zenity --color-selection --color " . color . " | cut -c 2-3,6-7,10-11 | tr -d \"\n\"")
+  if strlen(@z) != 0
+    if a:insert == 0
+      normal! diw"zp
+    else
+      let @z = '#' . @z
+      normal! "zp
+    endif
+  endif
 endfunction
-
-nnoremap <silent><space>c :call ColorPicker()<CR>
-vnoremap <silent><space>c :call ColorPicker()<CR>
+nnoremap <silent><space>c :call ColorPicker(0)<cr>
+inoremap <silent><M-c> <C-o>:call ColorPicker(1)<cr>
 
 " Lisää ja vähentää seuraavasta numerosta
 nnoremap + <C-a>
