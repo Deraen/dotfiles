@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Author: Juho Teperi
+# This, together with parse-desktop-files.py
+# displays dmenu filled with entries from desktop files.
+# Most used one is shown first.
+
 NAME=$(sort .cache/desktopfilesuses.txt | join -t "	" --nocheck-order -a 1 .cache/desktopfiles.txt - | sort -t "	" -k3 -n -r | cut -f1 | dmenu -i -b -nb '#3C3B37' -nf '#fff' -sb '#955' -fn 'Ubuntu-17')
 [[ "$NAME" == "" ]] && exit 1
 
