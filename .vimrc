@@ -60,6 +60,7 @@ NeoBundle 'vim-scripts/Vimchant'
 NeoBundle 'vim-scripts/rainbow_parentheses.vim'
 NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'bling/vim-bufferline'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 NeoBundleCheck
 

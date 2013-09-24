@@ -5,7 +5,7 @@
 # displays dmenu filled with entries from desktop files.
 # Most used one is shown first.
 
-NAME=$(sort .cache/desktopfilesuses.txt | join -t "	" --nocheck-order -a 1 .cache/desktopfiles.txt - | sort -t "	" -k3 -n -r | cut -f1 | dmenu -i -b -nb '#3C3B37' -nf '#fff' -sb '#955' -fn 'Ubuntu-17')
+NAME=$(sort ~/.cache/desktopfilesuses.txt | join -t "	" --nocheck-order -a 1 ~/.cache/desktopfiles.txt - | sort -t "	" -k3 -n -r | cut -f1 | dmenu -i -b -nb '#3C3B37' -nf '#fff' -sb '#955' -fn 'Ubuntu-17')
 [[ "$NAME" == "" ]] && exit 1
 
 COMMAND=$(grep "$NAME" ~/.cache/desktopfiles.txt | cut -f2)
@@ -16,7 +16,7 @@ MATCH=$(grep "$NAME" ~/.cache/desktopfilesuses.txt)
 if [[ "$MATCH" == "" ]]; then
   echo "$NAME	1" >> ~/.cache/desktopfilesuses.txt
 else
-  MATCHES=${MATCH//[a-zA-Z]/}
+  MATCHES=${MATCH//[a-zA-Z()]/}
   MATCHES=$[$MATCHES + 1]
   sed -i "s/$MATCH/$NAME	$MATCHES/" ~/.cache/desktopfilesuses.txt
 fi
