@@ -11,6 +11,6 @@ override_utf8_locale yes
 TEXT
 ,[
   {"full_text": "${if_up wlan1}${wireless_essid wlan1} [${wireless_link_qual_perc wlan1}%]${endif}", "color": "\#8ecaed"},
-  {"full_text": "${if_empty battery}${else}${battery_time} [$battery_bar] ${battery_percent}%${endif}", "color":"\#a2f250"},
+  {"full_text": "${if_existing /sys/class/power_supply/BAT0}${battery_time} [$battery_bar] ${battery_percent}%${endif}", "color":"\#a2f250"},
   {"full_text": "${time %a %d %b} ${time %H:%M}","color": "\#f3759a"}
 ]
