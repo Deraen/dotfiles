@@ -32,6 +32,8 @@ parser.add_option("-y", "--yes", action="store_true", default=False,
         help="assume yes to all questions for which yes is the default")
 parser.add_option("-f", "--force", action="store_true", default=False,
         help="force the requested changes, don't resolve problems")
+parser.add_option("-r", "--remove", action="store_true", default=False,
+        help="remove packages with no candidates")
 opts, args = parser.parse_args()
 
 import apt, apt.progress, apt_pkg
@@ -49,7 +51,7 @@ cache = apt.Cache()
 
 if opts.update:
     print "Updating package cache..."
-    cache.update(apt.progress.TextFetchProgress())
+    cache.update(apt.progress.text.AcquireProgress())
 
 print "Searching for installed packages that are no longer available..."
 for pkg in cache:
@@ -59,12 +61,12 @@ for pkg in cache:
             if ver.downloadable and ver > cand:
                 cand = ver
         #print pkg.installed, "->", cand
-        if cand is None:
+        if opts.remove and cand is None:
             if user_proceed(
                     "Remove '%s' version %s [y]?" % (
                     pkg.name, pkg.installed.version)):
                 #pkg.candidate = None
-                pkg.mark_delete(autoFix=False, purge=False)
+                pkg.mark_delete(auto_fix=False, purge=False)
                 assert pkg.marked_delete
         if cand != None:
             if user_proceed(
@@ -74,7 +76,7 @@ for pkg in cache:
                         cand.version,
                         pick_origin(cand).archive)):
                 pkg.candidate = cand
-                pkg.mark_install(autoFix=False, fromUser=False)
+                pkg.mark_install(auto_fix=False, from_user=True)
             #pkg.mark_upgrade()
 
 print "Resolving package problems (pass -f to disable this step)..."
@@ -93,8 +95,8 @@ if cache.get_changes():
         while True:
             try:
                 cache.commit(
-                        apt.progress.TextFetchProgress(),
-                        apt.progress.InstallProgress())
+                        apt.progress.text.AcquireProgress(),
+                        apt.progress.base.InstallProgress())
             except SystemError as exc:
                 print exc
                 if not user_proceed("An error occurred, try again? [y]? "):
