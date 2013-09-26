@@ -182,7 +182,7 @@ function! ColorPicker(insert)
   let @z = system("zenity --color-selection --color " . color . " | cut -c 2-3,6-7,10-11 | tr -d \"\n\"")
   if strlen(@z) != 0
     if a:insert == 0
-      normal! diw"zp
+      normal! diw"zP
     else
       let @z = '#' . @z
       normal! "zp
