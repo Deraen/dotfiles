@@ -5,6 +5,7 @@ exec_always "parse-desktop-files.py | sort -t \"	\" > ~/.cache/desktopfiles.txt"
 bindsym $mod+r exec --no-startup-id $(dmenu.sh)
 
 bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py && rndbg.sh && transset -n i3bar 0.8
+bindsym $mod+Shift+F11 exec togglecompton.sh
 
 # Preferences
 set $mod Mod4

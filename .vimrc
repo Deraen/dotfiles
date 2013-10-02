@@ -62,6 +62,11 @@ NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'editorconfig/editorconfig-vim'
 
+" Manual install:
+" wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
+" java -jar eclim_2.3.2.jar
+NeoBundle '~/.vim/bundle/eclim'
+
 NeoBundleCheck
 
 filetype plugin indent on
@@ -159,8 +164,8 @@ nnoremap <M-m> <C-w>s
 nnoremap <M-w> :bd<cr>
 
 " Liikuttaa parametreja
-" nmap <; <Plug>Argumentative_MoveLeft
-" nmap >; <Plug>Argumentative_MoveRight
+nmap <; <Plug>Argumentative_MoveLeft
+nmap >; <Plug>Argumentative_MoveRight
 
 nnoremap ä :w<CR>
 
@@ -293,7 +298,6 @@ call unite#custom_source('file_rec/async', 'matchers', ['matcher_fuzzy'])
 let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden -g ""'
 
 " ycm
-" let g:ycm_key_list_select_completion = ['<c-j>', '<Down>']
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_identifier_chars = '_-/.><'
 let g:ycm_register_as_syntastic_checker = 1
@@ -311,7 +315,7 @@ au Syntax,FileType clojure RainbowParenthesesLoadSquare
 au Syntax,FileType clojure RainbowParenthesesLoadBraces
 
 " Arpegio
-let g:arpeggio_timeoutlen=20
+let g:arpeggio_timeoutlen=25
 call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
 
 " Hightlight trailing spaces
@@ -335,3 +339,13 @@ endif
 let g:indentLine_char = '│'
 let g:skybison_fuzz = 1
 
+let g:EclimCompletionMethod = 'omnifunc'
+
+function SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+let g:tex_flavor = "latex"
