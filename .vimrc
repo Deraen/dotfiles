@@ -61,6 +61,7 @@ NeoBundle 'vim-scripts/rainbow_parentheses.vim'
 NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'tikhomirov/vim-glsl'
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
@@ -135,6 +136,7 @@ set undodir=~/.vim/undo
 syntax on
 
 set background=dark
+let g:seoul256_background = 233
 colorscheme seoul256
 
 " Mappings
@@ -306,6 +308,17 @@ let g:ycm_semantic_triggers = {
       \ }
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
+let g:ycm_filetype_blacklist = {
+      \ 'notes': 1,
+      \ 'gitcommit': 1,
+      \ 'vim': 1,
+      \ 'markdown': 1,
+      \ 'text': 1,
+      \ 'unite': 1,
+      \}
+let g:ycm_filetype_specific_completion_to_disable = {
+      \ 'javascript': 1,
+      \}
 set completeopt-=preview
 
 " Rainbow parenthesis
@@ -341,7 +354,7 @@ let g:skybison_fuzz = 1
 
 let g:EclimCompletionMethod = 'omnifunc'
 
-function SynStack()
+function! SynStack()
   if !exists("*synstack")
     return
   endif
