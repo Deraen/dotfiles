@@ -1,6 +1,9 @@
 #!/usr/bin/python
 import dbus
 import gobject
+import sys
+
+force = '--force' in sys.argv[1:]
 
 def main():
     bus = dbus.SystemBus()
@@ -16,7 +19,7 @@ def main():
     battery = pow_prop_iface.Get('', 'OnBattery')
 
     print('Suspending? OnBattery: {}'.format(battery))
-    if battery:
+    if battery or force:
         pow_iface.Suspend()
 
 if __name__ == '__main__':
