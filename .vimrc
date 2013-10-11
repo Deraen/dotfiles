@@ -62,6 +62,7 @@ NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tikhomirov/vim-glsl'
+NeoBundle 'elzr/vim-json'
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
@@ -361,4 +362,6 @@ function! SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-let g:tex_flavor = "latex"
+let g:vim_json_syntax_conceal = 0
+
+autocmd FileType tex set filetype=plaintex
