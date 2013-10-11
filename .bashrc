@@ -72,6 +72,7 @@ function addSource {
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
+addPath "$HOME/.cabal/bin"
 addPath /raid/opt/modelsim/modelsim_ase/linux
 addPath /raid/opt/android-sdk-linux_x86/platform-tools
 addPath /raid/opt/android-sdk-linux_x86/tools
