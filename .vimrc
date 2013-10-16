@@ -63,6 +63,8 @@ NeoBundle 'bling/vim-bufferline'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'elzr/vim-json'
+NeoBundle 'mihaifm/bck'
+NeoBundle 'justinmk/vim-sneak'
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
@@ -124,7 +126,7 @@ set relativenumber
 set scrolloff=100
 
 " Use old one as new one might be slower?
-set regexpengine=0
+set regexpengine=1
 
 set numberwidth=3
 set shiftwidth=2
@@ -171,6 +173,8 @@ nmap <; <Plug>Argumentative_MoveLeft
 nmap >; <Plug>Argumentative_MoveRight
 
 nnoremap ä :w<CR>
+
+nnoremap <silent><space><space> :set nohls!<cr>
 
 " Sama kun sublimen C-r
 nnoremap <silent><space>f m':Unite -hide-status-line outline<CR>
@@ -226,6 +230,12 @@ let g:UltiSnipsExpandTrigger="<c-J>"
 " let g:UltiSnipsListSnippets="<c-$>"
 " let g:UltiSnipsJumpForwardTrigger="<c-J>"
 " let g:UltiSnipsJumpBackwardTrigge="<c-k>"
+
+nnoremap <silent><space>/f :Bck FIXME<CR>
+nnoremap <silent><space>/t :Bck TODO<CR>
+nnoremap <silent><space>/w :Bck <C-r><C-w><CR>
+nnoremap <silent><space>q :Bck<CR>
+
 
 fun! StripTrailingWhitespaces()
   let l = line(".")
@@ -365,3 +375,6 @@ endfunc
 let g:vim_json_syntax_conceal = 0
 
 autocmd FileType tex set filetype=plaintex
+
+let g:BckPrg = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden'
+let BckOptions = 'cirw'
