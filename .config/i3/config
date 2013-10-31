@@ -11,11 +11,11 @@ bindsym $mod+Shift+F11 exec togglecompton.sh
 set $mod Mod4
 set $bg #3C3B37
 
-font pango:Ubuntu 10
+font pango:Ubuntu 8
 
 # class                 border  backgr. text    indicator
-client.focused          #4c7899 #285577 #ffffff #2e9ef4
-client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.focused          #4c7899 #1f3342 #ffffff #184c73
+client.focused_inactive $bg     $bg     #ffffff #484e50
 client.unfocused        $bg     $bg     #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
@@ -23,15 +23,17 @@ focus_follows_mouse no
 workspace_auto_back_and_forth yes
 floating_modifier $mod
 
+hide_edge_borders both
+
 # Launch
-bindsym $mod+Return exec sakura -t Terminal
+bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Q kill
 
 # change focus
-bindsym $mod+j focus up
+bindsym $mod+j focus down
 bindsym $mod+l focus right
 bindsym $mod+h focus left
-bindsym $mod+k focus down
+bindsym $mod+k focus up
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -42,10 +44,10 @@ bindsym $mod+a focus parent
 bindsym $mod+d focus child
 
 # move focused window
-bindsym $mod+Shift+J move up
+bindsym $mod+Shift+J move down
 bindsym $mod+Shift+L move right
 bindsym $mod+Shift+H move left
-bindsym $mod+Shift+K move down
+bindsym $mod+Shift+K move up
 
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -95,7 +97,7 @@ assign [class="Steam"] → $games
 assign [class="Spotify"] → $music
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 for_window [class="Wine" title="^(World of Warcraft)$"] border none
-for_window [class="^(Google-chrome|X-www-browser|Sublime_text|Quasselclient|Spotify|Eclipse|Sakura)$"] border pixel 2
+for_window [class="^(Google-chrome|X-www-browser|Sublime_text|Quasselclient|Spotify|Eclipse|Sakura|URxvt)$"] border pixel 2
 for_window [class="Google-chrome" title="Google Keep"] border normal, floating enable
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable

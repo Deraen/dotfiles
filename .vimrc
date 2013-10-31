@@ -59,12 +59,12 @@ NeoBundle 'vim-scripts/L9'
 NeoBundle 'vim-scripts/Vimchant'
 NeoBundle 'vim-scripts/rainbow_parentheses.vim'
 NeoBundle 'guns/xterm-color-table.vim'
-NeoBundle 'bling/vim-bufferline'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'mihaifm/bck'
 NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
@@ -254,7 +254,8 @@ let g:airline_detect_whitespace=0
 let g:airline_linecolumn_prefix = '¶'
 let g:airline_branch_prefix = ''
 let g:airline_paste_symbol = 'ρ'
-let g:airline_powerline_fonts=1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline_enable_branch=1
 let g:airline_enable_syntastic=1
 let g:airline_detect_paste=1
@@ -326,9 +327,6 @@ let g:ycm_filetype_blacklist = {
       \ 'markdown': 1,
       \ 'text': 1,
       \ 'unite': 1,
-      \}
-let g:ycm_filetype_specific_completion_to_disable = {
-      \ 'javascript': 1,
       \}
 set completeopt-=preview
 

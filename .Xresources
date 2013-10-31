@@ -4,3 +4,58 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 Xft.dpi: 96
+
+/*URxvt.background: [60]#1a1a1a*/
+*background: #000000
+*foreground: #d9d9d9
+*foreground_bold: #fedfed
+*foreground_dim: #888888
+*color0:           #050505
+*color8:           #444444
+*color1:           #C12121
+*color9:           #e50e0e
+*color2:           #638046
+*color10:          #80a65b
+*color3:           #aea800
+*color11:          #ffff40
+*color4:           #265997
+*color12:          #4f7fff
+*color5:           #9978ab
+*color13:          #a26ab1
+*color6:           #509eb1
+*color14:          #78cece
+*color7:           #bbbbbb
+*color15:          #ffffff
+
+URxvt*imLocale:          en_US.utf8
+URxvt.bigfont_key:       o
+URxvt.borderLess:        no
+URxvt.buffered:          false
+URxvt.depth:             32
+URxvt*font:              xft:Consolas:pixelsize=13:authint=true,xft:PowerlineSymbols:pixelsize=12:antialias=true:hinting=true
+! URxvt*font:              xft:Consolas for Powerline:pixelsize=13:authint=true
+! URxvt.italicFont:        xft:Monospace:style=Oblique:pixelsize=10
+URxvt.hold:              true
+URxvt.internalBorder:    0
+URxvt.jumpScroll:        true
+URxvt.letterSpace:       -2
+URxvt.loginShell:        true
+URxvt.scrollBar:         off
+URxvt.scrollTtyKeypress: off
+URxvt.scrollTtyOutput:   off
+URxvt.secondaryScreen:   false
+URxvt.skipScroll:        true
+URxvt.smallfont_key:     p
+URxvt.tripleclickwords:  on
+URxvt.url-select.launcher:  google-chrome
+URxvt.url-select.underline: true
+URxvt*keysym.Control-Up:    \033[1;5A
+URxvt*keysym.Control-Down:  \033[1;5B
+URxvt*keysym.Control-Left:  \033[1;5D
+URxvt*keysym.Control-Right: \033[1;5C
+
+URxvt.perl-lib: /home/juho/.config/urxvt/perl
+URxvt.perl-ext:          default,url-select,font-size
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
