@@ -17,12 +17,10 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': './install.sh --clang-completer --system-libclang'}}
+NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': './install.sh --clang-completer'}}
 NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'b4winckler/vim-angry'
 NeoBundle 'baabelfish/a.vim'
-NeoBundle 'baabelfish/vim-droid256'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'drmikehenry/vim-fixkey'
@@ -56,7 +54,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/L9'
-NeoBundle 'vim-scripts/Vimchant'
+" NeoBundle 'vim-scripts/Vimchant'
 NeoBundle 'vim-scripts/rainbow_parentheses.vim'
 NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -64,12 +62,19 @@ NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'mihaifm/bck'
 NeoBundle 'justinmk/vim-sneak'
-NeoBundle 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
 " java -jar eclim_2.3.2.jar
-NeoBundle '~/.vim/bundle/eclim'
+NeoBundleLazy '~/.vim/bundle/eclim'
+function! LoadEclim()
+  NeoBundleSource 'eclim'
+  let g:EclimCompletionMethod = 'omnifunc'
+endfunction
+autocmd FileType java,scala call LoadEclim()
+
+NeoBundleLazy 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
+autocmd FileType javascript NeoBundleSource 'tern_for_vim'
 
 NeoBundleCheck
 
@@ -98,6 +103,8 @@ set ignorecase
 set incsearch
 set laststatus=2
 set lazyredraw
+set ttyfast
+set ttyscroll=1
 set list
 set listchars=""
 set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶,nbsp:█
@@ -167,6 +174,10 @@ nnoremap <M-n> <C-w>v
 nnoremap <M-m> <C-w>s
 " nnoremap <M-w> <C-w><C-w>
 nnoremap <M-w> :bd<cr>
+nnoremap <C-j> :res -5<cr>
+nnoremap <C-k> :res +5<cr>
+nnoremap <C-h> :vert res -5<cr>
+nnoremap <C-l> :vert res +5<cr>
 
 " Liikuttaa parametreja
 nmap <; <Plug>Argumentative_MoveLeft
@@ -276,7 +287,6 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '^S' : 'S',
     \ }
-let g:bufferline_show_bufnr = 0
 
 " Syntastic
 let g:syntastic_python_checkers = ['pep8']
@@ -360,8 +370,6 @@ endif
 " Random
 let g:indentLine_char = '│'
 let g:skybison_fuzz = 1
-
-let g:EclimCompletionMethod = 'omnifunc'
 
 function! SynStack()
   if !exists("*synstack")

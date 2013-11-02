@@ -6,7 +6,7 @@ Xft.rgba: rgb
 Xft.dpi: 96
 
 /*URxvt.background: [60]#1a1a1a*/
-*background: #000000
+*background: #121212
 *foreground: #d9d9d9
 *foreground_bold: #fedfed
 *foreground_dim: #888888
@@ -57,5 +57,5 @@ URxvt*keysym.Control-Right: \033[1;5C
 URxvt.perl-lib: /home/juho/.config/urxvt/perl
 URxvt.perl-ext:          default,url-select,font-size
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.keysym.C-Up:     perl:font-size:increase
-URxvt.keysym.C-Down:   perl:font-size:decrease
+! URxvt.keysym.C-Plus:     perl:font-size:increase
+! URxvt.keysym.C-Minus:   perl:font-size:decrease
