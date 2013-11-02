@@ -18,6 +18,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': './install.sh --clang-completer'}}
+NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'b4winckler/vim-angry'
 NeoBundle 'baabelfish/a.vim'
