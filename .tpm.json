@@ -1,0 +1,13 @@
+{
+  "Deraen/dspmgr": {
+    "bin": {
+      "dspmgr.py": "dspmgr.py"
+    }
+  },
+  "Deraen/pwrmgr": {
+    "bin": {
+      "pwrmgr.py": "pwrmgr.py",
+      "suspend.py": "suspend.py"
+    }
+  }
+}
