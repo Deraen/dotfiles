@@ -6,7 +6,7 @@ nm-applet &
 gnome-sound-applet &
 dropbox start &
 [[ "$HOSTNAME" == "juho-laptop" ]] && xset dpms 600
-[[ "$HOSTNAME" == "juho-laptop" ]] && xautolock -time 5 -locker "i3lock -c 111111; suspend.py --force" &
+[[ "$HOSTNAME" == "juho-laptop" ]] && xautolock -time 10 -locker "i3lock -c 111111; suspend.py --force" &
 xcape -e "Alt_L=Escape"
 rndbg.sh
 compton &

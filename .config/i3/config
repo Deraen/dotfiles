@@ -187,7 +187,7 @@ mode "resize" {
 # finds out, if available)
 bar {
   position top
-  status_command conky.sh
+  status_command killall conky && conky.sh
   colors {
     background #000000
   }
