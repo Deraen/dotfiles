@@ -1,4 +1,5 @@
 {
+  "verbose": true,
   "packages": {
     "Deraen/dspmgr": "*",
     "Deraen/pwrmgr": "*",
@@ -7,6 +8,12 @@
       "source": ["liquidprompt"]
     },
     "muennich/urxvt-perls": "*",
-    "majutsushi/urxvt-font-size": "*"
+    "majutsushi/urxvt-font-size": "*",
+    "alols/xcape": {
+      "bin": {
+        "xcape": "xcape"
+      },
+      "build": "make"
+    }
   }
 }
