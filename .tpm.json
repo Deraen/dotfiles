@@ -1,13 +1,20 @@
 {
-  "Deraen/dspmgr": {
-    "bin": {
-      "dspmgr.py": "dspmgr.py"
-    }
-  },
-  "Deraen/pwrmgr": {
-    "bin": {
-      "pwrmgr.py": "pwrmgr.py",
-      "suspend.py": "suspend.py"
-    }
+  "packages": {
+    "Deraen/dspmgr": {
+      "bin": {
+        "dspmgr.py": "dspmgr.py"
+      }
+    },
+    "Deraen/pwrmgr": {
+      "bin": {
+        "pwrmgr.py": "pwrmgr.py",
+        "suspend.py": "suspend.py"
+      }
+    },
+    "nojhan/liquidprompt": {
+      "source": ["liquidprompt"]
+    },
+    "muennich/urxvt-perls": {},
+    "majutsushi/urxvt-font-size": {}
   }
 }

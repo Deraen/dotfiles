@@ -45,8 +45,7 @@ export DEBFULLNAME="Juho Teperi"
 export DEBEMAIL="juho.teperi@iki.fi"
 export EDITOR="vim"
 export MOST_EDITOR="vim"
-export PAGER="most"
-export LESS="-R"
+export PAGER="less"
 
 export TERM="rxvt-unicode-256color"
 if [ "$HOSTNAME" = "alpha-144.srv.hosting.fi" ]; then
@@ -74,22 +73,16 @@ function addSource {
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
 addPath "$HOME/.cabal/bin"
-addPath /raid/opt/modelsim/modelsim_ase/linux
 addPath /raid/opt/android-sdk-linux_x86/platform-tools
 addPath /raid/opt/android-sdk-linux_x86/tools
 addPath /raid/opt/android-ndk
-addPath /opt/modelsim/modelsim_ase/linux
 addPath /opt/android-sdk-linux_x86/platform-tools
-addPath "/Applications/Android Studio.app/sdk/platform-tools"
 addPath /opt/android-sdk-linux_x86/tools
-addPath "/Applications/Android Studio.app/sdk/tools"
 addPath /opt/android-ndk
+addPath "/Applications/Android Studio.app/sdk/platform-tools"
+addPath "/Applications/Android Studio.app/sdk/tools"
 addPath "$HOME/.rvm/bin"
 addPath "/usr/local/heroku/bin"
-
-addSource "$HOME/.local/share/liquidprompt/liquidprompt"
-LP_BRACKET_OPEN=""
-LP_BRACKET_CLOSE=""
 
 addSource "$HOME/.pythonbrew/etc/bashrc"
 addSource "$HOME/.rvm/scripts/rvm"

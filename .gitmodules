@@ -1,9 +1,0 @@
-[submodule ".local/share/liquidprompt"]
-	path = .local/share/liquidprompt
-	url = https://github.com/nojhan/liquidprompt.git
-[submodule ".config/urxvt/urxvt-perls"]
-	path = .config/urxvt/urxvt-perls
-	url = https://github.com/muennich/urxvt-perls.git
-[submodule ".config/urxvt/urxvt-font-size"]
-	path = .config/urxvt/urxvt-font-size
-	url = https://github.com/majutsushi/urxvt-font-size.git
