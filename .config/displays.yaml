@@ -3,22 +3,28 @@ maxdisplays: 2
 displays:
 - LVDS1:
     auto: Yes
-- LVDS1: No
+- LVDS1: # Laptop + Projector
+    auto: Yes
+  VGA1:
+    auto: Yes
+    right-of: LVDS1
+- LVDS1: No # Home, laptop docked + 27+24
   DP2:
     mode: 1920x1200
     rotate: left
   DP3:
     mode: 2560x1440
-    right-of: DP2
+    pos: 1200x240
     primary: Yes
-- LVDS1:
+- LVDS1: # Work, laptop + 27
     auto: Yes
   DP1:
     auto: Yes
     left-of: LVDS1
-- DVI-D-0:
+- DVI-D-0: # Home, desktop, 27+24
     mode: 1920x1200
     rotate: left
   DVI-I-1:
     mode: 2560x1440
-    right-of: DVI-D-0
+    pos: 1200x240
+    primary: Yes
