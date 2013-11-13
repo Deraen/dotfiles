@@ -1,0 +1,3 @@
+[Desktop Entry]
+Name=Reboot
+Exec=dbus-send --system --dest=org.freedesktop.ConsoleKit --type=method_call --print-reply --reply-timeout=2000 /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart
