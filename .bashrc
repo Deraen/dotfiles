@@ -41,6 +41,7 @@ export TERM="rxvt-unicode-256color"
 if [ "$HOSTNAME" = "alpha-144.srv.hosting.fi" ]; then
     export TERM="xterm"
 fi
+[ -n "$TMUX" ] && export TERM=screen-256color
 
 LP_BRACKET_OPEN=""
 LP_BRACKET_CLOSE=""
