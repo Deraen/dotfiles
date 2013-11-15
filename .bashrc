@@ -84,4 +84,5 @@ addSource "$HOME/.rvm/scripts/rvm"
 # Home git repo, don't show untracked files on status
 cd $HOME && git config status.showUntrackedFiles no
 
+# bash <(curl -kL https://raw.github.com/baabelfish/tpm/master/init)
 source /home/juho/.local/tpm/.config
