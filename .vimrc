@@ -55,7 +55,6 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/L9'
-" NeoBundle 'vim-scripts/Vimchant'
 NeoBundle 'vim-scripts/rainbow_parentheses.vim'
 NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -67,12 +66,12 @@ NeoBundle 'justinmk/vim-sneak'
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
 " java -jar eclim_2.3.2.jar
-NeoBundleLazy '~/.vim/bundle/eclim'
-function! LoadEclim()
-  NeoBundleSource 'eclim'
-  let g:EclimCompletionMethod = 'omnifunc'
-endfunction
-autocmd FileType java,scala call LoadEclim()
+" NeoBundleLazy '~/.vim/bundle/eclim'
+" function! LoadEclim()
+"   NeoBundleSource 'eclim'
+"   let g:EclimCompletionMethod = 'omnifunc'
+" endfunction
+" autocmd FileType java,scala call LoadEclim()
 
 NeoBundleLazy 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
 autocmd FileType javascript NeoBundleSource 'tern_for_vim'

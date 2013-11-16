@@ -2,6 +2,8 @@
 
 source /home/$USER/.profile
 
+xmodmap .Xmodmap
+
 nm-applet &
 gnome-sound-applet &
 dropbox start &
