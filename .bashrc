@@ -43,9 +43,6 @@ if [ "$HOSTNAME" = "alpha-144.srv.hosting.fi" ]; then
 fi
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-LP_BRACKET_OPEN=""
-LP_BRACKET_CLOSE=""
-
 export npm_config_prefix="$HOME/.local"
 
 function exportIfExists {
