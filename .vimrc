@@ -325,9 +325,9 @@ let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --column -i --ign
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_identifier_chars = '_-/.><'
 let g:ycm_register_as_syntastic_checker = 1
-let g:ycm_semantic_triggers = {
-      \ 'clojure' : ['(', '/']
-      \ }
+" let g:ycm_semantic_triggers = {
+"       \ 'clojure' : ['(', '/']
+"       \ }
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 let g:ycm_filetype_blacklist = {

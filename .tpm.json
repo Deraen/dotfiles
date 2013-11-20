@@ -1,27 +1,32 @@
 {
   "verbose": true,
   "packages": {
-    "Deraen/dspmgr": "*",
-    "Deraen/pwrmgr": "*",
-    "baabelfish/tpm-filemanagement": "*",
-    "nojhan/liquidprompt": {
+    "tpm": "baabelfish/tpm",
+    "dspmgr": "Deraen/dspmgr",
+    "pwrmgr": "Deraen/pwrmgr",
+    "tpm-filemanagement": "baabelfish/tpm-filemanagement",
+    "liquidprompt": {
+      "url": "nojhan/liquidprompt",
       "source": ["liquidprompt"]
     },
-    "muennich/urxvt-perls": "*",
-    "majutsushi/urxvt-font-size": "*",
-    "alols/xcape": {
+    "urxvt-perls": "muennich/urxvt-perls",
+    "urxvt-font-size": "majutsushi/urxvt-font-size",
+    "xcape": {
+      "url": "alols/xcape",
       "bin": {
         "xcape": "xcape"
       },
       "build": "make"
     },
-    "knopwob/dunst": {
+    "dunst": {
+      "url": "knopwob/dunst",
       "bin": {
         "dunst": "dunst"
       },
       "build": "make"
     },
-    "falconindy/ponymix": {
+    "ponymix": {
+      "url": "falconindy/ponymix",
       "bin": {
         "ponymix": "ponymix"
       },
