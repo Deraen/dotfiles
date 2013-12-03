@@ -17,7 +17,9 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Valloric/YouCompleteMe', {'build': {'unix': './install.sh --clang-completer'}}
+NeoBundle 'Valloric/YouCompleteMe'
+", {'build': {'unix': './install.sh --clang-completer'}}
+NeoBundle 'vim-scripts/bufkill.vim'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'b4winckler/vim-angry'
@@ -94,7 +96,7 @@ endif
 set autoread
 set backspace=indent,eol,start
 set clipboard+=unnamedplus
-set expandtab
+set expandtab shiftround copyindent preserveindent
 set fillchars+=vert:│
 set gdefault
 set hidden
@@ -120,7 +122,6 @@ set nowrap
 set nrformats-=octal
 set shortmess+=filmnrxoOtTI
 set smartcase
-set smartindent
 set smarttab
 set ttimeout
 set ttimeoutlen=0
@@ -173,7 +174,7 @@ nnoremap <M-c> :tabclose<cr>:echo ""<cr>
 nnoremap <M-n> <C-w>v
 nnoremap <M-m> <C-w>s
 " nnoremap <M-w> <C-w><C-w>
-nnoremap <M-w> :bd<cr>
+nnoremap <M-w> :BD<cr>
 nnoremap <C-j> :res -5<cr>
 nnoremap <C-k> :res +5<cr>
 nnoremap <C-h> :vert res -5<cr>
