@@ -64,6 +64,7 @@ NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'mihaifm/bck'
 NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'kien/ctrlp.vim'
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
@@ -128,6 +129,7 @@ set ttimeoutlen=0
 set wildmenu
 set wildmode=longest,list
 set wildignorecase
+set formatoptions-=tc
 set wrapmargin=0
 set nonumber
 set relativenumber
@@ -189,11 +191,13 @@ nnoremap ä :w<CR>
 nnoremap <silent><space><space> :set nohls!<cr>
 
 " Sama kun sublimen C-r
-nnoremap <silent><space>f m':Unite -hide-status-line outline<CR>
+" nnoremap <silent><space>f m':Unite -hide-status-line outline<CR>
 " Sama kun sublimen C-p
-nnoremap <silent><space>p :Unite -silent file_rec/async<CR>
-nnoremap <silent><space>y :Unite -silent history/yank<CR>
-nnoremap <silent><space>b :Unite -silent buffer_tab<CR>
+" nnoremap <silent><space>p :Unite -silent file_rec/async<CR>
+nnoremap <silent><space>p :CtrlP<cr>
+" nnoremap <silent><space>y :Unite -silent history/yank<CR>
+" nnoremap <silent><space>b :Unite -silent buffer_tab<CR>
+nnoremap <silent><space>b :CtrlPBuffer<cr>
 nnoremap <silent><space>s :Startify<CR>
 
 autocmd FileType unite call s:unite_settings()
@@ -215,6 +219,24 @@ function! ColorPicker(insert)
 endfunction
 nnoremap <silent><space>c :call ColorPicker(0)<cr>
 inoremap <silent><M-c> <C-o>:call ColorPicker(1)<cr>
+
+let g:dfm_fullscreen=0
+let g:dfm_nd=0
+function! Fullscreen()
+  if g:dfm_nd
+    call NoDistraction()
+  endif
+  if g:dfm_fullscreen
+    tab close
+    set showtabline=1
+  else
+    tab split
+    set showtabline=0
+  endif
+  let g:dfm_fullscreen=!g:dfm_fullscreen
+endfunction
+
+nnoremap <silent><M-f> :call Fullscreen()<cr>:echo ""<cr>
 
 " Lisää ja vähentää seuraavasta numerosta
 nnoremap + <C-a>
@@ -321,6 +343,9 @@ call unite#custom_source('history/yank', 'matchers', ['matcher_fuzzy'])
 call unite#custom_source('file_rec/async', 'matchers', ['matcher_fuzzy'])
 
 let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden -g ""'
+
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
 
 " ycm
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'

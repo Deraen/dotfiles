@@ -16,7 +16,14 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$HOME/.local/bin::$PATH"
+if [[ -d "$HOME/bin" ]]; then
+    if [[ :$PATH: != *:"$HOME/bin":* ]]; then
+	export PATH="$HOME/bin:$PATH"
+    fi
+fi
+
+if [[ -d "$HOME/.local/bin" ]]; then
+    if [[ :$PATH: != *:"$HOME/.local/bin":* ]]; then
+	export PATH="$HOME/.local/bin:$PATH"
+    fi
 fi

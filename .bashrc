@@ -54,7 +54,7 @@ exportIfExists ANDROID_HOME "/opt/android-sdk-linux_x86"
 exportIfExists ANDROID_HOME "$HOME/.local/android-sdk"
 
 function addPath {
-    [[ -d "$1" ]] && export PATH="$1:$PATH"
+    [[ -d "$1" ]] && [[ :$PATH: != *:"$1":* ]] && export PATH="$1:$PATH"
 }
 
 function addSource {
