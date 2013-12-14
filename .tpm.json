@@ -32,7 +32,8 @@
       },
       "build": "make"
     },
-    "HarveyHunt/i3situation": {
+    "i3situation": {
+      "url": "HarveyHunt/i3situation",
       "build": "python3 setup.py install --user"
     }
   }
