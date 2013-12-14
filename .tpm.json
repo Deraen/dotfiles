@@ -31,6 +31,9 @@
         "ponymix": "ponymix"
       },
       "build": "make"
+    },
+    "HarveyHunt/i3situation": {
+      "build": "python3 setup.py install --user"
     }
   }
 }

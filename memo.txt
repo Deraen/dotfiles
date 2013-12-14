@@ -19,9 +19,6 @@ ssh-copy-id user@host
 
 git merge -s recursive -X theirs origin/master
 
-# Mplugd dep
-sudo pip install --upgrade svn+svn://svn.code.sf.net/p/python-xlib/code/trunk#egg=python-xlib
-
 # G500 settings
 sudo ./g500_control /dev/usb/hiddev0 --urr_default --as_default --dpi_3 400 400 700 700 1200 1200 dpi_btn_up
 
