@@ -4,11 +4,13 @@ source /home/$USER/.profile
 
 xmodmap .Xmodmap
 
+dunst &
 nm-applet &
 gnome-sound-applet &
 dropbox start &
 [[ "$HOSTNAME" == "juho-laptop" ]] && xset dpms 600
-[[ "$HOSTNAME" == "juho-laptop" ]] && xautolock -time 10 -detectsleep -locker "i3lock -c 111111; suspend.py --force" &
+[[ -f /usr/bin/light-locker ]] && light-locker &
+[[ "$HOSTNAME" == "juho-laptop" ]] && xautolock -time 10 -detectsleep -locker "lock.sh" &
 xcape -e "Alt_L=Escape"
 rndbg.sh
 compton &

@@ -10,7 +10,7 @@ NAME=$(sort ~/.cache/desktopfilesuses.txt | join -t "	" --nocheck-order -a 1 ~/.
 
 COMMAND=$(grep "$NAME" ~/.cache/desktopfiles.txt | cut -f2)
 
-[[ ! -e ~/.cache/desktopfileuses.txt ]] && touch ~/.cache/desktopfilesuses.txt
+[[ ! -e ~/.cache/desktopfilesuses.txt ]] && touch ~/.cache/desktopfilesuses.txt
 
 MATCH=$(grep "$NAME" ~/.cache/desktopfilesuses.txt)
 if [[ "$MATCH" == "" ]]; then
@@ -22,3 +22,4 @@ else
 fi
 
 echo $COMMAND
+exec $COMMAND

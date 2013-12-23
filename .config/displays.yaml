@@ -21,6 +21,11 @@ displays:
   DP1:
     auto: Yes
     left-of: LVDS1
+- LVDS1:
+    auto: yes
+  DP2:
+    auto: Yes
+    right-of: LVDS1
 - DVI-D-0: # Home, desktop, 27+24
     mode: 1920x1200
     rotate: left
