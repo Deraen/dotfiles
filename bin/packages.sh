@@ -1,196 +1,179 @@
 #!/bin/bash
+# Author: Juho Teperi <juho.teperi@iki.fi>
+
+# I have no idea if this works for installing packages... (Order of installs and such...)
+# It however succesfully marks already installed packages auto or manual
+
+installpath=/home/juho/bin
+. $installpath/packages-functions.sh
 
 # BASE
-INSTALL="ubuntu-desktop
-ubuntu-minimal
-ubuntu-standard
-lsb-base
-lsb-core
-linux-generic
-build-essential
-language-pack-gnome-en
-language-pack-gnome-fi"
+install ubuntu-desktop
+install ubuntu-minimal
+install ubuntu-standard
+install lsb-base
+install lsb-core
+install linux-generic
+install build-essential
 
-# Repos
-INSTALL="${INSTALL}
-getdeb-repository
-playdeb"
+# Language stuff
+install language-pack-gnome-en
+install language-pack-gnome-fi
+install libreoffice-voikko
+install libreoffice-l10n-fi
+install openoffice.org-hyphenation
+install hyphen-en-us
+install libreoffice-l10n-en-gb
+
+# Repos, FIXME: manage all ppa/repos?
+install getdeb-repository
+install playdeb
 
 # Devices?
-INSTALL="${INSTALL}
-usb-modeswitch"
+install usb-modeswitch # for 3G usb modems
 
 # Tools
-INSTALL="${INSTALL}
-openssh-client
-libav-tools
-dos2unix
-ppa-purge
-foremost
-launchpad-getkeys
-apt-rdepends
-acpi
-mosh
-tree
-tmux
-zsh
-powertop
-jq
-silversearcher-ag
-vim-gtk
-emacs24
-sshfs
-atop
-htop
-apache2-utils
-tarsnap
-gcc-msp430
-mspdebug
-p7zip
-mediatomb
-ccze
-tmispell-voikko"
+install acpi # View ACPI info, e.g. CPU temp (on laptop)
+install apache2-utils # htpasswd
+install atop # IO top
+install htop
+install jq # JSON processor
+install launchpad-getkeys
+install libav-tools
+install mediatomb # UPnP Mediaserver - share videos to TVs
+install mosh
+install openssh-client
+install p7zip
+install powertop
+install ppa-purge
+install silversearcher-ag # Fast file searches
+install sshfs
+install tarsnap 1.0.34-1 http://juho.tontut.fi/debs/tarsnap_1.0.34-1_amd64.deb # Backups
+install tmispell-voikko
+install tmux
+install tree
+install zsh
 
-# Programming languages
-INSTALL="${INSTALL}
-oracle-java7-set-default
-nodejs
-ghc
-gprolog"
+# Editor
+install vim-gtk
+install emacs24
+install sublime-text-installer
 
-# DEV
-INSTALL="${INSTALL}
-libllvm3.4
-libclang-3.4-dev
-arduino
-pep8
-python3-pip
-heroku-toolbelt
-git
-mongodb-10gen
-maven3
-ant
-mercurial
-valgrind
-cabal-install
-git-flow
-qtcreator
-mono-runtime
-mono-gmcs
-sbt
-nailgun
-tcl
-leap
-devscripts
-ubuntu-dev-tools
-libboost-all-dev"
+# Java
+install oracle-java7-set-default
+install maven3
+install ant
+install nailgun # Start JVM quicky - by running some JVM's on background
+
+# Node
+install nodejs
+
+# Haskell
+install ghc
+install cabal-install
+
+# Prolog
+install gprolog
+
+# Scala
+install sbt 0.13.1-0.1-build-001 http://repo.scala-sbt.org/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.13.1/sbt.deb
+
+# Embedded
+install gcc-msp430 # TI Launchpad
+install mspdebug
+install arduino
+
+# C++
+install libllvm3.4
+install libclang-3.4-dev
+install qtcreator
+install valgrind
+
+# Python
+install pep8
+install python3-pip
+
+# Tcl - this is probably quite useless
+install tcl
+
+# Version control
+install git
+install git-flow
+install mercurial
+
+# Dev tools
+install heroku-toolbelt
+install mono-runtime # This might be useful for running .NET programs (even those targeted at Windows)
+install mono-gmcs
+install leap 0.8.0 # Leapmotion
+install devscripts
+install ubuntu-dev-tools
+install libboost-all-dev
+install mongodb-10gen
 
 # TEX
-INSTALL="${INSTALL}
-texlive
-texlive-latex-extra
-texlive-xetex
-texlive-fonts-recommended
-texlive-lang-european
-biber"
+install texlive
+install texlive-latex-extra
+install texlive-xetex
+install texlive-fonts-recommended
+install texlive-lang-european
+install biber
 
 # Desktop env
-INSTALL="${INSTALL}
-i3
-compton
-conky-all
-xautolock
-faenza-icon-theme
-light-locker"
+install i3
+install compton
+install conky-all
+install xautolock
+install faenza-icon-theme # Folder icons etc. are still horrible on Humanity theme
+install light-locker # Use Lightdm as lock screen (enables guest login when locked)
 
 # GUI software
-INSTALL="${INSTALL}
-prey
-virtualbox-4.3
-google-chrome-stable
-google-talkplugin
-sublime-text-installer
-comix
-qgit
-dropbox
-steam:i386
-calibre
-feh
-mumble
-transmission-remote-gtk
-pipelight
-blender
-cheese
-hipchat
-skype:i386
-inkscape
-gimp
-gimp-plugin-registry
-keepassx
-pitivi
-playonlinux
-pgadmin3
-flashplugin-installer
-spotify-client
-smplayer2
-simplescreenrecorder
-quassel-client-qt4
-gnome-activity-journal
-ghex"
-
-# GUI "tools"
-INSTALL="${INSTALL}
-activity-log-manager
-unetbootin
-avahi-discover
-d-feet
-dconf-editor
-gparted
-libreoffice-voikko
-libreoffice-l10n-fi
-openoffice.org-hyphenation
-hyphen-en-us
-libreoffice-l10n-en-gb"
+install activity-log-manager # Manage what Zeitgeist saves
+install gnome-activity-journal # Browse Zeitgeist history
+install avahi-discover # Browse Avahi devices on current network (AirPlay, Pulseaudio)
+install blender
+install calibre # Ebook library / reader
+install comix # CBR/CBZ comicbook reader
+install d-feet # Browse DBus
+install dconf-editor # Edit Dconf settings (mostly Gnome stuff)
+install dropbox
+install feh # Image viewer
+install flashplugin-installer
+install ghex # Hex editor
+install gimp
+install gimp-plugin-registry
+install google-chrome-stable
+install google-talkplugin
+install gparted
+install hipchat
+install inkscape
+install keepassx # Password manager
+install mumble
+install pgadmin3 # PostgreSQL admin
+install pipelight # Silverlight in browser using wine
+install pitivi # Video editor
+install playonlinux
+install qgit
+install quassel-client-qt4
+install simplescreenrecorder
+install skype:i386
+install smplayer2
+install spotify-client
+install steam:i386
+install transmission-remote-gtk
+install unetbootin # Install Linux/etc images into USB stiff
+install virtualbox-4.3
 
 # Laptop specific
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        INSTALL="${INSTALL}
-        thinkfan
-        i965-va-driver
-        tlp"
+        install cheese # Webcam
+        install prey 0.6.2-ubuntu2 https://s3.amazonaws.com/prey-releases/bash-client/0.6.2/prey_0.6.2-ubuntu2_all.deb
+        install thinkfan
+        install i965-va-driver
+        install tlp
 fi
 
-# ---
-
-# Check for manually installed packages which are not needed
-for x in $(apt-mark showmanual); do
-        needed="0"
-        for y in ${INSTALL}; do
-                if [[ "${x}" == "${y}" ]]; then
-                        needed="1"
-                        break
-                fi
-        done
-
-        if [[ "${needed}" == "0" ]]; then
-                echo "${x} is marked manual but is not needed -> mark auto"
-                apt-mark auto ${x} > /dev/null
-        fi
-done
-
-# Check for not marked packages which are wanted
-for x in ${INSTALL}; do
-        echo "- ${x}?"
-        installed=$(dpkg --get-selections ${x} | grep -q install)
-        auto=$(apt-mark showauto ${x} | wc -l)
-        if [[ "${installed}" == "1" ]]; then
-                echo "  Not installed -> installing"
-                apt-get install ${x}
-        elif [[ "${auto}" == "1" ]]; then
-                echo "  Automatically installed -> mark manual"
-                apt-mark manual ${x} > /dev/null
-        fi
-done
+markauto
 
 # Uninstall unnecessary
 # apt-get autoremove
