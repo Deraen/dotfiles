@@ -8,6 +8,7 @@ function getVersion {
 }
 
 function mark {
+        # FIXME: This is slow? Is there some other command to get same info?
         local auto=$(apt-mark showauto ${1} | wc -l)
         if [[ "${auto}" == "1" ]]; then
                 echo "	Automatically installed -> mark manual"

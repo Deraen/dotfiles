@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# PMM? Package Manager Manager!
 # Author: Juho Teperi <juho.teperi@iki.fi>
 
 # I have no idea if this works for installing packages... (Order of installs and such...)
@@ -6,6 +8,55 @@
 
 installpath=/home/juho/bin
 . $installpath/packages-functions.sh
+. $installpath/packages-repos.sh
+
+ppa ajf trg saucy
+ppa chilicuil sucklesstools precise # Latest dmenu
+ppa chris-lea node.js saucy
+ppa ehoover compholio saucy # Wine - for pipelight
+ppa fcwu-tw ppa raring # VIM
+ppa light-locker release saucy
+ppa maarten-baert simplescreenrecorder saucy
+ppa mizuno-as silversearcher-ag saucy
+ppa motumedia mplayer-daily raring
+ppa mqchael pipelight saucy
+ppa n-muench calibre saucy
+ppa natecarlson maven3 precise
+ppa nilarimogard webupd8 saucy # Launchpad-getkeys? Stuff
+ppa otto-kesselgulasch gimp saucy
+ppa richardgv compton saucy
+ppa smplayer2 daily saucy
+ppa tiheum equinox raring # Faenza-icon-theme
+ppa ubuntu-wine ppa saucy
+ppa videolan master-daily saucy
+ppa webupd8team java saucy # Oracle java
+ppa webupd8team sublime-text-3 saucy
+repo atlassian-hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
+repo dropbox "deb http://linux.dropbox.com/ubuntu raring main"
+repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games" # Transmission-remote-gtk
+repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
+repo google-musicmanager "deb http://dl.google.com/linux/musicmanager/deb/ stable main"
+repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
+repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
+repo i3 "deb http://debian.sur5r.net/i3/ saucy universe"
+repo mongodb "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
+repo opera "deb http://deb.opera.com/opera-beta/ stable non-free"
+repo playonlinux "deb http://deb.playonlinux.com/ natty main"
+repo spotify "deb http://repository.spotify.com stable non-free"
+repo steam "deb http://repo.steampowered.com/steam/ precise steam"
+repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian saucy non-free contrib"
+
+if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
+        ppa bitcoin bitcoin raring
+fi
+
+if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
+        ppa linrunner tlp saucy
+fi
+
+clearRepos
+# launchpad-getkeys?
+# apt-get update?
 
 # BASE
 install ubuntu-desktop
@@ -24,10 +75,6 @@ install libreoffice-l10n-fi
 install openoffice.org-hyphenation
 install hyphen-en-us
 install libreoffice-l10n-en-gb
-
-# Repos, FIXME: manage all ppa/repos?
-install getdeb-repository
-install playdeb
 
 # Devices?
 install usb-modeswitch # for 3G usb modems
