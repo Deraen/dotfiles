@@ -11,10 +11,9 @@ installpath=/home/juho/bin
 . $installpath/packages-repos.sh
 
 ppa ajf trg saucy
-ppa chilicuil sucklesstools precise # Latest dmenu
+ppa chilicuil sucklesstools saucy # Latest dmenu
 ppa chris-lea node.js saucy
 ppa ehoover compholio saucy # Wine - for pipelight
-ppa fcwu-tw ppa raring # VIM
 ppa light-locker release saucy
 ppa maarten-baert simplescreenrecorder saucy
 ppa mizuno-as silversearcher-ag saucy
@@ -63,7 +62,6 @@ install ubuntu-desktop
 install ubuntu-minimal
 install ubuntu-standard
 install lsb-base
-install lsb-core
 install linux-generic
 install build-essential
 
@@ -159,7 +157,6 @@ install libboost-all-dev
 install mongodb-10gen
 
 # TEX
-install texlive
 install texlive-latex-extra
 install texlive-xetex
 install texlive-fonts-recommended

@@ -16,10 +16,6 @@ function mark {
         fi
 }
 
-function installApt {
-        apt-get install ${1}
-}
-
 function installLocal {
         echo"	No URL given for local page. Install manually plz?"
 }
@@ -34,17 +30,17 @@ function install {
         INSTALL="${INSTALL}
         ${1}"
 
-        local installed=$(dpkg --get-selections ${1} | grep -q install)
+        local installed=$(dpkg --get-selections ${1} 2>&1 | grep install | wc -l)
         if [[ "${installed}" == "0" ]]; then
                 # Second parameter = manual version
                 # Third paramter = url for manual install
                 echo "	Not installed -> installing"
-                if [[ -z "${2}" ]]; then
-                        installApt ${1}
-                elif [[ -z "${3}" ]]; then
+                if [[ "${3}" != "" ]]; then
+                        installRemote ${1} ${2} ${3}
+                elif [[ "${2}" != "" ]]; then
                         installLocal ${1} ${2}
                 else
-                        installRemote ${1} ${2} ${3}
+                        apt-get install ${1}
                 fi
         fi
 
