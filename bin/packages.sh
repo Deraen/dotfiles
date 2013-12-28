@@ -3,8 +3,7 @@
 # PMM? Package Manager Manager!
 # Author: Juho Teperi <juho.teperi@iki.fi>
 
-# I have no idea if this works for installing packages... (Order of installs and such...)
-# It however succesfully marks already installed packages auto or manual
+# I have no idea how well this works for a new installation
 
 installpath=/home/juho/bin
 . $installpath/packages-functions.sh
@@ -34,7 +33,6 @@ repo atlassian-hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 repo dropbox "deb http://linux.dropbox.com/ubuntu raring main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games" # Transmission-remote-gtk
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
-repo google-musicmanager "deb http://dl.google.com/linux/musicmanager/deb/ stable main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
 repo i3 "deb http://debian.sur5r.net/i3/ saucy universe"
@@ -47,6 +45,7 @@ repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian saucy non-
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin raring
+        repo google-musicmanager "deb http://dl.google.com/linux/musicmanager/deb/ stable main"
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
@@ -85,7 +84,7 @@ install htop
 install jq # JSON processor
 install launchpad-getkeys
 install libav-tools
-install mediatomb # UPnP Mediaserver - share videos to TVs
+install mediatomb # UPnP Mediaserver - share videos to TVs / tablet
 install mosh
 install openssh-client
 install p7zip
@@ -167,7 +166,6 @@ install biber
 install i3
 install compton
 install conky-all
-install xautolock
 install faenza-icon-theme # Folder icons etc. are still horrible on Humanity theme
 install light-locker # Use Lightdm as lock screen (enables guest login when locked)
 
@@ -207,6 +205,22 @@ install steam:i386
 install transmission-remote-gtk
 install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-4.3
+install typecatcher # Install Google webfonts
+
+if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
+        install fail2ban
+        install google-musicmanager-beta
+        install palm-novacom # Touchpad. Local?
+        install bitcoin-qt
+        install picard # MusicBrainz audio tagger
+        install puddletag # MP3 tagger
+        install luminance-hdr # HDR images
+        install transmageddon # Video transcoder
+        install vdpau-va-driver # Use vdpau from VA api? For VLC?
+        install hugin # Panorama stitcher
+        install jack-rack # JACK LADSPA effects
+        install guitarix # Guitar AMP
+fi
 
 # Laptop specific
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
@@ -215,6 +229,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install thinkfan
         install i965-va-driver
         install tlp
+        install xautolock
 fi
 
 markauto

@@ -17,7 +17,7 @@ function mark {
 }
 
 function installLocal {
-        echo"	No URL given for local page. Install manually plz?"
+        echo "	No URL given for local page. Install manually plz?"
 }
 
 function installRemote {
