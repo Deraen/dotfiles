@@ -74,7 +74,10 @@ elif [ "$HOSTNAME" = "juho-desktop" ]; then
 	# HOME=`df -PB1 /home | grep /home | awk '{ print $4 }'`
 	# [ "$HOME" ] || HOME=U
 
+	GPUT=$(nvidia-smi -q -d TEMPERATURE | grep Gpu | sed 's/.*\([0-9]\{2\}\).*/\1/')
+
 	rrdtool update "$DIR/lammot.rrd" N:$CPUT:U:U:U:U:U:U
+	rrdtool update "$DIR/desktop-gpucoretemp.rrd" N:$GPUT
 	rrdtool update "$DIR/load.rrd" N:$MIN1:$MIN5:$MIN15
 	rrdtool update "$DIR/cpup.rrd" N:$CPUS
 	rrdtool update "$DIR/levyt.rrd" N:$ROOT:U:U:U:U:U:U

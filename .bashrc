@@ -70,6 +70,7 @@ addPath /raid/opt/android-ndk
 addPath /opt/android-sdk-linux_x86/platform-tools
 addPath /opt/android-sdk-linux_x86/tools
 addPath /opt/android-ndk
+addPath /usr/local/cuda-5.5/bin
 addPath "/Applications/Android Studio.app/sdk/platform-tools"
 addPath "/Applications/Android Studio.app/sdk/tools"
 addPath "$HOME/.rvm/bin"

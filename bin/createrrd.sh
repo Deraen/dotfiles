@@ -10,6 +10,10 @@ if [ ! -f "$DIR/server_temp_cpu.rrd" ]; then
 	rrdtool create --start N --step 300 "$DIR/server_temp_cpu.rrd" DS:cput:GAUGE:450:10:120 RRA:AVERAGE:0.5:1:800 RRA:AVERAGE:0.5:6:800 RRA:AVERAGE:0.5:24:800 RRA:AVERAGE:0.5:288:800 RRA:MAX:0.5:288:800 RRA:MIN:0.5:288:800
 fi
 
+if [ ! -f "$DIR/desktop-gpucoretemp.rrd" ]; then
+	rrdtool create --start N --step 300 "$DIR/desktop-gpucoretemp.rrd" DS:gpucoretemp:GAUGE:450:10:120 RRA:AVERAGE:0.5:1:800 RRA:AVERAGE:0.5:6:800 RRA:AVERAGE:0.5:24:800 RRA:AVERAGE:0.5:288:800 RRA:MAX:0.5:288:800 RRA:MIN:0.5:288:800
+fi
+
 if [ ! -f "$DIR/load.rrd" ]; then
 	rrdtool create --start N --step 300 "$DIR/load.rrd" DS:min1:GAUGE:450:U:U DS:min5:GAUGE:450:U:U DS:min15:GAUGE:450:U:U RRA:AVERAGE:0.5:1:800 RRA:AVERAGE:0.5:6:800 RRA:AVERAGE:0.5:24:800 RRA:AVERAGE:0.5:288:800 RRA:MAX:0.5:288:800 RRA:MIN:0.5:288:800
 fi
