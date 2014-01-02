@@ -15,7 +15,7 @@ font pango:Ubuntu 8
 
 # class                 border  backgr. text    indicator
 client.focused          #4c7899 #1f3342 #ffffff #184c73
-client.focused_inactive $bg     $bg     #ffffff #484e50
+client.focused_inactive #375870 #0c1319 #ffffff #484e50
 client.unfocused        $bg     $bg     #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
