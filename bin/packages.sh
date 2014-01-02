@@ -137,9 +137,6 @@ install valgrind
 install pep8
 install python3-pip
 
-# Tcl - this is probably quite useless
-install tcl
-
 # Version control
 install git
 install git-flow
@@ -152,8 +149,18 @@ install mono-gmcs
 install leap 0.8.0 # Leapmotion
 install devscripts
 install ubuntu-dev-tools
-install libboost-all-dev
 install mongodb-10gen
+
+# Dev dependencies
+install libboost-all-dev
+install libpulse-dev # Ponymix
+install libxft-dev # Dunst
+install libpango1.0-dev # Dunst
+install libcairo2-dev # Dunst
+install libxdg-basedir-dev # Dunst
+install libxss-dev # Dunst (libXscrnsaver)
+install libxinerama-dev # Dunst
+install libnotify-dev # Dunst
 
 # TEX
 install texlive-latex-extra
@@ -163,8 +170,8 @@ install texlive-lang-european
 install biber
 
 # Desktop env
-install i3
-install compton
+install i3 # Tiling WM
+install compton # Compositing, xcompmgr fork
 install conky-all
 install faenza-icon-theme # Folder icons etc. are still horrible on Humanity theme
 install light-locker # Use Lightdm as lock screen (enables guest login when locked)
@@ -194,9 +201,9 @@ install mumble
 install pgadmin3 # PostgreSQL admin
 install pipelight # Silverlight in browser using wine
 install pitivi # Video editor
-install playonlinux
+install playonlinux # Wine frontend for games
 install qgit
-install quassel-client-qt4
+install quassel-client-qt4 # Irc
 install simplescreenrecorder
 install skype:i386
 install mpv
@@ -206,6 +213,7 @@ install steam:i386
 install transmission-remote-gtk
 install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-4.3
+install wine1.7
 install typecatcher # Install Google webfonts
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
@@ -221,6 +229,7 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install hugin # Panorama stitcher
         install jack-rack # JACK LADSPA effects
         install guitarix # Guitar AMP
+        install vnstat # Network usage
 fi
 
 # Laptop specific

@@ -17,7 +17,7 @@ function mark {
 }
 
 function installLocal {
-        echo "	No URL given for local page. Install manually plz?"
+        echo "	No URL given for local package Install manually plz?"
 }
 
 function installRemote {
@@ -44,7 +44,7 @@ function install {
                 fi
         fi
 
-        if [[ "${2}" != "" ]]; then
+        if [[ "${installed}" == "1" ]] && [[ "${2}" != "" ]]; then
                 local version=$(getVersion ${1})
                 if [[ "${2}" != "${version}" ]]; then
                         echo "	Upgrade might be available?"
