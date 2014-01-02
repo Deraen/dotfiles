@@ -16,14 +16,14 @@ ppa ehoover compholio saucy # Wine - for pipelight
 ppa light-locker release saucy
 ppa maarten-baert simplescreenrecorder saucy
 ppa mizuno-as silversearcher-ag saucy
-ppa motumedia mplayer-daily raring
 ppa mqchael pipelight saucy
 ppa n-muench calibre saucy
 ppa natecarlson maven3 precise
 ppa nilarimogard webupd8 saucy # Launchpad-getkeys? Stuff
 ppa otto-kesselgulasch gimp saucy
 ppa richardgv compton saucy
-ppa smplayer2 daily saucy
+ppa rvm smplayer saucy # Mplayer UI
+ppa mc3man mpv-tests saucy # Mpv, mplayer[|2] fork
 ppa tiheum equinox raring # Faenza-icon-theme
 ppa ubuntu-wine ppa saucy
 ppa videolan master-daily saucy
@@ -199,7 +199,8 @@ install qgit
 install quassel-client-qt4
 install simplescreenrecorder
 install skype:i386
-install smplayer2
+install mpv
+install smplayer
 install spotify-client
 install steam:i386
 install transmission-remote-gtk

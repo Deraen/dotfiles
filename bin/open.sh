@@ -10,8 +10,8 @@ leave=0
 echo $filename
 
 case "$filename" in
-    *.mp4|*.mkv|*.avi|*.mpg) exe="smplayer2" && leave=1 ;;
-    *.mp3|*.ogg|*.wav|*.flac) exe="smplayer2" && leave=0 ;;
+    *.mp4|*.mkv|*.avi|*.mpg) exe="smplayer" && leave=1 ;;
+    *.mp3|*.ogg|*.wav|*.flac) exe="smplayer" && leave=0 ;;
     *.jpg|*.jpeg|*.png|*.bmp) exe="feh" && leave=1 ;;
     *.gif) exe="google-chrome" && leave=0 ;;
     *.htm|*.html|*.xhtml) exe="google-chrome" ;;
