@@ -5,78 +5,78 @@ declare -a NAMES
 declare -A INSTALL
 
 function getVersion {
-        apt-cache show ${1} | grep Version | head -n1 | cut -d " " -f2
+        apt-cache show $1 | grep Version | head -n1 | cut -d " " -f2
 }
 
 function installLocal {
         local name=$1
-        local package=(${2})
+        local package=($2)
         local version=${package[0]}
         local url=${package[1]}
 
-        if [[ "${url}" != "" ]]; then
-                wget -O /tmp/${name}.deb "${url}"
+        if [[ $url ]]; then
+                wget -O /tmp/${name}.deb "$url"
                 dpkg -i /tmp/${name}.deb
-        elif [[ "${version}" != "" ]]; then
+        elif [[ $version ]]; then
                 echo "	No URL given for local package Install manually plz?"
         fi
 }
 
 function install {
         # Keep order of packages in indexed array
-        NAMES+=(${1})
-        # Store data in associateive array
-        INSTALL["${1}"]="${2} ${3}"
+        NAMES+=($1)
+        # Store data in associative array by package name (fast to check if package by some name is wanted)
+        INSTALL["$1"]="$2 $3"
 }
 
 function markauto {
-        # Check for manually installed packages which are not needed
+        # Build associate array of packages which are manually selected
+        # Used to check if package by some name is not manyally selected
         declare -A manual
-        for x in $(apt-mark showmanual); do manual["${x}"]=1; done
+        for x in $(apt-mark showmanual); do manual["$x"]=1; done
 
+        # Build associative array of packages installed in system
         declare -A installed
         for x in $(dpkg --get-selections "*:amd64" "*:all" | grep -w install$ | cut -f1); do installed["${x%:amd64}"]=1; done
         for x in $(dpkg --get-selections "*:i386" | grep -w install$ | cut -f1); do
                 local fix=$x
-                if [[ ! $fix == "*:i386" ]]; then fix="${fix}:i386"; fi
-                installed["${fix}"]=1
+                if [[ ! $fix == "*:i386" ]]; then fix="$fix:i386"; fi
+                installed["$fix"]=1
         done
 
-        # OIFS=$IFS; IFS=$'\n'; INSTALL=($INSTALL); IFS=$OIFS
         for x in "${NAMES[@]}"; do
-                local package=(${INSTALL["${x}"]})
-                local name=${x}
+                local package=(${INSTALL["$x"]})
+                local name=$x
                 local version=${package[0]}
-                local url=${package[1]}
 
-                echo "- ${name}?"
-                if [[ -z ${installed["${name}"]} ]]; then
+                echo "- $name?"
+                if [[ -z ${installed["$name"]} ]]; then
                         # Second parameter = manual version
                         # Third paramter = url for manual install
                         echo "	Not installed -> installing"
-                        if [[ "${version}" != "" ]]; then
-                                installLocal ${name} ${INSTALL["${x}"]}
+                        if [[ $version ]]; then
+                                installLocal $name "${package[*]}"
                         else
-                                apt-get install ${name}
+                                apt-get install $name
                         fi
-                elif [[ ${version} != "" ]]; then
+                elif [[ $version ]]; then
                         # Check version if package is already installed and version is defined (="local package")
-                        local current_version=$(getVersion ${name})
-                        if [[ "${version}" != "${current_version}" ]]; then
+                        local current_version=$(getVersion $name)
+                        if [[ $version != $current_version ]]; then
                                 echo "	Upgrade might be available?"
-                                echo "	${current_version} -> ${version}"
-                                installLocal ${name} ${INSTALL["${x}"]}
+                                echo "	$current_version -> $version"
+                                installLocal $name "${package[*]}"
                         fi
-                elif [[ -z ${manual["${name}"]} ]]; then
+                elif [[ -z ${manual["$name"]} ]]; then
                         echo "	Automatically installed -> mark manual"
-                        apt-mark manual ${name} > /dev/null
+                        apt-mark manual $name > /dev/null
                 fi
         done
 
         for x in ${!manual[@]}; do
-                if [[ -z ${INSTALL["${x}"]} ]]; then
-                        echo "${x} is marked manual but is not needed -> mark auto"
-                        apt-mark auto ${x} > /dev/null
+                if [[ -z ${INSTALL["$x"]} ]]; then
+                        echo "$x is marked manual but is not needed -> mark auto"
+                        apt-mark auto $x > /dev/null
                 fi
         done
 }
