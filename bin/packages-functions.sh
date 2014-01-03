@@ -59,17 +59,21 @@ function markauto {
                         else
                                 apt-get install $name
                         fi
-                elif [[ $version ]]; then
-                        # Check version if package is already installed and version is defined (="local package")
-                        local current_version=$(getVersion $name)
-                        if [[ $version != $current_version ]]; then
-                                echo "	Upgrade might be available?"
-                                echo "	$current_version -> $version"
-                                installLocal $name "${package[*]}"
+                else
+                        if [[ $version ]]; then
+                                # Check version if package is already installed and version is defined (="local package")
+                                local current_version=$(getVersion $name)
+                                if [[ $version != $current_version ]]; then
+                                        echo "	Upgrade might be available?"
+                                        echo "	$current_version -> $version"
+                                        installLocal $name "${package[*]}"
+                                fi
                         fi
-                elif [[ -z ${manual["$name"]} ]]; then
-                        echo "	Automatically installed -> mark manual"
-                        apt-mark manual $name > /dev/null
+
+                        if [[ -z ${manual["$name"]} ]]; then
+                                echo "	Automatically installed -> mark manual"
+                                apt-mark manual $name > /dev/null
+                        fi
                 fi
         done
 
