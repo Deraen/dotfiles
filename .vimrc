@@ -17,8 +17,7 @@ NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Valloric/YouCompleteMe'
-", {'build': {'unix': './install.sh --clang-completer'}}
+NeoBundle 'Valloric/YouCompleteMe' " ./install.sh --clang-completer
 NeoBundle 'vim-scripts/bufkill.vim'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'Yggdroot/indentLine'
@@ -59,7 +58,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/L9'
 NeoBundle 'vim-scripts/rainbow_parentheses.vim'
 NeoBundle 'guns/xterm-color-table.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
+" NeoBundle 'editorconfig/editorconfig-vim' " Overwrites filetype configs, even if .editorconfig file doesn't exist on project
+NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'mihaifm/bck'
@@ -97,7 +97,7 @@ endif
 set autoread
 set backspace=indent,eol,start
 set clipboard+=unnamedplus
-set expandtab shiftround copyindent preserveindent
+set expandtab
 set fillchars+=vert:│
 set gdefault
 set hidden
@@ -139,8 +139,6 @@ set scrolloff=100
 set regexpengine=1
 
 set numberwidth=3
-set shiftwidth=2
-set softtabstop=2
 
 set undofile
 set undodir=~/.vim/undo
