@@ -230,6 +230,7 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install jack-rack # JACK LADSPA effects
         install guitarix # Guitar AMP
         install vnstat # Network usage
+        install rrdtool # Stats
 fi
 
 # Laptop specific
