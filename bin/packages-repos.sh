@@ -72,12 +72,12 @@ function clearRepos {
         fi
 
         if [[ $OPS -gt 0 ]]; then
-                if confirm "PPAs/repos changed, run getkeys"; then
+                if confirm "PPAs/repos changed, run getkeys?"; then
                         launchpad-getkeys
-                fi
 
-                if confirm "PPAs/repos changed, run update"; then
-                        apt-get update
+                        if confirm "Did keys change, run update?"; then
+                                apt-get update
+                        fi
                 fi
         fi
 }
