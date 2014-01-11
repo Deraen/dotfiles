@@ -41,7 +41,7 @@ function markauto {
         for x in $(dpkg --get-selections "*:amd64" "*:all" | grep -w install$ | cut -f1); do installed["${x%:amd64}"]=1; done
         for x in $(dpkg --get-selections "*:i386" | grep -w install$ | cut -f1); do
                 local fix=$x
-                if [[ ! $fix == "*:i386" ]]; then fix="$fix:i386"; fi
+                if [[ ! $fix == *:i386 ]]; then fix="$fix:i386"; fi
                 installed["$fix"]=1
         done
 
