@@ -38,12 +38,11 @@ function markauto {
         declare -A installed
         for x in $(dpkg --get-selections "*:amd64" "*:all" | grep -w install$ | cut -f1); do installed["${x%:amd64}"]=1; done
         for x in $(dpkg --get-selections "*:i386" | grep -w install$ | cut -f1); do
-                local fix=$x
-                [[ ! $fix == *:i386 ]] && fix="$fix:i386"
-                installed["$fix"]=1
+                [[ ! $x == *:i386 ]] && x="$x:i386"
+                installed["$x"]=1
         done
 
-        for name in "${NAMES[@]}"; do
+        for name in ${NAMES[@]}; do
                 local package=(${INSTALL["$name"]})
                 local version=${package[0]}
 

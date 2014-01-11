@@ -10,16 +10,14 @@ SOURCESDIR="/etc/apt/sources.list.d"
 function confirm {
         read -r -p "$1 [Y/n] " yes
         yes=${yes,,} # tolower
-        [[ $yes =~ ^(yes|y| ) ]] && return 0
-        return 1
+        [[ $yes =~ ^(yes|y| ) ]]
 }
 
 function changed {
         local old=($(md5sum $1))
         local new=($(echo "$2" | md5sum))
-        # Indexing array by the name only, return the first part, here the hash
-        [[ $new != $old ]] && return 0
-        return 1
+        # Indexing array by the name only, returns the first part, in this case the hash
+        [[ $new != $old ]]
 }
 
 function saveRepo {
@@ -29,7 +27,7 @@ function saveRepo {
         SOURCE_FILES["$filename"]=1
 
         if changed $filename "$content"; then
-                echo "PPA/repo changed or added"
+                echo "$(basename $filename) changed or added"
                 echo $content > $filename
                 OPS=$((OPS + 1))
         fi
@@ -48,9 +46,7 @@ function repo {
 
 function clearRepos {
         local extras=""
-        for file in $SOURCESDIR/*; do
-                echo $file | grep -q "\.save" && continue
-
+        for file in $SOURCESDIR/*.list; do
                 if [[ -z ${SOURCE_FILES["$file"]} ]]; then
                         echo "Found extra repo? $(basename $file)"
                         extras="$extras $x"
