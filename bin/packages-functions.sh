@@ -15,9 +15,7 @@ function installLocal {
         local url=${package[1]}
 
         if [[ $url ]]; then
-                wget -O /tmp/${name}.deb "$url"
-                dpkg -i /tmp/${name}.deb
-                rm /tmp/${name}.deb
+                wget -O /tmp/$name.deb "$url" && dpkg -i /tmp/$name.deb && rm /tmp/$name.deb
         elif [[ $version ]]; then
                 echo "	No URL given for local package Install manually plz?"
         fi
@@ -41,13 +39,12 @@ function markauto {
         for x in $(dpkg --get-selections "*:amd64" "*:all" | grep -w install$ | cut -f1); do installed["${x%:amd64}"]=1; done
         for x in $(dpkg --get-selections "*:i386" | grep -w install$ | cut -f1); do
                 local fix=$x
-                if [[ ! $fix == *:i386 ]]; then fix="$fix:i386"; fi
+                [[ ! $fix == *:i386 ]] && fix="$fix:i386"
                 installed["$fix"]=1
         done
 
-        for x in "${NAMES[@]}"; do
-                local package=(${INSTALL["$x"]})
-                local name=$x
+        for name in "${NAMES[@]}"; do
+                local package=(${INSTALL["$name"]})
                 local version=${package[0]}
 
                 echo "- $name?"

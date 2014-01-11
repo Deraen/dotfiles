@@ -3,81 +3,70 @@
 
 # NOTE: Doesn't support deb-src
 
-SOURCE_FILES=""
+declare -A SOURCE_FILES
 OPS=0
 SOURCESDIR="/etc/apt/sources.list.d"
 
 function confirm {
-        read -r -p "$1 [Y/n]" yes
-        yes=${yes,,}
-        if [[ $yes =~ ^(yes|y| ) ]]; then
-                echo 0 # true
-        else
-                echo 1 # false
-        fi
+        read -r -p "$1 [Y/n] " yes
+        yes=${yes,,} # tolower
+        [[ $yes =~ ^(yes|y| ) ]] && return 0
+        return 1
 }
 
-function save {
-        local filename=$1
+function changed {
+        local old=($(md5sum $1))
+        local new=($(echo "$2" | md5sum))
+        # Indexing array by the name only, return the first part, here the hash
+        [[ $new != $old ]] && return 0
+        return 1
+}
+
+function saveRepo {
+        local filename=$SOURCESDIR/$1
         local content="$2"
 
-        SOURCE_FILES="${SOURCE_FILES}
-        ${filename}"
+        SOURCE_FILES["$filename"]=1
 
-        local new=($(echo "$content" | md5sum | cut -f1))
-        local old=($(md5sum $SOURCESDIR/$filename))
-        if [[ $new != $old ]]; then
+        if changed $filename "$content"; then
                 echo "PPA/repo changed or added"
-                echo $content > $SOURCESDIR/${filename}
+                echo $content > $filename
                 OPS=$((OPS + 1))
         fi
 }
 
 function ppa {
-        local filename="${1}-$(echo $2 | sed 's/\./_/')-${3}.list"
-        local content="deb http://ppa.launchpad.net/$1/$2/ubuntu $3 main"
+        # node.js -> node_js
+        local ppaname=${2//\./_}
 
-        save $filename "$content"
+        saveRepo $1-$ppaname-$3.list "deb http://ppa.launchpad.net/$1/$2/ubuntu $3 main"
 }
 
 function repo {
-        save ${1}.list "$2"
+        saveRepo $1.list "$2"
 }
 
 function clearRepos {
         local extras=""
-        for x in /etc/apt/sources.list.d/*; do
-                local file=$(basename $x)
+        for file in $SOURCESDIR/*; do
                 echo $file | grep -q "\.save" && continue
 
-                local isextra=true
-                for y in $SOURCE_FILES; do
-                        if [[ $file == $y ]]; then
-                                isextra=false
-                                break
-                        fi
-                done
-
-                if $isextra; then
-                        echo "Found extra repo? $file"
+                if [[ -z ${SOURCE_FILES["$file"]} ]]; then
+                        echo "Found extra repo? $(basename $file)"
                         extras="$extras $x"
                 fi
         done
 
-        if [[ $extras ]]; then
-                if confirm "Remove extras"; then
-                        rm $extras
-                        OPS=$((OPS + 1))
-                fi
+        if [[ $extras ]] && confirm "Remove extras"; then
+                rm $extras
+                OPS=$((OPS + 1))
         fi
 
-        if [[ $OPS -gt 0 ]]; then
-                if confirm "PPAs/repos changed, run getkeys?"; then
-                        launchpad-getkeys
+        if [[ $OPS -gt 0 ]] && confirm "PPAs/repos changed, run getkeys?"; then
+                launchpad-getkeys
 
-                        if confirm "Did keys change, run update?"; then
-                                apt-get update
-                        fi
+                if confirm "Did keys change, run update?"; then
+                        apt-get update
                 fi
         fi
 }
