@@ -240,6 +240,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install i965-va-driver
         install tlp
         install xautolock
+        install elasticsearch 0.90.10 https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.deb
 fi
 
 markauto

@@ -17,6 +17,7 @@ function installLocal {
         if [[ $url ]]; then
                 wget -O /tmp/${name}.deb "$url"
                 dpkg -i /tmp/${name}.deb
+                rm /tmp/${name}.deb
         elif [[ $version ]]; then
                 echo "	No URL given for local package Install manually plz?"
         fi
