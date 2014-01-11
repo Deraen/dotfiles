@@ -231,6 +231,7 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install guitarix # Guitar AMP
         install vnstat # Network usage
         install rrdtool # Stats
+        install adobeair 1:2.6.0.19170 # For Defender's Quest: Valley of the Forgotten
 fi
 
 # Laptop specific
@@ -247,4 +248,4 @@ fi
 markauto
 
 # Uninstall unnecessary
-# apt-get autoremove
+apt-get autoremove
