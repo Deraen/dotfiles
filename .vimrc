@@ -65,6 +65,10 @@ NeoBundle 'elzr/vim-json'
 NeoBundle 'mihaifm/bck'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+NeoBundle 'mhinz/vim-toplevel'
+NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'baabelfish/vim-vertigo'
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
@@ -131,8 +135,7 @@ set wildmode=longest,list
 set wildignorecase
 set formatoptions-=tc
 set wrapmargin=0
-set nonumber
-set relativenumber
+set number numberwidth=4
 set scrolloff=100
 
 " Use old one as new one might be slower?
@@ -279,6 +282,13 @@ nnoremap <silent><space>dt :call StripTrailingWhitespaces()<CR>
 
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 autocmd InsertLeave * set nopaste
+
+nnoremap <silent> <Space>j :<C-U>VertigoDown n<CR>
+vnoremap <silent> <Space>j :<C-U>VertigoDown v<CR>
+onoremap <silent> <Space>j :<C-U>VertigoDown o<CR>
+nnoremap <silent> <Space>k :<C-U>VertigoUp n<CR>
+vnoremap <silent> <Space>k :<C-U>VertigoUp v<CR>
+onoremap <silent> <Space>k :<C-U>VertigoUp o<CR>
 
 " Airline
 " let g:airline#extensions#tabline#enabled = 1
