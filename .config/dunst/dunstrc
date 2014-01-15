@@ -25,6 +25,8 @@
     geometry = "0x3-30+20"
 
     idle_threshold = 120
+    transparency=30
+    separator_color=frame
 
 [urgency_low]
     background = "#aaaaff"
@@ -42,4 +44,5 @@
     timeout = 0
 
 [ponymix]
+    appname=ponymix
     format = "<b>Sound volume</b>\n%p"
