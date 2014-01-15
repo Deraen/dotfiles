@@ -37,10 +37,7 @@ function markauto {
         # Build associative array of packages installed in system
         declare -A installed
         for x in $(dpkg --get-selections "*:amd64" "*:all" | grep -w install$ | cut -f1); do installed["${x%:amd64}"]=1; done
-        for x in $(dpkg --get-selections "*:i386" | grep -w install$ | cut -f1); do
-                [[ ! $x == *:i386 ]] && x="$x:i386"
-                installed["$x"]=1
-        done
+        for x in $(dpkg --get-selections "*:i386" | grep -w install$ | cut -f1); do installed["${x%:i386}:i386"]=1; done
 
         for name in ${NAMES[@]}; do
                 local package=(${INSTALL["$name"]})
