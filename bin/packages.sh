@@ -154,13 +154,14 @@ install mongodb-10gen
 # Dev dependencies
 install libboost-all-dev
 install libpulse-dev # Ponymix
-install libxft-dev # Dunst
-install libpango1.0-dev # Dunst
-install libcairo2-dev # Dunst
-install libxdg-basedir-dev # Dunst
-install libxss-dev # Dunst (libXscrnsaver)
-install libxinerama-dev # Dunst
-install libnotify-dev # Dunst
+# Dunst
+install libxft-dev
+install libpango1.0-dev
+install libcairo2-dev
+install libxdg-basedir-dev
+install libxss-dev # libXscrnsaver
+install libxinerama-dev
+install libnotify-dev
 
 # TEX
 install texlive-latex-extra
@@ -219,7 +220,7 @@ install typecatcher # Install Google webfonts
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install fail2ban
         install google-musicmanager-beta
-        install palm-novacom # Touchpad. Local?
+        install palm-novacom # HP Touchpad. Local?
         install bitcoin-qt
         install picard # MusicBrainz audio tagger
         install puddletag # MP3 tagger
@@ -232,6 +233,10 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install vnstat # Network usage
         install rrdtool # Stats
         install adobeair 1:2.6.0.19170 # For Defender's Quest: Valley of the Forgotten
+        # Nvidia driver build-deps
+        install xserver-xorg-dev
+        install execstack
+        install dh-modaliases
 fi
 
 # Laptop specific
