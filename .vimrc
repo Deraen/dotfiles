@@ -30,6 +30,7 @@ NeoBundle 'glts/vim-textobj-comment'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'guns/vim-sexp'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'jwhitley/vim-matchit'
@@ -47,7 +48,7 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-classpath'
+" NeoBundle 'tpope/vim-classpath'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-fireplace'
 NeoBundle 'tpope/vim-fugitive'
@@ -69,6 +70,7 @@ NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'mhinz/vim-toplevel'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'baabelfish/vim-vertigo'
+NeoBundle 'dgrnbrg/vim-redl'
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
@@ -155,6 +157,7 @@ colorscheme seoul256
 
 " Mappings
 let mapleader = 'ö'
+let maplocalleader = 'ö'
 " Pakko korjaukset
 nnoremap ' `
 nnoremap Y y$
@@ -359,9 +362,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_identifier_chars = '_-/.><'
 let g:ycm_register_as_syntastic_checker = 1
-" let g:ycm_semantic_triggers = {
-"       \ 'clojure' : ['(', '/']
-"       \ }
+let g:ycm_semantic_triggers = {
+      \ 'clojure' : ['(', '/']
+      \ }
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 let g:ycm_filetype_blacklist = {
@@ -379,6 +382,19 @@ au VimEnter,FileType clojure RainbowParenthesesToggle
 au Syntax,FileType clojure RainbowParenthesesLoadRound
 au Syntax,FileType clojure RainbowParenthesesLoadSquare
 au Syntax,FileType clojure RainbowParenthesesLoadBraces
+
+let g:clojure_fuzzy_indent=1
+// Imitate CCW's "Always indent 2 spaces" option
+let g:clojure_fuzzy_indent_patterns=['.']
+let g:clojure_fuzzy_indent_blacklist=[]
+
+// FIXME: These confict with my window bindings, find alternatives
+let g:sexp_mappings = {
+      \ 'sexp_swap_list_backward': '',
+      \ 'sexp_swap_list_forward': '',
+      \ 'sexp_swap_element_backward': '',
+      \ 'sexp_swap_element_forward': '',
+      \}
 
 " Arpegio
 let g:arpeggio_timeoutlen=25
