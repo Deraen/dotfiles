@@ -15,9 +15,8 @@ elif [ "$UID" == "0" ]; then
     sleep 4
 
     # Check process table for users running PulseAudio
-    for user in `ps axc -o user,command | grep pulseaudio | cut -f1 -d' ' | sort | uniq`;
-    do
-        # And relaunch ourselves for each of those users.
+    # And relaunch ourselves for each of those users.
+    for user in $(ps axc -o user,command | grep pulseaudio | cut -f1 -d' ' | sort | uniq); do
         su $user -c "bash $0 $@"
     done
 else
@@ -32,13 +31,13 @@ else
         DEVICE=$MIC
     fi
 
-    pacmd set-default-$TARGET $DEVICE # >/dev/null 2>&1
+    pacmd set-default-$TARGET $DEVICE >/dev/null 2>&1
 
     for stream in $(pacmd list-$TARGET-${FOO}s | awk '$1 == "index:" {print $2}'); do
-        pacmd move-$TARGET-$FOO $stream $DEVICE # >/dev/null 2>&1
+        pacmd move-$TARGET-$FOO $stream $DEVICE >/dev/null 2>&1
     done
 fi
 
 # /etc/udev/rules.d/99-pulseaudio.rules
 #SUBSYSTEM=="sound", SUBSYSTEMS=="usb", ATTRS{idVendor}=="17a0", ATTRS{idProduct}=="0302", ACTION=="add", RUN+="/home/juho/bin/audiodevices.sh --fork mic"
-#SUBSYSTEM=="sound", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1582", ATTRS{idProduct}=="7925", ACTION=="add", RUN+="/home/juho/bin/audiodevices.sh --fork dac"
+#SUBSYSTEM=="sound", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1882", ATTRS{idProduct}=="7925", ACTION=="add", RUN+="/home/juho/bin/audiodevices.sh --fork dac"
