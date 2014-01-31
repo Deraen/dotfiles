@@ -384,11 +384,11 @@ au Syntax,FileType clojure RainbowParenthesesLoadSquare
 au Syntax,FileType clojure RainbowParenthesesLoadBraces
 
 let g:clojure_fuzzy_indent=1
-// Imitate CCW's "Always indent 2 spaces" option
+" Imitate CCW's "Always indent 2 spaces" option
 let g:clojure_fuzzy_indent_patterns=['.']
 let g:clojure_fuzzy_indent_blacklist=[]
 
-// FIXME: These confict with my window bindings, find alternatives
+" FIXME: These confict with my window bindings, find alternatives
 let g:sexp_mappings = {
       \ 'sexp_swap_list_backward': '',
       \ 'sexp_swap_list_forward': '',
