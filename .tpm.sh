@@ -6,7 +6,7 @@ export TPM_DIR=$HOME/.local/tpm
 
 plug tpm "baabelfish/tpm"
 
-plug liquidprompt "nojhan-liquidprompt"
+plug liquidprompt "nojhan/liquidprompt"
 addSource liquidprompt "liquidprompt"
 
 if [[ $HOSTNAME == "juho-desktop" ]] || [[ $HOSTNAME == "juho-laptop" ]]; then

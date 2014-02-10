@@ -39,7 +39,11 @@ export EDITOR="vim"
 export MOST_EDITOR="vim"
 export PAGER="less"
 
-export TERM="rxvt-unicode-256color"
+if [[ $(tty) =~ /dev/tty ]]; then
+    export TERM='linux'
+else
+    export TERM='rxvt-unicode-256color'
+fi
 if [ "$HOSTNAME" = "alpha-144.srv.hosting.fi" ]; then
     export TERM="xterm"
 fi
