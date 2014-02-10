@@ -65,6 +65,7 @@ function addSource {
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
+addPath "$HOME/.local/tpm-bin"
 addPath "$HOME/.cabal/bin"
 addPath /raid/opt/android-sdk-linux_x86/platform-tools
 addPath /raid/opt/android-sdk-linux_x86/tools
@@ -85,4 +86,4 @@ addSource "$HOME/.rvm/scripts/rvm"
 cd $HOME && git config status.showUntrackedFiles no
 
 # bash <(curl -kL https://raw.github.com/baabelfish/tpm/master/init)
-source /home/juho/.local/tpm/.config
+source /home/juho/.tpm.sh
