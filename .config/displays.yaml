@@ -7,7 +7,7 @@ displays:
     auto: Yes
   VGA1:
     auto: Yes
-    right-of: LVDS1
+    pos: "0x0"
 - LVDS1: No # Home, laptop docked + 27+24
   DP2:
     mode: 1920x1200
