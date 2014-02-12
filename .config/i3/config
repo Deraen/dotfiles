@@ -97,8 +97,10 @@ assign [class="Smplayer2"] → $video
 assign [class="Steam"] → $steam
 assign [class="Spotify"] → $music
 assign [class="dota_linux"]  → $games
-assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → 6 # Flowdock
-assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc # IRCCloud
+# Flowdock
+assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → 6
+# IRCCloud
+assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 for_window [class="Wine" title="^(World of Warcraft)$"] border none
 for_window [class="^(Google-chrome|Google-chrome-stable|X-www-browser|Sublime_text|Quasselclient|Spotify|Eclipse|Sakura|URxvt)$"] border pixel 2
