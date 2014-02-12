@@ -31,6 +31,7 @@ NeoBundle 'gregsexton/gitv'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'guns/vim-sexp'
+NeoBundle 'tpope/vim-sexp-mappings-for-regular-people'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'jwhitley/vim-matchit'
@@ -57,7 +58,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/L9'
-NeoBundle 'vim-scripts/rainbow_parentheses.vim'
+NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'guns/xterm-color-table.vim'
 " NeoBundle 'editorconfig/editorconfig-vim' " Overwrites filetype configs, even if .editorconfig file doesn't exist on project
 NeoBundle 'tpope/vim-eunuch'
@@ -70,7 +71,6 @@ NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'mhinz/vim-toplevel'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'baabelfish/vim-vertigo'
-NeoBundle 'dgrnbrg/vim-redl'
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
@@ -246,10 +246,6 @@ nnoremap <silent><M-f> :call Fullscreen()<cr>:echo ""<cr>
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" å togglee kommentin
-nnoremap <silent>å :TComment<CR>
-vnoremap å :TComment<CR>
-
 " Näppärä nopea makronappi
 nnoremap § qqqqq
 nnoremap ½ @q
@@ -362,9 +358,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_identifier_chars = '_-/.><'
 let g:ycm_register_as_syntastic_checker = 1
-let g:ycm_semantic_triggers = {
-      \ 'clojure' : ['(', '/']
-      \ }
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 let g:ycm_filetype_blacklist = {
@@ -377,28 +370,31 @@ let g:ycm_filetype_blacklist = {
       \}
 set completeopt-=preview
 
-" Rainbow parenthesis
-au VimEnter,FileType clojure RainbowParenthesesToggle
-au Syntax,FileType clojure RainbowParenthesesLoadRound
-au Syntax,FileType clojure RainbowParenthesesLoadSquare
-au Syntax,FileType clojure RainbowParenthesesLoadBraces
+" Clojure options
+au FileType clojure RainbowParenthesesActivate
+au Syntax * RainbowParenthesesLoadRound
 
 let g:clojure_fuzzy_indent=1
 " Imitate CCW's "Always indent 2 spaces" option
-let g:clojure_fuzzy_indent_patterns=['.']
-let g:clojure_fuzzy_indent_blacklist=[]
+" let g:clojure_fuzzy_indent_patterns=['.']
+" let g:clojure_fuzzy_indent_blacklist=[]
 
-" FIXME: These confict with my window bindings, find alternatives
+" These confict with my window bindings, tpopes plugin already has these bound
+" to rational keys
 let g:sexp_mappings = {
       \ 'sexp_swap_list_backward': '',
       \ 'sexp_swap_list_forward': '',
       \ 'sexp_swap_element_backward': '',
       \ 'sexp_swap_element_forward': '',
       \}
+let g:sexp_enable_insert_mode_mappings = 0
 
 " Arpegio
 let g:arpeggio_timeoutlen=25
 call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
+call arpeggio#map('icvx', '', 0, 'jl', '<End>')
+call arpeggio#map('icvx', '', 0, 'ui', '<Esc>u')
+call arpeggio#map('i', '', 0, 'hl', '<Esc>I')
 
 " Hightlight trailing spaces
 function! EnableTrailingHightlight()

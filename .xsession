@@ -11,7 +11,8 @@ dropbox start &
 [[ "$HOSTNAME" == "juho-laptop" ]] && xset dpms 600
 [[ -f /usr/bin/light-locker ]] && light-locker &
 [[ "$HOSTNAME" == "juho-laptop" ]] && xautolock -time 10 -detectsleep -locker "lock.sh" &
-xcape -e "Alt_L=Escape"
+xcape -e "Alt_L=Escape;Alt_R=Escape"
+setxkbmap -option caps:escape
 rndbg.sh
 compton &
 
