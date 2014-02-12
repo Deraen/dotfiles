@@ -8,7 +8,7 @@
 NAME=$(sort ~/.cache/desktopfilesuses.txt | join -t "	" --nocheck-order -a 1 ~/.cache/desktopfiles.txt - | sort -t "	" -k3 -n -r | cut -f1 | dmenu -i -b -nb '#3C3B37' -nf '#fff' -sb '#955' -fn 'Ubuntu-17')
 [[ "$NAME" == "" ]] && exit 1
 
-COMMAND=$(grep "$NAME" ~/.cache/desktopfiles.txt | cut -f2)
+DESKTOPFILE=$(grep "$NAME" ~/.cache/desktopfiles.txt | cut -f2)
 
 [[ ! -e ~/.cache/desktopfilesuses.txt ]] && touch ~/.cache/desktopfilesuses.txt
 
@@ -21,5 +21,4 @@ else
   sed -i "s/$MATCH/$NAME	$MATCHES/" ~/.cache/desktopfilesuses.txt
 fi
 
-echo $COMMAND
-exec $COMMAND
+gtk-launch "$DESKTOPFILE"
