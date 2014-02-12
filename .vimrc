@@ -13,8 +13,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'Deraen/seoul256.vim'
 NeoBundle 'PeterRincker/vim-argumentative'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Valloric/YouCompleteMe' " ./install.sh --clang-completer
@@ -194,20 +192,9 @@ nnoremap ä :w<CR>
 
 nnoremap <silent><space><space> :set nohls!<cr>
 
-" Sama kun sublimen C-r
-" nnoremap <silent><space>f m':Unite -hide-status-line outline<CR>
-" Sama kun sublimen C-p
-" nnoremap <silent><space>p :Unite -silent file_rec/async<CR>
 nnoremap <silent><space>p :CtrlP<cr>
-" nnoremap <silent><space>y :Unite -silent history/yank<CR>
-" nnoremap <silent><space>b :Unite -silent buffer_tab<CR>
 nnoremap <silent><space>b :CtrlPBuffer<cr>
 nnoremap <silent><space>s :Startify<CR>
-
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  nmap <backspace> <C-w>c
-endfunction
 
 function! ColorPicker(insert)
   let color = '\#' . expand('<cword>')
@@ -336,21 +323,7 @@ let g:signify_sign_overwrite = 1
 let g:signify_mapping_next_hunk = '<leader>gj'
 let g:signify_mapping_prev_hunk = '<leader>gk'
 
-" Unite
-let g:unite_source_history_yank_enable = 1
-let g:unite_enable_start_insert = 1
-let g:unite_enable_ignore_case = 1
-let g:unite_split_rule = 'bot'
-let g:unite_winheight = 15
-
-call unite#custom_source('menu', 'matchers', ['matcher_fuzzy'])
-call unite#custom_source('source', 'matchers', ['matcher_fuzzy'])
-call unite#custom_source('outline', 'matchers', ['matcher_fuzzy'])
-call unite#custom_source('history/yank', 'matchers', ['matcher_fuzzy'])
-call unite#custom_source('file_rec/async', 'matchers', ['matcher_fuzzy'])
-
-let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden -g ""'
-
+" CtrlP
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
 
@@ -366,7 +339,6 @@ let g:ycm_filetype_blacklist = {
       \ 'vim': 1,
       \ 'markdown': 1,
       \ 'text': 1,
-      \ 'unite': 1,
       \}
 set completeopt-=preview
 
@@ -406,7 +378,7 @@ endfunction
 
 autocmd InsertEnter * match
 autocmd InsertLeave * call EnableTrailingHightlight()
-autocmd FileType unite let b:noTrailingHighlight = 1
+" autocmd FileType unite let b:noTrailingHighlight = 1
 " autocmd InsertLeave * redraw!
 
 if version >= 702
