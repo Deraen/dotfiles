@@ -88,7 +88,7 @@ set $steam F3: STEAM
 workspace "$irc" output DVI-D-0
 
 # Defaults
-assign [class="Google-chrome"] → $www
+# assign [class="Google-chrome"] → $www # This would break Flowdock & IRCCloud rules
 assign [class="Quasselclient"] → $irc
 assign [class="Sublime_text" title="^.*(Sublime Text).*$"] → $dev
 assign [class="Transmission-remote-gtk"] → $files
@@ -97,6 +97,8 @@ assign [class="Smplayer2"] → $video
 assign [class="Steam"] → $steam
 assign [class="Spotify"] → $music
 assign [class="dota_linux"]  → $games
+assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → 6 # Flowdock
+assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc # IRCCloud
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 for_window [class="Wine" title="^(World of Warcraft)$"] border none
 for_window [class="^(Google-chrome|Google-chrome-stable|X-www-browser|Sublime_text|Quasselclient|Spotify|Eclipse|Sakura|URxvt)$"] border pixel 2

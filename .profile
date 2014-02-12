@@ -27,3 +27,9 @@ if [[ -d "$HOME/.local/bin" ]]; then
 	export PATH="$HOME/.local/bin:$PATH"
     fi
 fi
+
+if [[ -d "$HOME/.local/tpm-bin" ]]; then
+    if [[ :$PATH: != *:"$HOME/.local/tpm-bin":* ]]; then
+	export PATH="$HOME/.local/tpm-bin:$PATH"
+    fi
+fi
