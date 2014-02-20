@@ -40,7 +40,8 @@ repo mongodb "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 1
 repo opera "deb http://deb.opera.com/opera-beta/ stable non-free"
 repo playonlinux "deb http://deb.playonlinux.com/ precise main"
 repo spotify "deb http://repository.spotify.com stable non-free"
-repo steam "deb http://repo.steampowered.com/steam/ precise steam"
+repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
+deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian saucy non-free contrib"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
