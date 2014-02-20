@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Magicdraw
+Comment=Magicdraw - Fuck it
+Icon=/opt/magicdraw/bin/icon32.xpm
+Exec=/opt/magicdraw/bin/mduml
+Terminal=false
+Categories=Development;IDE;UML;Shit;

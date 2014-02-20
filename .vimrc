@@ -358,6 +358,10 @@ let g:sexp_mappings = {
       \ 'sexp_swap_list_forward': '',
       \ 'sexp_swap_element_backward': '',
       \ 'sexp_swap_element_forward': '',
+      \ 'sexp_move_to_prev_element_head': '',
+      \ 'sexp_move_to_next_element_head': '',
+      \ 'sexp_move_to_prev_element_tail': '',
+      \ 'sexp_move_to_next_element_tail': '',
       \}
 let g:sexp_enable_insert_mode_mappings = 0
 
