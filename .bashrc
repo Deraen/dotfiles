@@ -83,7 +83,7 @@ addPath "/Applications/Android Studio.app/sdk/tools"
 addPath "$HOME/.rvm/bin"
 addPath "/usr/local/heroku/bin"
 
-addSource "$HOME/.pythonbrew/etc/bashrc"
+# addSource "$HOME/.pythonbrew/etc/bashrc"
 addSource "$HOME/.rvm/scripts/rvm"
 
 # Home git repo, don't show untracked files on status

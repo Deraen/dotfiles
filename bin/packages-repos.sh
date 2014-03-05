@@ -14,6 +14,8 @@ function confirm {
 }
 
 function changed {
+        if [[ ! -f $old ]]; then false; fi
+
         local old=($(md5sum $1))
         local new=($(echo "$2" | md5sum))
         # Indexing array by the name only, returns the first part, in this case the hash
@@ -49,7 +51,7 @@ function clearRepos {
         for file in $SOURCESDIR/*.list; do
                 if [[ -z ${SOURCE_FILES["$file"]} ]]; then
                         echo "Found extra repo? $(basename $file)"
-                        extras="$extras $x"
+                        extras="$extras $file"
                 fi
         done
 

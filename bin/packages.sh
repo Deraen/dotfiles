@@ -9,40 +9,40 @@ installpath=/home/juho/bin
 . $installpath/packages-functions.sh
 . $installpath/packages-repos.sh
 
-ppa ajf trg saucy
-ppa chilicuil sucklesstools saucy # Latest dmenu
-ppa chris-lea node.js saucy
-ppa ehoover compholio saucy # Wine - for pipelight
-ppa light-locker release saucy
-ppa maarten-baert simplescreenrecorder saucy
-ppa mizuno-as silversearcher-ag saucy
-ppa mqchael pipelight saucy
-ppa n-muench calibre saucy
+ppa ajf trg trusty
+ppa chilicuil sucklesstools trusty # Latest dmenu
+ppa chris-lea node.js trusty
+ppa ehoover compholio trusty # Wine - for pipelight
+ppa light-locker release trusty
+ppa maarten-baert simplescreenrecorder trusty
+ppa mizuno-as silversearcher-ag trusty
+ppa mqchael pipelight trusty
+ppa n-muench calibre trusty
 ppa natecarlson maven3 precise
-ppa nilarimogard webupd8 saucy # Launchpad-getkeys? Stuff
-ppa otto-kesselgulasch gimp saucy
-ppa richardgv compton saucy
-ppa rvm smplayer saucy # Mplayer UI
-ppa mc3man mpv-tests saucy # Mpv, mplayer[|2] fork
+ppa nilarimogard webupd8 trusty # Launchpad-getkeys? Stuff
+ppa otto-kesselgulasch gimp trusty
+ppa richardgv compton trusty
+ppa rvm smplayer trusty # Mplayer UI
+ppa mc3man mpv-tests trusty # Mpv, mplayer[|2] fork
 ppa tiheum equinox raring # Faenza-icon-theme
-ppa ubuntu-wine ppa saucy
-ppa videolan master-daily saucy
-ppa webupd8team java saucy # Oracle java
-ppa webupd8team sublime-text-3 saucy
+ppa ubuntu-wine ppa trusty
+ppa videolan master-daily trusty
+ppa webupd8team java trusty # Oracle java
+ppa webupd8team sublime-text-3 trusty
 repo atlassian-hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 repo dropbox "deb http://linux.dropbox.com/ubuntu raring main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games" # Transmission-remote-gtk
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
-repo i3 "deb http://debian.sur5r.net/i3/ saucy universe"
+repo i3 "deb http://debian.sur5r.net/i3/ trusty universe"
 repo mongodb "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
 repo opera "deb http://deb.opera.com/opera-beta/ stable non-free"
 repo playonlinux "deb http://deb.playonlinux.com/ precise main"
 repo spotify "deb http://repository.spotify.com stable non-free"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
 deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
-repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian saucy non-free contrib"
+repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian trusty non-free contrib"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin raring
@@ -50,7 +50,7 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        ppa linrunner tlp saucy
+        ppa linrunner tlp trusty
 fi
 
 clearRepos
@@ -234,6 +234,9 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install vnstat # Network usage
         install rrdtool # Stats
         install adobeair 1:2.6.0.19170 # For Defender's Quest: Valley of the Forgotten
+        install youtube-dl
+        install robomongo
+        install openra
         # Nvidia driver build-deps
         install xserver-xorg-dev
         install execstack

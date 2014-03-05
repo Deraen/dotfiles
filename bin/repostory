@@ -33,9 +33,9 @@
 	#repo_list=$(cat dummy.sources.list | grep deb\ http.* | sed -e 's/.*help\.ubuntu\.com.*//' -e 's/^#.*//' -e 's/deb\ //' -e 's/deb-src\ //' -e '/^$/d' | sort -u | awk '{print $1"|"$2}' | sed -e 's/\/|/|/' -e 's/-[a-z]*$//' | uniq && cd)
 	count_repos=$(echo $repo_list | wc -w)
 	check_progress=$count_repos
-	release_1="saucy"
-	release_2="raring"
-	release_3="quantal"
+	release_1="trusty"
+	release_2="saucy"
+	release_3="raring"
 	release_4="precise"
 
 #Checks
