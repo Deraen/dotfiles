@@ -347,9 +347,12 @@ au FileType clojure RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 
 let g:clojure_fuzzy_indent=1
+let g:clojure_align_multiline_strings = 1
 " Imitate CCW's "Always indent 2 spaces" option
 " let g:clojure_fuzzy_indent_patterns=['.']
 " let g:clojure_fuzzy_indent_blacklist=[]
+
+autocmd FileType clojure setlocal lispwords+=describe,it,testing,facts,fact,provided
 
 " These confict with my window bindings, tpopes plugin already has these bound
 " to rational keys
@@ -369,7 +372,7 @@ let g:sexp_enable_insert_mode_mappings = 0
 let g:arpeggio_timeoutlen=25
 call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
 call arpeggio#map('icvx', '', 0, 'jl', '<End>')
-call arpeggio#map('icvx', '', 0, 'ui', '<Esc>u')
+" call arpeggio#map('icvx', '', 0, 'ui', '<Esc>u')
 call arpeggio#map('i', '', 0, 'hl', '<Esc>I')
 
 " Hightlight trailing spaces
