@@ -15,14 +15,12 @@ ppa chris-lea node.js trusty
 ppa ehoover compholio trusty # Wine - for pipelight
 ppa light-locker release trusty
 ppa maarten-baert simplescreenrecorder trusty
-ppa mizuno-as silversearcher-ag trusty
 ppa mqchael pipelight trusty
-ppa n-muench calibre trusty
+# ppa n-muench calibre trusty
 ppa natecarlson maven3 precise
 ppa nilarimogard webupd8 trusty # Launchpad-getkeys? Stuff
 ppa otto-kesselgulasch gimp trusty
-ppa richardgv compton trusty
-ppa rvm smplayer trusty # Mplayer UI
+# ppa rvm smplayer trusty # Mplayer UI
 ppa mc3man mpv-tests trusty # Mpv, mplayer[|2] fork
 ppa tiheum equinox raring # Faenza-icon-theme
 ppa ubuntu-wine ppa trusty
@@ -40,8 +38,7 @@ repo mongodb "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 1
 repo opera "deb http://deb.opera.com/opera-beta/ stable non-free"
 repo playonlinux "deb http://deb.playonlinux.com/ precise main"
 repo spotify "deb http://repository.spotify.com stable non-free"
-repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam
-deb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
+repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian trusty non-free contrib"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then

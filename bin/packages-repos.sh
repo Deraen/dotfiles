@@ -30,7 +30,7 @@ function saveRepo {
 
         if changed $filename "$content"; then
                 echo "$(basename $filename) changed or added"
-                echo $content > $filename
+                echo -e $content > $filename
                 OPS=$((OPS + 1))
         fi
 }
