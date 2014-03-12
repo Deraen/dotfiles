@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Deraen's uber mods",
+  "description": "My personals mods",
+  "version": "1.0",
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [{
+    "matches": ["*://*.inoreader.com/*", "*://*.flowdock.com/*", "*://mail.google.com/*", "*://*.google.com/calendar/*"],
+    "css": ["roboto.css"],
+    "all_frames": true
+  }],
+  "web_accessible_resources": [
+    "scripts/*"
+  ]
+}
