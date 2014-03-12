@@ -14,7 +14,7 @@ function confirm {
 }
 
 function changed {
-        if [[ ! -f $old ]]; then false; fi
+        if [[ ! -f $old ]]; then return 1; fi
 
         local old=($(md5sum $1))
         local new=($(echo "$2" | md5sum))

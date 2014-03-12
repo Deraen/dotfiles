@@ -148,6 +148,8 @@ install leap 0.8.0 # Leapmotion
 install devscripts
 install ubuntu-dev-tools
 install mongodb-10gen
+install httpie
+install robomongo
 
 # Dev dependencies
 install libboost-all-dev
@@ -232,7 +234,6 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install rrdtool # Stats
         install adobeair 1:2.6.0.19170 # For Defender's Quest: Valley of the Forgotten
         install youtube-dl
-        install robomongo
         install openra
         # Nvidia driver build-deps
         install xserver-xorg-dev
@@ -249,6 +250,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install tlp
         install xautolock
         install elasticsearch 0.90.10 https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.deb
+        install hamster-applet
 fi
 
 markauto

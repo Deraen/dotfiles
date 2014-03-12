@@ -88,6 +88,7 @@ set $steam F3: STEAM
 workspace "$irc" output DVI-D-0
 
 # Defaults
+# $ xprop
 # assign [class="Google-chrome"] → $www # This would break Flowdock & IRCCloud rules
 assign [class="Quasselclient"] → $irc
 assign [class="Sublime_text" title="^.*(Sublime Text).*$"] → $dev
@@ -108,6 +109,7 @@ for_window [class="Google-chrome" title="Google Keep"] border normal, floating e
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
 for_window [class="Steam" title="^(Steam - .*|Friends)$"] floating enable
+for_window [class="Gnome-screenshot"] floating enable
 
 bindsym $mod+1 workspace "$www"
 bindsym $mod+2 workspace "$irc"
@@ -160,8 +162,9 @@ bindsym XF86AudioLowerVolume exec ponymix unmute && ponymix -N decrease 2
 bindsym Mod1+Insert exec ponymix -N toggle
 
 # Screenshots
-bindsym Print exec scrot -e 'mv $f ~/Dropbox/Screenshots'
-bindsym Mod1+Print exec scrot -s -e 'mv $f ~/Dropbox/Screenshots'
+bindsym Print exec gnome-screenshot
+bindsym Mod1+Print exec gnome-screenshot -w
+bindsym Ctrl+Print exec gnome-screenshot -i
 
 bar {
   position top
