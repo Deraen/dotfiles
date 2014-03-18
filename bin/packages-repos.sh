@@ -14,10 +14,10 @@ function confirm {
 }
 
 function changed {
-        if [[ ! -f $old ]]; then return 1; fi
+        if [[ ! -f $1 ]]; then return 0; fi
 
         local old=($(md5sum $1))
-        local new=($(echo "$2" | md5sum))
+        local new=($(echo -e "$2" | md5sum))
         # Indexing array by the name only, returns the first part, in this case the hash
         [[ $new != $old ]]
 }
