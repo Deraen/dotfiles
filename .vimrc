@@ -39,7 +39,6 @@ NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kurkale6ka/vim-pairs'
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'mhinz/vim-startify'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'paradigm/SkyBison'
 NeoBundle 'scrooloose/syntastic'
@@ -69,6 +68,7 @@ NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'mhinz/vim-toplevel'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'baabelfish/vim-vertigo'
+NeoBundle 'aklt/plantuml-syntax'
 
 " Manual install:
 " wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
@@ -194,7 +194,6 @@ nnoremap <silent><space><space> :set nohls!<cr>
 
 nnoremap <silent><space>p :CtrlP<cr>
 nnoremap <silent><space>b :CtrlPBuffer<cr>
-nnoremap <silent><space>s :Startify<CR>
 
 function! ColorPicker(insert)
   let color = '\#' . expand('<cword>')
@@ -237,7 +236,7 @@ nnoremap - <C-x>
 nnoremap § qqqqq
 nnoremap ½ @q
 vnoremap ½ @q
-vnoremap ¤ :g/.*/norm! 
+vnoremap ¤ :g/.*/norm!
 
 " Avaa git diffin
 nnoremap <silent><space>t :Gitv<CR>
@@ -326,7 +325,27 @@ let g:signify_mapping_prev_hunk = '<leader>gk'
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
+" When opening file with CtrlP always open in new buffer even if its already
+" open somewhere
+let g:ctrlp_switch_buffer = '0'
+" Open first file in current buffer, rest hidden
+let g:ctrlp_open_multiple_files = 'ri'
 
+let g:ctrlp_buffer_func = {
+      \ 'enter': 'CtrlPMappings'
+      \ }
+
+function! CtrlPMappings()
+  nnoremap <buffer> <silent> <c-q> :call <sid>DeleteBuffer()<cr>
+endfunction
+
+function! s:DeleteBuffer()
+  echo "foo"
+  let path = fnamemodify(getline('.')[2:], ':p')
+  let bufn = matchstr(path, '\v\d+\ze\*No Name')
+  exec "bd" bufn ==# "" ? path : bufn
+  exec "norm \<F5>"
+endfunction
 " ycm
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_identifier_chars = '_-/.><'
