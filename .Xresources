@@ -36,6 +36,7 @@ URxvt*font:              xft:Consolas:pixelsize=13:authint=true,xft:PowerlineSym
 ! URxvt*font:              xft:Consolas for Powerline:pixelsize=13:authint=true
 ! URxvt.italicFont:        xft:Monospace:style=Oblique:pixelsize=10
 URxvt.hold:              false
+URxvt.urgentOnBell:  true
 URxvt.internalBorder:    7
 URxvt.jumpScroll:        true
 URxvt.letterSpace:       -2

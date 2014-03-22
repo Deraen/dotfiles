@@ -82,6 +82,7 @@ addPath "/Applications/Android Studio.app/sdk/platform-tools"
 addPath "/Applications/Android Studio.app/sdk/tools"
 addPath "$HOME/.rvm/bin"
 addPath "/usr/local/heroku/bin"
+addPath "/opt/node-webkit-v0.9.2-linux-x64"
 
 # addSource "$HOME/.pythonbrew/etc/bashrc"
 addSource "$HOME/.rvm/scripts/rvm"
