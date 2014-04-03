@@ -20,7 +20,7 @@ ppa mqchael pipelight trusty
 ppa natecarlson maven3 precise
 ppa nilarimogard webupd8 trusty # Launchpad-getkeys? Stuff
 ppa otto-kesselgulasch gimp trusty
-# ppa rvm smplayer trusty # Mplayer UI
+ppa rvm smplayer trusty # Mplayer UI
 ppa mc3man mpv-tests trusty # Mpv, mplayer[|2] fork
 ppa tiheum equinox raring # Faenza-icon-theme
 ppa ubuntu-wine ppa trusty
@@ -102,7 +102,7 @@ install emacs24
 install sublime-text-installer
 
 # Java
-install oracle-java7-set-default
+install "oracle-java8-set-default"
 install maven3
 install ant
 install nailgun # Start JVM quicky - by running some JVM's on background
@@ -149,7 +149,7 @@ install devscripts
 install ubuntu-dev-tools
 install mongodb-10gen
 install httpie
-install robomongo
+install robomongo 0.8.4 http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
 
 # Dev dependencies
 install libboost-all-dev
@@ -251,6 +251,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install xautolock
         install elasticsearch 0.90.10 https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.deb
         install hamster-applet
+        install libvdpau-va-gl
 fi
 
 markauto
