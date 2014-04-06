@@ -105,7 +105,6 @@ assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 for_window [class="Wine" title="^(World of Warcraft)$"] border none
 for_window [class="^(Google-chrome|Google-chrome-stable|X-www-browser|Sublime_text|Quasselclient|Spotify|Eclipse|Sakura|URxvt)$"] border pixel 2
-for_window [class="Google-chrome" title="Google Keep"] border normal, floating enable
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
 for_window [class="Steam" title="^(Steam - .*|Friends)$"] floating enable

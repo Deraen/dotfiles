@@ -61,6 +61,7 @@ install ubuntu-standard
 install lsb-base
 install linux-generic
 install build-essential
+install libnss-myhostname # Why doesn't systemd-services require this...?
 
 # Language stuff
 install language-pack-gnome-en
@@ -79,6 +80,7 @@ install acpi # View ACPI info, e.g. CPU temp (on laptop)
 install apache2-utils # htpasswd
 install atop # IO top
 install htop
+install iotop
 install jq # JSON processor
 install launchpad-getkeys
 install libav-tools
@@ -216,6 +218,8 @@ install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-4.3
 install wine1.7
 install typecatcher # Install Google webfonts
+
+install network-manager-openconnect-gnome # Cisco VPN
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install fail2ban
