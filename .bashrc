@@ -32,6 +32,7 @@ alias ccze="ccze -A"
 alias o="open.sh"
 alias dos2unix="sed 's///'"
 alias unix2dos="sed 's/$/'"
+alias term="( urxvt & ) &>/dev/null"
 
 export DEBFULLNAME="Juho Teperi"
 export DEBEMAIL="juho.teperi@iki.fi"
@@ -88,7 +89,9 @@ addPath "/opt/node-webkit-v0.9.2-linux-x64"
 addSource "$HOME/.rvm/scripts/rvm"
 
 # Home git repo, don't show untracked files on status
-cd $HOME && git config status.showUntrackedFiles no
+pushd $HOME > /dev/null
+git config status.showUntrackedFiles no
+popd > /dev/null
 
 # bash <(curl -kL https://raw.github.com/baabelfish/tpm/master/init)
 source /home/juho/.tpm.sh
