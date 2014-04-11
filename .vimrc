@@ -14,11 +14,9 @@ NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'Deraen/seoul256.vim'
 NeoBundle 'PeterRincker/vim-argumentative'
 NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
-NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Valloric/YouCompleteMe' " ./install.sh --clang-completer
 NeoBundle 'vim-scripts/bufkill.vim'
 NeoBundle 'Valloric/MatchTagAlways'
-NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'b4winckler/vim-angry'
 NeoBundle 'baabelfish/a.vim'
 NeoBundle 'bling/vim-airline'
@@ -40,13 +38,11 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kurkale6ka/vim-pairs'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'paradigm/SkyBison'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-abolish'
-" NeoBundle 'tpope/vim-classpath'
 NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-fireplace'
 NeoBundle 'tpope/vim-fugitive'
@@ -57,7 +53,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-scripts/L9'
 NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'guns/xterm-color-table.vim'
-" NeoBundle 'editorconfig/editorconfig-vim' " Overwrites filetype configs, even if .editorconfig file doesn't exist on project
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'elzr/vim-json'
@@ -69,16 +64,7 @@ NeoBundle 'mhinz/vim-toplevel'
 NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'baabelfish/vim-vertigo'
 NeoBundle 'aklt/plantuml-syntax'
-
-" Manual install:
-" wget http://sourceforge.net/projects/eclim/files/eclim/2.3.2/eclim_2.3.2.jar/download
-" java -jar eclim_2.3.2.jar
-" NeoBundleLazy '~/.vim/bundle/eclim'
-" function! LoadEclim()
-"   NeoBundleSource 'eclim'
-"   let g:EclimCompletionMethod = 'omnifunc'
-" endfunction
-" autocmd FileType java,scala call LoadEclim()
+NeoBundle 'gcmt/wildfire.vim'
 
 NeoBundleLazy 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
 autocmd FileType javascript NeoBundleSource 'tern_for_vim'
@@ -238,24 +224,17 @@ nnoremap ½ @q
 vnoremap ½ @q
 vnoremap ¤ :g/.*/norm!
 
-" Avaa git diffin
-nnoremap <silent><space>t :Gitv<CR>
 inoremap <C-c> <ESC>
 
+" Split line
 nnoremap K i<CR><Esc>k$
-cnoremap <C-j> <Down>
-cnoremap <C-k> <Up>
 
-let g:UltiSnipsExpandTrigger="<c-J>"
-" let g:UltiSnipsListSnippets="<c-$>"
-" let g:UltiSnipsJumpForwardTrigger="<c-J>"
-" let g:UltiSnipsJumpBackwardTrigge="<c-k>"
-
+" Search
 nnoremap <silent><space>/f :Bck FIXME<CR>
 nnoremap <silent><space>/t :Bck TODO<CR>
+" Search for word under the cursor
 nnoremap <silent><space>/w :Bck <C-r><C-w><CR>
 nnoremap <silent><space>q :Bck<CR>
-
 
 fun! StripTrailingWhitespaces()
   let l = line(".")
@@ -276,8 +255,7 @@ vnoremap <silent> <Space>k :<C-U>VertigoUp v<CR>
 onoremap <silent> <Space>k :<C-U>VertigoUp o<CR>
 
 " Airline
-" let g:airline#extensions#tabline#enabled = 1
-let g:airline_detect_whitespace=0
+let g:airline_detect_whitespace=1
 let g:airline_linecolumn_prefix = '¶'
 let g:airline_branch_prefix = ''
 let g:airline_paste_symbol = 'ρ'
@@ -290,6 +268,7 @@ let g:airline_detect_iminsert=0
 let g:airline_theme='wombat'
 let g:airline_detect_modified=1
 let g:airline_exclude_preview = 0
+let g:airline_inactive_collapse = 0
 let g:airline_mode_map = {
     \ '__' : '-',
     \ 'n'  : 'N',
@@ -303,6 +282,7 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '^S' : 'S',
     \ }
+" let g:airline_powerline_fonts=1
 
 " Syntastic
 let g:syntastic_python_checkers = ['pep8']
@@ -330,17 +310,17 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-
 let g:ctrlp_switch_buffer = '0'
 " Open first file in current buffer, rest hidden
 let g:ctrlp_open_multiple_files = 'ri'
+let g:ctrlp_open_new_file = 'r'
 
 let g:ctrlp_buffer_func = {
       \ 'enter': 'CtrlPMappings'
       \ }
 
 function! CtrlPMappings()
-  nnoremap <buffer> <silent> <c-q> :call <sid>DeleteBuffer()<cr>
+  nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
 endfunction
 
 function! s:DeleteBuffer()
-  echo "foo"
   let path = fnamemodify(getline('.')[2:], ':p')
   let bufn = matchstr(path, '\v\d+\ze\*No Name')
   exec "bd" bufn ==# "" ? path : bufn
@@ -404,7 +384,7 @@ endfunction
 
 autocmd InsertEnter * match
 autocmd InsertLeave * call EnableTrailingHightlight()
-" autocmd FileType unite let b:noTrailingHighlight = 1
+autocmd FileType ctrlp let b:noTrailingHighlight = 1
 " autocmd InsertLeave * redraw!
 
 if version >= 702
@@ -412,9 +392,6 @@ if version >= 702
 endif
 
 " Random
-let g:indentLine_char = '│'
-let g:skybison_fuzz = 1
-
 function! SynStack()
   if !exists("*synstack")
     return
@@ -424,7 +401,7 @@ endfunc
 
 let g:vim_json_syntax_conceal = 0
 
-autocmd FileType tex set filetype=plaintex
+" autocmd FileType tex set filetype=plaintex
 
 let g:BckPrg = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden'
 let BckOptions = 'cirw'

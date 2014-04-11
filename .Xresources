@@ -1,4 +1,4 @@
-Xft.autohint: 0
+Xft.autohint: 1
 Xft.hintstyle:  hintslight
 Xft.hinting: 1
 Xft.antialias: 1
@@ -32,14 +32,18 @@ URxvt.bigfont_key:       o
 URxvt.borderLess:        no
 URxvt.buffered:          false
 URxvt.depth:             32
-URxvt*font:              xft:Consolas:pixelsize=13:authint=true,xft:PowerlineSymbols:pixelsize=12:antialias=true:hinting=true
+URxvt.letterSpace:       -2
+
+! Consolas for Powerline symbols dont align with normal text
 ! URxvt*font:              xft:Consolas for Powerline:pixelsize=13:authint=true
+
+URxvt*font:              xft:Consolas:pixelsize=13
+
 ! URxvt.italicFont:        xft:Monospace:style=Oblique:pixelsize=10
 URxvt.hold:              false
 URxvt.urgentOnBell:  true
 URxvt.internalBorder:    7
 URxvt.jumpScroll:        true
-URxvt.letterSpace:       -2
 URxvt.loginShell:        true
 URxvt.scrollBar:         off
 URxvt.scrollTtyKeypress: on
