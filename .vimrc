@@ -348,7 +348,7 @@ au Syntax * RainbowParenthesesLoadRound
 let g:clojure_fuzzy_indent=1
 let g:clojure_align_multiline_strings = 1
 
-let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETË́', '^ANY', '^HEAD', '^PATCH', '^OPTIONS']
+let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS']
 autocmd FileType clojure setlocal lispwords+=describe,it,testing,facts,fact,provided
 
 " These confict with my window bindings, tpopes plugin already has these bound
