@@ -36,7 +36,6 @@ LockOnInactivity=true
 LockAfterSec=300
 UrlCmdDef=true
 UrlCmd=
-MountDir=/media/
 SaveRelativePaths=true
 AutoTypePreGap=500
 AutoTypeKeyStrokeDelay=5
@@ -45,10 +44,6 @@ GlobalShortcutMods=@Variant(\0\0\0\r\0\0\0\x5\0)
 EntryTitlesMatch=true
 
 [UI]
-EditEntryDialogSize=@Size(812 537)
-MainWindowGeometry=@ByteArray(\x1\xd9\xd0\xcb\0\x1\0\0\0\0\nl\0\0\x3l\0\0\xeR\0\0\x6\x37\0\0\nn\0\0\x3l\0\0\xeP\0\0\x6\x35\0\0\0\0\0\0)
-VSplitterPos=@ByteArray(\0\0\0\xff\0\0\0\0\0\0\0\x2\0\0\x1y\0\0\x5\xae\x1\0\0\0\x6\x1\0\0\0\x1)
-HSplitterPos=@ByteArray(\0\0\0\xff\0\0\0\0\0\0\0\x2\0\0\x34\x80\0\0\x16\x80\x1\0\0\0\x6\x1\0\0\0\x2)
 ShowStatusbar=false
 Columns=11101000100
 ColumnOrder="0,1,2,3,4,5,6,7,8,9,10"
