@@ -27,6 +27,7 @@ ppa ubuntu-wine ppa trusty
 ppa videolan master-daily trusty
 ppa webupd8team java trusty # Oracle java
 ppa webupd8team sublime-text-3 trusty
+ppa jon-severinsson ffmpeg saucy # Old version for Spotify
 repo atlassian-hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 repo dropbox "deb http://linux.dropbox.com/ubuntu raring main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games" # Transmission-remote-gtk
@@ -211,7 +212,6 @@ install simplescreenrecorder
 install skype:i386
 install mpv
 install smplayer
-install spotify-client
 install steam:i386
 install transmission-remote-gtk
 install unetbootin # Install Linux/etc images into USB stiff
@@ -220,6 +220,10 @@ install wine1.7
 install typecatcher # Install Google webfonts
 
 install network-manager-openconnect-gnome # Cisco VPN
+
+install spotify-client
+install libx264-123 2:0.123.2189+git35cf912-1ubuntu1 https://launchpad.net/ubuntu/+archive/primary/+files/libx264-123_0.123.2189%2Bgit35cf912-1ubuntu1_amd64.deb
+install libavformat-53 # Spotify local mp3 files
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install fail2ban
