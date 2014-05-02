@@ -105,7 +105,7 @@ install emacs24
 install sublime-text-installer
 
 # Java
-install "oracle-java8-set-default"
+install "oracle-java7-set-default"
 install maven3
 install ant
 install nailgun # Start JVM quicky - by running some JVM's on background
@@ -251,15 +251,14 @@ fi
 
 # Laptop specific
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
+        install thermald
         install cheese # Webcam
         install prey 0.6.2-ubuntu2 https://s3.amazonaws.com/prey-releases/bash-client/0.6.2/prey_0.6.2-ubuntu2_all.deb
         install thinkfan
         install i965-va-driver
         install tlp
         install xautolock
-        install elasticsearch 0.90.10 https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.deb
         install hamster-applet
-        install libvdpau-va-gl
 fi
 
 markauto
