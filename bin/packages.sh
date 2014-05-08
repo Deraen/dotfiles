@@ -222,7 +222,7 @@ install network-manager-openconnect-gnome # Cisco VPN
 
 install spotify-client
 install libx264-123 2:0.123.2189+git35cf912-1ubuntu1 https://launchpad.net/ubuntu/+archive/primary/+files/libx264-123_0.123.2189%2Bgit35cf912-1ubuntu1_amd64.deb
-install libavformat-53 # Spotify local mp3 files
+install libavformat53 # Spotify local mp3 files
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install fail2ban
