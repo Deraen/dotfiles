@@ -28,8 +28,7 @@ ppa videolan master-daily trusty
 ppa webupd8team java trusty # Oracle java
 ppa webupd8team sublime-text-3 trusty
 ppa jon-severinsson ffmpeg saucy # Old version for Spotify
-repo atlassian-hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
-repo dropbox "deb http://linux.dropbox.com/ubuntu raring main"
+repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games" # Transmission-remote-gtk
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
@@ -198,7 +197,6 @@ install gimp-plugin-registry
 install google-chrome-stable
 install google-talkplugin
 install gparted
-install hipchat
 install inkscape
 install keepassx # Password manager
 install mumble
@@ -212,7 +210,12 @@ install simplescreenrecorder
 install skype:i386
 install mpv
 install smplayer
+<<<<<<< HEAD
 install steam:i386
+=======
+install spotify-client
+install steam-launcher
+>>>>>>> update packages
 install transmission-remote-gtk
 install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-4.3
