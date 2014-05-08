@@ -210,12 +210,8 @@ install simplescreenrecorder
 install skype:i386
 install mpv
 install smplayer
-<<<<<<< HEAD
-install steam:i386
-=======
 install spotify-client
 install steam-launcher
->>>>>>> update packages
 install transmission-remote-gtk
 install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-4.3
