@@ -1,18 +1,17 @@
 {:user {:plugins [[lein-ancient "0.5.4"]
                   [lein-midje "3.1.3"]
+                  [cider/cider-nrepl "0.6.1-SNAPSHOT"]
                   ]
         :dependencies [[redl "0.2.2"]
                        [org.clojure/tools.namespace "0.2.4"]
                        [io.aviso/pretty "0.1.8"]
-                       [leiningen "2.3.4"]
-                       [im.chit/vinyasa "0.2.0"]
+                       [im.chit/vinyasa.inject "0.2.0"]
+                       [im.chit/vinyasa.pull "0.2.0"]
                        ]
         :injections [(require 'vinyasa.inject)
                      (vinyasa.inject/inject 'clojure.core
                                             '[[vinyasa.inject inject]
-                                              [vinyasa.pull pull]
-                                              [vinyasa.lein lein]
-                                              [vinyasa.reimport reimport]])
+                                              [vinyasa.pull pull]])
                      (vinyasa.inject/inject 'clojure.core '>
                                             '[[cemerick.pomegranate add-classpath get-classpath resources]
                                               [clojure.tools.namespace.repl refresh]
