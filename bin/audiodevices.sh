@@ -2,8 +2,10 @@
 
 # Adapted from https://gist.github.com/ef4/2075048
 
-# DAC="alsa_output.usb-Audinst__Inc._Audinst_HUD-mx1-01-HUDmx1.analog-stereo"
-DAC="alsa_output.usb-Burr-Brown_from_TI_USB_Audio_CODEC-00-CODEC.analog-stereo"
+# Audinst
+DAC="alsa_output.usb-Audinst__Inc._Audinst_HUD-mx1-01-HUDmx1.analog-stereo"
+# Behringer
+# DAC="alsa_output.usb-Burr-Brown_from_TI_USB_Audio_CODEC-00-CODEC.analog-stereo"
 MIC="alsa_input.usb-Samson_Technologies_Samson_GoMic-00-GoMic.analog-mono"
 
 if [ $1 == "--fork" ]; then
