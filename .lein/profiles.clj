@@ -1,6 +1,8 @@
 {:user {:plugins [[lein-ancient "0.5.4"]
                   [lein-midje "3.1.3"]
                   [cider/cider-nrepl "0.6.1-SNAPSHOT"]
+                  [lein-deps-tree "0.1.2"]
+                  [lein-localrepo "0.5.3"]
                   ]
         :dependencies [[redl "0.2.2"]
                        [org.clojure/tools.namespace "0.2.4"]
