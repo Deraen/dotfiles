@@ -2,37 +2,37 @@ autocmd FileType clojure nunmap <buffer> K
 autocmd FileType clojure nmap <buffer> <F2>  <Plug>FireplaceK
 autocmd FileType clojure nmap <buffer> <F3>  <Plug>FireplaceSource
 
-function! s:Refresh(bang, ns)
-  let cmd = (('(>refresh)'))
+function! s:eval_paste(type) abort
+  let reg_save = @@
+  let sel_save = &selection
+  let cb_save = &clipboard
   try
-    silent! write
-    call fireplace#session_eval(cmd)
+    set selection=inclusive clipboard-=unnamed clipboard-=unnamedplus
+
+    " Find start of the block
+    call searchpair('(','',')', 'Wbcr', g:fireplace#skip)
+    " Copy contents
+    silent exe "normal! vaby"
+    let expr = repeat("\n", line("'<")-1) . repeat(" ", col("'<")-1) . @@
+    " Eval contents
+    let @@ = "\n;; => " . fireplace#session_eval(matchstr(expr, '^\n\+').expr).matchstr(expr, '\n\+$')
+    if @@ !~# '^\n*$'
+      " Paste
+      normal! %p
+    endif
+  catch /^Clojure:/
     return ''
-  catch /^Clojure:.*/
-    return ''
+  finally
+    let @@ = reg_save
+    let &selection = sel_save
+    let &clipboard = cb_save
   endtry
 endfunction
 
-function! s:setup_refresh()
-  command! -buffer -bar -bang -complete=customlist,fireplace#ns_complete -nargs=? Refresh :exe s:Refresh(<bang>0, <q-args>)
-  nnoremap <silent><buffer> cpf :Refresh<CR>
+nnoremap <silent> <Plug>EvalPaste :<C-U>call <SID>eval_paste(v:count)<CR>
+
+function! s:setup_eval() abort
+  nmap <buffer> cep <Plug>EvalPaste
 endfunction
 
-autocmd FileType clojure call s:setup_refresh()
-
-function! s:MidjeTest(bang, ns)
-  let cmd = (("(use 'midje.repl)(midje.repl/load-facts :all)"))
-  try
-    call fireplace#session_eval(cmd)
-    return ''
-  catch /^Clojure:.*/
-    return ''
-  endtry
-endfunction
-
-function! s:setup_test()
-  command! -buffer -bar -bang -complete=customlist,fireplace#ns_complete -nargs=? MidjeTest :exe s:MidjeTest(<bang>0, <q-args>)
-  nnoremap <silent><buffer> cpt :MidjeTest<CR>
-endfunction
-
-autocmd FileType clojure call s:setup_test()
+autocmd FileType clojure call s:setup_eval()

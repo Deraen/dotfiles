@@ -26,6 +26,7 @@
 
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	undo-commit = reset --soft HEAD^
+  lazy = "!sh -c git add -A . && git status"
 
 
 [core]

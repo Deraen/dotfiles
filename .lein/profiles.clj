@@ -1,6 +1,6 @@
 {:user {:plugins [[lein-ancient "0.5.4"]
                   [lein-midje "3.1.3"]
-                  [cider/cider-nrepl "0.6.1-SNAPSHOT"]
+                  [cider/cider-nrepl "0.7.0-SNAPSHOT"]
                   [lein-deps-tree "0.1.2"]
                   [lein-localrepo "0.5.3"]
                   ]
