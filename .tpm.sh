@@ -26,6 +26,8 @@ if [[ $HOSTNAME == "juho-desktop" ]] || [[ $HOSTNAME == "juho-laptop" ]]; then
     plug ponymix "falconindy/ponymix"
     build ponymix "make"
     addBin ponymix ponymix ponymix
+
+    plug oh-my-zsh "robbyrussel/oh-my-zsh"
 fi
 
 commit
