@@ -85,7 +85,6 @@ if has("multi_byte")
   scriptencoding utf-8
 endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoread
 set backspace=indent,eol,start
 set clipboard+=unnamedplus
@@ -151,38 +150,48 @@ set pastetoggle=<M-p>
 nnoremap j gj
 nnoremap k gk
 
-" Ikkunoiden mälväys altin kanssa
+" Change active window
 nnoremap <M-h> h
 nnoremap <M-j> j
 nnoremap <M-k> k
 nnoremap <M-l> l
+" Moving windows using Alt
 nnoremap <M-H> H
 nnoremap <M-J> J
 nnoremap <M-K> K
 nnoremap <M-L> L
+
+" Close window
 nnoremap <M-q> <C-w>c
 inoremap <M-q> <Esc><C-w>c:echo ""<cr>
-nnoremap <M-c> :tabclose<cr>:echo ""<cr>
+" New windows
 nnoremap <M-n> <C-w>v
 nnoremap <M-m> <C-w>s
-" nnoremap <M-w> <C-w><C-w>
+" Close buffer
 nnoremap <M-w> :BD<cr>
+
+" Resize
 nnoremap <C-j> :res -5<cr>
 nnoremap <C-k> :res +5<cr>
-nnoremap <C-h> :vert res -5<cr>
-nnoremap <C-l> :vert res +5<cr>
+" I don't seem to use these and ctrl-l conflicts with `clear terminal`
+" nnoremap <C-h> :vert res -5<cr>
+" nnoremap <C-l> :vert res +5<cr>
 
-" Liikuttaa parametreja
+" Move parameters around
 nmap <; <Plug>Argumentative_MoveLeft
 nmap >; <Plug>Argumentative_MoveRight
 
+" Save file
 nnoremap ä :w<CR>
 
+" space-space toggles search hilight
 nnoremap <silent><space><space> :set nohls!<cr>
 
+" ctrl-p open files in project, ctrl-b change buffer
 nnoremap <silent><space>p :CtrlP<cr>
 nnoremap <silent><space>b :CtrlPBuffer<cr>
 
+" FIXME: seems to have problems...
 function! ColorPicker(insert)
   let color = '\#' . expand('<cword>')
   let @z = system("zenity --color-selection --color " . color . " | cut -c 2-3,6-7,10-11 | tr -d \"\n\"")
@@ -198,6 +207,7 @@ endfunction
 nnoremap <silent><space>c :call ColorPicker(0)<cr>
 inoremap <silent><M-c> <C-o>:call ColorPicker(1)<cr>
 
+" Toggle buffer fullscreen
 let g:dfm_fullscreen=0
 let g:dfm_nd=0
 function! Fullscreen()
@@ -216,37 +226,38 @@ endfunction
 
 nnoremap <silent><M-f> :call Fullscreen()<cr>:echo ""<cr>
 
-" Lisää ja vähentää seuraavasta numerosta
-nnoremap + <C-a>
-nnoremap - <C-x>
-
-" Näppärä nopea makronappi
+" Quick macro stuff
 nnoremap § qqqqq
 nnoremap ½ @q
 vnoremap ½ @q
 vnoremap ¤ :g/.*/norm!
 
+" One more way to exit insert mode
 inoremap <C-c> <ESC>
 
 " Split line
 nnoremap K i<CR><Esc>k$
 
-" Search
+" Search in project for these words
 nnoremap <silent><space>/f :Bck FIXME<CR>
 nnoremap <silent><space>/t :Bck TODO<CR>
 " Search for word under the cursor
 nnoremap <silent><space>/w :Bck <C-r><C-w><CR>
 nnoremap <silent><space>q :Bck<CR>
 
+" Remove trailing whitespaces
 fun! StripTrailingWhitespaces()
   let l = line(".")
   let c = col(".")
   silent! %s/\s\+$//e
   call cursor(l, c)
 endfun
-nnoremap <silent><space>dt :call StripTrailingWhitespaces()<CR>
+nnoremap <silent><space>dt :call StripTrailingWhitespaces()<CR>     
 
+" Hightlight trailing whitespaces in normal mode
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+" Leave paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
 
 nnoremap <silent> <Space>j :<C-U>VertigoDown n<CR>
@@ -318,16 +329,22 @@ let g:ctrlp_buffer_func = {
       \ 'enter': 'CtrlPMappings'
       \ }
 
-function! CtrlPMappings()
-  nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
-endfunction
-
 function! s:DeleteBuffer()
   let path = fnamemodify(getline('.')[2:], ':p')
   let bufn = matchstr(path, '\v\d+\ze\*No Name')
   exec "bd" bufn ==# "" ? path : bufn
   exec "norm \<F5>"
 endfunction
+
+function! CtrlPMappings()
+  " Alt-w in ctrlp buffer view closes the selected buffer
+  nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
+endfunction
+
+" Bck
+let g:BckPrg = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden'
+let BckOptions = 'cirw'
+
 " ycm
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_identifier_chars = '_-/.><'
@@ -344,14 +361,24 @@ let g:ycm_filetype_blacklist = {
 set completeopt-=preview
 
 " Clojure options
+" Use rainbow parentheses
 au FileType clojure RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 
-let g:clojure_fuzzy_indent=1
 let g:clojure_align_multiline_strings = 1
 
+" Lispwords are words after which indentation should always be 2 spaces
+" instead of justifying elements to same level as previous lines elements
+
+" Define compojure routes using regex so GET and GET* both match
 let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
-autocmd FileType clojure setlocal lispwords+=describe,it,testing,facts,fact,provided,run*
+
+autocmd FileType clojure execute "setlocal lispwords+=" . join(map(values({
+      \ 'random': ['describe', 'it', 'testing'],
+      \ 'compojure': ['context', 'swaggered'],
+      \ 'midje': ['fact', 'facts', 'provided'],
+      \ 'core.logic': ['run*']
+      \}), 'join(v:val, ",")'), ',')
 
 " These confict with my window bindings, tpopes plugin already has these bound
 " to rational keys
@@ -374,7 +401,7 @@ call arpeggio#map('icvx', '', 0, 'jl', '<End>')
 " call arpeggio#map('icvx', '', 0, 'ui', '<Esc>u')
 call arpeggio#map('i', '', 0, 'hl', '<Esc>I')
 
-" Hightlight trailing spaces
+" Hightlight trailing spaces in normal mode
 function! EnableTrailingHightlight()
   if exists('b:noTrailingHightlight')
     return
@@ -402,6 +429,3 @@ endfunc
 let g:vim_json_syntax_conceal = 0
 
 " autocmd FileType tex set filetype=plaintex
-
-let g:BckPrg = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden'
-let BckOptions = 'cirw'
