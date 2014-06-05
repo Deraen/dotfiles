@@ -10,63 +10,60 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 
+NeoBundle 'aklt/plantuml-syntax'
 NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'Deraen/seoul256.vim'
-NeoBundle 'PeterRincker/vim-argumentative'
-NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
-NeoBundle 'Valloric/YouCompleteMe' " ./install.sh --clang-completer
-NeoBundle 'vim-scripts/bufkill.vim'
-NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'b4winckler/vim-angry'
 NeoBundle 'baabelfish/a.vim'
+NeoBundle 'baabelfish/vim-vertigo'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'Deraen/seoul256.vim'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'drmikehenry/vim-fixkey'
+NeoBundle 'elzr/vim-json'
 NeoBundle 'glts/vim-textobj-comment'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'guns/vim-clojure-static'
-NeoBundle 'guns/vim-sexp'
-NeoBundle 'tpope/vim-sexp-mappings-for-regular-people'
+NeoBundle 'guns/vim-sexp' " Manipulate s-expressions (Lisp)
+NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'justinmk/vim-sneak' " Like f but takes two chars
 NeoBundle 'jwhitley/vim-matchit'
 NeoBundle 'kana/vim-arpeggio'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'kien/rainbow_parentheses.vim'
 NeoBundle 'kurkale6ka/vim-pairs'
+NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
 NeoBundle 'mhinz/vim-signify'
+NeoBundle 'mhinz/vim-toplevel'
+NeoBundle 'mihaifm/bck'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'PeterRincker/vim-argumentative'
+NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
 NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'tikhomirov/vim-glsl'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-abolish' " %Subvert/faculit{y,ies}/building{,s}/g
+NeoBundle 'tpope/vim-characterize' " Add unicode info to ga
 NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'tpope/vim-eunuch' " Unix commands, :Remove etc.
 NeoBundle 'tpope/vim-fireplace'
+NeoBundle 'tpope/vim-fugitive' " Run git commands from Vim
 NeoBundle 'tpope/vim-leiningen'
-NeoBundle 'tpope/vim-characterize'
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'vim-scripts/L9'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'guns/xterm-color-table.vim'
-NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'tikhomirov/vim-glsl'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'mihaifm/bck'
-NeoBundle 'justinmk/vim-sneak'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
-NeoBundle 'mhinz/vim-toplevel'
-NeoBundle 'tpope/vim-sleuth'
-NeoBundle 'baabelfish/vim-vertigo'
-NeoBundle 'aklt/plantuml-syntax'
-NeoBundle 'gcmt/wildfire.vim'
+NeoBundle 'tpope/vim-repeat' " . repeat support for some plugins
+NeoBundle 'tpope/vim-sexp-mappings-for-regular-people'
+NeoBundle 'tpope/vim-sleuth' " Detect buffer settings (indent etc.)
+NeoBundle 'tpope/vim-surround' " Change surrounding: cs, wrap entire line: yss
+NeoBundle 'Valloric/MatchTagAlways'
+NeoBundle 'Valloric/YouCompleteMe' " ./install.sh --clang-completer --system-libclang
+NeoBundle 'vim-scripts/bufkill.vim'
 
 NeoBundleLazy 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
 autocmd FileType javascript NeoBundleSource 'tern_for_vim'
