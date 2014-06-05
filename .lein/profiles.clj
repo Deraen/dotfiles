@@ -3,6 +3,8 @@
                   [cider/cider-nrepl "0.7.0-SNAPSHOT"]
                   [lein-deps-tree "0.1.2"]
                   [lein-localrepo "0.5.3"]
+                  [jonase/eastwood "0.1.2"]
+                  [lein-exec "0.3.3"]
                   ]
         :dependencies [[redl "0.2.2"]
                        [org.clojure/tools.namespace "0.2.4"]
