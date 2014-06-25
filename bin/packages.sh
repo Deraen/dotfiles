@@ -96,6 +96,7 @@ install tmispell-voikko
 install tmux
 install tree
 install zsh
+install cloc
 
 # Editor
 install vim-gtk
@@ -107,6 +108,7 @@ install "oracle-java7-set-default"
 install maven3
 install ant
 install nailgun # Start JVM quicky - by running some JVM's on background
+install jsvc
 
 # Node
 install nodejs
@@ -138,6 +140,7 @@ install python3-pip
 
 # Version control
 install git
+install gitg
 install git-flow
 install mercurial
 
@@ -148,7 +151,7 @@ install mono-gmcs
 install leap 0.8.0 # Leapmotion
 install devscripts
 install ubuntu-dev-tools
-install mongodb-10gen
+install mongodb-org
 install httpie
 install robomongo 0.8.4 http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
 
@@ -252,6 +255,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install prey 0.6.2-ubuntu2 https://s3.amazonaws.com/prey-releases/bash-client/0.6.2/prey_0.6.2-ubuntu2_all.deb
         install thinkfan
         install i965-va-driver
+        install libva-intel-vaapi-driver
         install tlp
         install xautolock
         install hamster-applet

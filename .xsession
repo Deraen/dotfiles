@@ -8,7 +8,7 @@ dunst &
 nm-applet &
 gnome-sound-applet &
 dropbox start &
-if [[ $HOSTNAME == "juho-laptop" ]]; then
+if [[ $HOST == "juho-laptop" ]]; then
     xset dpms 600
     light-locker &
     xautolock -time 10 -detectsleep -locker "lock.sh" &
