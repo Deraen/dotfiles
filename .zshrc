@@ -1,10 +1,10 @@
 export ZSH=$HOME/.local/tpm/oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="deraen"
 DISABLE_AUTO_UPDATE="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/.config/terminal/oh-my-zsh
 
 plugins=(git git-flow)
 
