@@ -78,9 +78,9 @@ _lp_git_branch_color() {
 
             if [[ "$has_commit" -gt "0" ]] ; then
                 # Changes to commit and commits to push
-                ret="%{$fg[red]%}${branch}%{$reset_color%}(%F{201}$has_lines%{$reset_color%},%{$fg[yellow]%}$has_commit%{$reset_color%})"
+                ret="%{$fg[red]%}${branch}%{$reset_color%}(%F{013}$has_lines%{$reset_color%},%{$fg[yellow]%}$has_commit%{$reset_color%})"
             else
-                ret="%{$fg[red]%}${branch}%{$reset_color%}(%F{201}$has_lines%{$reset_color%})" # changes to commit
+                ret="%{$fg[red]%}${branch}%{$reset_color%}(%F{013}$has_lines%{$reset_color%})" # changes to commit
             fi
         else
             if [[ "$has_commit" -gt "0" ]] ; then
@@ -94,4 +94,4 @@ _lp_git_branch_color() {
     fi
 }
 
-PROMPT='%{$fg[green]%}%p %{$fg[cyan]%}%c %{$fg[blue]%}$(_lp_git_branch_color)%{$fg[blue]%} % %{$reset_color%}'
+PROMPT='%{$fg[green]%}%p %{$fg[cyan]%}%c %{$fg[blue]%}$(_lp_git_branch_color)%{$fg[blue]%} % %{$reset_color%}$ '
