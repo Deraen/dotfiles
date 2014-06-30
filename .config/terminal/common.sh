@@ -18,6 +18,7 @@ export MOST_EDITOR="vim"
 
 export npm_config_prefix="$HOME/.local"
 
+# If second parameter is a directory, export to first param
 function exportIfExists {
     [[ -d "$2" ]] && export "$1"="$2"
 }
@@ -26,17 +27,18 @@ exportIfExists ANDROID_HOME "/raid/opt/android-sdk-linux_x86"
 exportIfExists ANDROID_HOME "/opt/android-sdk-linux_x86"
 exportIfExists ANDROID_HOME "$HOME/.local/android-sdk"
 
+# Add dir to PATH if dir exists and is not on PATH already
 function addPath {
     [[ -d "$1" ]] && [[ :$PATH: != *:"$1":* ]] && export PATH="$1:$PATH"
 }
 
+# Source file if it exists
 function addSource {
     [[ -s "$1" ]] && source "$1"
 }
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
-addPath "$HOME/.local/tpm-bin"
 addPath "$HOME/.cabal/bin"
 addPath /raid/opt/android-sdk-linux_x86/platform-tools
 addPath /raid/opt/android-sdk-linux_x86/tools
@@ -55,9 +57,4 @@ addPath "/opt/node-webkit-v0.9.2-linux-x64"
 addSource "$HOME/.rvm/scripts/rvm"
 
 # Home git repo, don't show untracked files on status
-# pushd $HOME > /dev/null
-# git config status.showUntrackedFiles no
-# popd > /dev/null
-
-# bash <(curl -kL https://raw.github.com/baabelfish/tpm/master/init)
-source /home/juho/.tpm.sh
+$(cd $HOME ; git config status.showUntrackedFiles no)

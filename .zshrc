@@ -1,4 +1,4 @@
-export ZSH=$HOME/.local/tpm/oh-my-zsh
+export ZSH=$HOME/.local/modules/oh-my-zsh
 
 ZSH_THEME="deraen"
 DISABLE_AUTO_UPDATE="true"

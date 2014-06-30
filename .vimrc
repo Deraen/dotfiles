@@ -1,76 +1,6 @@
-" NeoBundle:
-" git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-
-NeoBundle 'aklt/plantuml-syntax'
-NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'b4winckler/vim-angry'
-NeoBundle 'baabelfish/a.vim'
-NeoBundle 'baabelfish/vim-vertigo'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'Deraen/seoul256.vim'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'drmikehenry/vim-fixkey'
-NeoBundle 'elzr/vim-json'
-NeoBundle 'glts/vim-textobj-comment'
-NeoBundle 'gregsexton/gitv'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'guns/vim-clojure-static'
-NeoBundle 'guns/vim-sexp' " Manipulate s-expressions (Lisp)
-NeoBundle 'guns/xterm-color-table.vim'
-NeoBundle 'junegunn/vim-easy-align'
-NeoBundle 'justinmk/vim-sneak' " Like f but takes two chars
-NeoBundle 'jwhitley/vim-matchit'
-NeoBundle 'kana/vim-arpeggio'
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'kurkale6ka/vim-pairs'
-NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
-NeoBundle 'mhinz/vim-signify'
-NeoBundle 'mhinz/vim-toplevel'
-NeoBundle 'mihaifm/bck'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'PeterRincker/vim-argumentative'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/vimproc', {'build': {'unix': 'make'}}
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'tikhomirov/vim-glsl'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-abolish' " %Subvert/faculit{y,ies}/building{,s}/g
-NeoBundle 'tpope/vim-characterize' " Add unicode info to ga
-NeoBundle 'tpope/vim-dispatch'
-NeoBundle 'tpope/vim-eunuch' " Unix commands, :Remove etc.
-NeoBundle 'tpope/vim-fireplace'
-NeoBundle 'tpope/vim-fugitive' " Run git commands from Vim
-NeoBundle 'tpope/vim-leiningen'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'tpope/vim-repeat' " . repeat support for some plugins
-NeoBundle 'tpope/vim-sexp-mappings-for-regular-people'
-NeoBundle 'tpope/vim-sleuth' " Detect buffer settings (indent etc.)
-NeoBundle 'tpope/vim-surround' " Change surrounding: cs, wrap entire line: yss
-NeoBundle 'Valloric/MatchTagAlways'
-NeoBundle 'Valloric/YouCompleteMe' " ./install.sh --clang-completer --system-libclang
-NeoBundle 'vim-scripts/bufkill.vim'
-
-NeoBundleLazy 'marijnh/tern_for_vim', {'build': {'unix': 'npm install'}}
-autocmd FileType javascript NeoBundleSource 'tern_for_vim'
-
-NeoBundleCheck
-
-filetype plugin indent on
 setlocal spell spelllang=en_us
 
 if has("multi_byte")
@@ -82,8 +12,6 @@ if has("multi_byte")
   scriptencoding utf-8
 endif
 
-set autoread
-set backspace=indent,eol,start
 set clipboard+=unnamedplus
 set expandtab
 set fillchars+=vert:│
@@ -91,14 +19,10 @@ set gdefault
 set hidden
 set history=100
 set ignorecase
-set incsearch
-set laststatus=2
 set lazyredraw
 set ttyfast
 set ttyscroll=1
 set list
-set listchars=""
-set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶,nbsp:█
 set nobackup
 set noerrorbells
 set nofoldenable
@@ -108,19 +32,18 @@ set noswapfile
 set notimeout
 set novisualbell
 set nowrap
-set nrformats-=octal
 set shortmess+=filmnrxoOtTI
 set smartcase
-set smarttab
-set ttimeout
-set ttimeoutlen=0
-set wildmenu
 set wildmode=longest,list
 set wildignorecase
 set formatoptions-=tc
 set wrapmargin=0
 set number numberwidth=4
-set scrolloff=100
+" set scrolloff=100
+
+" Display visible whitespaces as nice utf-8 dot
+set listchars=""
+set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶,nbsp:█
 
 " Use old one as new one might be slower?
 set regexpengine=1
@@ -131,7 +54,7 @@ set undofile
 set undodir=~/.vim/undo
 
 " Colors
-syntax on
+" syntax on
 
 set background=dark
 let g:seoul256_background = 233

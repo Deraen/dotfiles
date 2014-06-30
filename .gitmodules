@@ -1,0 +1,183 @@
+[submodule ".local/modules/pwrmgr"]
+	path = .local/modules/pwrmgr
+	url = git@github.com:Deraen/pwrmgr.git
+[submodule ".local/modules/dspmgr"]
+	path = .local/modules/dspmgr
+	url = git@github.com:Deraen/dspmgr.git
+[submodule ".local/modules/oh-my-zsh"]
+	path = .local/modules/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule ".local/modules/urxvt-perls"]
+	path = .local/modules/urxvt-perls
+	url = https://github.com/muennich/urxvt-perls.git
+[submodule ".local/modules/urxvt-font-size"]
+	path = .local/modules/urxvt-font-size
+	url = https://github.com/majutsushi/urxvt-font-size.git
+[submodule ".vim/bundle/vim-pathogen"]
+	path = .vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule ".vim/bundle/switch.vim"]
+	path = .vim/bundle/switch.vim
+	url = https://github.com/AndrewRadev/switch.vim.git
+[submodule ".vim/bundle/plantuml-syntax"]
+	path = .vim/bundle/plantuml-syntax
+	url = https://github.com/aklt/plantuml-syntax.git
+[submodule ".vim/bundle/vim-angry"]
+	path = .vim/bundle/vim-angry
+	url = https://github.com/b4winckler/vim-angry.git
+[submodule ".vim/bundle/a.vim"]
+	path = .vim/bundle/a.vim
+	url = https://github.com/baabelfish/a.vim.git
+[submodule ".vim/bundle/vim-vertigo"]
+	path = .vim/bundle/vim-vertigo
+	url = https://github.com/baabelfish/vim-vertigo.git
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/seoul256.vim"]
+	path = .vim/bundle/seoul256.vim
+	url = https://github.com/Deraen/seoul256.vim.git
+[submodule ".vim/bundle/vim-scala"]
+	path = .vim/bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala.git
+[submodule ".vim/bundle/vim-fixkey"]
+	path = .vim/bundle/vim-fixkey
+	url = https://github.com/drmikehenry/vim-fixkey.git
+[submodule ".vim/bundle/vim-json"]
+	path = .vim/bundle/vim-json
+	url = https://github.com/elzr/vim-json.git
+[submodule ".vim/bundle/vim-textobj-comment"]
+	path = .vim/bundle/vim-textobj-comment
+	url = https://github.com/glts/vim-textobj-comment.git
+[submodule ".vim/bundle/gitv"]
+	path = .vim/bundle/gitv
+	url = https://github.com/gregsexton/gitv.git
+[submodule ".vim/bundle/vim-less"]
+	path = .vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule ".vim/bundle/vim-clojure-static"]
+	path = .vim/bundle/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule ".vim/bundle/vim-sexp"]
+	path = .vim/bundle/vim-sexp
+	url = https://github.com/guns/vim-sexp.git
+[submodule ".vim/bundle/xterm-color-table.vim"]
+	path = .vim/bundle/xterm-color-table.vim
+	url = https://github.com/guns/xterm-color-table.vim.git
+[submodule ".vim/bundle/vim-easy-align"]
+	path = .vim/bundle/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
+[submodule ".vim/bundle/vim-sneak"]
+	path = .vim/bundle/vim-sneak
+	url = https://github.com/justinmk/vim-sneak.git
+[submodule ".vim/bundle/vim-matchit"]
+	path = .vim/bundle/vim-matchit
+	url = https://github.com/jwhitley/vim-matchit.git
+[submodule ".vim/bundle/vim-arpeggio"]
+	path = .vim/bundle/vim-arpeggio
+	url = https://github.com/kana/vim-arpeggio.git
+[submodule ".vim/bundle/vim-textobj-entire"]
+	path = .vim/bundle/vim-textobj-entire
+	url = https://github.com/kana/vim-textobj-entire.git
+[submodule ".vim/bundle/vim-textobj-indent"]
+	path = .vim/bundle/vim-textobj-indent
+	url = https://github.com/kana/vim-textobj-indent.git
+[submodule ".vim/bundle/vim-textobj-user"]
+	path = .vim/bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule ".vim/bundle/rainbow_parentheses.vim"]
+	path = .vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/kien/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/vim-pairs"]
+	path = .vim/bundle/vim-pairs
+	url = https://github.com/kurkale6ka/vim-pairs.git
+[submodule ".vim/bundle/LaTeX-Box"]
+	path = .vim/bundle/LaTeX-Box
+	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
+[submodule ".vim/bundle/vim-signify"]
+	path = .vim/bundle/vim-signify
+	url = https://github.com/mhinz/vim-signify.git
+[submodule ".vim/bundle/vim-toplevel"]
+	path = .vim/bundle/vim-toplevel
+	url = https://github.com/mhinz/vim-toplevel.git
+[submodule ".vim/bundle/bck"]
+	path = .vim/bundle/bck
+	url = https://github.com/mihaifm/bck.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/vim-argumentative"]
+	path = .vim/bundle/vim-argumentative
+	url = https://github.com/PeterRincker/vim-argumentative.git
+[submodule ".vim/bundle/delimitMate"]
+	path = .vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/vimproc"]
+	path = .vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.git
+[submodule ".vim/bundle/vim-multiple-cursors"]
+	path = .vim/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule ".vim/bundle/vim-glsl"]
+	path = .vim/bundle/vim-glsl
+	url = https://github.com/tikhomirov/vim-glsl.git
+[submodule ".vim/bundle/molokai"]
+	path = .vim/bundle/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule ".vim/bundle/tcomment_vim"]
+	path = .vim/bundle/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim.git
+[submodule ".vim/bundle/vim-abolish"]
+	path = .vim/bundle/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule ".vim/bundle/vim-characterize"]
+	path = .vim/bundle/vim-characterize
+	url = https://github.com/tpope/vim-characterize.git
+[submodule ".vim/bundle/vim-dispatch"]
+	path = .vim/bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule ".vim/bundle/vim-eunuch"]
+	path = .vim/bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule ".vim/bundle/vim-fireplace"]
+	path = .vim/bundle/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace.git
+[submodule ".vim/bundle/vim-fugitive"]
+	path = .vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-leiningen"]
+	path = .vim/bundle/vim-leiningen
+	url = https://github.com/tpope/vim-leiningen.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule ".vim/bundle/vim-repeat"]
+	path = .vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule ".vim/bundle/vim-sexp-mappings-for-regular-people"]
+	path = .vim/bundle/vim-sexp-mappings-for-regular-people
+	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
+[submodule ".vim/bundle/vim-sleuth"]
+	path = .vim/bundle/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/MatchTagAlways"]
+	path = .vim/bundle/MatchTagAlways
+	url = https://github.com/Valloric/MatchTagAlways.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = .vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/bufkill.vim"]
+	path = .vim/bundle/bufkill.vim
+	url = https://github.com/vim-scripts/bufkill.vim.git
+[submodule ".vim/bundle/vim-sensible"]
+	path = .vim/bundle/vim-sensible
+	url = https://github.com/tpope/vim-sensible.git
