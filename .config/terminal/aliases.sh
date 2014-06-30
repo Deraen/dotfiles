@@ -8,7 +8,6 @@ alias o="open.sh"
 alias term="( urxvt & ) &>/dev/null"
 
 _add_vim_plugin() {
-  cd $HOME
-  git submodule add https://github.com/${1}.git .vim/bundle/${1##*/}
+  $(cd $HOME ; git submodule add https://github.com/${1}.git .vim/bundle/${1##*/})
 }
 alias add-vim-plugin="_add_vim_plugin"
