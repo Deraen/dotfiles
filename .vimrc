@@ -1,6 +1,8 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
+" Uses tpope's vim-sensible defaults
+
 setlocal spell spelllang=en_us
 
 if has("multi_byte")
@@ -13,13 +15,11 @@ if has("multi_byte")
 endif
 
 set clipboard+=unnamedplus
-set expandtab
 set fillchars+=vert:│
 set gdefault
 set hidden
 set history=100
 set ignorecase
-set lazyredraw
 set ttyfast
 set ttyscroll=1
 set list
@@ -38,12 +38,19 @@ set wildmode=longest,list
 set wildignorecase
 set formatoptions-=tc
 set wrapmargin=0
-set number numberwidth=4
 " set scrolloff=100
 
+" Should make vim faster by avoiding unnecessary redraws
+set lazyredraw
+" Show command in bottom bar
+set showcmd
 " Display visible whitespaces as nice utf-8 dot
 set listchars=""
 set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶,nbsp:█
+" Display numbers on the margin
+set number numberwidth=4
+" tabs are spaces
+set expandtab
 
 " Use old one as new one might be slower?
 set regexpengine=1

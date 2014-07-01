@@ -4,9 +4,6 @@
 [submodule ".local/modules/dspmgr"]
 	path = .local/modules/dspmgr
 	url = git@github.com:Deraen/dspmgr.git
-[submodule ".local/modules/oh-my-zsh"]
-	path = .local/modules/oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule ".local/modules/urxvt-perls"]
 	path = .local/modules/urxvt-perls
 	url = https://github.com/muennich/urxvt-perls.git
@@ -181,3 +178,12 @@
 [submodule ".vim/bundle/vim-sensible"]
 	path = .vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
+[submodule ".local/modules/pure"]
+	path = .local/modules/pure
+	url = https://github.com/sindresorhus/pure.git
+[submodule ".local/modules/zsh-syntax-highlighting"]
+	path = .local/modules/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".local/modules/dircolors-solarized"]
+	path = .local/modules/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git

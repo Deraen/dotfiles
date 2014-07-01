@@ -58,3 +58,8 @@ addSource "$HOME/.rvm/scripts/rvm"
 
 # Home git repo, don't show untracked files on status
 $(cd $HOME ; git config status.showUntrackedFiles no)
+
+# Colors
+eval $(dircolors $HOME/.local/modules/dircolors-solarized/dircolors.256dark)
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR='1;32'
