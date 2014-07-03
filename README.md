@@ -6,7 +6,9 @@ Prerequisites: git, bash
 
 1. git clone git@github.com:Deraen/dotfiles.git
 2. cd dotfiles
-3. shopt -s dotglob # * by default doesn't include files starting with .
+3. * by default doesn't include files starting with .
+    - bash: `shopt -s dotglob`
+    - zsh: `setopt globdots`
 4. cp -R * ~
 5. cd ..
 6. rm -rf dotfiles

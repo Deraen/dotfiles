@@ -1,17 +1,16 @@
 fpath=( "$HOME/.config/terminal/zfunctions" $fpath )
 
+# Use history
+HISTFILE=$HOME/.zsh_history
+
 # Load Pure prompt
 autoload -U promptinit && promptinit
 PURE_CMD_MAX_EXEC_TIME=30
 prompt pure
+
 # Backward delete to slash
 autoload -U select-word-style
 select-word-style bash
-
-# Use history
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
 
 # Ctrl + left/right
 bindkey '^[[1;5D' backward-word

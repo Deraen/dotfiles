@@ -9,12 +9,17 @@ else
   export EDITOR='vim'
 fi
 
+[ -n "$TMUX" ] && export TERM=screen-256color
+
 export DEBFULLNAME="Juho Teperi"
 export DEBEMAIL="juho.teperi@iki.fi"
 export PAGER="less"
 export MOST_EDITOR="vim"
 
-[ -n "$TMUX" ] && export TERM=screen-256color
+# History
+HISTCONTROL=ignoredups:ignorespace
+HISTSIZE=10000
+SAVEHIST=10000
 
 export npm_config_prefix="$HOME/.local"
 
@@ -59,7 +64,13 @@ addSource "$HOME/.rvm/scripts/rvm"
 # Home git repo, don't show untracked files on status
 $(cd $HOME ; git config status.showUntrackedFiles no)
 
+# Enables for example viewing gziped text files directly
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
 # Colors
-eval $(dircolors $HOME/.local/modules/dircolors-solarized/dircolors.256dark)
-export GREP_OPTIONS="--color=auto"
-export GREP_COLOR='1;32'
+test -r $HOME/.local/modules/dircolors-solarized/dircolors.256dark && eval "$(dircolors $HOME/.local/modules/dircolors-solarized/dircolors.256dark)"
+alias ls='ls --color=auto'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
