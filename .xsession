@@ -13,8 +13,6 @@ if [[ $HOST == "juho-laptop" ]]; then
     light-locker &
     xautolock -time 10 -detectsleep -locker "lock.sh" &
 fi
-# xcape -e "Alt_L=Escape;Alt_R=Escape"
-setxkbmap -option caps:escape
 rndbg.sh
 compton &
 
