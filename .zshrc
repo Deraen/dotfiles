@@ -26,7 +26,7 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' list-colors ''
 
 # Load common shell options
-. /home/juho/.config/terminal/common.sh
+. $HOME/.config/terminal/common.sh
 
 # Color commands
 source $HOME/.local/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

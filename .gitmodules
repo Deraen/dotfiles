@@ -187,3 +187,9 @@
 [submodule ".local/modules/dircolors-solarized"]
 	path = .local/modules/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
+[submodule ".local/modules/ponymix"]
+	path = .local/modules/ponymix
+	url = https://github.com/falconindy/ponymix.git
+[submodule ".local/modules/dunst"]
+	path = .local/modules/dunst
+	url = https://github.com/knopwob/dunst.git

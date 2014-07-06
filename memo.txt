@@ -22,12 +22,13 @@ git merge -s recursive -X theirs origin/master
 # G500 settings
 sudo ./g500_control /dev/usb/hiddev0 --urr_default --as_default --dpi_3 400 400 700 700 1200 1200 dpi_btn_up
 
+# Update all pip packages
+pip list --outdated | sed 's/(.*//g' | xargs pip install -U
+
 # Vimium settings
 http*://mail.google.com/*
-http*://www.google.com/reader/*
-http*://www.feedly.com/*
-http*://*newsblur.com/*
 http*://www.irccloud.com/*
+http*://*.inoreader.com/*
 
 unmap h
 unmap l
@@ -48,19 +49,6 @@ unmap <c-e>
 unmap <c-y>
 
 sadjklewcmpgh
-
-# Wine stuff
-__GL_FSAA_MODE
-__GL_THREADED_OPTIMIZATIONS=1 WINEDEBUG=-all WINEPREFIX=~/.wine64 wine64 wow-64
-
-# /etc/default/keyboard
-XKBMODEL="pc105"
-XKBLAYOUT="fi"
-XKBVARIANT=""
-XKBOPTIONS="terminate:ctrl_alt_bksp,altwin:alt_super_win"
-
-# /etc/lightdm/lightdm.conf
-greeter-session=lightdm-gtk-greeter
 
 ########
 
