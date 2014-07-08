@@ -1,7 +1,0 @@
-pointer = 1 2 3 4 5 7 6 8 9 11 12 10 13 14 15 16
-
-keycode 59 = comma semicolon comma semicolon braceleft bracketleft rightsinglequotemark
-keycode 60 = period colon period colon braceright bracketright dead_belowdot
-keycode 66 = Escape NoSymbol Escape NoSymbol Escape
-keycode 135 = Alt_R
-

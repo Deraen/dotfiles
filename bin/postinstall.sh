@@ -1,3 +1,3 @@
 #!/bin/bash
 
-$HOME/.local/etc/install.sh
+$HOME/.systemfiles/install.sh

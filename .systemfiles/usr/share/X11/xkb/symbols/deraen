@@ -1,0 +1,13 @@
+partial alphanumeric_keys
+xkb_symbols "keys" {
+  key <AB08> {
+    [ comma, semicolon, braceleft, bracketleft ]
+  };
+  key <AB09> {
+    [ period, colon, braceright, bracketright ]
+  };
+};
+
+partial modifier_keys
+xkb_symbols "mods" {
+};
