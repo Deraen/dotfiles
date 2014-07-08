@@ -39,6 +39,7 @@ repo playonlinux "deb http://deb.playonlinux.com/ precise main"
 repo spotify "deb http://repository.spotify.com stable non-free"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian trusty non-free contrib"
+repo docker "deb https://get.docker.io/ubuntu docker main"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin raring
@@ -166,6 +167,12 @@ install libxdg-basedir-dev
 install libxss-dev # libXscrnsaver
 install libxinerama-dev
 install libnotify-dev
+
+# Docker
+install lxc-docker
+
+# Tessel
+install libusb-1.0-0-dev
 
 # TEX
 install texlive-latex-extra
