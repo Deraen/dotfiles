@@ -28,6 +28,7 @@
 	undo-commit = reset --soft HEAD^
   lazy = "!sh -c git add -A . && git status"
 	stats = diff --shortstat
+	branch-status = !sh -c 'branch-status.sh'
 
 
 [core]
