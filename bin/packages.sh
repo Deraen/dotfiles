@@ -98,6 +98,7 @@ install tmux
 install tree
 install zsh
 install cloc
+install dos2unix
 
 # Editor
 install vim-gtk
@@ -108,7 +109,6 @@ install sublime-text-installer
 install "oracle-java7-set-default"
 install maven3
 install ant
-install nailgun # Start JVM quicky - by running some JVM's on background
 install jsvc
 
 # Node
@@ -222,6 +222,7 @@ install smplayer
 install spotify-client
 install steam-launcher
 install transmission-remote-gtk
+install transmission-cli
 install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-4.3
 install wine1.7
