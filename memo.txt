@@ -1,11 +1,21 @@
-# GIT ylikirjoita untracked files
-# committaa eka omat päivitykset
-git fetch # hae päivitykset
-git branch old # omat versio talteen
-git reset --hard origin/master # pakotetaan uuteen
-git merge -s ours origin/master old # Mergetään lokaalit muutokset mutta origin ylikirjoittaa
+# Merge and overwrite untracked local files
+git commit -a
+git fetch
+git branch old
+git reset --hard origin/master
+git merge -s ours origin/master old
+git branch -d old
+
+# Merge and overwrite local conflicts
+git merge -s recursive -X theirs origin/master
+
+# Updating all submodules
+git submodule foreach pull origin master
+# Chech submodule changes
+git log -p --submodule=log
 
 # Misc
+# Split cue file to flac per track
 shnsplit -f filename.cue -o flac filename.flac
 
 openssl req -new -nodes -out req.pem -config ./openssl.cnf
@@ -14,10 +24,8 @@ openssl ca -out cert.pem -config ./openssl.cnf -infiles req.pem
 # For example, to trust a root CA certificate for issuing SSL server certificates, use
 certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n <certificate nickname> -i <certificate filename>
 
-# Copy ssh keys to user@host to enable password-less ssh logins.
+# Copy ssh keys
 ssh-copy-id user@host
-
-git merge -s recursive -X theirs origin/master
 
 # G500 settings
 sudo ./g500_control /dev/usb/hiddev0 --urr_default --as_default --dpi_3 400 400 700 700 1200 1200 dpi_btn_up
@@ -59,7 +67,6 @@ sudo !!
 	Runs previous command replacing foo by bar every time that foo appears
 	Very useful for rerunning a long command changing some arguments globally.
 	As opposed to ^foo^bar, which only replaces the first occurrence of foo, this one changes every occurrence.
-echo "!!" > foo.sh
 
 cd -
 	change to the previous working directory
