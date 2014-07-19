@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# PMM? Package Manager Manager!
+# PMM - Package Manager Manager!
 # Author: Juho Teperi <juho.teperi@iki.fi>
 
-# I have no idea how well this works for a new installation
-
-installpath=/home/juho/bin
-. $installpath/packages-functions.sh
-. $installpath/packages-repos.sh
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $SCRIPT_DIR/packages-functions.sh
+source $SCRIPT_DIR/packages-repos.sh
 
 ppa ajf transmission-remote-gtk-unstable trusty
 ppa chilicuil sucklesstools trusty # Latest dmenu

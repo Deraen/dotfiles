@@ -1,0 +1,14 @@
+# Add dir to PATH if dir exists and is not on PATH already
+function addPath {
+    [[ -d "$1" ]] && [[ :$PATH: != *:"$1":* ]] && export PATH="$1:$PATH"
+}
+
+# If second parameter is a directory, export to first param
+function exportIfExists {
+    [[ -d "$2" ]] && export "$1"="$2"
+}
+
+# Source file if it exists
+function addSource {
+    [[ -f "$1" ]] && source "$1"
+}
