@@ -104,6 +104,12 @@ nnoremap <C-k> :res +5<cr>
 " nnoremap <C-h> :vert res -5<cr>
 " nnoremap <C-l> :vert res +5<cr>
 
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Vim-switch
+nnoremap - :Switch<cr>
+
 " Move parameters around
 nmap <; <Plug>Argumentative_MoveLeft
 nmap >; <Plug>Argumentative_MoveRight
@@ -320,13 +326,6 @@ let g:sexp_mappings = {
       \ 'sexp_move_to_next_element_tail': '',
       \}
 let g:sexp_enable_insert_mode_mappings = 0
-
-" Arpegio
-let g:arpeggio_timeoutlen=25
-call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
-call arpeggio#map('icvx', '', 0, 'jl', '<End>')
-" call arpeggio#map('icvx', '', 0, 'ui', '<Esc>u')
-call arpeggio#map('i', '', 0, 'hl', '<Esc>I')
 
 " Hightlight trailing spaces in normal mode
 function! EnableTrailingHightlight()
