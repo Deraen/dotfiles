@@ -16,6 +16,7 @@
 [submodule ".vim/bundle/switch.vim"]
 	path = .vim/bundle/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
+	ignore = dirty
 [submodule ".vim/bundle/plantuml-syntax"]
 	path = .vim/bundle/plantuml-syntax
 	url = https://github.com/aklt/plantuml-syntax.git
@@ -37,6 +38,7 @@
 [submodule ".vim/bundle/vim-fixkey"]
 	path = .vim/bundle/vim-fixkey
 	url = https://github.com/drmikehenry/vim-fixkey.git
+	ignore = dirty
 [submodule ".vim/bundle/vim-json"]
 	path = .vim/bundle/vim-json
 	url = https://github.com/elzr/vim-json.git
@@ -52,12 +54,15 @@
 [submodule ".vim/bundle/vim-clojure-static"]
 	path = .vim/bundle/vim-clojure-static
 	url = https://github.com/guns/vim-clojure-static.git
+	ignore = dirty
 [submodule ".vim/bundle/vim-sexp"]
 	path = .vim/bundle/vim-sexp
 	url = https://github.com/guns/vim-sexp.git
+	ignore = dirty
 [submodule ".vim/bundle/xterm-color-table.vim"]
 	path = .vim/bundle/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim.git
+	ignore = dirty
 [submodule ".vim/bundle/vim-easy-align"]
 	path = .vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
@@ -67,12 +72,15 @@
 [submodule ".vim/bundle/vim-textobj-entire"]
 	path = .vim/bundle/vim-textobj-entire
 	url = https://github.com/kana/vim-textobj-entire.git
+	ignore = dirty
 [submodule ".vim/bundle/vim-textobj-indent"]
 	path = .vim/bundle/vim-textobj-indent
 	url = https://github.com/kana/vim-textobj-indent.git
+	ignore = dirty
 [submodule ".vim/bundle/vim-textobj-user"]
 	path = .vim/bundle/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
+	ignore = dirty
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
@@ -82,6 +90,7 @@
 [submodule ".vim/bundle/vim-pairs"]
 	path = .vim/bundle/vim-pairs
 	url = https://github.com/kurkale6ka/vim-pairs.git
+	ignore = dirty
 [submodule ".vim/bundle/LaTeX-Box"]
 	path = .vim/bundle/LaTeX-Box
 	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
@@ -91,15 +100,18 @@
 [submodule ".vim/bundle/vim-toplevel"]
 	path = .vim/bundle/vim-toplevel
 	url = https://github.com/mhinz/vim-toplevel.git
+	ignore = dirty
 [submodule ".vim/bundle/bck"]
 	path = .vim/bundle/bck
 	url = https://github.com/mihaifm/bck.git
+	ignore = dirty
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule ".vim/bundle/vim-argumentative"]
 	path = .vim/bundle/vim-argumentative
 	url = https://github.com/PeterRincker/vim-argumentative.git
+	ignore = dirty
 [submodule ".vim/bundle/delimitMate"]
 	path = .vim/bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
@@ -133,6 +145,7 @@
 [submodule ".vim/bundle/vim-leiningen"]
 	path = .vim/bundle/vim-leiningen
 	url = https://github.com/tpope/vim-leiningen.git
+	ignore = dirty
 [submodule ".vim/bundle/vim-markdown"]
 	path = .vim/bundle/vim-markdown
 	url = https://github.com/tpope/vim-markdown.git
@@ -151,6 +164,7 @@
 [submodule ".vim/bundle/MatchTagAlways"]
 	path = .vim/bundle/MatchTagAlways
 	url = https://github.com/Valloric/MatchTagAlways.git
+	ignore = dirty
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
