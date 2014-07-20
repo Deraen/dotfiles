@@ -169,11 +169,11 @@ inoremap <C-c> <ESC>
 nnoremap K i<CR><Esc>k$
 
 " Search in project for these words
-nnoremap <silent><space>/f :Bck FIXME<CR>
-nnoremap <silent><space>/t :Bck TODO<CR>
+nnoremap <silent><space>/f :Gitgrep FIXME<CR>
+nnoremap <silent><space>/t :Gitgrep TODO<CR>
 " Search for word under the cursor
-nnoremap <silent><space>/w :Bck <C-r><C-w><CR>
-nnoremap <silent><space>q :Bck<CR>
+nnoremap <silent><space>/w :Gitgrep <C-r><C-w><CR>
+nnoremap <silent><space>q :Gitgrep<CR>
 
 " Remove trailing whitespaces
 fun! StripTrailingWhitespaces()
@@ -182,7 +182,7 @@ fun! StripTrailingWhitespaces()
   silent! %s/\s\+$//e
   call cursor(l, c)
 endfun
-nnoremap <silent><space>dt :call StripTrailingWhitespaces()<CR>     
+nnoremap <silent><space>dt :call StripTrailingWhitespaces()<CR>
 
 " Hightlight trailing whitespaces in normal mode
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -271,9 +271,18 @@ function! CtrlPMappings()
   nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
 endfunction
 
-" Bck
-let g:BckPrg = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden'
-let BckOptions = 'cirw'
+" Grep
+function! Gitgrep(arg)
+  setlocal grepprg=git\ grep\ --no-color\ --line-number\ -n\ $*
+  silent execute ':grep! '.a:arg
+  silent cwin
+  redraw!
+endfunction
+
+command! -nargs=1 -complete=buffer Gitgrep call Gitgrep(<q-args>)
+nnoremap gG :exec ':silent Gitgrep ' . expand('<cword>')<CR>
+
+let grepprg='git grep --cached --line-number'
 
 " ycm
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'

@@ -101,10 +101,6 @@
 	path = .vim/bundle/vim-toplevel
 	url = https://github.com/mhinz/vim-toplevel.git
 	ignore = dirty
-[submodule ".vim/bundle/bck"]
-	path = .vim/bundle/bck
-	url = https://github.com/mihaifm/bck.git
-	ignore = dirty
 [submodule ".vim/bundle/vim-javascript"]
 	path = .vim/bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
