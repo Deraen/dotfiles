@@ -4,7 +4,7 @@ autocmd FileType clojure nmap <buffer> <F3>  <Plug>FireplaceSource
 
 " Variant of eval where result of expression (outermost form) is pasted onto the document
 " following the evaluated form.
-" Use case: using VIM like REPL during training
+" Use case: using VIM like REPL during training presentations
 function! s:eval_paste(type) abort
   let reg_save = @@
   let sel_save = &selection
@@ -34,10 +34,13 @@ endfunction
 
 nnoremap <silent> <Plug>EvalPaste :<C-U>call <SID>eval_paste(v:count)<CR>
 
-function! s:setup_eval() abort
+function! s:set_up_eval() abort
   nmap <buffer> cep <Plug>EvalPaste
   " Remove eval result lines
   nmap <buffer> ced :%g/^;; =>/d<CR>
 endfunction
 
-autocmd FileType clojure call s:setup_eval()
+augroup fireplace_eval_paste
+  autocmd!
+  autocmd FileType clojure call s:set_up_eval()
+augroup END

@@ -238,10 +238,10 @@ let g:syntastic_mode_map = {
       \ }
 let g:syntastic_error_symbol='✕'
 let g:syntastic_warning_symbol='✕'
-let g:syntastic_enable_highlighting = 0
+" let g:syntastic_enable_highlighting = 0
 
 " Signify
-let g:signify_sign_overwrite = 1
+" let g:signify_sign_overwrite = 1
 let g:signify_mapping_next_hunk = '<leader>gj'
 let g:signify_mapping_prev_hunk = '<leader>gk'
 
@@ -282,7 +282,7 @@ endfunction
 command! -nargs=1 -complete=buffer Gitgrep call Gitgrep(<q-args>)
 nnoremap gG :exec ':silent Gitgrep ' . expand('<cword>')<CR>
 
-let grepprg='git grep --cached --line-number'
+let grepprg='git grep --no-color --line-number'
 
 " ycm
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
