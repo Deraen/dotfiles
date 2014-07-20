@@ -195,9 +195,9 @@
 [submodule ".vim/bundle/vim-rsi"]
 	path = .vim/bundle/vim-rsi
 	url = https://github.com/tpope/vim-rsi.git
-[submodule ".vim/bundle-vim-obsession"]
-	path = .vim/bundle-vim-obsession
-	url = https://github.com/tpope/vim-obsession.git
 [submodule ".vim/bundle/vim-vinegar"]
 	path = .vim/bundle/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule ".vim/bundle/vim-obsession"]
+	path = .vim/bundle/vim-obsession
+	url = https://github.com/tpope/vim-obsession.git
