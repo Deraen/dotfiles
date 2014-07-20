@@ -1,6 +1,9 @@
 source /home/juho/.config/terminal/functions.sh
 source /home/juho/.config/terminal/aliases.sh
 
+# Disable software flow control (Ctrl-s hangs terminal)
+stty -ixon
+
 if [[ -n $SSH_CONNECTION ]]; then
   export TERM='linux'
   export EDITOR='vim'

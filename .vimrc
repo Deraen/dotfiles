@@ -60,9 +60,6 @@ set numberwidth=3
 set undofile
 set undodir=~/.vim/undo
 
-" Colors
-" syntax on
-
 set background=dark
 let g:seoul256_background = 233
 colorscheme seoul256
@@ -108,7 +105,7 @@ nnoremap <C-k> :res +5<cr>
 vmap <Enter> <Plug>(EasyAlign)
 
 " Vim-switch
-nnoremap - :Switch<cr>
+nnoremap <C-s> :Switch<cr>
 
 " Move parameters around
 nmap <; <Plug>Argumentative_MoveLeft
