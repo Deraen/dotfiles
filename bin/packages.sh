@@ -187,6 +187,7 @@ install compton # Compositing, xcompmgr fork
 install conky-all
 install faenza-icon-theme # Folder icons etc. are still horrible on Humanity theme
 install light-locker # Use Lightdm as lock screen (enables guest login when locked)
+install gnome-control-center # Includes gnome-sound-applet
 
 # GUI software
 install activity-log-manager # Manage what Zeitgeist saves
