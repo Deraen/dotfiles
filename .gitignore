@@ -1,4 +1,3 @@
 *.pyc
 *.cache
-.config/sublime-text-2/Packages/User/SublimeMRU*
-.config/sublime-text-2/Packages/User/Package Control.last-run
+Session.vim
