@@ -60,9 +60,6 @@ set numberwidth=3
 set undofile
 set undodir=~/.vim/undo
 
-" Colors
-" syntax on
-
 set background=dark
 let g:seoul256_background = 233
 colorscheme seoul256
@@ -103,6 +100,12 @@ nnoremap <C-k> :res +5<cr>
 " I don't seem to use these and ctrl-l conflicts with `clear terminal`
 " nnoremap <C-h> :vert res -5<cr>
 " nnoremap <C-l> :vert res +5<cr>
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Vim-switch
+nnoremap <C-s> :Switch<cr>
 
 " Move parameters around
 nmap <; <Plug>Argumentative_MoveLeft
@@ -166,11 +169,11 @@ inoremap <C-c> <ESC>
 nnoremap K i<CR><Esc>k$
 
 " Search in project for these words
-nnoremap <silent><space>/f :Bck FIXME<CR>
-nnoremap <silent><space>/t :Bck TODO<CR>
+nnoremap <silent><space>/f :Gitgrep FIXME<CR>
+nnoremap <silent><space>/t :Gitgrep TODO<CR>
 " Search for word under the cursor
-nnoremap <silent><space>/w :Bck <C-r><C-w><CR>
-nnoremap <silent><space>q :Bck<CR>
+nnoremap <silent><space>/w :Gitgrep <C-r><C-w><CR>
+nnoremap <silent><space>q :Gitgrep<CR>
 
 " Remove trailing whitespaces
 fun! StripTrailingWhitespaces()
@@ -179,7 +182,7 @@ fun! StripTrailingWhitespaces()
   silent! %s/\s\+$//e
   call cursor(l, c)
 endfun
-nnoremap <silent><space>dt :call StripTrailingWhitespaces()<CR>     
+nnoremap <silent><space>dt :call StripTrailingWhitespaces()<CR>
 
 " Hightlight trailing whitespaces in normal mode
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -235,10 +238,10 @@ let g:syntastic_mode_map = {
       \ }
 let g:syntastic_error_symbol='✕'
 let g:syntastic_warning_symbol='✕'
-let g:syntastic_enable_highlighting = 0
+" let g:syntastic_enable_highlighting = 0
 
 " Signify
-let g:signify_sign_overwrite = 1
+" let g:signify_sign_overwrite = 1
 let g:signify_mapping_next_hunk = '<leader>gj'
 let g:signify_mapping_prev_hunk = '<leader>gk'
 
@@ -268,9 +271,18 @@ function! CtrlPMappings()
   nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
 endfunction
 
-" Bck
-let g:BckPrg = 'ag --nocolor --nogroup --column -i --ignore ".git" --hidden'
-let BckOptions = 'cirw'
+" Grep
+function! Gitgrep(arg)
+  setlocal grepprg=git\ grep\ --no-color\ --line-number\ -n\ $*
+  silent execute ':grep! '.a:arg
+  silent cwin
+  redraw!
+endfunction
+
+command! -nargs=1 -complete=buffer Gitgrep call Gitgrep(<q-args>)
+nnoremap gG :exec ':silent Gitgrep ' . expand('<cword>')<CR>
+
+let grepprg='git grep --no-color --line-number'
 
 " ycm
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
@@ -320,13 +332,6 @@ let g:sexp_mappings = {
       \ 'sexp_move_to_next_element_tail': '',
       \}
 let g:sexp_enable_insert_mode_mappings = 0
-
-" Arpegio
-let g:arpeggio_timeoutlen=25
-call arpeggio#map('icvx', '', 0, 'jk', '<Esc>')
-call arpeggio#map('icvx', '', 0, 'jl', '<End>')
-" call arpeggio#map('icvx', '', 0, 'ui', '<Esc>u')
-call arpeggio#map('i', '', 0, 'hl', '<Esc>I')
 
 " Hightlight trailing spaces in normal mode
 function! EnableTrailingHightlight()

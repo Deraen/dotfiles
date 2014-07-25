@@ -4,6 +4,8 @@ installLink() {
     sudo ln -is $HOME/.systemfiles$1 $1
 }
 
+[[ $HOSTNAME != "juho-desktop" && $HOSTNAME != "juho-laptop" ]] && exit
+
 installLink "/etc/lightdm/lightdm.conf"
 installLink "/etc/default/keyboard"
 installLink "/usr/share/X11/xkb/symbols/deraen"

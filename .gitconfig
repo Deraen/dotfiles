@@ -36,3 +36,5 @@
 	ui = auto
 [push]
 	default = simple
+[core]
+	excludesfile = /home/juho/.gitignore

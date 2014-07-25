@@ -1,15 +1,13 @@
 #!/bin/bash
 
-# PMM? Package Manager Manager!
+# PMM - Package Manager Manager!
 # Author: Juho Teperi <juho.teperi@iki.fi>
 
-# I have no idea how well this works for a new installation
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $SCRIPT_DIR/packages-functions.sh
+source $SCRIPT_DIR/packages-repos.sh
 
-installpath=/home/juho/bin
-. $installpath/packages-functions.sh
-. $installpath/packages-repos.sh
-
-ppa ajf trg trusty
+ppa ajf transmission-remote-gtk-unstable trusty
 ppa chilicuil sucklesstools trusty # Latest dmenu
 ppa chris-lea node.js trusty
 ppa ehoover compholio trusty # Wine - for pipelight
@@ -28,7 +26,7 @@ ppa videolan master-daily trusty
 ppa webupd8team java trusty # Oracle java
 ppa webupd8team sublime-text-3 trusty
 repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
-repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games" # Transmission-remote-gtk
+repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
@@ -84,7 +82,6 @@ install iotop
 install jq # JSON processor
 install launchpad-getkeys
 install libav-tools
-install mediatomb # UPnP Mediaserver - share videos to TVs / tablet
 install mosh
 install openssh-client
 install p7zip
@@ -122,7 +119,7 @@ install cabal-install
 install gprolog
 
 # Scala
-install sbt 0.13.1-0.1-build-001 http://repo.scala-sbt.org/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.13.1/sbt.deb
+install sbt 0.13.5 http://repo.scala-sbt.org/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.13.5/sbt.deb
 
 # Embedded
 install gcc-msp430 # TI Launchpad
@@ -261,7 +258,7 @@ fi
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install thermald
         install cheese # Webcam
-        install prey 0.6.2-ubuntu2 https://s3.amazonaws.com/prey-releases/bash-client/0.6.2/prey_0.6.2-ubuntu2_all.deb
+        install prey 0.6.3-ubuntu2 https://s3.amazonaws.com/prey-releases/bash-client/0.6.3/prey_0.6.3-ubuntu2_all.deb
         install thinkfan
         install i965-va-driver
         install libva-intel-vaapi-driver
