@@ -197,3 +197,6 @@
 [submodule ".vim/bundle/vim-obsession"]
 	path = .vim/bundle/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
+[submodule ".local/modules/tpm-filemanagement"]
+	path = .local/modules/tpm-filemanagement
+	url = https://github.com/baabelfish/tpm-filemanagement.git
