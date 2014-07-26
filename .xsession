@@ -5,8 +5,6 @@ source /home/$USER/.profile
 xmodmap .Xmodmap
 
 dunst &
-nm-applet &
-gnome-sound-applet &
 dropbox start &
 if [[ $HOST == "juho-laptop" ]]; then
     xset dpms 600

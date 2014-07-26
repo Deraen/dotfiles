@@ -1,16 +1,27 @@
 color=#ffffff
 
-[wlan]
-command=iwgetid -r
+[network]
+command=~/.config/i3blocks/network.sh
 color=#8ecaed
-interval=5
+interval=10
 
 [battery]
 interval=5
 command=acpi -b | ~/.config/i3blocks/battery.awk
-color=#a2f250
+color=#93dc48
+min_width=165
+align=right
+
+[volume]
+signal=10
+interval=60
+command=~/.config/i3blocks/volume.sh
+min_width=40
+align=center
 
 [time]
 interval=5
 command=date +"%a %d %b %H:%M"
 color=#f3759a
+min_width=95
+align=right
