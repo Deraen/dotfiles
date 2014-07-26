@@ -200,3 +200,6 @@
 [submodule ".local/modules/tpm-filemanagement"]
 	path = .local/modules/tpm-filemanagement
 	url = https://github.com/baabelfish/tpm-filemanagement.git
+[submodule ".local/modules/i3blocks"]
+	path = .local/modules/i3blocks
+	url = https://github.com/vivien/i3blocks.git

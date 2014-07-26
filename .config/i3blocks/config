@@ -1,0 +1,16 @@
+color=#ffffff
+
+[wlan]
+command=iwgetid -r
+color=#8ecaed
+interval=5
+
+[battery]
+interval=5
+command=acpi -b | ~/.config/i3blocks/battery.awk
+color=#a2f250
+
+[time]
+interval=5
+command=date +"%a %d %b %H:%M"
+color=#f3759a

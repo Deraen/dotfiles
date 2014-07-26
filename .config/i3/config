@@ -167,8 +167,7 @@ bindsym Ctrl+Print exec gnome-screenshot -i
 
 bar {
   position top
-  # status_command i3situation
-  status_command killall conky ; conky.sh
+  status_command i3blocks
   colors {
     background #000000
   }
