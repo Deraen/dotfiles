@@ -1,4 +1,5 @@
 color=#ffffff
+# https://www.dropbox.com/s/9iysh2i0gadi4ic/icons.pdf
 
 [network]
 command=~/.config/i3blocks/network.sh
@@ -7,10 +8,8 @@ interval=10
 
 [battery]
 interval=5
-command=acpi -b | ~/.config/i3blocks/battery.awk
+command=~/.config/i3blocks/battery.sh
 color=#93dc48
-min_width=165
-align=right
 
 [volume]
 signal=10
@@ -21,7 +20,5 @@ align=center
 
 [time]
 interval=5
-command=date +"%a %d %b %H:%M"
+command=~/.config/i3blocks/date.sh
 color=#f3759a
-min_width=95
-align=right

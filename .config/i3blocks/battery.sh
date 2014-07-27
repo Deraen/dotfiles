@@ -1,5 +1,10 @@
-#!/usr/bin/awk -f
+#!/bin/bash
 # Pass in the output of `acpi -b`
+if [[ $BLOCK_BUTTON == "1" ]]; then
+    gtk-launch gnome-power-statistics > /dev/null &
+fi
+
+acpi -b | awk '
 {
     states["Charging"]=""
     states["Discharging"]=""
@@ -12,7 +17,8 @@
         dur=""
     } else {
         split($5, a, ":")
-        dur=int(a[1]) "h " int(a[2]) "m"
+        if (a[1] == 0 && a[2] == 0) dur=""
+        else dur=int(a[1]) "h " int(a[2]) "m"
     }
     percent=int($4)
     sub(",", "", $3)
@@ -22,4 +28,4 @@
     for (; i < 10 && i < int(percent / 10); ++i) bar=bar "█"
     for (; i < 10; ++i) bar=bar "░"
 }
-END { print states[status] " " dur " " bar " " percent "%" }
+END { print states[status] " " dur " " bar " " percent "%" }'

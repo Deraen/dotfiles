@@ -45,4 +45,4 @@
 
 [ponymix]
     appname=ponymix
-    format = "<b>Sound volume</b>\n%p"
+    format=""
