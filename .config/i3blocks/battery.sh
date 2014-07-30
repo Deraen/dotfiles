@@ -6,10 +6,10 @@ fi
 
 acpi -b | awk '
 {
-    states["Charging"]=""
-    states["Discharging"]=""
-    states["Unknown"]=""
-    states["Full"]=""
+    states["Charging"]=" "
+    states["Discharging"]=""
+    states["Unknown"]=""
+    states["Full"]=""
 
     if ($5 == "charging" || $5 == "discharging") {
         # charging at zero rate - will never fully charge.
@@ -28,4 +28,4 @@ acpi -b | awk '
     for (; i < 10 && i < int(percent / 10); ++i) bar=bar "█"
     for (; i < 10; ++i) bar=bar "░"
 }
-END { print states[status] " " dur " " bar " " percent "%" }'
+END { print states[status] dur " " bar " " percent "%" }'
