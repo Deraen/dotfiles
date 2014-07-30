@@ -86,6 +86,7 @@ set $music F1: MUSIC
 set $video F2: VIDEO
 set $steam F3: STEAM
 workspace "$irc" output DVI-D-0
+workspace "$video" output DVI-D-1
 
 # Defaults
 # $ xprop
@@ -94,7 +95,7 @@ assign [class="Quasselclient"] → $irc
 assign [class="Sublime_text" title="^.*(Sublime Text).*$"] → $dev
 assign [class="Transmission-remote-gtk"] → $files
 assign [class="Nautilus"] → $files
-assign [class="Smplayer2"] → $video
+assign [class="Smplayer"] → $video
 assign [class="Steam"] → $steam
 assign [class="Spotify"] → $music
 assign [class="dota_linux"]  → $games
