@@ -14,7 +14,7 @@ set $bg #3C3B37
 font pango:Ubuntu, Icons 8
 
 # class                 border  backgr. text    indicator
-client.focused          #4c7899 #1f3342 #ffffff #184c73
+client.focused          #4c7899 #304f66 #ffffff #184c73
 client.focused_inactive #375870 #0c1319 #ffffff #484e50
 client.unfocused        $bg     $bg     #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
@@ -102,11 +102,14 @@ assign [class="dota_linux"]  → $games
 assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → 6
 # IRCCloud
 assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
+# Sunrise
+for_window [instance="crx_mojepfklcankkmikonjlnidiooanmpbb"] floating enable
+# Eclipse splashscreen
+for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
+
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 for_window [class="Wine" title="^(World of Warcraft)$"] border none
 for_window [class="^(Google-chrome|Google-chrome-stable|X-www-browser|Sublime_text|Quasselclient|Spotify|Eclipse|Sakura|URxvt)$"] border pixel 2
-# Eclipse splashscreen
-for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
 for_window [class="Steam" title="^(Steam - .*|Friends)$"] floating enable
 for_window [class="Gnome-screenshot"] floating enable
 
