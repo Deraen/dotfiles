@@ -1,6 +1,12 @@
 #!/bin/bash
 # Author: Juho Teperi
 
+# TODO: Refactor:
+# MIN_PWN=130
+# MAX_PWN=255
+# MAX_SPEED_TEMP=57000
+# min(max(130, (255/57000 * x)), 255)
+
 HOSTNAME=$(hostname -s)
 TEMP_INPUT="temp2_input"
 if [ "$HOSTNAME" = "juho-desktop" ]; then
