@@ -15,6 +15,11 @@ fi
 
 [ -n "$TMUX" ] && export TERM=screen-256color
 
+if [ -n "$DESKTOP_SESSION" ];then
+  eval $(gnome-keyring-daemon --start --components=ssh)
+  export SSH_AUTH_SOCK
+fi
+
 export DEBFULLNAME="Juho Teperi"
 export DEBEMAIL="juho.teperi@iki.fi"
 export PAGER="less"
