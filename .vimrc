@@ -309,15 +309,9 @@ let g:clojure_align_multiline_strings = 1
 " Lispwords are words after which indentation should always be 2 spaces
 " instead of justifying elements to same level as previous lines elements
 
-" Define compojure routes using regex so GET and GET* both match
+" GET/POST... and GET*/POST* for Compojure-api
+" defschema, defmodel... Core.schema and Compojure-api
 let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
-
-autocmd FileType clojure execute "setlocal lispwords+=" . join(map(values({
-      \ 'random': ['describe', 'it', 'testing'],
-      \ 'compojure': ['context', 'swaggered'],
-      \ 'midje': ['fact', 'facts', 'provided'],
-      \ 'core.logic': ['run*']
-      \}), 'join(v:val, ",")'), ',')
 
 " These confict with my window bindings, tpopes plugin already has these bound
 " to rational keys
