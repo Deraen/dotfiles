@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Open new terminal in current dir
+for i in $(seq 1 ${1:-1}); do
+  urxvt &> /dev/null
+done
