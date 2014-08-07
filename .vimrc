@@ -103,8 +103,8 @@ vmap <Enter> <Plug>(EasyAlign)
 nnoremap <C-s> :Switch<cr>
 
 " Move parameters around
-nmap <; <Plug>Argumentative_MoveLeft
-nmap >; <Plug>Argumentative_MoveRight
+nmap <a <Plug>Argumentative_MoveLeft
+nmap >a <Plug>Argumentative_MoveRight
 
 " Save file
 nnoremap ä :w<CR>
