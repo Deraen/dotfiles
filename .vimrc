@@ -3,62 +3,54 @@ execute pathogen#infect()
 
 " Uses tpope's vim-sensible defaults
 
-setlocal spell spelllang=en_us
-
-if has("multi_byte")
-  if &termencoding == ""
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8
-  setglobal fileencoding=utf-8
-  scriptencoding utf-8
-endif
-
-set clipboard+=unnamedplus
-set fillchars+=vert:│
-set gdefault
 set hidden
-set history=100
-set ignorecase
-set ttyfast
-set ttyscroll=1
-set list
-set nobackup
-set noerrorbells
-set nofoldenable
-set noshowmode
-set nospell
-set noswapfile
 set notimeout
-set novisualbell
-set nowrap
-set shortmess+=filmnrxoOtTI
-set smartcase
-set wildmode=longest,list
-set wildignorecase
-set formatoptions-=tc
-set wrapmargin=0
-" set scrolloff=100
+set noswapfile
 
 " Should make vim faster by avoiding unnecessary redraws
 set lazyredraw
-" Show command in bottom bar
-set showcmd
 " Display visible whitespaces as nice utf-8 dot
+set list
 set listchars=""
 set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶,nbsp:█
 " Display numbers on the margin
-set number numberwidth=4
+set number
 " tabs are spaces
 set expandtab
-
-" Use old one as new one might be slower?
-set regexpengine=1
-
-set numberwidth=3
-
+" Enable g by default on substitute - that is, all matches in line are
+" replaced. use s///g to substitute only first match.
+set gdefault
+" Disable text folding
+set nofoldenable
+" If search pattern contains only lowercase letters ignore case.
+set smartcase
+" Do not wrap long lines
+" NOTE: Testing if wrapping is ok
+" set nowrap
+" Shorten file messages:
+" m [Modiefied] -> [+], r [readonly] -> [RO], no welcome message
+set shortmess+=mrI
+" Command completion. Complete till longest common string and show wildmenu.
+set wildmode=longest:full
+" Ignorecase when completing filenames on command prompt. e.g. ~/.xres -> ~/.Xresources
+set wildignorecase
+" Disable text and comment wrapping
+set formatoptions-=tc
+" Don't show mode on status line
+set noshowmode
+" Force fast tty. Should already be on when term is rxvt.
+set ttyfast
+set ttyscroll=1
+" Pretty character for vsplit separator
+set fillchars+=vert:│
+" use + register for yank, delete and change operations
+" NOTE: Testing if I miss this
+" set clipboard+=unnamedplus
+" Save vim undo history to file, so history persists through sessions
 set undofile
 set undodir=~/.vim/undo
+" Hide status message when using completion, seems to be 'match x of y'
+set completeopt-=preview
 
 set background=dark
 let g:seoul256_background = 233
@@ -67,7 +59,7 @@ colorscheme seoul256
 " Mappings
 let mapleader = 'ö'
 let maplocalleader = 'ö'
-" Pakko korjaukset
+
 nnoremap ' `
 nnoremap Y y$
 set pastetoggle=<M-p>
@@ -120,9 +112,11 @@ nnoremap ä :w<CR>
 " space-space toggles search hilight
 nnoremap <silent><space><space> :set nohls!<cr>
 
-" ctrl-p open files in project, ctrl-b change buffer
+" ctrl-p/space-p open files in project
 nnoremap <silent><space>p :CtrlP<cr>
+" space-l fuzzy search in current file
 nnoremap <silent><space>l :CtrlPLine %<cr>
+" space-b change buffer
 nnoremap <silent><space>b :CtrlPBuffer<cr>
 
 " ColorPicker
@@ -245,7 +239,6 @@ let g:syntastic_warning_symbol='✕'
 " let g:syntastic_enable_highlighting = 0
 
 " Signify
-" let g:signify_sign_overwrite = 1
 let g:signify_mapping_next_hunk = '<leader>gj'
 let g:signify_mapping_prev_hunk = '<leader>gk'
 
@@ -302,7 +295,6 @@ let g:ycm_filetype_blacklist = {
       \ 'markdown': 1,
       \ 'text': 1,
       \}
-set completeopt-=preview
 
 " Clojure options
 " Use rainbow parentheses
@@ -333,23 +325,11 @@ let g:sexp_mappings = {
 let g:sexp_enable_insert_mode_mappings = 0
 
 " Hightlight trailing spaces in normal mode
-function! EnableTrailingHightlight()
-  if exists('b:noTrailingHightlight')
-    return
-  endif
-  match ExtraWhitespace /\s\+$/
-endfunction
-
 autocmd InsertEnter * match
-autocmd InsertLeave * call EnableTrailingHightlight()
-autocmd FileType ctrlp let b:noTrailingHighlight = 1
-" autocmd InsertLeave * redraw!
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
-if version >= 702
-  autocmd BufWinLeave * call clearmatches()
-endif
-
-" Random
+" Check highlighting group of current char
 function! SynStack()
   if !exists("*synstack")
     return
@@ -358,5 +338,3 @@ function! SynStack()
 endfunc
 
 let g:vim_json_syntax_conceal = 0
-
-" autocmd FileType tex set filetype=plaintex
