@@ -167,7 +167,7 @@ nnoremap <silent><space>/f :Gitgrep FIXME<CR>
 nnoremap <silent><space>/t :Gitgrep TODO<CR>
 " Search for word under the cursor
 nnoremap <silent><space>/w :Gitgrep <C-r><C-w><CR>
-nnoremap <silent><space>q :Gitgrep<CR>
+nnoremap <space>q :Gitgrep<space>
 
 " Remove trailing whitespaces
 fun! StripTrailingWhitespaces()
