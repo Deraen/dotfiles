@@ -74,16 +74,16 @@ set pastetoggle=<M-p>
 nnoremap j gj
 nnoremap k gk
 
-" Change active window
-nnoremap <M-h> h
-nnoremap <M-j> j
-nnoremap <M-k> k
-nnoremap <M-l> l
-" Moving windows using Alt
-nnoremap <M-H> H
-nnoremap <M-J> J
-nnoremap <M-K> K
-nnoremap <M-L> L
+" Change active window, Alt
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
+" Moving windows using, Alt + Shift
+nnoremap <M-H> <C-w>H
+nnoremap <M-J> <C-w>J
+nnoremap <M-K> <C-w>K
+nnoremap <M-L> <C-w>L
 
 " Close window
 nnoremap <M-q> <C-w>c
@@ -94,12 +94,15 @@ nnoremap <M-m> <C-w>s
 " Close buffer
 nnoremap <M-w> :BD<cr>
 
-" Resize
+" NOTE: To make windows equal size, <C-w>=
+" Resize - Ctrl + hjkl
 nnoremap <C-j> :res -5<cr>
 nnoremap <C-k> :res +5<cr>
-" I don't seem to use these and ctrl-l conflicts with `clear terminal`
-" nnoremap <C-h> :vert res -5<cr>
-" nnoremap <C-l> :vert res +5<cr>
+" <C-l> would confict with redraw console
+" I use these very rarely should it doesn't really matter that these are
+" harder to use.
+nnoremap <silent><space><C-h> :vert res -5<cr>
+nnoremap <silent><space><C-l> :vert res +5<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
