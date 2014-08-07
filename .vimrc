@@ -122,21 +122,17 @@ nnoremap <silent><space>p :CtrlP<cr>
 nnoremap <silent><space>l :CtrlPLine %<cr>
 nnoremap <silent><space>b :CtrlPBuffer<cr>
 
-" FIXME: seems to have problems...
-function! ColorPicker(insert)
-  let color = '\#' . expand('<cword>')
-  let @z = system("zenity --color-selection --color " . color . " | cut -c 2-3,6-7,10-11 | tr -d \"\n\"")
+" ColorPicker
+" TODO: Separate into own plugin!
+function! ColorPicker()
+  let color = expand('<cword>')
+  let @z = system("zenity --color-selection --color " . shellescape(color) . " | cut -c 2-3,6-7,10-11 | tr -d \"\n\"")
   if strlen(@z) != 0
-    if a:insert == 0
-      normal! diw"zP
-    else
-      let @z = '#' . @z
-      normal! "zp
-    endif
+    let @z = '#' . @z
+    normal! viw"zP
   endif
 endfunction
-nnoremap <silent><space>c :call ColorPicker(0)<cr>
-inoremap <silent><M-c> <C-o>:call ColorPicker(1)<cr>
+nnoremap <silent><space>c :call ColorPicker()<cr>
 
 " Toggle buffer fullscreen
 let g:dfm_fullscreen=0
