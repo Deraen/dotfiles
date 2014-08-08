@@ -165,6 +165,10 @@ bindsym XF86AudioLowerVolume exec ponymix unmute && ponymix -N decrease 2 && kil
 bindsym Mod1+Insert exec ponymix -N toggle && killall -USR1 i3blocks
 bindsym XF86AudioMute exec ponymix -N toggle && killall -USR1 i3blocks
 
+# Kernel 3.16 by default assumes DE takes care of backlight management
+bindsym XF86MonBrightnessDown exec xbacklight - 5
+bindsym XF86MonBrightnessUp exec xbacklight + 5
+
 # Screenshots
 bindsym Print exec gnome-screenshot
 bindsym Mod1+Print exec gnome-screenshot -w
