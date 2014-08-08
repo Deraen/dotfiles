@@ -6,29 +6,23 @@ execute pathogen#infect()
 set hidden
 set notimeout
 set noswapfile
-
-" Should make vim faster by avoiding unnecessary redraws
+set nowrap
+set nofoldenable
 set lazyredraw
-" Display visible whitespaces as nice utf-8 dot
+set number
+set expandtab
+set smartcase
+set noshowmode
+
+" Display whitespaces as nice unicode chars
 set list
 set listchars=""
 set listchars=tab:→\ ,trail:·,extends:↷,precedes:↶,nbsp:█
-" Display numbers on the margin
-set number
-" tabs are spaces
-set expandtab
 " Enable g by default on substitute - that is, all matches in line are
 " replaced. use s///g to substitute only first match.
 set gdefault
-" Disable text folding
-set nofoldenable
-" If search pattern contains only lowercase letters ignore case.
-set smartcase
-" Do not wrap long lines
-" NOTE: Testing if wrapping is ok
-" set nowrap
 " Shorten file messages:
-" m [Modiefied] -> [+], r [readonly] -> [RO], no welcome message
+" m [Modiefied] -> [+], r [readonly] -> [RO], I no welcome message
 set shortmess+=mrI
 " Command completion. Complete till longest common string and show wildmenu.
 set wildmode=longest:full
@@ -36,8 +30,6 @@ set wildmode=longest:full
 set wildignorecase
 " Disable text and comment wrapping
 set formatoptions-=tc
-" Don't show mode on status line
-set noshowmode
 " Force fast tty. Should already be on when term is rxvt.
 set ttyfast
 set ttyscroll=1
@@ -52,8 +44,8 @@ set undodir=~/.vim/undo
 " Hide status message when using completion, seems to be 'match x of y'
 set completeopt-=preview
 
+" Colors
 set background=dark
-let g:seoul256_background = 233
 colorscheme seoul256
 
 " Mappings
@@ -65,6 +57,9 @@ nnoremap Y y$
 set pastetoggle=<M-p>
 nnoremap j gj
 nnoremap k gk
+
+" Save file
+nnoremap ä :w<CR>
 
 " Change active window, Alt
 nnoremap <M-h> <C-w>h
@@ -105,9 +100,6 @@ nnoremap <C-s> :Switch<cr>
 " Move parameters around
 nmap <a <Plug>Argumentative_MoveLeft
 nmap >a <Plug>Argumentative_MoveRight
-
-" Save file
-nnoremap ä :w<CR>
 
 " space-space toggles search hilight
 nnoremap <silent><space><space> :set nohls!<cr>
@@ -223,7 +215,6 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '^S' : 'S',
     \ }
-" let g:airline_powerline_fonts=1
 
 " Syntastic
 let g:syntastic_python_checkers = ['pep8']

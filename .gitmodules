@@ -203,3 +203,6 @@
 [submodule ".local/modules/i3blocks"]
 	path = .local/modules/i3blocks
 	url = https://github.com/vivien/i3blocks.git
+[submodule ".vim/bundle/vim-redl"]
+	path = .vim/bundle/vim-redl
+	url = https://github.com/dgrnbrg/vim-redl.git

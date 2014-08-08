@@ -1,27 +1,26 @@
-{:user {:plugins [[lein-ancient "0.5.4"]
+{:user {:plugins [[lein-ancient "0.5.5"]
                   [lein-midje "3.1.3"]
-                  [cider/cider-nrepl "0.7.0-SNAPSHOT"]
+                  [cider/cider-nrepl "0.7.0"]
                   [lein-deps-tree "0.1.2"]
-                  [lein-localrepo "0.5.3"]
-                  [jonase/eastwood "0.1.2"]
-                  [lein-exec "0.3.3"]
+                  [jonase/eastwood "0.1.4"]
+                  [lein-exec "0.3.4"]
                   ]
-        :dependencies [[redl "0.2.2"]
-                       [org.clojure/tools.namespace "0.2.4"]
-                       [io.aviso/pretty "0.1.8"]
-                       [im.chit/vinyasa.inject "0.2.0"]
-                       [im.chit/vinyasa.pull "0.2.0"]
+        :dependencies [[redl "0.2.4"]
+                       [org.clojure/tools.namespace "0.2.5"]
+                       [im.chit/vinyasa.inject "0.2.2"]
+                       [im.chit/vinyasa.pull "0.2.2"]
                        ]
-        :injections [(require 'vinyasa.inject)
-                     (vinyasa.inject/inject 'clojure.core
-                                            '[[vinyasa.inject inject]
-                                              [vinyasa.pull pull]])
-                     (vinyasa.inject/inject 'clojure.core '>
-                                            '[[cemerick.pomegranate add-classpath get-classpath resources]
-                                              [clojure.tools.namespace.repl refresh]
-                                              [clojure.repl apropos dir doc find-doc source pst [root-cause >cause]]
-                                              [clojure.pprint pprint]
-                                              [clojure.java.shell sh]])
-                     ]
-        }}
+        :injections [(require '[vinyasa.inject :as inject])
+                     (require '[redl core complete])
+                     (inject/in
+                             ;; To . namespace
+                             [vinyasa.inject inject]
+                             [vinyasa.pull pull]
+                             [clojure.tools.namespace.repl refresh clear]
+                             [clojure.java.shell sh]
+
+                             ;; To core, prefixed
+                             clojure.core >
+                             [clojure.pprint pprint]
+                             )]}}
 
