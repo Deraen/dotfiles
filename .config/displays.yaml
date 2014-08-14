@@ -8,17 +8,9 @@ displays:
   VGA1:
     auto: Yes
     pos: "0x0"
-- LVDS1: No # Home, laptop docked + 27+24
-  DP2:
-    mode: 1920x1200
-    rotate: left
-  DP3:
-    mode: 2560x1440
-    pos: 1200x240
-    primary: Yes
-- LVDS1: # Work, laptop + 27
+- LVDS1: # Work, docked, 27
     auto: Yes
-  DP1:
+  DP2:
     auto: Yes
     left-of: LVDS1
 - LVDS1:
