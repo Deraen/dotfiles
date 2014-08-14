@@ -145,6 +145,8 @@ bindsym $mod+Shift+F3 move container to workspace "$steam"
 # Move container/workspace to other output
 bindsym $mod+Shift+x move container to output right
 bindsym $mod+x move workspace to output right
+# Switch all containers between all outputs
+bindsym $mod+Ctrl+x exec "i3-switch-all.py"
 
 # Scratchpad
 bindsym $mod+F6 exec keepassx.sh
