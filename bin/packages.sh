@@ -13,7 +13,6 @@ ppa chris-lea node.js trusty
 ppa ehoover compholio trusty # Wine - for pipelight
 ppa light-locker release trusty
 ppa maarten-baert simplescreenrecorder trusty
-ppa mqchael pipelight trusty
 # ppa n-muench calibre trusty
 ppa natecarlson maven3 precise
 ppa nilarimogard webupd8 trusty # Launchpad-getkeys? Stuff
@@ -25,9 +24,11 @@ ppa ubuntu-wine ppa trusty
 ppa videolan master-daily trusty
 ppa webupd8team java trusty # Oracle java
 ppa webupd8team sublime-text-3 trusty
+ppa ansible ansible trusty
 repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
+repo google-chrome-beta "deb http://dl.google.com/linux/chrome/deb/ beta main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
 repo i3 "deb http://debian.sur5r.net/i3/ trusty universe"
@@ -41,7 +42,6 @@ repo docker "deb https://get.docker.io/ubuntu docker main"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin raring
-        repo google-musicmanager "deb http://dl.google.com/linux/musicmanager/deb/ stable main"
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
@@ -62,13 +62,13 @@ install build-essential
 install libnss-myhostname # Why doesn't systemd-services require this...?
 
 # Language stuff
-install language-pack-gnome-en
-install language-pack-gnome-fi
-install libreoffice-voikko
-install libreoffice-l10n-fi
-install openoffice.org-hyphenation
-install hyphen-en-us
-install libreoffice-l10n-en-gb
+install "language-pack-gnome-en"
+install "language-pack-gnome-fi"
+install "libreoffice-voikko"
+install "libreoffice-l10n-fi"
+install "openoffice.org-hyphenation"
+install "hyphen-en-us"
+install "libreoffice-l10n-en-gb"
 
 # Devices?
 install usb-modeswitch # for 3G usb modems
@@ -98,7 +98,7 @@ install cloc
 install dos2unix
 
 # Editor
-install vim-gtk
+install vim
 install emacs24
 install sublime-text-installer
 
@@ -141,6 +141,7 @@ install git
 install gitg
 install git-flow
 install mercurial
+install qgit
 
 # Dev tools
 install heroku-toolbelt
@@ -152,6 +153,7 @@ install ubuntu-dev-tools
 install mongodb-org
 install httpie
 install robomongo 0.8.4 http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
+install ansible
 
 # Dev dependencies
 install libboost-all-dev
@@ -181,7 +183,6 @@ install biber
 # Desktop env
 install i3 # Tiling WM
 install compton # Compositing, xcompmgr fork
-install conky-all
 install faenza-icon-theme # Folder icons etc. are still horrible on Humanity theme
 install light-locker # Use Lightdm as lock screen (enables guest login when locked)
 install gnome-control-center # Includes gnome-sound-applet
@@ -208,10 +209,8 @@ install inkscape
 install keepassx # Password manager
 install mumble
 install pgadmin3 # PostgreSQL admin
-install pipelight # Silverlight in browser using wine
 install pitivi # Video editor
 install playonlinux # Wine frontend for games
-install qgit
 install quassel-client-qt4 # Irc
 install simplescreenrecorder
 install skype:i386
@@ -232,11 +231,12 @@ install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install fail2ban
-        install google-musicmanager-beta
         install palm-novacom # HP Touchpad. Local?
         install bitcoin-qt
         install picard # MusicBrainz audio tagger
         install puddletag # MP3 tagger
+        install mp3splt
+        install mp3splt-gtk
         install luminance-hdr # HDR images
         install transmageddon # Video transcoder
         install vdpau-va-driver # Use vdpau from VA api? For VLC?
@@ -248,6 +248,7 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install adobeair 1:2.6.0.19170 # For Defender's Quest: Valley of the Forgotten
         install youtube-dl
         install openra
+
         # Nvidia driver build-deps
         install xserver-xorg-dev
         install execstack
@@ -264,7 +265,6 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install libva-intel-vaapi-driver
         install tlp
         install xautolock
-        install hamster-applet
 fi
 
 markauto
