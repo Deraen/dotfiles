@@ -1,9 +1,0 @@
-unmap <C-f>
-unmap <C-a>
-
-map h H
-map l L
-map H h
-map L l
-
-set disablesites=mail.google.com, newsblur.com, www.irccloud.com
