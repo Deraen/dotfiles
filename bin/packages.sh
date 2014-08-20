@@ -34,7 +34,6 @@ repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
 repo i3 "deb http://debian.sur5r.net/i3/ trusty universe"
 repo mongodb "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
 repo opera "deb http://deb.opera.com/opera-beta/ stable non-free"
-repo playonlinux "deb http://deb.playonlinux.com/ precise main"
 repo spotify "deb http://repository.spotify.com stable non-free"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian trusty non-free contrib"
@@ -210,7 +209,7 @@ install keepassx # Password manager
 install mumble
 install pgadmin3 # PostgreSQL admin
 install pitivi # Video editor
-install playonlinux # Wine frontend for games
+install qgit
 install quassel-client-qt4 # Irc
 install simplescreenrecorder
 install skype:i386
@@ -230,6 +229,7 @@ install network-manager-openconnect-gnome # Cisco VPN
 install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
+        install playonlinux # Wine frontend for games
         install fail2ban
         install palm-novacom # HP Touchpad. Local?
         install bitcoin-qt
@@ -257,6 +257,7 @@ fi
 
 # Laptop specific
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
+        install cryptsetup
         install thermald
         install cheese # Webcam
         install prey 0.6.3-ubuntu2 https://s3.amazonaws.com/prey-releases/bash-client/0.6.3/prey_0.6.3-ubuntu2_all.deb
