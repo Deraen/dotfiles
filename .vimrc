@@ -291,6 +291,7 @@ let g:ycm_filetype_blacklist = {
 " Use rainbow parentheses
 au FileType clojure RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
+autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
 
 let g:clojure_align_multiline_strings = 1
 
