@@ -258,6 +258,7 @@ fi
 # Laptop specific
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install cryptsetup
+        install xbacklight
         install thermald
         install cheese # Webcam
         install prey 0.6.3-ubuntu2 https://s3.amazonaws.com/prey-releases/bash-client/0.6.3/prey_0.6.3-ubuntu2_all.deb
