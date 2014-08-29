@@ -38,6 +38,7 @@ repo spotify "deb http://repository.spotify.com stable non-free"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian trusty non-free contrib"
 repo docker "deb https://get.docker.io/ubuntu docker main"
+repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin raring
@@ -267,6 +268,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install libva-intel-vaapi-driver
         install tlp
         install xautolock
+        install hipchat
 fi
 
 markauto
