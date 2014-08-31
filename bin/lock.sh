@@ -1,3 +1,2 @@
 #!/bin/bash
-light-locker-command -l &
-suspend.py --force
+i3lock -c "#1b1b1b" -e

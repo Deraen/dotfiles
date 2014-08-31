@@ -9,8 +9,7 @@ nm-applet &
 dropbox start &
 if [[ $HOST == "juho-laptop" ]]; then
     xset dpms 600
-    light-locker &
-    xautolock -time 10 -detectsleep -locker "lock.sh" &
+    xautolock -time 10 -detectsleep -locker "suspend.sh" &
 fi
 rndbg.sh
 compton &

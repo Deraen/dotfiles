@@ -11,7 +11,6 @@ ppa ajf transmission-remote-gtk-unstable trusty
 ppa chilicuil sucklesstools trusty # Latest dmenu
 ppa chris-lea node.js trusty
 ppa ehoover compholio trusty # Wine - for pipelight
-ppa light-locker release trusty
 ppa maarten-baert simplescreenrecorder trusty
 # ppa n-muench calibre trusty
 ppa natecarlson maven3 precise
@@ -89,7 +88,7 @@ install powertop
 install ppa-purge
 install silversearcher-ag # Fast file searches
 install sshfs
-install tarsnap 1.0.34-1 http://juho.tontut.fi/debs/tarsnap_1.0.34-1_amd64.deb # Backups
+install tarsnap "1.0.34-1" http://juho.tontut.fi/debs/tarsnap_1.0.34-1_amd64.deb # Backups
 install tmispell-voikko
 install tmux
 install tree
@@ -103,7 +102,7 @@ install emacs24
 install sublime-text-installer
 
 # Java
-install "oracle-java7-set-default"
+install "oracle-java8-set-default"
 install maven3
 install ant
 install jsvc
@@ -119,7 +118,7 @@ install cabal-install
 install gprolog
 
 # Scala
-install sbt 0.13.5 http://repo.scala-sbt.org/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.13.5/sbt.deb
+install sbt 0.13.5 http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
 
 # Embedded
 install gcc-msp430 # TI Launchpad
@@ -184,7 +183,6 @@ install biber
 install i3 # Tiling WM
 install compton # Compositing, xcompmgr fork
 install faenza-icon-theme # Folder icons etc. are still horrible on Humanity theme
-install light-locker # Use Lightdm as lock screen (enables guest login when locked)
 install gnome-control-center # Includes gnome-sound-applet
 
 # GUI software
