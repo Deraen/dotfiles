@@ -8,6 +8,9 @@ autoload -U promptinit && promptinit
 PURE_CMD_MAX_EXEC_TIME=30
 prompt pure
 
+# Search history
+bindkey '^R' history-incremental-search-backward
+
 # Backward delete to slash
 autoload -U select-word-style
 select-word-style bash
