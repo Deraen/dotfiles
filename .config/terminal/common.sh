@@ -5,15 +5,11 @@ source /home/juho/.config/terminal/aliases.sh
 stty -ixon
 
 if [[ -n $SSH_CONNECTION ]]; then
-  export TERM='linux'
   export EDITOR='vim'
 else
-  export TERM='rxvt-unicode-256color'
   # Neovim GUI
   export EDITOR='vim'
 fi
-
-[ -n "$TMUX" ] && export TERM=screen-256color
 
 export DEBFULLNAME="Juho Teperi"
 export DEBEMAIL="juho.teperi@iki.fi"
@@ -41,15 +37,11 @@ addPath /opt/android-sdk-linux_x86/platform-tools
 addPath /opt/android-sdk-linux_x86/tools
 addPath /opt/android-ndk
 addPath /usr/local/cuda-5.5/bin
-addPath "/Applications/Android Studio.app/sdk/platform-tools"
-addPath "/Applications/Android Studio.app/sdk/tools"
-
-# addSource "$HOME/.pythonbrew/etc/bashrc"
 
 # Home git repo, don't show untracked files on status
 $(cd $HOME ; git config status.showUntrackedFiles no)
 
-# Enables for example viewing gziped text files directly
+# Enable viewing gziped text files directly
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Colors
