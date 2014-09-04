@@ -9,8 +9,8 @@ git branch -d old
 # Merge and overwrite local conflicts
 git merge -s recursive -X theirs origin/master
 
-# Updating all submodules
-git submodule foreach pull origin master
+# Pull all submodules
+git submodule foreach git pull
 # Chech submodule changes
 git log -p --submodule=log
 
