@@ -4,6 +4,9 @@ source /home/$USER/.profile
 
 xmodmap .Xmodmap
 
+eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export GPG_AGENT_INFO SSH_AUTH_SOCK
+
 dunst &
 nm-applet &
 dropbox start &
