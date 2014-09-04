@@ -4,7 +4,7 @@
 exec_always update-desktopfiles-list.sh
 bindsym $mod+r exec --no-startup-id dmenu.sh
 
-bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py && rndbg.sh && transset -n i3bar 0.8
+bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py && rndbg.sh
 bindsym $mod+Shift+F11 exec togglecompton.sh
 
 # Preferences
@@ -80,27 +80,27 @@ bindsym $mod+minus scratchpad show
 set $www 1: WWW
 set $irc 2: IRC
 set $dev 3: DEV
-set $files 4: FILES
-set $games 5: GAMES
+set $comm §: COMM
 set $music F1: MUSIC
 set $video F2: VIDEO
 set $steam F3: STEAM
+set $downloads F4: DOWNLOADS
+
+# Defaults for desktop computer
 workspace "$irc" output DVI-D-0
 workspace "$video" output DVI-D-1
 
 # Defaults
 # $ xprop
-# assign [class="Google-chrome"] → $www # This would break Flowdock & IRCCloud rules
 assign [class="Quasselclient"] → $irc
-assign [class="Sublime_text" title="^.*(Sublime Text).*$"] → $dev
-assign [class="Transmission-remote-gtk"] → $files
-assign [class="Nautilus"] → $files
+assign [class="Transmission-remote-gtk"] → $downloads
 assign [class="Smplayer"] → $video
 assign [class="Steam"] → $steam
 assign [class="Spotify"] → $music
-assign [class="dota_linux"]  → $games
+assign [class="HipChat"] → $comm
+assign [class="Skype"] → $comm
 # Flowdock
-assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → 6
+assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → $comm
 # IRCCloud
 assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
 # Sunrise
@@ -109,16 +109,16 @@ for_window [instance="crx_mojepfklcankkmikonjlnidiooanmpbb"] floating enable
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
 
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
-for_window [class="Wine" title="^(World of Warcraft)$"] border none
-for_window [class="^(Google-chrome|Google-chrome-stable|X-www-browser|Sublime_text|Quasselclient|Spotify|Eclipse|Sakura|URxvt)$"] border pixel 2
+for_window [class="^(Google-chrome|Google-chrome-stable|X-www-browser|Quasselclient|Spotify|Eclipse|URxvt)$"] border pixel 2
 for_window [class="Steam" title="^(Steam - .*|Friends)$"] floating enable
 for_window [class="Gnome-screenshot"] floating enable
 
+bindsym $mod+section workspace "$comm"
 bindsym $mod+1 workspace "$www"
 bindsym $mod+2 workspace "$irc"
 bindsym $mod+3 workspace "$dev"
-bindsym $mod+4 workspace "$files"
-bindsym $mod+5 workspace "$games"
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -127,12 +127,14 @@ bindsym $mod+0 workspace 10
 bindsym $mod+F1 workspace "$music"
 bindsym $mod+F2 workspace "$video"
 bindsym $mod+F3 workspace "$steam"
+bindsym $mod+F4 workspace "$downloads"
 
-bindsym $mod+Shift+exclam move container to workspace $www
-bindsym $mod+Shift+quotedbl move container to workspace $irc
-bindsym $mod+Shift+numbersign move container to workspace $dev
-bindsym $mod+Shift+currency move container to workspace $files
-bindsym $mod+Shift+percent move container to workspace $games
+bindsym $mod+Shift+section move container to workspace "$comm"
+bindsym $mod+Shift+exclam move container to workspace "$www"
+bindsym $mod+Shift+quotedbl move container to workspace "$irc"
+bindsym $mod+Shift+numbersign move container to workspace "$dev"
+bindsym $mod+Shift+currency move container to workspace 4
+bindsym $mod+Shift+percent move container to workspace 5
 bindsym $mod+Shift+ampersand move container to workspace 6
 bindsym $mod+Shift+slash move container to workspace 7
 bindsym $mod+Shift+parenleft move container to workspace 8
@@ -141,12 +143,13 @@ bindsym $mod+Shift+equal move container to workspace 10
 bindsym $mod+Shift+F1 move container to workspace "$music"
 bindsym $mod+Shift+F2 move container to workspace "$video"
 bindsym $mod+Shift+F3 move container to workspace "$steam"
+bindsym $mod+Shift+F4 move container to workspace "$downloads"
 
 # Move container/workspace to other output
 bindsym $mod+Shift+x move container to output right
 bindsym $mod+x move workspace to output right
 # Switch all workspaces to next output
-bindsym $mod+Ctrl+x exec "i3-switch-all.py"
+bindsym $mod+Ctrl+x exec i3-switch-all.py
 
 # Scratchpad
 bindsym $mod+F6 exec keepassx.sh
@@ -154,7 +157,6 @@ bindsym $mod+F6 exec keepassx.sh
 # I3
 bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
-bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Spotify, pulseaudio
 bindsym Mod1+Delete exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
