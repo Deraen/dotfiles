@@ -29,10 +29,8 @@ postinstall.sh
 ## Bootstrapping a new Ubuntu system
 
 ```bash
-apt-get install git wget
+apt-get install git
 # install dotfiles repo
-sudo bin/package.sh
+sudo bin/packages.sh
 sudo apt-get update
-repeat 3, 5 untill everything is ok...
-Now your Ubuntu should have packages selected in packages.sh
 ```

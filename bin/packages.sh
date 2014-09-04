@@ -1,18 +1,14 @@
 #!/bin/bash
 
 # PMM - Package Manager Manager!
-# Author: Juho Teperi <juho.teperi@iki.fi>
 
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-source $SCRIPT_DIR/packages-functions.sh
-source $SCRIPT_DIR/packages-repos.sh
+. $HOME/.local/modules/pmm/init.sh
 
 ppa ajf transmission-remote-gtk-unstable trusty
 ppa chilicuil sucklesstools trusty # Latest dmenu
 ppa chris-lea node.js trusty
 ppa ehoover compholio trusty # Wine - for pipelight
 ppa maarten-baert simplescreenrecorder trusty
-# ppa n-muench calibre trusty
 ppa natecarlson maven3 precise
 ppa nilarimogard webupd8 trusty # Launchpad-getkeys? Stuff
 ppa otto-kesselgulasch gimp trusty
@@ -270,6 +266,4 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
 fi
 
 markauto
-
-# Uninstall unnecessary
-apt-get autoremove
+autoremove
