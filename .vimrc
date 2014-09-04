@@ -152,7 +152,9 @@ vnoremap ¤ :g/.*/norm!
 inoremap <C-c> <ESC>
 
 " Split line
-nnoremap K i<CR><Esc>k$
+nnoremap <silent> <Plug>SplitLine i<CR><Esc>k$
+      \ :call repeat#set("\<Plug>SplitLine")<CR>
+nmap K <Plug>SplitLine
 
 " Search in project for these words
 nnoremap <silent><space>/f :Gitgrep FIXME<CR>
