@@ -23,7 +23,6 @@ ppa ansible ansible trusty
 repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
-repo google-chrome-beta "deb http://dl.google.com/linux/chrome/deb/ beta main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
 repo i3 "deb http://debian.sur5r.net/i3/ trusty universe"

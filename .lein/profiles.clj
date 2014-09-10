@@ -6,7 +6,7 @@
                   [lein-exec "0.3.4"]
                   ]
         :dependencies [[redl "0.2.4"]
-                       [org.clojure/tools.namespace "0.2.5"]
+                       [org.clojure/tools.namespace "0.2.6"]
                        [im.chit/vinyasa.inject "0.2.2"]
                        [im.chit/vinyasa.pull "0.2.2"]
                        ]
