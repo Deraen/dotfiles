@@ -13,3 +13,6 @@
 	default = simple
 [core]
 	excludesfile = /home/juho/.gitignore
+	whitespace = trailing-space,space-before-tab
+[apply]
+	whitespace = fix
