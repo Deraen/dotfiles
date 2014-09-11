@@ -10,9 +10,11 @@
                        [im.chit/vinyasa.inject "0.2.2"]
                        [im.chit/vinyasa.pull "0.2.2"]
                        [alembic "0.2.1"]
+                       [aprint "0.1.0"]
                        ]
         :injections [(require '[vinyasa.inject :as inject])
                      (require '[redl core complete])
+                     (require '[aprint.core])
                      (inject/in
                              ;; To . namespace
                              [vinyasa.inject inject]
@@ -20,6 +22,7 @@
                              [clojure.tools.namespace.repl refresh clear]
                              [clojure.java.shell sh]
                              [alembic.still load-project]
+                             [aprint.core aprint ap]
 
                              ;; To core, prefixed
                              clojure.core >
