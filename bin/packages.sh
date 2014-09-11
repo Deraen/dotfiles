@@ -33,6 +33,7 @@ repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise st
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian trusty non-free contrib"
 repo docker "deb https://get.docker.io/ubuntu docker main"
 repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
+repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin raring
@@ -262,6 +263,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install tlp
         install xautolock
         install hipchat
+        install owncloud-client
 fi
 
 markauto
