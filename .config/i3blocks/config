@@ -12,8 +12,8 @@ command=~/.config/i3blocks/battery.sh
 color=#93dc48
 
 [volume]
-signal=10
-interval=60
+signal=1
+interval=once
 command=~/.config/i3blocks/volume.sh
 min_width=40
 align=center

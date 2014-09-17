@@ -162,12 +162,12 @@ bindsym $mod+Shift+R restart
 bindsym Mod1+Delete exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 bindsym Mod1+Home exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 bindsym Mod1+End exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-bindsym Mod1+Page_Up exec ponymix unmute && ponymix -N increase 2 && killall -USR1 i3blocks
-bindsym Mod1+Page_Down exec ponymix unmute && ponymix -N decrease 2 && killall -USR1 i3blocks
-bindsym XF86AudioRaiseVolume exec ponymix unmute && ponymix -N increase 2 && killall -USR1 i3blocks
-bindsym XF86AudioLowerVolume exec ponymix unmute && ponymix -N decrease 2 && killall -USR1 i3blocks
-bindsym Mod1+Insert exec ponymix -N toggle && killall -USR1 i3blocks
-bindsym XF86AudioMute exec ponymix -N toggle && killall -USR1 i3blocks
+bindsym Mod1+Page_Up exec ponymix unmute && ponymix -N increase 2 && pkill -RTMIN+1 i3blocks
+bindsym Mod1+Page_Down exec ponymix unmute && ponymix -N decrease 2 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec ponymix unmute && ponymix -N increase 2 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec ponymix unmute && ponymix -N decrease 2 && pkill -RTMIN+1 i3blocks
+bindsym Mod1+Insert exec ponymix -N toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec ponymix -N toggle && pkill -RTMIN+1 i3blocks
 
 # Kernel 3.16 by default assumes DE takes care of backlight management
 bindsym XF86MonBrightnessDown exec xbacklight - 5
