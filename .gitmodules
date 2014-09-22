@@ -212,3 +212,6 @@
 [submodule ".local/modules/pmm"]
 	path = .local/modules/pmm
 	url = git@github.com:Deraen/pmm.git
+[submodule ".local/modules/zsh-completions"]
+	path = .local/modules/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git

@@ -1,4 +1,4 @@
-fpath=( "$HOME/.config/terminal/zfunctions" $fpath )
+fpath=( "$HOME/.config/terminal/zfunctions" "$HOME/.local/modules/zsh-completions/src" $fpath )
 
 # Use history
 HISTFILE=$HOME/.zsh_history
