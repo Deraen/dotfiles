@@ -37,6 +37,7 @@ repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/comm
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin raring
+        ppa xorg-edgers ppa trusty
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
