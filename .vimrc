@@ -247,10 +247,6 @@ let g:syntastic_error_symbol='✕'
 let g:syntastic_warning_symbol='✕'
 " let g:syntastic_enable_highlighting = 0
 
-" Signify
-let g:signify_mapping_next_hunk = '<leader>gj'
-let g:signify_mapping_prev_hunk = '<leader>gk'
-
 " CtrlP
 let g:ctrlp_extensions = ['line']
 let g:ctrlp_working_path_mode = 'ra'

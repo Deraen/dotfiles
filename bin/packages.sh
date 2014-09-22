@@ -265,6 +265,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install xautolock
         install hipchat
         install owncloud-client
+        install postgresql-9.3
 fi
 
 markauto
