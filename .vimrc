@@ -142,6 +142,8 @@ endfunction
 
 nnoremap <silent><M-f> :call Fullscreen()<cr>:echo ""<cr>
 
+nmap <F8> :TagbarToggle<CR>
+
 " Quick macro stuff
 nnoremap § qqqqq
 nnoremap ½ @q
@@ -233,6 +235,7 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '^S' : 'S',
     \ }
+let g:airline#extensions#tagbar#enabled = 1
 
 " Syntastic
 let g:syntastic_python_checkers = ['pep8']
@@ -346,3 +349,5 @@ endfunc
 let g:vim_json_syntax_conceal = 0
 
 autocmd FileType markdown set cc=80
+
+let vimrplugin_term="urxvt"

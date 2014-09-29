@@ -215,3 +215,12 @@
 [submodule ".local/modules/zsh-completions"]
 	path = .local/modules/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule ".vim/bundle/VimCom"]
+	path = .local/modules/VimCom
+	url = https://github.com/jalvesaq/VimCom.git
+[submodule ".vim/bundle/Vim-R-plugin"]
+	path = .vim/bundle/Vim-R-plugin
+	url = https://github.com/vim-scripts/Vim-R-plugin.git
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git

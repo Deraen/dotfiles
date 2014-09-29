@@ -92,6 +92,10 @@ install tree
 install zsh
 install cloc
 install dos2unix
+install exuberant-ctags
+
+# R
+install r-base
 
 # Editor
 install vim

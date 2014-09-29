@@ -107,6 +107,8 @@ assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
 for_window [instance="crx_mojepfklcankkmikonjlnidiooanmpbb"] floating enable
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
+# Incanter windows
+for_window [title="^Incanter (Matrix|Dataset)"] floating enable
 
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 for_window [class="^(Google-chrome|Google-chrome-stable|X-www-browser|Quasselclient|Spotify|Eclipse|URxvt)$"] border pixel 2
