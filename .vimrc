@@ -344,3 +344,5 @@ function! SynStack()
 endfunc
 
 let g:vim_json_syntax_conceal = 0
+
+autocmd FileType markdown set cc=80
