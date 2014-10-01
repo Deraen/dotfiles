@@ -11,6 +11,7 @@
                        [im.chit/vinyasa.pull "0.2.2"]
                        [alembic "0.2.1"]
                        [aprint "0.1.0"]
+                       [slamhound "1.5.5"]
                        ]
         :injections [(require '[vinyasa.inject :as inject])
                      (require '[redl core complete])

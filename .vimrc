@@ -351,3 +351,6 @@ let g:vim_json_syntax_conceal = 0
 autocmd FileType markdown set cc=80
 
 let vimrplugin_term="urxvt"
+let g:gtfo#terminals = {
+      \ 'unix': 'urxvt -cd'
+      \ }
