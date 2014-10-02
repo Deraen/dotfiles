@@ -49,7 +49,7 @@ set background=dark
 colorscheme seoul256
 
 " Mappings
-let mapleader = 'ö'
+let mapleader = 'å'
 let maplocalleader = 'ö'
 
 nnoremap ' `
@@ -350,7 +350,23 @@ let g:vim_json_syntax_conceal = 0
 
 autocmd FileType markdown set cc=80
 
+" R
 let vimrplugin_term="urxvt"
+
 let g:gtfo#terminals = {
       \ 'unix': 'urxvt -cd'
       \ }
+
+function! ReorderCljNsRequire()
+  normal! gg
+  normal "gyaf
+  if @g =~ "\(:require"
+    call search(':require')
+    normal elKm<
+    normal Bh%m>K
+    silent '<,'>!sort
+    normal '<kJ
+    normal '>J$==
+  endif
+endfunc
+nmap <silent> <F4> :call ReorderCljNsRequire()<CR>
