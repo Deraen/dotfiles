@@ -12,3 +12,5 @@ autocmd FileType clojure setlocal lispwords+=will-mount,render,render-state,init
 autocmd FileType clojure setlocal lispwords+=for-map,fnk
 " Core.async
 autocmd FileType clojure setlocal lispwords+=go-loop
+" Chesire
+autocmd FileType clojure setlocal lispwords+=add-encoder
