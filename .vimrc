@@ -11,6 +11,7 @@ set nofoldenable
 set lazyredraw
 set number
 set expandtab
+set ignorecase
 set smartcase
 set noshowmode
 
