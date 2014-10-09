@@ -14,6 +14,7 @@ set expandtab
 set ignorecase
 set smartcase
 set noshowmode
+set modeline
 
 " Display whitespaces as nice unicode chars
 set list
@@ -63,24 +64,24 @@ nnoremap k gk
 nnoremap ä :w<CR>
 
 " Change active window, Alt
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
+nnoremap h <C-w>h
+nnoremap j <C-w>j
+nnoremap k <C-w>k
+nnoremap l <C-w>l
 " Moving windows using, Alt + Shift
-nnoremap <M-H> <C-w>H
-nnoremap <M-J> <C-w>J
-nnoremap <M-K> <C-w>K
-nnoremap <M-L> <C-w>L
+nnoremap H <C-w>H
+nnoremap J <C-w>J
+nnoremap K <C-w>K
+nnoremap L <C-w>L
 
 " Close window
-nnoremap <M-q> <C-w>c
-inoremap <M-q> <Esc><C-w>c:echo ""<cr>
+nnoremap q <C-w>c
+inoremap q <Esc><C-w>c:echo ""<cr>
 " New windows
-nnoremap <M-n> <C-w>v
-nnoremap <M-m> <C-w>s
+nnoremap n <C-w>v
+nnoremap m <C-w>s
 " Close buffer
-nnoremap <M-w> :BD<cr>
+nnoremap w :BD<cr>
 
 " NOTE: To make windows equal size, <C-w>=
 " Resize - Ctrl + hjkl
@@ -114,15 +115,20 @@ nnoremap <silent><space>b :CtrlPBuffer<cr>
 
 " ColorPicker
 " TODO: Separate into own plugin!
-function! ColorPicker()
+function! ColorPicker(insert)
   let color = expand('<cword>')
   let @z = system("zenity --color-selection --color " . shellescape(color) . " | cut -c 2-3,6-7,10-11 | tr -d \"\n\"")
   if strlen(@z) != 0
     let @z = '#' . @z
-    normal! viw"zP
+    if a:insert == 0
+      normal! viw"zP
+    else
+      normal! "zp
+    endif
   endif
 endfunction
-nnoremap <silent><space>c :call ColorPicker()<cr>
+nnoremap <silent><space>c :call ColorPicker(0)<cr>
+inoremap <silent>c <C-o>:call ColorPicker(1)<cr>
 
 " Toggle buffer fullscreen
 let g:dfm_fullscreen=0

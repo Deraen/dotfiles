@@ -33,3 +33,8 @@ source $HOME/.config/terminal/common.sh
 
 # Color commands
 source $HOME/.local/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi

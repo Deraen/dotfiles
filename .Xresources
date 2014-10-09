@@ -11,20 +11,20 @@ Xft.dpi: 96
 *foreground_bold: #fedfed
 *foreground_dim: #888888
 *color0:           #050505
-*color8:           #444444
 *color1:           #C12121
-*color9:           #e50e0e
 *color2:           #638046
-*color10:          #80a65b
 *color3:           #aea800
-*color11:          #ffff40
 *color4:           #265997
-*color12:          #4f7fff
 *color5:           #9978ab
-*color13:          #a26ab1
 *color6:           #509eb1
-*color14:          #78cece
 *color7:           #bbbbbb
+*color8:           #444444
+*color9:           #e50e0e
+*color10:          #80a65b
+*color11:          #ffff40
+*color12:          #4f7fff
+*color13:          #a26ab1
+*color14:          #78cece
 *color15:          #ffffff
 
 URxvt*imLocale:          en_US.utf8

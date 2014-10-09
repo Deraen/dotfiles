@@ -1,0 +1,42 @@
+[options]
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = Consolas 10
+# font = Liberation Mono 9
+# font = Inconsolata 9
+search_wrap = true
+cursor_blink = off
+
+[colors]
+foreground = #d9d9d9
+foreground_bold = #fedfed
+background = #121212
+
+# colors from color0 to color254 can be set
+color0  = #050505
+color1  = #C12121
+color2  = #638046
+color3  = #aea800
+color4  = #265997
+color5  = #9978ab
+color6  = #509eb1
+color7  = #bbbbbb
+color8  = #444444
+color9  = #e50e0e
+color10 = #80a65b
+color11 = #ffff40
+color12 = #4f7fff
+color13 = #a26ab1
+color14 = #78cece
+color15 = #ffffff
+
+[hints]
+padding = 2
+border = #3f3f3f
+border_width = 0.5
+roundness = 2.0
+
+# vim: ft=dosini cms=#%s
