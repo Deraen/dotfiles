@@ -64,24 +64,24 @@ nnoremap k gk
 nnoremap ä :w<CR>
 
 " Change active window, Alt
-nnoremap h <C-w>h
-nnoremap j <C-w>j
-nnoremap k <C-w>k
-nnoremap l <C-w>l
+nnoremap <M-h> <C-w>h
+nnoremap <M-j> <C-w>j
+nnoremap <M-k> <C-w>k
+nnoremap <M-l> <C-w>l
 " Moving windows using, Alt + Shift
-nnoremap H <C-w>H
-nnoremap J <C-w>J
-nnoremap K <C-w>K
-nnoremap L <C-w>L
+nnoremap <M-H> <C-w>H
+nnoremap <M-J> <C-w>J
+nnoremap <M-K> <C-w>K
+nnoremap <M-L> <C-w>L
 
 " Close window
-nnoremap q <C-w>c
-inoremap q <Esc><C-w>c:echo ""<cr>
+nnoremap <M-q> <C-w>c
+inoremap <M-q> <Esc><C-w>c:echo ""<cr>
 " New windows
-nnoremap n <C-w>v
-nnoremap m <C-w>s
+nnoremap <M-n> <C-w>v
+nnoremap <M-m> <C-w>s
 " Close buffer
-nnoremap w :BD<cr>
+nnoremap <M-w> :BD<cr>
 
 " NOTE: To make windows equal size, <C-w>=
 " Resize - Ctrl + hjkl
