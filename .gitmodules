@@ -226,3 +226,6 @@
 [submodule ".vim/bundle/dbext"]
 	path = .vim/bundle/dbext
 	url = https://github.com/vim-scripts/dbext.vim.git
+[submodule ".vim/bundle/excel.vim"]
+	path = .vim/bundle/excel.vim
+	url = https://github.com/yakiang/excel.vim.git
