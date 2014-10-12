@@ -15,6 +15,10 @@ fi
 # - Init/Update also submodules inside submodules
 git submodule update --init --recursive
 
+header "NPM Utils"
+
+$(cd $HOME/.local && npm prune && npm install)
+
 header "Build vimproc"
 make -C $HOME/.vim/bundle/vimproc
 

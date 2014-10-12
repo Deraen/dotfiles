@@ -21,14 +21,13 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=10000
 SAVEHIST=10000
 
-export npm_config_prefix="$HOME/.local"
-
 exportIfExists ANDROID_HOME "/raid/opt/android-sdk-linux_x86"
 exportIfExists ANDROID_HOME "/opt/android-sdk-linux_x86"
 exportIfExists ANDROID_HOME "$HOME/.local/android-sdk"
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
+addPath "$HOME/.local/node_modules/.bin"
 addPath "$HOME/.cabal/bin"
 addPath /raid/opt/android-sdk-linux_x86/platform-tools
 addPath /raid/opt/android-sdk-linux_x86/tools
