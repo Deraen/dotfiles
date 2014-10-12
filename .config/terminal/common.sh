@@ -38,7 +38,13 @@ addPath /opt/android-ndk
 addPath /usr/local/cuda-5.5/bin
 
 # Home git repo, don't show untracked files on status
-$(cd $HOME ; git config status.showUntrackedFiles no)
+(
+cd $HOME
+git config status.showUntrackedFiles no
+)
+
+# Fast lein
+export LEIN_JAVA_CMD="drip"
 
 # Enable viewing gziped text files directly
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
