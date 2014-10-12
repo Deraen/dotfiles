@@ -16,18 +16,25 @@ fi
 git submodule update --init --recursive
 
 header "NPM Utils"
-
-$(cd $HOME/.local && npm prune && npm install)
+(
+cd $HOME/.local
+if confirm -i "Update Node utils?"; then
+    npm-check-updates -u
+fi
+npm prune
+npm install
+)
 
 header "Build vimproc"
 make -C $HOME/.vim/bundle/vimproc
 
 header "Build YCM"
-mkdir $HOME/tmp/ycm_build
-pushd $HOME/tmp/ycm_build
+(
+mkdir -p $HOME/tmp/ycm_build
+cd $HOME/tmp/ycm_build
 cmake -G "Unix Makefiles" . $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 make ycm_support_libs -j5
-popd
+)
 
 if [[ $HOSTNAME == "juho-desktop" ]] || [[ $HOSTNAME == "juho-laptop" ]]; then
     header "Build Ponymix"
