@@ -229,6 +229,3 @@
 [submodule ".vim/bundle/excel.vim"]
 	path = .vim/bundle/excel.vim
 	url = https://github.com/yakiang/excel.vim.git
-[submodule ".local/modules/drip"]
-	path = .local/modules/drip
-	url = https://github.com/flatland/drip.git

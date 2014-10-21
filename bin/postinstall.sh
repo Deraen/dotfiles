@@ -43,8 +43,6 @@ if [[ $HOSTNAME == "juho-desktop" ]] || [[ $HOSTNAME == "juho-laptop" ]]; then
     make -C $HOME/.local/modules/dunst -j5
     header "Build i3blocks"
     make -C $HOME/.local/modules/i3blocks -j5
-    header "Build drip"
-    make -C $HOME/.local/modules/drip -j5
 fi
 
 header "Systemfiles"
