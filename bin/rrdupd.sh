@@ -22,7 +22,7 @@ CPUS=$(($(grep 'cpu ' /proc/stat | awk '{ print $2+$3+$4 }')/4)) #4 Corea
 
 if [ "$HOSTNAME" = "juho-server" ]; then
 
-	CPUT=`echo $(cat /sys/devices/platform/it87.656/temp2_input) / 1000 | bc`
+	CPUT=`echo $(cat /sys/devices/platform/it87.656/temp3_input) / 1000 | bc`
 	[ "$CPUT" ] || CPUT=U
 
 	LEVYT=`df -PB1 /raid | grep /raid | awk '{ print $4 }'`
@@ -68,11 +68,8 @@ if [ "$HOSTNAME" = "juho-server" ]; then
 
 elif [ "$HOSTNAME" = "juho-desktop" ]; then
 
-	CPUT=`echo $(cat /sys/devices/platform/it87.656/temp3_input) / 1000 | bc`
+	CPUT=`echo $(cat /sys/devices/platform/coretemp.0/temp1_input) / 1000 | bc`
 	[ "$CPUT" ] || CPUT=U
-
-	# HOME=`df -PB1 /home | grep /home | awk '{ print $4 }'`
-	# [ "$HOME" ] || HOME=U
 
 	GPUT=$(nvidia-smi -q -d TEMPERATURE | grep Gpu | sed 's/.*\([0-9]\{2\}\).*/\1/')
 
@@ -83,5 +80,4 @@ elif [ "$HOSTNAME" = "juho-desktop" ]; then
 	rrdtool update "$DIR/levyt.rrd" N:$ROOT:U:U:U:U:U:U
 	# rrdtool update "$DIR/levy-home.rrd" N:$HOME
 	rrdtool update "$DIR/mem.rrd" N:$MEMFREE:$MEMBUFFERS:$MEMCACHED:$MEMAPPS
-
 fi
