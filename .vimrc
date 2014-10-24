@@ -1,3 +1,7 @@
+if has('nvim')
+  runtime! plugin/python_setup.vim
+endif
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 

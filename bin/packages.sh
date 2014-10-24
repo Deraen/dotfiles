@@ -103,6 +103,11 @@ install vim
 install emacs24
 install sublime-text-installer
 
+# Neovim
+install luarocks
+install libmsgpack-dev
+install xclip
+
 # Java
 install "oracle-java8-set-default"
 install maven3
