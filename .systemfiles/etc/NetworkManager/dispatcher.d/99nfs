@@ -1,0 +1,18 @@
+#!/bin/sh
+
+IF=$1
+STATUS=$2
+
+if [ "${IF}" = "wlan1" ] && [ "${STATUS}" = "up" ]; then
+  ssid=`/sbin/iwgetid --raw`
+
+  if [ "${ssid}" = "DERAENN" ]; then
+    logger "Home wlan0 up: mounting nfs"
+
+    mount /levyt
+    exit $?
+  fi
+elif [ "${IF}" = "wlan1" ] && [ "${STATUS}" = "down" ]; then
+    logger "Home wlan0 down: unmounting nfs shares"
+    umount /levyt
+fi

@@ -2,6 +2,11 @@
 
 . $HOME/.local/lib/functions.sh
 
+desktop=false
+if [[ $HOSTNAME == "juho-desktop" ]] || [[ $HOSTNAME == "juho-laptop" ]]; then
+    desktop=true
+fi
+
 header "Submodules"
 if confirm -i "Update all submodules?"; then
     git submodule foreach git checkout
@@ -36,7 +41,7 @@ cmake -G "Unix Makefiles" . $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 make ycm_support_libs -j5
 )
 
-if [[ $HOSTNAME == "juho-desktop" ]] || [[ $HOSTNAME == "juho-laptop" ]]; then
+if [[ $desktop == true ]]; then
     header "Build Ponymix"
     make -C $HOME/.local/modules/ponymix -j5
     header "Build Dunst"
@@ -46,6 +51,6 @@ if [[ $HOSTNAME == "juho-desktop" ]] || [[ $HOSTNAME == "juho-laptop" ]]; then
 fi
 
 header "Systemfiles"
-if confirm -i "Install systemfiles?"; then
+if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then
     $HOME/.systemfiles/install.sh
 fi
