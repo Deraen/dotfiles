@@ -93,6 +93,7 @@ install zsh
 install cloc
 install dos2unix
 install exuberant-ctags
+install inotify-tools
 
 # R
 install r-base
@@ -154,6 +155,7 @@ install mongodb-org
 install httpie
 install robomongo 0.8.4 http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
 install ansible
+install vagrant
 
 # Dev dependencies
 install libboost-all-dev
@@ -182,6 +184,7 @@ install biber
 
 # Desktop env
 install i3 # Tiling WM
+install slim
 install compton # Compositing, xcompmgr fork
 install faenza-icon-theme # Folder icons etc. are still horrible on Humanity theme
 install gnome-control-center # Includes gnome-sound-applet

@@ -24,9 +24,5 @@
                              [clojure.java.shell sh]
                              [alembic.still load-project]
                              [aprint.core aprint ap]
-
-                             ;; To core, prefixed
-                             clojure.core >
-                             [clojure.pprint pprint]
                              )]}}
 

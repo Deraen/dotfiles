@@ -1,1 +1,0 @@
-../modules/pwrmgr/pwrmgr.py

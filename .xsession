@@ -13,6 +13,7 @@ dropbox start &
 if [[ $HOST == "juho-laptop" ]]; then
     xset dpms 600
     xautolock -time 10 -detectsleep -locker "suspend.sh" &
+    pwrmgr.py & # Lock when suspending. TODO: Replace with something simpler
 fi
 rndbg.sh
 compton &

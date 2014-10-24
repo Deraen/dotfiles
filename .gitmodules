@@ -1,6 +1,3 @@
-[submodule ".local/modules/pwrmgr"]
-	path = .local/modules/pwrmgr
-	url = git@github.com:Deraen/pwrmgr.git
 [submodule ".local/modules/dspmgr"]
 	path = .local/modules/dspmgr
 	url = git@github.com:Deraen/dspmgr.git
