@@ -2,6 +2,9 @@
 
 Highly customized setup using Ubuntu, i3, Zsh, Vim...
 
+- I try to include as few files as possible
+- ... while including all files I would need with a new computer
+
 ## Submodules
 
 I'm using git submodules to manage external packages like Vim plugins and few programs which are
