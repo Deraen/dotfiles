@@ -75,10 +75,6 @@
 [submodule ".vim/bundle/vim-signify"]
 	path = .vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule ".vim/bundle/vim-toplevel"]
-	path = .vim/bundle/vim-toplevel
-	url = https://github.com/mhinz/vim-toplevel.git
-	ignore = dirty
 [submodule ".vim/bundle/vim-argumentative"]
 	path = .vim/bundle/vim-argumentative
 	url = https://github.com/PeterRincker/vim-argumentative.git
@@ -226,3 +222,6 @@
 [submodule ".vim/bundle/excel.vim"]
 	path = .vim/bundle/excel.vim
 	url = https://github.com/yakiang/excel.vim.git
+[submodule "toplevel2"]
+	path = .vim/bundle/vim-toplevel
+	url = https://github.com/vim-scripts/vim-toplevel.git
