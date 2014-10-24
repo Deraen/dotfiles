@@ -19,11 +19,17 @@ install "/etc/polkit-1/localauthority/50-local.d/org.freedesktop.NetworkManager.
 install "/etc/default/keyboard"
 install "/etc/udev/rules.d/11-android.rules"
 install "/etc/udev/rules.d/46-TI_launchpad.rules"
+install "/etc/udev/rules.d/47-altera.rules"
 install "/etc/udev/rules.d/60-vboxdrv.rules"
 install "/etc/udev/rules.d/85-tessel.rules"
 install "/usr/share/X11/xkb/symbols/deraen"
 # Overwrite list containing all available options... couldn't find any other way...
 install "/usr/share/X11/xkb/rules/evdev"
+
+if [[ $HOSTNAME == "juho-desktop" ]]; then
+    install "/etc/X11/xorg.conf.d/metamodes.conf"
+    install "/etc/udev/rules.d/99-pulseaudio.rules"
+fi
 
 if [[ $HOSTNAME == "juho-laptop" ]]; then
     install "/etc/thinkfan.conf"
