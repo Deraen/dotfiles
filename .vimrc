@@ -314,6 +314,7 @@ let g:ycm_filetype_blacklist = {
       \ 'markdown': 1,
       \ 'text': 1,
       \}
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
 " Clojure options
 " Use rainbow parentheses

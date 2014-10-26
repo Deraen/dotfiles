@@ -225,3 +225,9 @@
 [submodule ".vim/bundle/vim-toplevel"]
 	path = .vim/bundle/vim-toplevel
 	url = https://github.com/vim-scripts/vim-toplevel.git
+[submodule ".vim/bundle/ghcmod-vim"]
+	path = .vim/bundle/ghcmod-vim
+	url = https://github.com/eagletmt/ghcmod-vim.git
+[submodule ".vim/bundle/neco-ghc"]
+	path = .vim/bundle/neco-ghc
+	url = https://github.com/eagletmt/neco-ghc.git
