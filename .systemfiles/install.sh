@@ -13,9 +13,6 @@ install() {
     fi
 }
 
-install "/etc/slim.conf"
-install "/etc/pam.d/common-session"
-install "/etc/polkit-1/localauthority/50-local.d/org.freedesktop.NetworkManager.pkla"
 install "/etc/default/keyboard"
 install "/etc/udev/rules.d/11-android.rules"
 install "/etc/udev/rules.d/46-TI_launchpad.rules"

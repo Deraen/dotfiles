@@ -1,6 +1,0 @@
-[suspend]
-Identity=unix-group:admin
-Action=org.freedesktop.upower.suspend
-ResultAny=yes
-ResultInactive=no
-ResultActive=yes

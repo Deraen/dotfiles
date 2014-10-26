@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ $BLOCK_BUTTON == "1" ]]; then
-    gtk-launch gnome-network-panel > /dev/null &
+    unity-control-center network > /dev/null &
 fi
 
 WLAN=$(iwgetid -r)

@@ -5,27 +5,26 @@
 . $HOME/.local/modules/pmm/init.sh
 
 ppa ajf transmission-remote-gtk-unstable trusty
-ppa chilicuil sucklesstools trusty # Latest dmenu
-ppa chris-lea node.js trusty
-ppa ehoover compholio trusty # Wine - for pipelight
-ppa maarten-baert simplescreenrecorder trusty
+ppa chris-lea node.js utopic
+ppa ehoover compholio utopic # Wine - for pipelight
+ppa maarten-baert simplescreenrecorder utopic
 ppa natecarlson maven3 precise
-ppa nilarimogard webupd8 trusty # Launchpad-getkeys? Stuff
-ppa otto-kesselgulasch gimp trusty
-ppa rvm smplayer trusty # Mplayer UI
-ppa mc3man mpv-tests trusty # Mpv, mplayer[|2] fork
+ppa nilarimogard webupd8 utopic # Launchpad-getkeys? Stuff
+ppa otto-kesselgulasch gimp utopic
+ppa rvm smplayer utopic # Mplayer UI
+ppa mc3man mpv-tests utopic # Mpv, mplayer[|2] fork
 ppa tiheum equinox raring # Faenza-icon-theme
-ppa ubuntu-wine ppa trusty
-ppa videolan master-daily trusty
-ppa webupd8team java trusty # Oracle java
-ppa webupd8team sublime-text-3 trusty
+ppa ubuntu-wine ppa utopic
+ppa videolan master-daily utopic
+ppa webupd8team java utopic # Oracle java
+ppa webupd8team sublime-text-3 utopic
 ppa ansible ansible trusty
 repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
-repo i3 "deb http://debian.sur5r.net/i3/ trusty universe"
+repo i3 "deb http://debian.sur5r.net/i3/ utopic universe"
 repo mongodb "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
 repo opera "deb http://deb.opera.com/opera-beta/ stable non-free"
 repo spotify "deb http://repository.spotify.com stable non-free"
@@ -37,11 +36,11 @@ repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/comm
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin raring
-        ppa xorg-edgers ppa trusty
+        ppa xorg-edgers ppa utopic
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        ppa linrunner tlp trusty
+        ppa linrunner tlp utopic
 fi
 
 clearRepos
@@ -277,7 +276,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install xautolock
         install hipchat
         install owncloud-client
-        install postgresql-9.3
+        install postgresql-9.4
 fi
 
 markauto
