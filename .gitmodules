@@ -222,3 +222,6 @@
 [submodule ".vim/bundle/excel.vim"]
 	path = .vim/bundle/excel.vim
 	url = https://github.com/yakiang/excel.vim.git
+[submodule ".vim/bundle/vim-toplevel"]
+	path = .vim/bundle/vim-toplevel
+	url = https://github.com/vim-scripts/vim-toplevel.git
