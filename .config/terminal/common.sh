@@ -1,5 +1,5 @@
-source /home/juho/.config/terminal/functions.sh
-source /home/juho/.config/terminal/aliases.sh
+source $HOME/.config/terminal/functions.sh
+source $HOME/.config/terminal/aliases.sh
 
 # Disable software flow control (Ctrl-s hangs terminal)
 stty -ixon

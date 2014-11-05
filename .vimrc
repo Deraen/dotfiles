@@ -1,3 +1,7 @@
+if has("win16") || has("win32") || has("win64")
+  execute "set rtp^=".expand("$HOME/.vim")
+endif
+
 if has('nvim')
   runtime! plugin/python_setup.vim
 endif
