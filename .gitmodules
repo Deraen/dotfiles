@@ -65,9 +65,6 @@
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/rainbow_parentheses.vim"]
-	path = .vim/bundle/rainbow_parentheses.vim
-	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule ".vim/bundle/vim-pairs"]
 	path = .vim/bundle/vim-pairs
 	url = https://github.com/kurkale6ka/vim-pairs.git
