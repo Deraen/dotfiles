@@ -228,3 +228,9 @@
 [submodule ".vim/bundle/neco-ghc"]
 	path = .vim/bundle/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
+[submodule ".vim/bundle/rainbow_parentheses.vim"]
+	path = .vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/eapache/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/vim-typedclojure"]
+	path = .vim/bundle/vim-typedclojure
+	url = git://github.com/typedclojure/vim-typedclojure.git

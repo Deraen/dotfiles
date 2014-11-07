@@ -324,6 +324,8 @@ let g:ycm_semantic_triggers = {'haskell' : ['.']}
 " Use rainbow parentheses
 au FileType clojure RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
 
 let g:clojure_align_multiline_strings = 1
