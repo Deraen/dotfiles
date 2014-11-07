@@ -188,7 +188,6 @@ install biber
 
 # Desktop env
 install i3 # Tiling WM
-install slim
 install compton # Compositing, xcompmgr fork
 install faenza-icon-theme # Folder icons etc. are still horrible on Humanity theme
 install gnome-control-center # Includes gnome-sound-applet

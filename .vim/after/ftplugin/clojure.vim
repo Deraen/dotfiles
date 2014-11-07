@@ -3,7 +3,7 @@ autocmd FileType clojure setlocal lispwords+=describe,it
 " Compojure-api
 autocmd FileType clojure setlocal lispwords+=context,swaggered
 " Midje
-autocmd FileType clojure setlocal lispwords+=fact,facts,provided
+autocmd FileType clojure setlocal lispwords+=fact,facts,provided,fact-group
 " Core.logic
 autocmd FileType clojure setlocal lispwords+=run*
 " Cljs
