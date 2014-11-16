@@ -121,44 +121,6 @@ nnoremap <silent><space>l :CtrlPLine %<cr>
 " space-b change buffer
 nnoremap <silent><space>b :CtrlPBuffer<cr>
 
-" ColorPicker
-" TODO: Separate into own plugin!
-function! ColorPicker(insert)
-  let color = expand('<cword>')
-  let @z = system("zenity --color-selection --color " . shellescape(color) . " | cut -c 2-3,6-7,10-11 | tr -d \"\n\"")
-  if strlen(@z) != 0
-    let @z = '#' . @z
-    if a:insert == 0
-      normal! viw"zP
-    else
-      normal! "zp
-    endif
-  endif
-endfunction
-nnoremap <silent><space>c :call ColorPicker(0)<cr>
-inoremap <silent>c <C-o>:call ColorPicker(1)<cr>
-
-" Toggle buffer fullscreen
-let g:dfm_fullscreen=0
-let g:dfm_nd=0
-function! Fullscreen()
-  if g:dfm_nd
-    call NoDistraction()
-  endif
-  if g:dfm_fullscreen
-    tab close
-    set showtabline=1
-  else
-    tab split
-    set showtabline=0
-  endif
-  let g:dfm_fullscreen=!g:dfm_fullscreen
-endfunction
-
-nnoremap <silent><M-f> :call Fullscreen()<cr>:echo ""<cr>
-
-nmap <F8> :TagbarToggle<CR>
-
 " Quick macro stuff
 nnoremap § qqqqq
 nnoremap ½ @q
@@ -173,15 +135,8 @@ nnoremap <silent> <Plug>SplitLine i<CR><Esc>k$
       \ :call repeat#set("\<Plug>SplitLine")<CR>
 nmap K <Plug>SplitLine
 
-" Search in project for these words
-nnoremap <silent><space>/f :Gitgrep FIXME<CR>
-nnoremap <silent><space>/t :Gitgrep TODO<CR>
-" Search for word under the cursor
-nnoremap <silent><space>/w :Gitgrep <C-r><C-w><CR>
-nnoremap <space>q :Gitgrep<space>
-
 " Remove trailing whitespaces
-fun! StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
   let l = line(".")
   let c = col(".")
   silent! %s/\s\+$//e
@@ -292,19 +247,6 @@ function! CtrlPMappings()
   nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
 endfunction
 
-" Grep
-function! Gitgrep(arg)
-  setlocal grepprg=git\ grep\ --no-color\ --line-number\ -n\ $*
-  silent execute ':grep! '.a:arg
-  silent cwin
-  redraw!
-endfunction
-
-command! -nargs=1 -complete=buffer Gitgrep call Gitgrep(<q-args>)
-nnoremap gG :exec ':silent Gitgrep ' . expand('<cword>')<CR>
-
-let grepprg='git grep --no-color --line-number'
-
 " ycm
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_identifier_chars = '_-/.><'
@@ -326,16 +268,10 @@ au FileType clojure RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
+autocmd BufNewFile,BufReadPost *.cljx,*.boot setfiletype clojure
 
+" Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 1
-
-" Lispwords are words after which indentation should always be 2 spaces
-" instead of justifying elements to same level as previous lines elements
-
-" GET/POST... and GET*/POST* for Compojure-api
-" defschema, defmodel... Core.schema and Compojure-api
-let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
 
 " These confict with my window bindings, tpopes plugin already has these bound
 " to rational keys
@@ -375,16 +311,4 @@ let g:gtfo#terminals = {
       \ 'unix': 'urxvt -cd'
       \ }
 
-function! ReorderCljNsRequire()
-  normal! gg
-  normal "gyaf
-  if @g =~ "\(:require"
-    call search(':require')
-    normal elKm<
-    normal Bh%m>K
-    silent '<,'>!sort
-    normal '<kJ
-    normal '>J$==
-  endif
-endfunc
-nmap <silent> <F4> :call ReorderCljNsRequire()<CR>
+let g:sql_type_default = 'pgsql'

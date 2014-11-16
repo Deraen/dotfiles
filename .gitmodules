@@ -186,9 +186,6 @@
 [submodule ".vim/bundle/Vim-R-plugin"]
 	path = .vim/bundle/Vim-R-plugin
 	url = https://github.com/vim-scripts/Vim-R-plugin.git
-[submodule ".vim/bundle/tagbar"]
-	path = .vim/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
 [submodule ".vim/bundle/vim-polyglot"]
 	path = .vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
@@ -201,9 +198,6 @@
 [submodule ".vim/bundle/gapply.vim"]
 	path = .vim/bundle/gapply.vim
 	url = https://github.com/AndrewRadev/gapply.vim.git
-[submodule ".vim/bundle/vim-slamhound"]
-	path = .vim/bundle/vim-slamhound
-	url = https://github.com/guns/vim-slamhound.git
 [submodule ".vim/bundle/vim-gtfo"]
 	path = .vim/bundle/vim-gtfo
 	url = https://github.com/justinmk/vim-gtfo.git
@@ -216,9 +210,6 @@
 [submodule ".vim/bundle/dbext"]
 	path = .vim/bundle/dbext
 	url = https://github.com/vim-scripts/dbext.vim.git
-[submodule ".vim/bundle/excel.vim"]
-	path = .vim/bundle/excel.vim
-	url = https://github.com/yakiang/excel.vim.git
 [submodule ".vim/bundle/vim-toplevel"]
 	path = .vim/bundle/vim-toplevel
 	url = https://github.com/vim-scripts/vim-toplevel.git

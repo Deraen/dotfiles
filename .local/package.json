@@ -9,7 +9,7 @@
     "grunt-cli": "^0.1.13",
     "gulp": "^3.8.10",
     "jshint": "^2.5.10",
-    "less": "^1.7.5",
+    "less": "^2.0.0",
     "mongo-hacker": "^0.0.3",
     "nodefront": "^1.0.7",
     "npm-check-updates": "^1.2.0",
