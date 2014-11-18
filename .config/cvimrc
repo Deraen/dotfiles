@@ -2,6 +2,6 @@ set noinsertmappings
 let blacklists = [ "https://mail.google.com/*" "*://*.inoreader.com/*", "https://www.flowdock.com/*", "https://www.irccloud.com/*"]
 
 map h goBack
-map l goBack
+map l goForward
 map H goLeft
-map L goRigt
+map L goForward
