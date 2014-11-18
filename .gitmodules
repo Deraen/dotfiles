@@ -198,9 +198,6 @@
 [submodule ".vim/bundle/gapply.vim"]
 	path = .vim/bundle/gapply.vim
 	url = https://github.com/AndrewRadev/gapply.vim.git
-[submodule ".vim/bundle/vim-gtfo"]
-	path = .vim/bundle/vim-gtfo
-	url = https://github.com/justinmk/vim-gtfo.git
 [submodule ".vim/bundle/vim-easy-align"]
 	path = .vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
