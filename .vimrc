@@ -45,9 +45,6 @@ set ttyfast
 set ttyscroll=1
 " Pretty character for vsplit separator
 set fillchars+=vert:│
-" use + register for yank, delete and change operations
-" NOTE: Testing if I miss this
-" set clipboard+=unnamedplus
 " Save vim undo history to file, so history persists through sessions
 set undofile
 set undodir=~/.vim/undo
@@ -135,21 +132,10 @@ nnoremap <silent> <Plug>SplitLine i<CR><Esc>k$
       \ :call repeat#set("\<Plug>SplitLine")<CR>
 nmap K <Plug>SplitLine
 
-" Remove trailing whitespaces
-function! StripTrailingWhitespaces()
-  let l = line(".")
-  let c = col(".")
-  silent! %s/\s\+$//e
-  call cursor(l, c)
-endfun
-nnoremap <silent><space>dt :call StripTrailingWhitespaces()<CR>
-
-" Hightlight trailing whitespaces in normal mode
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
 " Leave paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
 
+let g:Vertigo_homerow='asdfghjklö'
 nnoremap <silent> <Space>j :<C-U>VertigoDown n<CR>
 vnoremap <silent> <Space>j :<C-U>VertigoDown v<CR>
 onoremap <silent> <Space>j :<C-U>VertigoDown o<CR>
@@ -205,7 +191,6 @@ let g:airline_mode_map = {
     \ 'S'  : 'S',
     \ '^S' : 'S',
     \ }
-let g:airline#extensions#tagbar#enabled = 1
 
 " Syntastic
 let g:syntastic_python_checkers = ['pep8']
@@ -286,11 +271,6 @@ let g:sexp_mappings = {
       \ 'sexp_move_to_next_element_tail': '',
       \}
 let g:sexp_enable_insert_mode_mappings = 0
-
-" Hightlight trailing spaces in normal mode
-autocmd InsertEnter * match
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
 
 " Check highlighting group of current char
 function! SynStack()

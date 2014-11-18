@@ -225,3 +225,6 @@
 [submodule ".vim/bundle/vim-typedclojure"]
 	path = .vim/bundle/vim-typedclojure
 	url = git://github.com/typedclojure/vim-typedclojure.git
+[submodule ".vim/bundle/vim-scriptease"]
+	path = .vim/bundle/vim-scriptease
+	url = https://github.com/tpope/vim-scriptease.git

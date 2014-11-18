@@ -12,7 +12,7 @@ command! -nargs=1 -complete=buffer Gitgrep call Gitgrep(<q-args>)
 nnoremap <silent> <Plug>GitGrepFIXME :<C-U>Gitgrep FIXME<CR>
 nnoremap <silent> <Plug>GitGrepTODO :<C-U>Gitgrep TODO<CR>
 " Search for word under the cursor
-nnoremap <silent> <Plug>GitGrepWord :<C-U>exec ':silent Gitgrep ' . expand('<cword>')<CR>
+nnoremap <silent> <Plug>GitGrepWord :<C-U>exec ':Gitgrep ' . expand('<cword>')<CR>
 
 nnoremap <Plug>GitGrepStart :<C-U>Gitgrep<space>
 
