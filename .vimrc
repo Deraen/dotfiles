@@ -48,7 +48,6 @@ set fillchars+=vert:│
 " Save vim undo history to file, so history persists through sessions
 set undofile
 set undodir=~/.vim/undo
-" Hide status message when using completion, seems to be 'match x of y'
 set completeopt-=preview
 
 " Colors
@@ -164,19 +163,19 @@ omap T <Plug>Sneak_T
 let g:rsi_no_meta=1
 
 " Airline
-let g:airline_detect_whitespace=1
-let g:airline_linecolumn_prefix = '¶'
-let g:airline_branch_prefix = ''
-let g:airline_paste_symbol = 'ρ'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_enable_branch=1
-let g:airline_enable_syntastic=1
-let g:airline_detect_paste=1
-let g:airline_detect_iminsert=0
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.parse = 'ρ'
+
+let g:airline#extensions#ctrlp#show_adjacent_modes = 0
 let g:airline_theme='wombat'
-let g:airline_detect_modified=1
-let g:airline_exclude_preview = 0
+let g:airline_exclude_preview = 1
 let g:airline_inactive_collapse = 0
 let g:airline_mode_map = {
     \ '__' : '-',
@@ -233,19 +232,15 @@ function! CtrlPMappings()
 endfunction
 
 " ycm
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_identifier_chars = '_-/.><'
-let g:ycm_register_as_syntastic_checker = 1
-let g:ycm_add_preview_to_completeopt=0
-let g:ycm_confirm_extra_conf=0
 let g:ycm_filetype_blacklist = {
       \ 'notes': 1,
       \ 'gitcommit': 1,
-      \ 'vim': 1,
       \ 'markdown': 1,
       \ 'text': 1,
-      \}
-let g:ycm_semantic_triggers = {'haskell' : ['.']}
+      \ }
+let g:ycm_semantic_triggers = {
+      \ 'haskell' : ['.'],
+      \ }
 
 " Clojure options
 " Use rainbow parentheses
