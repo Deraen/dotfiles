@@ -35,11 +35,9 @@ URxvt.depth:             32
 URxvt.letterSpace:       -2
 
 ! Consolas for Powerline symbols dont align with normal text
-! URxvt*font:              xft:Consolas for Powerline:pixelsize=13:authint=true
+! URxvt*font:              xft:Consolas:pixelsize=13
+URxvt*font:              xft:Liberation Mono:pixelsize=13
 
-URxvt*font:              xft:Consolas:pixelsize=13
-
-! URxvt.italicFont:        xft:Monospace:style=Oblique:pixelsize=10
 URxvt.hold:              false
 URxvt.urgentOnBell:  true
 URxvt.internalBorder:    7
