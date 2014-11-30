@@ -50,6 +50,11 @@ set undofile
 set undodir=~/.vim/undo
 set completeopt-=preview
 
+if has("gui_gtk2")
+  set guioptions=ca
+  set guifont=Consolas\ 10
+endif
+
 " Colors
 set background=dark
 colorscheme seoul256

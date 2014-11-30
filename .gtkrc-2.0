@@ -7,3 +7,8 @@ style "foofonts"
 }
 widget_class "*" style "foofonts"
 gtk-font-name = "Ubuntu 10"
+
+style "vimfix" {
+  bg[NORMAL] = "#171717" # this matches my gvim theme 'Normal' bg color.
+}
+widget "vim-main-window.*GtkForm" style "vimfix"

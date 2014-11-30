@@ -113,7 +113,7 @@ for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
 for_window [title="^Incanter (Matrix|Dataset)"] floating enable
 
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
-for_window [class="^(Google-chrome|Google-chrome-stable|X-www-browser|Quasselclient|Spotify|Eclipse|URxvt|Termite)$"] border pixel 2
+for_window [class="^(Google-chrome|Google-chrome-stable|X-www-browser|Quasselclient|Spotify|Eclipse|URxvt|Termite|Gvim)$"] border pixel 2
 for_window [class="Steam" title="^(Steam - .*|Friends)$"] floating enable
 for_window [class="Gnome-screenshot"] floating enable
 
