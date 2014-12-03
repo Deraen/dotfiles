@@ -225,3 +225,6 @@
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
+[submodule "updated-ansiesc"]
+	path = .vim/bundle/AnsiEsc.vim
+	url = git@github.com:Deraen/AnsiEsc.vim.git
