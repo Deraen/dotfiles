@@ -287,3 +287,6 @@ let g:gtfo#terminals = {
       \ }
 
 let g:sql_type_default = 'pgsql'
+
+autocmd BufEnter    *    if &buftype == 'quickfix' | setlocal wrap | endif
+autocmd BufWinEnter *    if &buftype == 'quickfix' | setlocal wrap | endif
