@@ -248,11 +248,6 @@ let g:ycm_semantic_triggers = {
       \ }
 
 " Clojure options
-" Use rainbow parentheses
-au FileType clojure RainbowParenthesesActivate
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 autocmd BufNewFile,BufReadPost *.cljx,*.boot setfiletype clojure
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
