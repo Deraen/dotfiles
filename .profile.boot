@@ -13,7 +13,7 @@
        conj 'cider.nrepl/cider-middleware)
 
 (task-options!
-  repl [:eval '(do (require '[vinyasa.inject :as inject])
+  repl {:eval '(do (require '[vinyasa.inject :as inject])
                    (require '[redl core complete])
                    (require '[aprint.core])
                    (inject/in
@@ -21,6 +21,6 @@
                      [vinyasa.inject inject]
                      [clojure.tools.namespace.repl refresh clear]
                      [aprint.core aprint ap]
-                     ))])
+                     ))})
 
 ; vim: ft=clojure:
