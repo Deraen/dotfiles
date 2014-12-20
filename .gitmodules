@@ -228,3 +228,6 @@
 [submodule ".vim/bundle/vim-niji"]
 	path = .vim/bundle/vim-niji
 	url = https://github.com/amdt/vim-niji.git
+[submodule ".local/modules/st"]
+	path = .local/modules/st
+	url = http://git.suckless.org/st

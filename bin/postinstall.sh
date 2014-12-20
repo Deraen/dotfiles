@@ -48,6 +48,8 @@ if [[ $desktop == true ]]; then
     make -C $HOME/.local/modules/dunst -j5
     header "Build i3blocks"
     make -C $HOME/.local/modules/i3blocks -j5
+    header "Build St"
+    make -C $HOME/.local/modules/st -j5
 fi
 
 header "Systemfiles"
