@@ -14,6 +14,7 @@ execute pathogen#infect()
 set hidden
 set notimeout
 set noswapfile
+set nowritebackup
 set nowrap
 set nofoldenable
 set lazyredraw
