@@ -49,6 +49,7 @@ if [[ $desktop == true ]]; then
     header "Build i3blocks"
     make -C $HOME/.local/modules/i3blocks -j5
     header "Build St"
+    cp $HOME/.config/st.config.h $HOME/.local/modules/st/config.h
     make -C $HOME/.local/modules/st -j5
 fi
 
