@@ -15,6 +15,7 @@ ppa ubuntu-wine ppa utopic
 ppa videolan master-daily utopic
 ppa webupd8team java utopic # Oracle java
 ppa webupd8team sublime-text-3 utopic
+ppa webupd8team themes utopic
 ppa ansible ansible trusty
 repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
@@ -60,7 +61,6 @@ install "libreoffice-l10n-fi"
 install "openoffice.org-hyphenation"
 install "hyphen-en-us"
 install "libreoffice-l10n-en-gb"
-install "libreoffice-l10n-en-us"
 install "firefox-locale-en"
 install "thunderbird-locale-en"
 
@@ -123,7 +123,7 @@ install cabal-install
 install gprolog
 
 # Scala
-install sbt 0.13.5 http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
+install sbt 0.13.7 http://dl.bintray.com/sbt/debian/sbt-0.13.7.deb
 
 # Embedded
 install gcc-msp430 # TI Launchpad
@@ -185,10 +185,12 @@ install biber
 
 # Desktop env
 install i3 # Tiling WM
+install i3lock
 install compton # Compositing, xcompmgr fork
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools
-install "rxvt-uncode-256color"
+install "rxvt-unicode-256color"
+install faenza-icon-theme
 
 # GUI software
 install blender
