@@ -64,7 +64,7 @@ if [[ $desktop == true ]]; then
     make -C $HOME/.local/modules/st -j5
 
     header "Gnome settings"
-    gsettings set org.gnome.desktop.background show-desktop-icons true
+    gsettings set org.gnome.desktop.background show-desktop-icons false
 fi
 
 header "Systemfiles"
