@@ -41,6 +41,17 @@ cmake -G "Unix Makefiles" . $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 make ycm_support_libs -j5
 )
 
+header "Install boot"
+(
+cd $HOME/bin
+if [ ! -f boot ]; then
+    curl -L https://github.com/boot-clj/boot/releases/download/v2-r1/boot.sh -o boot
+    chmod +x boot
+else
+    boot -u
+fi
+)
+
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
     make -C $HOME/.local/modules/ponymix -j5

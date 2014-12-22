@@ -231,3 +231,6 @@
 [submodule ".local/modules/st"]
 	path = .local/modules/st
 	url = http://git.suckless.org/st
+[submodule ".vim/bundle/vim-boot"]
+	path = .vim/bundle/vim-boot
+	url = git@github.com:Deraen/vim-boot.git
