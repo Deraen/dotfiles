@@ -1,5 +1,5 @@
 gtk-theme-name = "Ambiance"
-gtk-icon-theme-name = "ubuntu-mono-dark"
+gtk-icon-theme-name = "Faenza-Ambiance"
 
 style "foofonts"
 {
