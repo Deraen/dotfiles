@@ -62,6 +62,9 @@ if [[ $desktop == true ]]; then
     header "Build St"
     cp $HOME/.config/st.config.h $HOME/.local/modules/st/config.h
     make -C $HOME/.local/modules/st -j5
+
+    header "Gnome settings"
+    gsettings set org.gnome.desktop.background show-desktop-icons true
 fi
 
 header "Systemfiles"

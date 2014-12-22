@@ -6,14 +6,11 @@
 
 ppa ajf transmission-remote-gtk-unstable trusty
 ppa chris-lea node.js utopic
-ppa ehoover compholio utopic # Wine - for pipelight
 ppa maarten-baert simplescreenrecorder utopic
-ppa natecarlson maven3 precise
 ppa nilarimogard webupd8 utopic # Launchpad-getkeys? Stuff
 ppa otto-kesselgulasch gimp utopic
 ppa rvm smplayer utopic # Mplayer UI
 ppa mc3man mpv-tests utopic # Mpv, mplayer[|2] fork
-ppa tiheum equinox raring # Faenza-icon-theme
 ppa ubuntu-wine ppa utopic
 ppa videolan master-daily utopic
 ppa webupd8team java utopic # Oracle java
@@ -63,11 +60,15 @@ install "libreoffice-l10n-fi"
 install "openoffice.org-hyphenation"
 install "hyphen-en-us"
 install "libreoffice-l10n-en-gb"
+install "libreoffice-l10n-en-us"
+install "firefox-locale-en"
+install "thunderbird-locale-en"
 
 # Devices?
 install usb-modeswitch # for 3G usb modems
 
 # Tools
+install curl
 install acpi # View ACPI info, e.g. CPU temp (on laptop)
 install apache2-utils # htpasswd
 install atop # IO top
@@ -108,9 +109,8 @@ install xclip
 
 # Java
 install "oracle-java8-set-default"
-install maven3
+install maven
 install ant
-install jsvc
 
 # Node
 install nodejs
@@ -135,6 +135,7 @@ install libllvm3.4
 install libclang-3.4-dev
 install qtcreator
 install valgrind
+install cmake
 
 # Python
 install pep8
@@ -144,13 +145,10 @@ install python3-pip
 install git
 install gitg
 install git-flow
-install mercurial
 install qgit
 
 # Dev tools
 install heroku-toolbelt
-install mono-runtime # This might be useful for running .NET programs (even those targeted at Windows)
-install mono-gmcs
 install leap 0.8.0 # Leapmotion
 install devscripts
 install ubuntu-dev-tools
@@ -188,13 +186,11 @@ install biber
 # Desktop env
 install i3 # Tiling WM
 install compton # Compositing, xcompmgr fork
-install faenza-icon-theme # Folder icons etc. are still horrible on Humanity theme
 install gnome-control-center # Includes gnome-sound-applet
+install suckless-tools
+install "rxvt-uncode-256color"
 
 # GUI software
-install activity-log-manager # Manage what Zeitgeist saves
-install gnome-activity-journal # Browse Zeitgeist history
-install avahi-discover # Browse Avahi devices on current network (AirPlay, Pulseaudio)
 install blender
 install calibre # Ebook library / reader
 install comix # CBR/CBZ comicbook reader
@@ -262,18 +258,19 @@ fi
 
 # Laptop specific
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
+        install linux-signed-generic
+        install shim-signed
+        install grub-efi-amd64-signed
+        install lvm2
         install cryptsetup
         install xbacklight
-        install thermald
         install cheese # Webcam
         install prey 0.6.3-ubuntu2 https://s3.amazonaws.com/prey-releases/bash-client/0.6.3/prey_0.6.3-ubuntu2_all.deb
         install thinkfan
         install i965-va-driver
-        install libva-intel-vaapi-driver
         install tlp
         install xautolock
         install hipchat
-        install owncloud-client
         install postgresql-9.4
 fi
 

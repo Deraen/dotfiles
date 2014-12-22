@@ -22,6 +22,7 @@ install "/etc/udev/rules.d/85-tessel.rules"
 install "/usr/share/X11/xkb/symbols/deraen"
 # Overwrite list containing all available options... couldn't find any other way...
 install "/usr/share/X11/xkb/rules/evdev"
+install "/usr/share/xsessions/custom.desktop"
 
 if [[ $HOSTNAME == "juho-desktop" ]]; then
     install "/etc/X11/xorg.conf.d/metamodes.conf"
@@ -30,6 +31,7 @@ fi
 
 if [[ $HOSTNAME == "juho-laptop" ]]; then
     install "/etc/thinkfan.conf"
-    install "/etc/X11/xorg.conf.d/20-thinkpad.conf"
     install "/etc/NetworkManager/dispatcher.d/99nfs"
 fi
+
+update-alternatives --set dmenu /usr/bin/dmenu.xft
