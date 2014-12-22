@@ -11,9 +11,9 @@ dunst &
 nm-applet &
 dropbox start &
 if [[ $HOST == "juho-laptop" ]]; then
-    xset dpms 600
-    xautolock -time 10 -detectsleep -locker "suspend.sh" &
-    pwrmgr.py & # Lock when suspending. TODO: Replace with something simpler
+    xset dpms 300
+    xset s 300
+    xss-lock lock.sh &
 fi
 rndbg.sh
 compton &

@@ -59,6 +59,14 @@ if [[ $desktop == true ]]; then
     make -C $HOME/.local/modules/dunst -j5
     header "Build i3blocks"
     make -C $HOME/.local/modules/i3blocks -j5
+    header "Xss-lock"
+    (
+    cd $HOME/.local/modules/xss-lock
+    mkdir build
+    cd build
+    cmake ..
+    make -j5
+    )
     header "Build St"
     cp $HOME/.config/st.config.h $HOME/.local/modules/st/config.h
     make -C $HOME/.local/modules/st -j5
