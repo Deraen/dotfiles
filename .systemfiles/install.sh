@@ -32,6 +32,7 @@ fi
 if [[ $HOSTNAME == "juho-laptop" ]]; then
     install "/etc/thinkfan.conf"
     install "/etc/NetworkManager/dispatcher.d/99nfs"
+    install "/etc/systemd/logind.conf"
 fi
 
 update-alternatives --set dmenu /usr/bin/dmenu.xft

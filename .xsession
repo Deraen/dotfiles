@@ -13,7 +13,7 @@ dropbox start &
 if [[ $HOST == "juho-laptop" ]]; then
     xset dpms 300
     xset s 300
-    xss-lock suspend.sh &
+    xss-lock lock.sh &
 fi
 rndbg.sh
 compton &
