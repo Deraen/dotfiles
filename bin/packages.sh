@@ -169,6 +169,9 @@ install libxdg-basedir-dev
 install libxss-dev # libXscrnsaver
 install libxinerama-dev
 install libnotify-dev
+# xss-lock
+install libxcb-screensaver0-dev
+install libxcb-util0-dev
 
 # Docker
 install lxc-docker
@@ -184,6 +187,7 @@ install texlive-lang-european
 install biber
 
 # Desktop env
+install lightdm-gtk-greeter
 install i3 # Tiling WM
 install i3lock
 install compton # Compositing, xcompmgr fork

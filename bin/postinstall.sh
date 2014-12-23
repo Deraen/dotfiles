@@ -62,7 +62,7 @@ if [[ $desktop == true ]]; then
     header "Xss-lock"
     (
     cd $HOME/.local/modules/xss-lock
-    mkdir build
+    mkdir -p build
     cd build
     cmake ..
     make -j5
