@@ -4,6 +4,7 @@
                   [lein-deps-tree "0.1.2"]
                   [jonase/eastwood "0.1.4"]
                   [lein-exec "0.3.4"]
+                  [lein-pprint "1.1.2"]
                   ]
         :dependencies [[redl "0.2.4"]
                        [org.clojure/tools.namespace "0.2.6"]
