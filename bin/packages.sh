@@ -34,6 +34,7 @@ repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/comm
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin raring
+        ppa mamarley nvidia utopic
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
@@ -237,6 +238,7 @@ install network-manager-openconnect-gnome # Cisco VPN
 install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
+        install "nvidia-346"
         install playonlinux # Wine frontend for games
         install fail2ban
         install palm-novacom # HP Touchpad. Local?
@@ -256,11 +258,6 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install adobeair 1:2.6.0.19170 # For Defender's Quest: Valley of the Forgotten
         install youtube-dl
         install openra
-
-        # Nvidia driver build-deps
-        install xserver-xorg-dev
-        install execstack
-        install dh-modaliases
 fi
 
 # Laptop specific

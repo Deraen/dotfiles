@@ -23,10 +23,12 @@ displays:
   DP1:
     auto: Yes
     left-of: LVDS1
-- DVI-D-0: # Home, desktop, 27+24
+- DVI-D-0: # Home, desktop, 24 pivot - 32 - 27 pivot
     mode: 1920x1200
+    pos: "0x320"
     rotate: left
-  DVI-I-1:
-    mode: 2560x1440
-    pos: 1200x240
+  DP-1:
+    mode: 3840x2160
+    pos: 1200x200
     primary: Yes
+  DVI-I-1: No
