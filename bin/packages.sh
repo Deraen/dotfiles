@@ -98,7 +98,7 @@ install inotify-tools
 install r-base
 
 # Editor
-install vim
+install vim-gtk
 install emacs24
 install sublime-text-installer
 
