@@ -1,15 +1,17 @@
-#!/usr/bin/python2.7
+#!/usr/bin/env python3
 
-import i3
+import i3ipc
+
+conn = i3ipc.Connection()
 
 # Keep current container focused
-i3.command('mark', 'switch-all')
+conn.command('mark switch-all')
 
 # Move visible workspaces last so they stay visible
-workspaces = sorted(i3.get_workspaces(), key=lambda x: x['visible'])
+workspaces = sorted(conn.get_workspaces(), key=lambda x: x['visible'])
 for workspace in workspaces:
-    i3.command('workspace', workspace['name'])
-    i3.command('move', 'workspace to output left')
+    conn.command('workspace %s' % workspace['name'])
+    conn.command('move workspace to output left')
 
-i3.command('[con_mark="switch-all"]', 'focus')
-i3.command('unmark', 'switch-all')
+conn.command('[con_mark="switch-all"] focus')
+conn.command('unmark switch-all')
