@@ -18,3 +18,5 @@ autocmd FileType clojure setlocal lispwords+=for-map,fnk
 autocmd FileType clojure setlocal lispwords+=go-loop
 " Chesire
 autocmd FileType clojure setlocal lispwords+=add-encoder
+" Boot
+autocmd FileType clojure setlocal lispwords+=with-call-in,with-eval-in,with-pre-wrap,with-post-wrap

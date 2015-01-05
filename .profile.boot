@@ -1,12 +1,12 @@
 (require 'boot.repl)
 
 (swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.7.0"]
+       concat '[[cider/cider-nrepl "0.8.2"]
                 [redl "0.2.4"]
-                [org.clojure/tools.namespace "0.2.7"]
+                [org.clojure/tools.namespace "0.2.8"]
                 [im.chit/vinyasa.inject "0.2.2"]
                 [aprint "0.1.1"]
-                ; [jonase/eastwood "0.1.4"]
+                ; [jonase/eastwood "0.2.1"]
                 ])
 
 (swap! boot.repl/*default-middleware*
@@ -22,5 +22,3 @@
                      [clojure.tools.namespace.repl refresh clear]
                      [aprint.core aprint ap]
                      ))})
-
-; vim: ft=clojure:
