@@ -16,9 +16,13 @@
   repl {:eval '(do (require '[vinyasa.inject :as inject])
                    (require '[redl core complete])
                    (require '[aprint.core])
+                   (require 'clojure.repl)
                    (inject/in
                      ;; To . namespace
                      [vinyasa.inject inject]
                      [clojure.tools.namespace.repl refresh clear]
                      [aprint.core aprint ap]
+                     [clojure.repl source doc]
                      ))})
+
+;; vim: set filetype=clojure :
