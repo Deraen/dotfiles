@@ -16,7 +16,6 @@ ppa videolan master-daily utopic
 ppa webupd8team java utopic # Oracle java
 ppa webupd8team sublime-text-3 utopic
 ppa webupd8team themes utopic
-ppa ansible ansible trusty
 repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
@@ -157,7 +156,7 @@ install mongodb-org
 install httpie
 install robomongo 0.8.4 http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
 install ansible
-install vagrant
+install vagrant "1:1.7.2" https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
 
 # Dev dependencies
 install libboost-all-dev
