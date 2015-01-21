@@ -12,10 +12,13 @@
                        [im.chit/vinyasa.pull "0.2.2"]
                        [alembic "0.3.2"]
                        [aprint "0.1.1"]
+                       [flare "0.2.8"]
                        ]
         :injections [(require '[vinyasa.inject :as inject])
                      (require '[redl core complete])
-                     (require '[aprint.core])
+                     (require 'aprint.core)
+                     (require 'flare.clojure-test)
+                     (flare.clojure-test/install!)
                      (inject/in
                              ;; To . namespace
                              [vinyasa.inject inject]
