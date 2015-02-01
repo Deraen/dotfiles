@@ -240,3 +240,6 @@
 [submodule ".vim/bundle/vim-merginal"]
 	path = .vim/bundle/vim-merginal
 	url = git@github.com:idanarye/vim-merginal.git
+[submodule ".local/modules/lighthouse"]
+	path = .local/modules/lighthouse
+	url = git@github.com:emgram769/lighthouse.git
