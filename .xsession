@@ -23,6 +23,9 @@ if [[ $HOST == "juho-laptop" ]]; then
     xset dpms 300
     xset s 300
     xss-lock lock.sh &
+elif [[ $HOST == "juho-desktop" ]]; then
+    # Acer has diffuculties awakening from sleep
+    xset -dpms
 fi
 rndbg.sh
 compton &
