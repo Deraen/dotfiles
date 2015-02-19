@@ -68,7 +68,7 @@ bindcode $mod+94 split v
 bindcode $mod+shift+94 split h
 bindsym $mod+Tab layout toggle all
 bindsym $mod+f fullscreen
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
