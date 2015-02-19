@@ -42,7 +42,9 @@ set wildignorecase
 " Disable text and comment wrapping
 set formatoptions-=tc
 " Force fast tty. Should already be on when term is rxvt.
-set ttyfast
+if !has('nvim')
+  set ttyfast
+endif
 set ttyscroll=1
 " Pretty character for vsplit separator
 set fillchars+=vert:│

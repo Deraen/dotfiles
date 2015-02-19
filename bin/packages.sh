@@ -16,6 +16,8 @@ ppa videolan master-daily utopic
 ppa webupd8team java utopic # Oracle java
 ppa webupd8team sublime-text-3 utopic
 ppa webupd8team themes utopic
+ppa ansible ansible trusty
+ppa neovim-ppa unstable utopic
 repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
@@ -99,6 +101,7 @@ install r-base
 
 # Editor
 install vim-gtk
+install neovim
 install emacs24
 install sublime-text-installer
 
@@ -179,12 +182,17 @@ install lxc-docker
 # Tessel
 install libusb-1.0-0-dev
 
+# Arduino
+install picocom
+
 # TEX
 install texlive-latex-extra
 install texlive-xetex
 install texlive-fonts-recommended
 install texlive-lang-european
 install biber
+
+install gnuplot-nox
 
 # Desktop env
 install lightdm-gtk-greeter
