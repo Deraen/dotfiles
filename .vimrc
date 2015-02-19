@@ -295,3 +295,7 @@ autocmd BufEnter    *    if &buftype == 'quickfix' | setlocal wrap | endif
 autocmd BufWinEnter *    if &buftype == 'quickfix' | setlocal wrap | endif
 
 autocmd VimResized  *    exe "normal! \<c-w>="
+
+let g:lua_complete_omni = 1
+
+let g:clj_fmt_autosave = 0

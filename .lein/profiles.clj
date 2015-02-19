@@ -10,7 +10,8 @@
                        [im.chit/vinyasa.inject "0.3.0"]
                        [im.chit/vinyasa.pull "0.3.0"]
                        [aprint "0.1.3"]
-                       [flare "0.2.8"]]
+                       [flare "0.2.8"]
+                       [cljfmt "0.1.7"]]
         :injections [(require '[vinyasa.inject :as inject])
                      (require '[redl core complete])
                      (require 'flare.clojure-test)

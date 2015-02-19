@@ -234,9 +234,6 @@
 [submodule ".local/modules/xss-lock"]
 	path = .local/modules/xss-lock
 	url = https://bitbucket.org/raymonad/xss-lock.git
-[submodule ".vim/bundle/vim-boot"]
-	path = .vim/bundle/vim-boot
-	url = git@github.com:rkneufeld/vim-boot.git
 [submodule ".vim/bundle/vim-merginal"]
 	path = .vim/bundle/vim-merginal
 	url = git@github.com:idanarye/vim-merginal.git
