@@ -36,3 +36,10 @@ if [[ $HOSTNAME == "juho-laptop" ]]; then
 fi
 
 update-alternatives --set dmenu /usr/bin/dmenu.xft
+
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+sudo update-alternatives --set vi /usr/bin/nvim
+sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+sudo update-alternatives --set vim /usr/bin/nvim
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+sudo update-alternatives --set editor /usr/bin/nvim
