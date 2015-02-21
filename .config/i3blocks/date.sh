@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ $BLOCK_BUTTON == "1" ]]; then
-    gtk-launch Sunrise > /dev/null &
+    scratchpad.py "gtk-launch Sunrise" "crx_mojepfklcankkmikonjlnidiooanmpbb" > /dev/null &
 fi
 
 date +"%a %d %b %H:%M"

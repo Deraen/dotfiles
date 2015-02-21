@@ -105,8 +105,6 @@ assign [class="Skype"] → $comm
 assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → $comm
 # IRCCloud
 assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
-# Sunrise
-for_window [instance="crx_mojepfklcankkmikonjlnidiooanmpbb"] floating enable
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
 # Incanter windows
@@ -159,10 +157,12 @@ bindsym $mod+x move workspace to output right
 bindsym $mod+Ctrl+x exec i3-switch-all.py
 
 # Scratchpad
-for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
-bindsym $mod+F6 exec scratchpad.py keepassx keepassx
 for_window [instance="crx_mnfehgbmkapmjnhcnbodoamcioleeooe"] move scratchpad
 bindsym $mod+F5 exec scratchpad.py "gtk-launch DevDocs" "crx_mnfehgbmkapmjnhcnbodoamcioleeooe"
+for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
+bindsym $mod+F6 exec scratchpad.py keepassx keepassx
+for_window [instance="crx_mojepfklcankkmikonjlnidiooanmpbb"] move scratchpad
+bindsym $mod+F7 exec scratchpad.py "gtk-launch Sunrise" "crx_mojepfklcankkmikonjlnidiooanmpbb"
 
 # I3
 bindsym $mod+Shift+C reload
