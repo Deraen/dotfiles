@@ -44,8 +44,8 @@ set formatoptions-=tc
 " Force fast tty. Should already be on when term is rxvt.
 if !has('nvim')
   set ttyfast
+  set ttyscroll=1
 endif
-set ttyscroll=1
 " Pretty character for vsplit separator
 set fillchars+=vert:│
 " Save vim undo history to file, so history persists through sessions
