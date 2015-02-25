@@ -80,11 +80,6 @@ nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
-" Moving windows using, Alt + Shift
-nnoremap <M-H> <C-w>H
-nnoremap <M-J> <C-w>J
-nnoremap <M-K> <C-w>K
-nnoremap <M-L> <C-w>L
 
 " Close window
 nnoremap <M-q> <C-w>c
@@ -96,14 +91,9 @@ nnoremap <M-m> <C-w>s
 nnoremap <M-w> :BD<cr>
 
 " NOTE: To make windows equal size, <C-w>=
-" Resize - Ctrl + hjkl
+" Resize - Ctrl + jk
 nnoremap <C-j> :res -5<cr>
 nnoremap <C-k> :res +5<cr>
-" <C-l> would confict with redraw console
-" I use these very rarely should it doesn't really matter that these are
-" harder to use.
-nnoremap <silent><space><C-h> :vert res -5<cr>
-nnoremap <silent><space><C-l> :vert res +5<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)

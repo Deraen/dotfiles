@@ -33,13 +33,29 @@ endfunction
 
 nnoremap <silent> <Plug>EvalPaste :<C-U>call <SID>eval_paste(v:count)<CR>
 
-function! s:set_up_eval() abort
+" Source: http://blog.venanti.us/clojure-vim/
+function! s:TestToplevel() abort
+    "Eval the toplevel clojure form (a deftest) and then test-var the result."
+    normal! ^
+    let line1 = searchpair('(','',')', 'bcrn', g:fireplace#skip)
+    let line2 = searchpair('(','',')', 'rn', g:fireplace#skip)
+    let expr = join(getline(line1, line2), "\n")
+    let var = fireplace#session_eval(expr)
+    let result = fireplace#echo_session_eval("(clojure.test/test-var " . var . ")")
+    return result
+endfunction
+
+nnoremap <silent> <Plug>TestToplevel :<C-U>call <SID>TestToplevel()<CR>
+
+function! s:set_up() abort
   nmap <buffer> cep <Plug>EvalPaste
   " Remove eval result lines
   nmap <buffer> ced :%g/^;; =>/d<CR>
+
+  nmap <buffer> cpt <Plug>TestToplevel
 endfunction
 
 augroup fireplace_eval_paste
   autocmd!
-  autocmd FileType clojure call s:set_up_eval()
+  autocmd FileType clojure call s:set_up()
 augroup END
