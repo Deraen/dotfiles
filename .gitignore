@@ -1,3 +1,4 @@
 *.pyc
 *.cache
 Session.vim
+doc/tags
