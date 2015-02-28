@@ -68,10 +68,10 @@ if [ "$HOSTNAME" = "juho-server" ]; then
 
 elif [ "$HOSTNAME" = "juho-desktop" ]; then
 
-	CPUT=`echo $(cat /sys/devices/platform/coretemp.0/temp1_input) / 1000 | bc`
+	CPUT=`echo $(cat /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input) / 1000 | bc`
 	[ "$CPUT" ] || CPUT=U
 
-	GPUT=$(nvidia-smi -q -d TEMPERATURE | grep Gpu | sed 's/.*\([0-9]\{2\}\).*/\1/')
+	GPUT=$(nvidia-smi -q -d TEMPERATURE | grep Current | sed 's/.*\([0-9]\{2\}\).*/\1/')
 
 	rrdtool update "$DIR/lammot.rrd" N:$CPUT:U:U:U:U:U:U
 	rrdtool update "$DIR/desktop-gpucoretemp.rrd" N:$GPUT
