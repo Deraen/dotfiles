@@ -271,6 +271,8 @@ endfunc
 let g:vim_json_syntax_conceal = 0
 
 autocmd FileType markdown set cc=80
+autocmd FileType markdown setlocal spell spelllang=en_us
+autocmd FileType gitcommit setlocal spell spelllang=en_us
 
 " R
 let vimrplugin_term="urxvt"
