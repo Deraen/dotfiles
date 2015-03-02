@@ -4,26 +4,43 @@ autocmd FileType clojure nmap <buffer> <F3>  <Plug>FireplaceSource
 " Variant of eval where result of expression (outermost form) is pasted onto the document
 " following the evaluated form.
 " Use case: using VIM like REPL during training presentations
-function! s:eval_paste(type) abort
-  let reg_save = @@
+
+function! s:opfunc(type) abort
   let sel_save = &selection
   let cb_save = &clipboard
+  let reg_save = @@
   try
     set selection=inclusive clipboard-=unnamed clipboard-=unnamedplus
-
-    " Find start of the block
-    call searchpair('(','',')', 'Wbcr', g:fireplace#skip)
-    " Copy contents
-    silent exe "normal! vaby"
-    let expr = repeat("\n", line("'<")-1) . repeat(" ", col("'<")-1) . @@
-    " Eval contents
-    let @@ = "\n;; => " . fireplace#session_eval(matchstr(expr, '^\n\+').expr).matchstr(expr, '\n\+$')
-    if @@ !~# '^\n*$'
-      " Paste
-      normal! %p
+    if type(a:type) == type(0)
+      let open = '[[{(]'
+      let close = '[]})]'
+      if getline('.')[col('.')-1] =~# close
+        let [line1, col1] = searchpairpos(open, '', close, 'bn', g:fireplace#skip)
+        let [line2, col2] = [line('.'), col('.')]
+      else
+        let [line1, col1] = searchpairpos(open, '', close, 'bcn', g:fireplace#skip)
+        let [line2, col2] = searchpairpos(open, '', close, 'n', g:fireplace#skip)
+      endif
+      while col1 > 1 && getline(line1)[col1-2] =~# '[#''`~@]'
+        let col1 -= 1
+      endwhile
+      call setpos("'[", [0, line1, col1, 0])
+      call setpos("']", [0, line2, col2, 0])
+      silent exe "normal! `[v`]y"
+    elseif a:type =~# '^.$'
+      silent exe "normal! `<" . a:type . "`>y"
+    elseif a:type ==# 'line'
+      silent exe "normal! '[V']y"
+    elseif a:type ==# 'block'
+      silent exe "normal! `[\<C-V>`]y"
+    elseif a:type ==# 'outer'
+      call searchpair('(','',')', 'Wbcr', g:fireplace#skip)
+      silent exe "normal! vaby"
+    else
+      silent exe "normal! `[v`]y"
     endif
-  catch /^Clojure:/
-    return ''
+    redraw
+    return repeat("\n", line("'<")-1) . repeat(" ", col("'<")-1) . @@
   finally
     let @@ = reg_save
     let &selection = sel_save
@@ -31,7 +48,29 @@ function! s:eval_paste(type) abort
   endtry
 endfunction
 
-nnoremap <silent> <Plug>EvalPaste :<C-U>call <SID>eval_paste(v:count)<CR>
+function! s:eval_paste(type) abort
+  let todo = s:opfunc(a:type)
+
+  let sel_save = &selection
+  let cb_save = &clipboard
+  let reg_save = @@
+  try
+    let @@  = fireplace#session_eval(todo)
+    if @@ !~#'^\n*$'
+      " silent exe "normal %a<foo>"
+      silent exe "normal %akcc;; => ". @@
+    endif
+  finally
+    let @@ = reg_save
+    let &selection = sel_save
+    let &clipboard = cb_save
+  endtry
+endfunction
+
+" nnoremap <silent> <Plug>EvalPasteLast  :exe <SID>paste_last()<CR>
+nnoremap <silent> <Plug>EvalPaste      :<C-U>set opfunc=<SID>eval_paste<CR>g@
+xnoremap <silent> <Plug>EvalPaste      :<C-U>call <SID>eval_paste(visualmode())<CR>
+nnoremap <silent> <Plug>EvalPasteCount :<C-U>call <SID>eval_paste(v:count)<CR>
 
 " Source: http://blog.venanti.us/clojure-vim/
 function! s:TestToplevel() abort
@@ -48,7 +87,8 @@ endfunction
 nnoremap <silent> <Plug>TestToplevel :<C-U>call <SID>TestToplevel()<CR>
 
 function! s:set_up() abort
-  nmap <buffer> cep <Plug>EvalPaste
+  nmap <buffer> ce  <Plug>EvalPaste
+  nmap <buffer> cep <Plug>EvalPasteCount
   " Remove eval result lines
   nmap <buffer> ced :%g/^;; =>/d<CR>
 
