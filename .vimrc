@@ -59,8 +59,12 @@ if has("gui_gtk2")
 endif
 
 " Colors
-set background=dark
 colorscheme seoul256
+if $PRESENTATION_MODE == '1'
+  set background=light
+else
+  set background=dark
+endif
 
 " Mappings
 let mapleader = 'å'
