@@ -115,6 +115,10 @@ nnoremap <silent><space>l :CtrlPLine %<cr>
 " space-b change buffer
 nnoremap <silent><space>b :CtrlPBuffer<cr>
 
+" Next/prev buffer
+nnoremap <silent><space><C-p> :bprevious<CR>
+nnoremap <silent><space><C-n> :bnext<CR>
+
 " Quick macro stuff
 nnoremap § qqqqq
 nnoremap ½ @q

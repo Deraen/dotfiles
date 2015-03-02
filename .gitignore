@@ -2,3 +2,5 @@
 *.cache
 Session.vim
 doc/tags
+*.iml
+.idea
