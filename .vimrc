@@ -148,22 +148,6 @@ nnoremap <silent> <Space>k :<C-U>VertigoUp n<CR>
 vnoremap <silent> <Space>k :<C-U>VertigoUp v<CR>
 onoremap <silent> <Space>k :<C-U>VertigoUp o<CR>
 
-let g:sneak#streak = 1
-" replace 'f' with 1-char Sneak
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-omap f <Plug>Sneak_f
-omap F <Plug>Sneak_F
-" replace 't' with 1-char Sneak
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-omap t <Plug>Sneak_t
-omap T <Plug>Sneak_T
-
 " Vim-rsi (readline insertmode bindings)
 " Disable meta maps because <M-d> bindings breaks ä
 let g:rsi_no_meta=1
