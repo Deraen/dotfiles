@@ -240,6 +240,7 @@ let g:clojure_align_multiline_strings = 1
 
 " These confict with my window bindings, tpopes plugin already has these bound
 " to rational keys
+" FIXME: Add raise bindings
 let g:sexp_mappings = {
       \ 'sexp_swap_list_backward': '',
       \ 'sexp_swap_list_forward': '',
@@ -249,6 +250,8 @@ let g:sexp_mappings = {
       \ 'sexp_move_to_next_element_head': '',
       \ 'sexp_move_to_prev_element_tail': '',
       \ 'sexp_move_to_next_element_tail': '',
+      \ 'sexp_raise_list':                '<LocalLeader>o',
+      \ 'sexp_raise_element':             '<LocalLeader>O',
       \}
 let g:sexp_enable_insert_mode_mappings = 0
 
@@ -270,10 +273,6 @@ autocmd FileType markdown syntax match javapkg /\(java\|org\)\(\.[A-Za-z]\+\)\+/
 
 " R
 let vimrplugin_term="urxvt"
-
-let g:gtfo#terminals = {
-      \ 'unix': 'urxvt -cd'
-      \ }
 
 let g:sql_type_default = 'pgsql'
 

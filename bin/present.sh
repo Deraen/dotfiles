@@ -1,6 +1,6 @@
 #!/bin/sh
 
-urxvt \
+exec urxvt \
     -bg "#ffffff" \
     -pixmap ~/Dropbox/Programmers/logos/valkoinen_taustakuva.png \
     -font "xft:Liberation Mono:pixelsize=24" \

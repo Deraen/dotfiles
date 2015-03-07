@@ -2,5 +2,5 @@
 
 # Open new terminal in current dir
 for i in $(seq 1 ${1:-1}); do
-  urxvt &> /dev/null
+  urxvt.sh &> /dev/null
 done
