@@ -37,7 +37,10 @@ header "Build YCM"
 (
 mkdir -p $HOME/tmp/ycm_build
 cd $HOME/tmp/ycm_build
-cmake -G "Unix Makefiles" . $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+cmake -G "Unix Makefiles" \
+    -DUSE_CLANG_COMPLETER=ON \
+    -DUSE_SYSTEM_LIBCLANG=ON \
+    . $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 make ycm_support_libs -j5
 )
 
