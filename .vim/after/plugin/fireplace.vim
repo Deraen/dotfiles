@@ -57,8 +57,8 @@ function! s:eval_paste(type) abort
   try
     let @@  = fireplace#session_eval(todo)
     if @@ !~#'^\n*$'
-      " silent exe "normal %a<foo>"
-      silent exe "normal %akcc;; => ". @@
+      " silent exe "normal %a\<CR><foo>\<CR>"
+      silent exe "normal %a\<CR>\<CR>\<Esc>kcc;; => ". @@
     endif
   finally
     let @@ = reg_save

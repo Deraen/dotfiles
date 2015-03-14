@@ -267,7 +267,6 @@ let g:vim_json_syntax_conceal = 0
 
 autocmd FileType markdown set cc=80
 autocmd FileType markdown setlocal spell spelllang=en_us
-autocmd FileType gitcommit setlocal spell spelllang=en_us
 autocmd FileType markdown syntax match urls /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/ contains=@NoSpell
 autocmd FileType markdown syntax match javapkg /\(java\|org\)\(\.[A-Za-z]\+\)\+/ contains=@NoSpell
 
