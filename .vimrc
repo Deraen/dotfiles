@@ -231,6 +231,8 @@ let g:ycm_filetype_blacklist = {
 let g:ycm_semantic_triggers = {
       \ 'haskell' : ['.'],
       \ }
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 
 " Clojure options
 autocmd BufNewFile,BufReadPost *.cljx,*.boot setfiletype clojure
