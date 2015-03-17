@@ -59,6 +59,9 @@ if has("gui_gtk2")
 endif
 
 " Colors
+if $PRESENTATION_MODE == '1'
+  let g:seoul256_transparent=1
+endif
 colorscheme seoul256
 if $PRESENTATION_MODE == '1'
   set background=light
