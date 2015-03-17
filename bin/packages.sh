@@ -104,6 +104,7 @@ install vim-gtk
 install neovim
 install emacs24
 install sublime-text-installer
+install atom
 
 # Neovim
 install luarocks
@@ -134,8 +135,7 @@ install mspdebug
 install arduino
 
 # C++
-install libllvm3.4
-install libclang-3.4-dev
+install clang
 install qtcreator
 install valgrind
 install cmake

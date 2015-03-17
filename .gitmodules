@@ -249,3 +249,6 @@
 [submodule ".vim/bundle/vim-misc"]
 	path = .vim/bundle/vim-misc
 	url = https://github.com/xolox/vim-misc.git
+[submodule ".vim/bundle/vim-unimpaired"]
+	path = .vim/bundle/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
