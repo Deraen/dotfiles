@@ -228,9 +228,6 @@
 [submodule ".vim/bundle/vim-niji"]
 	path = .vim/bundle/vim-niji
 	url = https://github.com/amdt/vim-niji.git
-[submodule ".local/modules/st"]
-	path = .local/modules/st
-	url = http://git.suckless.org/st
 [submodule ".local/modules/xss-lock"]
 	path = .local/modules/xss-lock
 	url = https://bitbucket.org/raymonad/xss-lock.git

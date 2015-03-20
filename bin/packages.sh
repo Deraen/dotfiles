@@ -18,6 +18,7 @@ ppa webupd8team sublime-text-3 utopic
 ppa webupd8team themes utopic
 ppa ansible ansible trusty
 ppa neovim-ppa unstable utopic
+ppa fish-shell release-2 utopic
 repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
