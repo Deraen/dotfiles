@@ -92,6 +92,7 @@ install tmispell-voikko
 install tmux
 install tree
 install zsh
+install fish
 install cloc
 install dos2unix
 install exuberant-ctags

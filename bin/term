@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Launch one or more terminals
+# $ term
+# $ term 4
+
 # Open new terminal in current dir
 for i in $(seq 1 ${1:-1}); do
   urxvt.sh &> /dev/null
