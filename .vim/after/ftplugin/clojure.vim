@@ -11,7 +11,7 @@ autocmd FileType clojure setlocal lispwords+=fact,facts,provided,fact-group
 " Core.logic
 autocmd FileType clojure setlocal lispwords+=run*
 " Cljs
-autocmd FileType clojure setlocal lispwords+=will-mount,render,render-state,init-state,did-mount,should-update,will-receive-props,will-update,did-update,display-name,will-unmount
+autocmd FileType clojure setlocal lispwords+=will-mount,render,render-state,init-state,did-mount,should-update,will-receive-props,will-update,did-update,display-name,will-unmount,this-as
 " Plumbing
 autocmd FileType clojure setlocal lispwords+=for-map,fnk,letk
 " Core.async
