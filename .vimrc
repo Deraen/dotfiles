@@ -87,6 +87,12 @@ nnoremap <M-h> <C-w>h
 nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
+if has("nvim")
+  tnoremap <M-h> <C-\><C-n><C-w>h
+  tnoremap <M-j> <C-\><C-n><C-w>j
+  tnoremap <M-k> <C-\><C-n><C-w>k
+  tnoremap <M-l> <C-\><C-n><C-w>l
+endif
 
 " Close window
 nnoremap <M-q> <C-w>c
@@ -134,6 +140,9 @@ vnoremap ¤ :g/.*/norm!
 
 " One more way to exit insert mode
 inoremap <C-c> <ESC>
+if has("nvim")
+  tnoremap <Esc> <C-\><C-n>
+endif
 
 " Split line
 nnoremap <silent> <Plug>SplitLine i<CR><Esc>k$

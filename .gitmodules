@@ -225,9 +225,6 @@
 [submodule "updated-ansiesc"]
 	path = .vim/bundle/AnsiEsc.vim
 	url = git@github.com:Deraen/AnsiEsc.vim.git
-[submodule ".vim/bundle/vim-niji"]
-	path = .vim/bundle/vim-niji
-	url = https://github.com/amdt/vim-niji.git
 [submodule ".local/modules/xss-lock"]
 	path = .local/modules/xss-lock
 	url = https://bitbucket.org/raymonad/xss-lock.git
@@ -252,3 +249,6 @@
 [submodule ".vim/bundle/vim-fish"]
 	path = .vim/bundle/vim-fish
 	url = git@github.com:dag/vim-fish.git
+[submodule ".vim/bundle/nvim-ipy"]
+	path = .vim/bundle/nvim-ipy
+	url = git@github.com:bfredl/nvim-ipy.git

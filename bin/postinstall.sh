@@ -31,7 +31,7 @@ npm install
 )
 
 header "Build vimproc"
-make -C $HOME/.vim/bundle/vimproc
+make -C $HOME/.vim/bundle/vimproc -j
 
 header "Build YCM"
 (
@@ -40,7 +40,7 @@ cd $HOME/tmp/ycm_build
 cmake -G "Unix Makefiles" \
     -DUSE_CLANG_COMPLETER=ON \
     . $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-make ycm_support_libs -j5
+make ycm_support_libs -j
 )
 
 header "Install boot"
@@ -56,11 +56,11 @@ fi
 
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
-    make -C $HOME/.local/modules/ponymix -j5
+    make -C $HOME/.local/modules/ponymix -j
     header "Build Dunst"
-    make -C $HOME/.local/modules/dunst -j5
+    make -C $HOME/.local/modules/dunst -j
     header "Build i3blocks"
-    make -C $HOME/.local/modules/i3blocks -j5
+    make -C $HOME/.local/modules/i3blocks -j
 
     header "Xss-lock"
     (
@@ -68,7 +68,7 @@ if [[ $desktop == true ]]; then
     mkdir -p build
     cd build
     cmake ..
-    make -j5
+    make -j
     )
 
     header "Gnome settings"
