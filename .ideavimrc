@@ -1,0 +1,31 @@
+" Save file
+nnoremap ä :w<CR>
+
+" Quick macro stuff
+nnoremap § qqqqq
+nnoremap ½ @q
+vnoremap ½ @q
+vnoremap ¤ :g/.*/norm!
+
+nnoremap K :action EditorSplitLine<CR>
+
+nnoremap dae :action :cursive.actions.paredit/kill-sexp<CR>
+
+nnoremap >( :action :cursive.actions.paredit/slurp-backwards<CR>
+nnoremap <( :action :cursive.actions.paredit/barf-backwards<CR>
+nnoremap >) :action :cursive.actions.paredit/slurp-forwards<CR>
+nnoremap <) :action :cursive.actions.paredit/barf-forwards<CR>
+
+nnoremap cse{ :action :cursive.actions.paredit/wrap-curly<CR>
+nnoremap cse} :action :cursive.actions.paredit/wrap-curly<CR>
+nnoremap cse( :action :cursive.actions.paredit/wrap-paren<CR>
+nnoremap cse) :action :cursive.actions.paredit/wrap-paren<CR>
+nnoremap cse[ :action :cursive.actions.paredit/wrap-square<CR>
+nnoremap cse] :action :cursive.actions.paredit/wrap-square<CR>
+nnoremap cse" :action :cursive.actions.paredit/wrap-quotes<CR>
+
+nnoremap cpr :action :cursive.repl.actions/load-file<CR>
+nnoremap cmm :action :cursive.repl.actions/macroexpansion<CR>
+nnoremap cpae :action cursive.repl.actions/run-last-sexp
+nnoremap cpp :action cursive.repl.actions/run-last-sexp
+nnoremap cpaF :action cursive.repl.actions/run-top-sexp
