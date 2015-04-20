@@ -3,6 +3,6 @@ Type=Application
 Name=Magicdraw
 Comment=Magicdraw - Fuck it
 Icon=/opt/magicdraw/bin/icon32.xpm
-Exec=/opt/magicdraw/bin/mduml
+Exec=/opt/magicdraw/bin/magicdraw
 Terminal=false
 Categories=Development;IDE;UML;Shit;
