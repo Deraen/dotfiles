@@ -26,6 +26,6 @@ nnoremap cse" :action :cursive.actions.paredit/wrap-quotes<CR>
 
 nnoremap cpr :action :cursive.repl.actions/load-file<CR>
 nnoremap cmm :action :cursive.repl.actions/macroexpansion<CR>
-nnoremap cpae :action cursive.repl.actions/run-last-sexp
-nnoremap cpp :action cursive.repl.actions/run-last-sexp
-nnoremap cpaF :action cursive.repl.actions/run-top-sexp
+nnoremap cpae :action cursive.repl.actions/run-last-sexp<CR>
+nnoremap cpp :action cursive.repl.actions/run-top-sexp<CR>
+nnoremap cpaF :action cursive.repl.actions/run-top-sexp<CR>
