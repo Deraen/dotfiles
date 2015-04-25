@@ -251,6 +251,11 @@ autocmd BufNewFile,BufReadPost *.cljx,*.boot,*.cljc setfiletype clojure
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 1
+let g:leiningen_no_auto_repl = 1
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+      \ 'ctermfgs': ['204', '179', '146', '72', '225', '113', '69']
+      \ }
 
 " These confict with my window bindings, tpopes plugin already has these bound
 " to rational keys

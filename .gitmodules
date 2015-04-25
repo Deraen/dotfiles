@@ -102,7 +102,7 @@
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule ".vim/bundle/vim-fireplace"]
 	path = .vim/bundle/vim-fireplace
-	url = https://github.com/tpope/vim-fireplace.git
+	url = https://github.com/Deraen/vim-fireplace.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -255,3 +255,6 @@
 [submodule ".vim/bundle/neoterm"]
 	path = .vim/bundle/neoterm
 	url = git@github.com:kassio/neoterm.git
+[submodule ".vim/bundle/rainbow"]
+	path = .vim/bundle/rainbow
+	url = git@github.com:luochen1990/rainbow.git
