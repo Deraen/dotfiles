@@ -252,9 +252,6 @@
 [submodule ".vim/bundle/nvim-ipy"]
 	path = .vim/bundle/nvim-ipy
 	url = git@github.com:bfredl/nvim-ipy.git
-[submodule ".vim/bundle/neoterm"]
-	path = .vim/bundle/neoterm
-	url = git@github.com:kassio/neoterm.git
 [submodule ".vim/bundle/rainbow"]
 	path = .vim/bundle/rainbow
 	url = git@github.com:luochen1990/rainbow.git
