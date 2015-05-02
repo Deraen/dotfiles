@@ -5,26 +5,25 @@
 . $HOME/.local/modules/pmm/init.sh
 
 ppa ajf transmission-remote-gtk-unstable trusty
-ppa chris-lea node.js utopic
-ppa maarten-baert simplescreenrecorder utopic
-ppa nilarimogard webupd8 utopic # Launchpad-getkeys? Stuff
-ppa otto-kesselgulasch gimp utopic
-ppa rvm smplayer utopic # Mplayer UI
-ppa mc3man mpv-tests utopic # Mpv, mplayer[|2] fork
-ppa ubuntu-wine ppa utopic
-ppa videolan master-daily utopic
-ppa webupd8team java utopic # Oracle java
-ppa webupd8team sublime-text-3 utopic
+ppa maarten-baert simplescreenrecorder vivid
+ppa nilarimogard webupd8 vivid # Launchpad-getkeys? Stuff
+ppa otto-kesselgulasch gimp vivid
+ppa rvm smplayer vivid # Mplayer UI
+ppa mc3man mpv-tests vivid # Mpv, mplayer[|2] fork
+ppa ubuntu-wine ppa vivid
+ppa videolan master-daily vivid
+ppa webupd8team java vivid # Oracle java
+ppa webupd8team sublime-text-3 vivid
 ppa webupd8team themes utopic
-ppa ansible ansible trusty
-ppa neovim-ppa unstable utopic
-ppa fish-shell release-2 utopic
-repo dropbox "deb http://linux.dropbox.com/ubuntu trusty main"
+ppa ansible ansible vivid
+ppa neovim-ppa unstable vivid
+ppa fish-shell release-2 vivid
+repo dropbox "deb http://linux.dropbox.com/ubuntu vivid main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
-repo i3 "deb http://debian.sur5r.net/i3/ utopic universe"
+repo i3 "deb http://debian.sur5r.net/i3/ vivid universe"
 repo mongodb "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen"
 repo opera "deb http://deb.opera.com/opera-beta/ stable non-free"
 repo spotify "deb http://repository.spotify.com stable non-free"
@@ -35,12 +34,12 @@ repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        ppa bitcoin bitcoin raring
-        ppa mamarley nvidia utopic
+        ppa bitcoin bitcoin vivid
+        ppa mamarley nvidia vivid
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        ppa linrunner tlp utopic
+        ppa linrunner tlp vivid
 fi
 
 clearRepos
@@ -141,10 +140,12 @@ install clang
 install qtcreator
 install valgrind
 install cmake
+install cppcheck
 
 # Python
 install pep8
 install python3-pip
+install pylint
 
 # Version control
 install git
@@ -162,6 +163,7 @@ install httpie
 install robomongo 0.8.4 http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
 install ansible
 install vagrant "1:1.7.2" https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
+install rlwrap
 
 # Dev dependencies
 install libboost-all-dev
@@ -220,6 +222,7 @@ install ghex # Hex editor
 install gimp
 install gimp-plugin-registry
 install google-chrome-stable
+install google-chrome-beta
 install google-talkplugin
 install gparted
 install inkscape
