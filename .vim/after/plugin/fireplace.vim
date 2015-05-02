@@ -86,6 +86,11 @@ endfunction
 
 nnoremap <silent> <Plug>TestToplevel :<C-U>call <SID>TestToplevel()<CR>
 
+function! s:RemoveNs() abort
+  let result = fireplace#echo_session_eval("(remove-ns (ns-name *ns*))")
+  return result
+endfunction
+
 function! s:set_up() abort
   nmap <buffer> ce  <Plug>EvalPaste
   nmap <buffer> cep <Plug>EvalPasteCount
@@ -93,6 +98,8 @@ function! s:set_up() abort
   nmap <buffer> ced :%g/^;; =>/d<CR>
 
   nmap <buffer> cpt <Plug>TestToplevel
+
+  command! -buffer RemoveNs call s:RemoveNs()
 endfunction
 
 augroup fireplace_eval_paste

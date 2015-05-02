@@ -7,8 +7,7 @@
                        [org.clojure/tools.namespace "0.2.10"]
                        [im.chit/vinyasa.inject "0.3.4"]
                        [im.chit/vinyasa.pull "0.3.4"]
-                       [aprint "0.1.3"]
-                       [cljfmt "0.1.10"]]
+                       [aprint "0.1.3"]]
         :ultra {:color-scheme :solarized_dark}
         :injections [(require '[vinyasa.inject :as inject])
                      (inject/in
