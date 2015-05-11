@@ -224,9 +224,11 @@ install gimp-plugin-registry
 install google-chrome-stable
 install google-chrome-beta
 install google-talkplugin
+install meld
 install gparted
 install inkscape
 install keepassx # Password manager
+install keepass2
 install mumble
 install pgadmin3 # PostgreSQL admin
 install pitivi # Video editor
@@ -281,7 +283,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install cryptsetup
         install xbacklight
         install cheese # Webcam
-        install prey 1.3.3 https://s3.amazonaws.com/prey-releases/node-client/1.3.3/prey_1.3.3_amd64.deb
+        install prey 1.3.9 https://s3.amazonaws.com/prey-releases/node-client/1.3.9/prey_1.3.9_amd64.deb
         install thinkfan
         install i965-va-driver
         install tlp
