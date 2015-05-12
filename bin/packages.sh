@@ -119,6 +119,7 @@ install ant
 
 # Node
 install nodejs
+install npm
 
 # Haskell
 install ghc
