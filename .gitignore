@@ -4,3 +4,4 @@ Session.vim
 doc/tags
 *.iml
 .idea
+*.o

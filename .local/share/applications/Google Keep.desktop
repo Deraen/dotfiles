@@ -4,6 +4,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Google Keep
-Exec=/opt/google/chrome/google-chrome --app-id=hmjkmjkepdijhoojdojkdfohbdgmmhki --profile-directory=Default
+Exec=/usr/bin/google-chrome --app-id=hmjkmjkepdijhoojdojkdfohbdgmmhki --profile-directory=Default
 Icon=chrome-hmjkmjkepdijhoojdojkdfohbdgmmhki-Default
 StartupWMClass=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki

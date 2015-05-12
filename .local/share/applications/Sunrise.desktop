@@ -4,6 +4,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Sunrise Calendar
-Exec=/opt/google/chrome/google-chrome --profile-directory=Default --app-id=mojepfklcankkmikonjlnidiooanmpbb
+Exec=/usr/bin/google-chrome --profile-directory=Default --app-id=mojepfklcankkmikonjlnidiooanmpbb
 Icon=chrome-mojepfklcankkmikonjlnidiooanmpbb-Default
 StartupWMClass=crx_mojepfklcankkmikonjlnidiooanmpbb

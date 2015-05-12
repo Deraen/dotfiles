@@ -4,6 +4,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Flowdock
-Exec=/opt/google/chrome/google-chrome --app-id=ecfaiclpokecdjgdbnoogehobmmgalah --profile-directory=Default
+Exec=/usr/bin/google-chrome --app-id=ecfaiclpokecdjgdbnoogehobmmgalah --profile-directory=Default
 Icon=chrome-ecfaiclpokecdjgdbnoogehobmmgalah-Default
 StartupWMClass=crx_ecfaiclpokecdjgdbnoogehobmmgalah

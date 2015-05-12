@@ -4,6 +4,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=IRCCloud
-Exec=/opt/google/chrome/google-chrome --app-id=pnpnebpkafjbaejjhkkaiandjbnbbbak --profile-directory=Default
+Exec=/usr/bin/google-chrome --app-id=pnpnebpkafjbaejjhkkaiandjbnbbbak --profile-directory=Default
 Icon=chrome-pnpnebpkafjbaejjhkkaiandjbnbbbak-Default
 StartupWMClass=crx_pnpnebpkafjbaejjhkkaiandjbnbbbak
