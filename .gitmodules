@@ -255,3 +255,6 @@
 [submodule ".local/modules/frakkin-xkb"]
 	path = .local/modules/frakkin-xkb
 	url = git@github.com:Deraen/frakkin-xkb.git
+[submodule ".vim/bundle/vColoor.vim"]
+	path = .vim/bundle/vColoor.vim
+	url = git@github.com:KabbAmine/vCoolor.vim.git

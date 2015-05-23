@@ -304,4 +304,7 @@ autocmd VimResized  *    exe "normal! \<c-w>="
 
 let g:lua_complete_omni = 1
 
-let g:clj_fmt_autosave = 0
+let g:vcoolor_map = '<space>cc'
+let g:vcool_ins_rgb_map = '<space>cr'
+let g:vcool_ins_hsl_map = '<space>ch'
+let g:vcool_ins_rgba_map = '<space>ca'
