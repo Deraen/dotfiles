@@ -31,5 +31,6 @@ rndbg.sh
 compton &
 
 xkblayout.sh
+frakkin-xkb -t 1000 xkblayout.sh &
 
 exec i3

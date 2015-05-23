@@ -252,3 +252,6 @@
 [submodule ".vim/bundle/rainbow"]
 	path = .vim/bundle/rainbow
 	url = git@github.com:luochen1990/rainbow.git
+[submodule ".local/modules/frakkin-xkb"]
+	path = .local/modules/frakkin-xkb
+	url = git@github.com:Deraen/frakkin-xkb.git
