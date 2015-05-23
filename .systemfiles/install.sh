@@ -19,9 +19,6 @@ install "/etc/udev/rules.d/46-TI_launchpad.rules"
 install "/etc/udev/rules.d/47-altera.rules"
 install "/etc/udev/rules.d/60-vboxdrv.rules"
 install "/etc/udev/rules.d/85-tessel.rules"
-install "/usr/share/X11/xkb/symbols/deraen"
-# Overwrite list containing all available options... couldn't find any other way...
-install "/usr/share/X11/xkb/rules/evdev"
 install "/usr/share/xsessions/custom.desktop"
 
 if [[ $HOSTNAME == "juho-desktop" ]]; then

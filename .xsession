@@ -30,4 +30,6 @@ fi
 rndbg.sh
 compton &
 
+xkblayout.sh
+
 exec i3
