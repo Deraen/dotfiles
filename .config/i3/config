@@ -112,7 +112,7 @@ for_window [title="^Incanter (Matrix|Dataset)"] floating enable
 # Google hangouts
 for_window [title="^Google\+ Hangouts is sharing.*$"] floating enable
 
-for_window [class="^(Google-chrome-(stable|beta|unstable)|X-www-browser)$"] border pixel 2
+for_window [class="^(Google-chrome|Google-chrome-(stable|beta|unstable)|X-www-browser)$"] border pixel 2
 for_window [class="^(quassel|Spotify)$"] border pixel 2
 for_window [class="^(Eclipse|GVim)$"] border pixel 2
 for_window [instance="jetbrains-idea-ce"] border pixel 2
