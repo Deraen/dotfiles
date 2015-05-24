@@ -61,6 +61,8 @@ if [[ $desktop == true ]]; then
     make -C $HOME/.local/modules/dunst -j
     header "Build i3blocks"
     make -C $HOME/.local/modules/i3blocks -j
+    header "Build frakkin-xkb"
+    make -C $HOME/.local/modules/frakkin-xkb -j
 
     header "Xss-lock"
     (
