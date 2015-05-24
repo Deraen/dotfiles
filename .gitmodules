@@ -227,7 +227,7 @@
 	url = https://bitbucket.org/raymonad/xss-lock.git
 [submodule ".vim/bundle/vim-merginal"]
 	path = .vim/bundle/vim-merginal
-	url = git@github.com:idanarye/vim-merginal.git
+	url = https://github.com/idanarye/vim-merginal.git
 [submodule ".vim/bundle/vim-arduino-ino"]
 	path = .vim/bundle/vim-arduino-ino
 	url = https://github.com/jplaut/vim-arduino-ino.git
@@ -242,19 +242,22 @@
 	url = https://github.com/xolox/vim-misc.git
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
-	url = git@github.com:tpope/vim-unimpaired.git
+	url = https://github.com/tpope/vim-unimpaired.git
 [submodule ".vim/bundle/vim-fish"]
 	path = .vim/bundle/vim-fish
-	url = git@github.com:dag/vim-fish.git
+	url = https://github.com/dag/vim-fish.git
 [submodule ".vim/bundle/nvim-ipy"]
 	path = .vim/bundle/nvim-ipy
-	url = git@github.com:bfredl/nvim-ipy.git
+	url = https://github.com/bfredl/nvim-ipy.git
 [submodule ".vim/bundle/rainbow"]
 	path = .vim/bundle/rainbow
-	url = git@github.com:luochen1990/rainbow.git
+	url = https://github.com/luochen1990/rainbow.git
 [submodule ".local/modules/frakkin-xkb"]
 	path = .local/modules/frakkin-xkb
 	url = git@github.com:Deraen/frakkin-xkb.git
 [submodule ".vim/bundle/vColoor.vim"]
 	path = .vim/bundle/vColoor.vim
-	url = git@github.com:KabbAmine/vCoolor.vim.git
+	url = https://github.com/KabbAmine/vCoolor.vim.git
+[submodule ".vim/bundle/vim-cider"]
+	path = .vim/bundle/vim-cider
+	url = git@github.com:Deraen/vim-cider.git
