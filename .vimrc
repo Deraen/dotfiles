@@ -256,7 +256,8 @@ let g:rainbow_active = 1
 let g:rainbow_conf = {
       \ 'ctermfgs': ['204', '179', '146', '72', '225', '113', '69'],
       \ 'separately': {
-      \   'markdown': 0
+      \   'markdown': 0,
+      \   'html': 0,
       \ }
       \ }
 
