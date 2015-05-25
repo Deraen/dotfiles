@@ -200,7 +200,6 @@ install biber
 install gnuplot-nox
 
 # Desktop env
-install lightdm-gtk-greeter
 install i3 # Tiling WM
 install i3lock
 install compton # Compositing, xcompmgr fork
@@ -285,7 +284,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install cryptsetup
         install xbacklight
         install cheese # Webcam
-        install prey 1.3.9 https://s3.amazonaws.com/prey-releases/node-client/1.3.9/prey_1.3.9_amd64.deb
+        # install prey 1.3.9 https://s3.amazonaws.com/prey-releases/node-client/1.3.9/prey_1.3.9_amd64.deb
         install thinkfan
         install i965-va-driver
         install tlp
