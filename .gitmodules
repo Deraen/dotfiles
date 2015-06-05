@@ -261,3 +261,6 @@
 [submodule ".vim/bundle/vim-cider"]
 	path = .vim/bundle/vim-cider
 	url = git@github.com:Deraen/vim-cider.git
+[submodule ".local/modules/i3-utils"]
+	path = .local/modules/i3-utils
+	url = git@github.com:Deraen/i3-utils.git
