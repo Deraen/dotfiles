@@ -8,6 +8,8 @@ endfun
 
 nnoremap <silent> <Plug>StripTrailingSpaces :<C-U>call <SID>StripTrailingWhitespaces()<CR>
 
+highlight ExtraWhitespace ctermfg=15 ctermbg=124
+
 " Hightlight trailing spaces in normal mode
 autocmd InsertEnter * match
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/

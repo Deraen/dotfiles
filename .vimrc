@@ -246,6 +246,9 @@ let g:ycm_semantic_triggers = {
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 
+" C/C++
+autocmd FileType c,cpp nnoremap <buffer> <F2> :YcmCompleter GetType<CR>
+
 " Clojure options
 autocmd BufNewFile,BufReadPost *.cljx,*.boot,*.cljc setfiletype clojure
 

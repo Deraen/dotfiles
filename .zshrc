@@ -5,7 +5,6 @@ HISTFILE=$HOME/.zsh_history
 
 # Load Pure prompt
 autoload -U promptinit && promptinit
-PURE_CMD_MAX_EXEC_TIME=30
 PURE_GIT_PULL=0
 prompt pure
 
