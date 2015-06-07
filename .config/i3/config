@@ -156,7 +156,7 @@ bindsym $mod+Shift+F4 move container to workspace "$downloads"
 bindsym $mod+Shift+x move container to output right
 bindsym $mod+x move workspace to output right
 # Switch all workspaces to next output
-bindsym $mod+Ctrl+x exec i3-switch-all.py
+bindsym $mod+Ctrl+x exec i3-switch-all
 
 # Scratchpad
 for_window [instance="crx_mnfehgbmkapmjnhcnbodoamcioleeooe"] move scratchpad
