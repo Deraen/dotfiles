@@ -1,5 +1,5 @@
 {:user {:plugins [[lein-ancient "0.6.7"]
-                  [cider/cider-nrepl "0.9.0-SNAPSHOT"]
+                  [cider/cider-nrepl "0.9.0"]
                   [lein-deps-tree "0.1.2"]
                   [lein-pprint "1.1.2"]
                   [venantius/ultra "0.3.3"]]
