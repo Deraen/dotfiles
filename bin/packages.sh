@@ -179,6 +179,8 @@ install libnotify-dev
 # xss-lock
 install libxcb-screensaver0-dev
 install libxcb-util0-dev
+# frakking-xkb
+install libxi-dev
 
 # Docker
 install lxc-docker
