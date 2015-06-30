@@ -68,7 +68,6 @@ let g:thematic#themes = {
       \ 'seoul256': {'background': 'dark'},
       \ 'presentation': {'colorscheme': 'seoul256',
       \                  'background': 'light'},
-      \ 'pencil': {}
       \ }
 
 if $PRESENTATION_MODE == '1'
@@ -254,9 +253,6 @@ let g:ycm_semantic_triggers = {
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 
-" C/C++
-autocmd FileType c,cpp nnoremap <buffer> <F2> :YcmCompleter GetType<CR>
-
 " Clojure options
 autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
 
@@ -299,18 +295,10 @@ endfunc
 
 let g:vim_json_syntax_conceal = 0
 
-autocmd FileType markdown set cc=80
-autocmd FileType markdown setlocal spell spelllang=en_us
-autocmd FileType markdown syntax match urls /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/ contains=@NoSpell
-autocmd FileType markdown syntax match javapkg /\(java\|org\)\(\.[A-Za-z]\+\)\+/ contains=@NoSpell
-
 " R
 let vimrplugin_term="urxvt"
 
 let g:sql_type_default = 'pgsql'
-
-autocmd BufEnter    *    if &buftype == 'quickfix' | setlocal wrap | endif
-autocmd BufWinEnter *    if &buftype == 'quickfix' | setlocal wrap | endif
 
 autocmd VimResized  *    exe "normal! \<c-w>="
 
@@ -318,3 +306,25 @@ let g:lua_complete_omni = 1
 
 let g:vcoolor_disable_mappings = 1
 nnoremap <silent><space>c  :VCoolor<CR>
+
+augroup markdown
+  autocmd!
+  autocmd FileType markdown set cc=80
+  autocmd FileType markdown syntax match urls /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/ contains=@NoSpell
+  autocmd FileType markdown syntax match javapkg /\(java\|org\)\(\.[A-Za-z]\+\)\+/ contains=@NoSpell
+augroup END
+
+let g:lexical#spelllang = ['en_us']
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd
+        \   call pencil#init()
+        \ | call lexical#init()
+  autocmd Filetype git,gitsendemail,*commit*,*COMMIT*
+        \   call pencil#init({'wrap': 'hard', 'textwidth': 72})
+        \ | call lexical#init()
+  autocmd Filetype html,xml
+        \   call pencil#init({'wrap': 'soft'})
+        \ | call lexical#init()
+augroup END
