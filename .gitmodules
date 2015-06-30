@@ -215,7 +215,7 @@
 	url = https://github.com/eagletmt/neco-ghc.git
 [submodule ".vim/bundle/vim-typedclojure"]
 	path = .vim/bundle/vim-typedclojure
-	url = git://github.com/typedclojure/vim-typedclojure.git
+	url = https://github.com/typedclojure/vim-typedclojure.git
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
@@ -264,3 +264,18 @@
 [submodule ".local/modules/i3-utils"]
 	path = .local/modules/i3-utils
 	url = git@github.com:Deraen/i3-utils.git
+[submodule ".vim/bundle/vim-wordy"]
+	path = .vim/bundle/vim-wordy
+	url = https://github.com/reedes/vim-wordy.git
+[submodule ".vim/bundle/vim-pencil"]
+	path = .vim/bundle/vim-pencil
+	url = https://github.com/reedes/vim-pencil.git
+[submodule ".vim/bundle/vim-colors-pencil"]
+	path = .vim/bundle/vim-colors-pencil
+	url = https://github.com/reedes/vim-colors-pencil.git
+[submodule ".vim/bundle/vim-thematic"]
+	path = .vim/bundle/vim-thematic
+	url = https://github.com/reedes/vim-thematic.git
+[submodule ".vim/bundle/vim-lexical"]
+	path = .vim/bundle/vim-lexical
+	url = https://github.com/reedes/vim-lexical.git

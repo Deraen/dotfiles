@@ -59,14 +59,22 @@ if has("gui_gtk2")
 endif
 
 " Colors
+" FIXME: Use thematic theme
 if $PRESENTATION_MODE == '1'
   let g:seoul256_transparent=1
 endif
-colorscheme seoul256
+
+let g:thematic#themes = {
+      \ 'seoul256': {'background': 'dark'},
+      \ 'presentation': {'colorscheme': 'seoul256',
+      \                  'background': 'light'},
+      \ 'pencil': {}
+      \ }
+
 if $PRESENTATION_MODE == '1'
-  set background=light
+  let g:thematic#theme_name = 'presentation'
 else
-  set background=dark
+  let g:thematic#theme_name = 'seoul256'
 endif
 
 " Mappings
