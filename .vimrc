@@ -258,7 +258,7 @@ let g:ycm_confirm_extra_conf = 0
 autocmd FileType c,cpp nnoremap <buffer> <F2> :YcmCompleter GetType<CR>
 
 " Clojure options
-autocmd BufNewFile,BufReadPost *.cljx,*.boot,*.cljc setfiletype clojure
+autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 1
