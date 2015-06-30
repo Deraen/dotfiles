@@ -31,6 +31,7 @@ repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian vivid non-
 repo docker "deb https://get.docker.io/ubuntu docker main"
 repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /"
+repo bluejeans "deb http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs stable main"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin vivid
@@ -158,7 +159,8 @@ install heroku-toolbelt
 install leap 0.8.0 # Leapmotion
 install devscripts
 install ubuntu-dev-tools
-install mongodb-org
+install mongodb-server
+install sqlite3
 install httpie
 install robomongo 0.8.4 http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
 install ansible
@@ -181,6 +183,8 @@ install libxcb-screensaver0-dev
 install libxcb-util0-dev
 # frakking-xkb
 install libxi-dev
+# i3-utils
+install libjson-glib-dev
 
 # Docker
 install lxc-docker
@@ -244,10 +248,13 @@ install spotify-client
 install steam-launcher
 install transmission-remote-gtk
 install transmission-cli
+install deluge
 install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-4.3
 install wine1.7
 install typecatcher # Install Google webfonts
+install cheese # Webcam
+install bjnplugin "2.100.41.8-1" https://swdl.bluejeans.com/skinny/bjnplugin_2.100.41.8-1_amd64.deb
 
 install network-manager-openconnect-gnome # Cisco VPN
 
@@ -284,7 +291,6 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install lvm2
         install cryptsetup
         install xbacklight
-        install cheese # Webcam
         # install prey 1.3.9 https://s3.amazonaws.com/prey-releases/node-client/1.3.9/prey_1.3.9_amd64.deb
         install thinkfan
         install i965-va-driver
