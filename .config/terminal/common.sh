@@ -36,6 +36,7 @@ addPath /opt/android-sdk-linux_x86/platform-tools
 addPath /opt/android-sdk-linux_x86/tools
 addPath /opt/android-ndk
 addPath /usr/local/cuda-5.5/bin
+addPath /opt/PebbleSDK-3.0/bin
 
 # Home git repo, don't show untracked files on status
 (
