@@ -255,6 +255,7 @@ let g:ycm_confirm_extra_conf = 0
 
 " Clojure options
 autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
+let g:refactor_nrepl_options = '{:prefix-rewriting false}'
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 1

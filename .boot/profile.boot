@@ -1,13 +1,15 @@
 (require 'boot.repl)
 
 (swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.9.0"]
-                [redl "0.2.4"]
-                [org.clojure/tools.namespace "0.2.10"]
+       concat '[[cider/cider-nrepl "0.9.1"]
+                [refactor-nrepl "1.0.5"]
+                [org.clojure/tools.namespace "0.2.11"]
                 [im.chit/vinyasa.inject "0.3.0"]
                 [aprint "0.1.3"]])
 
-(swap! boot.repl/*default-middleware* conj 'cider.nrepl/cider-middleware)
+(swap! boot.repl/*default-middleware* conj
+       'cider.nrepl/cider-middleware
+       'refactor-nrepl.middleware/wrap-refactor)
 
 (task-options!
   repl {:eval '(do (require '[vinyasa.inject :as inject])
