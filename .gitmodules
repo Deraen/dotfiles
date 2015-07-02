@@ -17,9 +17,6 @@
 [submodule ".vim/bundle/plantuml-syntax"]
 	path = .vim/bundle/plantuml-syntax
 	url = https://github.com/aklt/plantuml-syntax.git
-[submodule ".vim/bundle/vim-angry"]
-	path = .vim/bundle/vim-angry
-	url = https://github.com/b4winckler/vim-angry.git
 [submodule ".vim/bundle/vim-vertigo"]
 	path = .vim/bundle/vim-vertigo
 	url = https://github.com/baabelfish/vim-vertigo.git
@@ -279,3 +276,6 @@
 [submodule ".vim/bundle/goyo.vim"]
 	path = .vim/bundle/goyo.vim
 	url = git@github.com:junegunn/goyo.vim.git
+[submodule ".vim/bundle/targets.vim"]
+	path = .vim/bundle/targets.vim
+	url = git@github.com:wellle/targets.vim.git
