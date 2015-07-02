@@ -37,7 +37,7 @@
 	path = .vim/bundle/gitv
 	url = https://github.com/gregsexton/gitv.git
 [submodule ".vim/bundle/vim-sexp"]
-	path = .vim/bundle/vim-sexp
+	path = .vim/bundle_clojure/vim-sexp
 	url = https://github.com/guns/vim-sexp.git
 	ignore = dirty
 [submodule ".vim/bundle/xterm-color-table.vim"]
@@ -98,7 +98,7 @@
 	path = .vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule ".vim/bundle/vim-fireplace"]
-	path = .vim/bundle/vim-fireplace
+	path = .vim/bundle_clojure/vim-fireplace
 	url = https://github.com/tpope/vim-fireplace.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
@@ -111,7 +111,7 @@
 	path = .vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
 [submodule ".vim/bundle/vim-sexp-mappings-for-regular-people"]
-	path = .vim/bundle/vim-sexp-mappings-for-regular-people
+	path = .vim/bundle_clojure/vim-sexp-mappings-for-regular-people
 	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
 [submodule ".vim/bundle/vim-sleuth"]
 	path = .vim/bundle/vim-sleuth
@@ -178,7 +178,7 @@
 	path = .local/modules/VimCom
 	url = https://github.com/jalvesaq/VimCom.git
 [submodule ".vim/bundle/Vim-R-plugin"]
-	path = .vim/bundle/Vim-R-plugin
+	path = .vim/bundle_r/Vim-R-plugin
 	url = https://github.com/vim-scripts/Vim-R-plugin.git
 [submodule ".vim/bundle/vim-polyglot"]
 	path = .vim/bundle/vim-polyglot
@@ -205,13 +205,13 @@
 	path = .vim/bundle/vim-toplevel
 	url = https://github.com/vim-scripts/vim-toplevel.git
 [submodule ".vim/bundle/ghcmod-vim"]
-	path = .vim/bundle/ghcmod-vim
+	path = .vim/bundle_haskell/ghcmod-vim
 	url = https://github.com/eagletmt/ghcmod-vim.git
 [submodule ".vim/bundle/neco-ghc"]
-	path = .vim/bundle/neco-ghc
+	path = .vim/bundle_haskell/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
 [submodule ".vim/bundle/vim-typedclojure"]
-	path = .vim/bundle/vim-typedclojure
+	path = .vim/bundle_clojure/vim-typedclojure
 	url = https://github.com/typedclojure/vim-typedclojure.git
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
@@ -229,10 +229,10 @@
 	path = .vim/bundle/vim-arduino-ino
 	url = https://github.com/jplaut/vim-arduino-ino.git
 [submodule ".vim/bundle/vim-lua-ftplugin"]
-	path = .vim/bundle/vim-lua-ftplugin
+	path = .vim/bundle_lua/vim-lua-ftplugin
 	url = https://github.com/xolox/vim-lua-ftplugin.git
 [submodule ".vim/bundle/vim-lua-inspect"]
-	path = .vim/bundle/vim-lua-inspect
+	path = .vim/bundle_lua/vim-lua-inspect
 	url = https://github.com/xolox/vim-lua-inspect.git
 [submodule ".vim/bundle/vim-misc"]
 	path = .vim/bundle/vim-misc
@@ -247,7 +247,7 @@
 	path = .vim/bundle/nvim-ipy
 	url = https://github.com/bfredl/nvim-ipy.git
 [submodule ".vim/bundle/rainbow"]
-	path = .vim/bundle/rainbow
+	path = .vim/bundle_clojure/rainbow
 	url = https://github.com/luochen1990/rainbow.git
 [submodule ".local/modules/frakkin-xkb"]
 	path = .local/modules/frakkin-xkb
@@ -256,7 +256,7 @@
 	path = .vim/bundle/vColoor.vim
 	url = https://github.com/KabbAmine/vCoolor.vim.git
 [submodule ".vim/bundle/vim-cider"]
-	path = .vim/bundle/vim-cider
+	path = .vim/bundle_clojure/vim-cider
 	url = git@github.com:Deraen/vim-cider.git
 [submodule ".local/modules/i3-utils"]
 	path = .local/modules/i3-utils

@@ -7,7 +7,7 @@ if has('nvim')
 endif
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+execute pathogen#infect('bundle/{}', 'bundle_clojure/{}', 'bundle_haskell_{}', 'bundle_lua/{}', 'bundle_r/{}')
 
 " Uses tpope's vim-sensible defaults
 
