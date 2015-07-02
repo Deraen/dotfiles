@@ -160,6 +160,7 @@ install leap 0.8.0 # Leapmotion
 install devscripts
 install ubuntu-dev-tools
 install mongodb-server
+install rabbitmq-server
 install sqlite3
 install httpie
 install robomongo 0.8.4 http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
