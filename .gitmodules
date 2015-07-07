@@ -243,9 +243,6 @@
 [submodule ".vim/bundle/vim-fish"]
 	path = .vim/bundle/vim-fish
 	url = https://github.com/dag/vim-fish.git
-[submodule ".vim/bundle/nvim-ipy"]
-	path = .vim/bundle/nvim-ipy
-	url = https://github.com/bfredl/nvim-ipy.git
 [submodule ".vim/bundle/rainbow"]
 	path = .vim/bundle_clojure/rainbow
 	url = https://github.com/luochen1990/rainbow.git
