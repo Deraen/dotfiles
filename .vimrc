@@ -7,7 +7,7 @@ if has('nvim')
 endif
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect('bundle/{}', 'bundle_clojure/{}', 'bundle_haskell_{}', 'bundle_lua/{}', 'bundle_r/{}')
+execute pathogen#infect('bundle/{}', 'bundle_clojure/{}', 'bundle_haskell/{}', 'bundle_lua/{}', 'bundle_r/{}')
 
 " Uses tpope's vim-sensible defaults
 
@@ -312,22 +312,8 @@ nnoremap <silent><space>c  :VCoolor<CR>
 
 augroup markdown
   autocmd!
+  autocmd FileType markdown setlocal spell spelllang=en_us
   autocmd FileType markdown set cc=80
   autocmd FileType markdown syntax match urls /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/ contains=@NoSpell
   autocmd FileType markdown syntax match javapkg /\(java\|org\)\(\.[A-Za-z]\+\)\+/ contains=@NoSpell
-augroup END
-
-let g:lexical#spelllang = ['en_us']
-
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd
-        \   call pencil#init()
-        \ | call lexical#init()
-  autocmd Filetype git,gitsendemail,*commit*,*COMMIT*
-        \   call pencil#init({'wrap': 'hard', 'textwidth': 72})
-        \ | call lexical#init()
-  autocmd Filetype html,xml
-        \   call pencil#init({'wrap': 'soft'})
-        \ | call lexical#init()
 augroup END
