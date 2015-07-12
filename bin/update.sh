@@ -6,7 +6,13 @@ update_module() {
   while [ $(ps --no-headers -o pid --ppid=$$ | wc -l) -gt $PARALLEL_MAX ]; do
     sleep .1
   done
-  cd "$@" && git checkout && git pull origin master && git add "$@" && echo "<<< Ready $@" &
+  (
+  cd "$@"
+  git checkout
+  git pull origin master
+  git add "$@"
+  echo "<<< Ready $@"
+  ) &
 }
 
 submodules=($(git submodule foreach --quiet pwd))
