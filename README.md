@@ -9,7 +9,8 @@ Highly customized setup using Ubuntu, i3, Zsh, Vim...
 
 I'm using git submodules to manage external packages like Vim plugins and few programs which are
 not available as Debian packages. Following command is useful to check changes (shortlog) of each
-changed submodule after updating submodules: `git log -p --submodule=log`.
+changed submodule after updating submodules: `git log -p --submodule=log` or
+`git submodule summary`.
 
 ## Interesting files
 
