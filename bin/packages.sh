@@ -32,6 +32,7 @@ repo docker "deb https://get.docker.io/ubuntu docker main"
 repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /"
 repo bluejeans "deb http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs stable main"
+repo fpco "deb http://download.fpcomplete.com/ubuntu/vivid stable main"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin vivid
@@ -122,8 +123,8 @@ install nodejs
 install npm
 
 # Haskell
-install ghc
-install cabal-install
+install haskell-platform
+install stack
 
 # Prolog
 install gprolog
