@@ -10,7 +10,6 @@ update_module() {
   cd "$@"
   git checkout
   git pull origin master
-  git add "$@"
   echo "<<< Ready $@"
   ) &
 }
@@ -23,5 +22,7 @@ for m in ${submodules[@]}; do
 done
 
 wait
+
+git add $(git submodule foreach --quiet pwd)
 
 git submodule update --init --recursive
