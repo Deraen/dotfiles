@@ -29,6 +29,8 @@ addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
 addPath "$HOME/.local/node_modules/.bin"
 addPath "$HOME/.cabal/bin"
+addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.8.4/bin"
+addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.10.1/bin"
 addPath /raid/opt/android-sdk-linux_x86/platform-tools
 addPath /raid/opt/android-sdk-linux_x86/tools
 addPath /raid/opt/android-ndk
