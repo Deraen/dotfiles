@@ -1,6 +1,6 @@
 {:user {:plugins [[lein-ancient "0.6.7"]
                   [cider/cider-nrepl "0.9.1"]
-                  [refactor-nrepl "1.0.5"]
+                  [refactor-nrepl "1.1.0"]
                   [lein-deps-tree "0.1.2"]
                   [lein-pprint "1.1.2"]
                   [venantius/ultra "0.3.3"]]
