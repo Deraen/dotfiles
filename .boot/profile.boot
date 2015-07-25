@@ -13,7 +13,6 @@
 
 (task-options!
   repl {:eval '(do (require '[vinyasa.inject :as inject])
-                   (require '[redl.core] '[redl.complete])
                    (require 'clojure.repl)
                    (inject/in
                      ;; To . namespace
