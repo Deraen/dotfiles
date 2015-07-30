@@ -61,7 +61,7 @@
 	ignore = dirty
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule ".vim/bundle/vim-pairs"]
 	path = .vim/bundle/vim-pairs
 	url = https://github.com/kurkale6ka/vim-pairs.git
