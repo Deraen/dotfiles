@@ -123,7 +123,6 @@ install nodejs
 install npm
 
 # Haskell
-install haskell-platform
 install stack
 
 # Prolog
@@ -293,7 +292,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install lvm2
         install cryptsetup
         install xbacklight
-        # install prey 1.3.9 https://s3.amazonaws.com/prey-releases/node-client/1.3.9/prey_1.3.9_amd64.deb
+        install prey 1.4.1 https://s3.amazonaws.com/prey-releases/node-client/1.4.1/prey_1.4.1_amd64.deb
         install thinkfan
         install i965-va-driver
         install tlp
