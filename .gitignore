@@ -5,3 +5,4 @@ doc/tags
 *.iml
 .idea
 *.o
+.DS_Store

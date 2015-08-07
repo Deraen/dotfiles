@@ -40,6 +40,10 @@ addPath /opt/android-ndk
 addPath /usr/local/cuda-5.5/bin
 addPath /opt/PebbleSDK-3.0/bin
 
+if [[ $(uname) != "Linux" ]]; then
+  addPath $(brew --prefix coreutils)/libexec/gnubin
+fi
+
 # Home git repo, don't show untracked files on status
 (
 cd $HOME

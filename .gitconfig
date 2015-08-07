@@ -2,7 +2,7 @@
 	name = Juho Teperi
 	email = juho.teperi@iki.fi
 [alias]
-	untracked = ls-files -o -X /home/juho/.gitignore
+	untracked = ls-files -o --exclude-standard
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	undo-commit = reset --soft HEAD^
 	stats = diff --shortstat
@@ -12,7 +12,7 @@
 [push]
 	default = simple
 [core]
-	excludesfile = /home/juho/.gitignore
+	excludesfile = ~/.gitignore
 	whitespace = trailing-space,space-before-tab
 [apply]
 	whitespace = fix
