@@ -42,6 +42,12 @@ addPath /opt/PebbleSDK-3.0/bin
 
 if [[ $(uname) != "Linux" ]]; then
   addPath $(brew --prefix coreutils)/libexec/gnubin
+  addPath $(brew --prefix gnu-sed)/libexec/gnubin
+  addPath /usr/local/sbin
+  addPath /Users/juho/.stack/programs/x86_64-osx/ghc-7.8.4/bin
+
+  MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
+  MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
 
 # Home git repo, don't show untracked files on status
