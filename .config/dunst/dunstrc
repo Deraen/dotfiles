@@ -1,5 +1,6 @@
 [global]
     font = Ubuntu-12
+    allow_markup=yes
     padding = 3
     horizontal_padding = 5
 
@@ -11,7 +12,7 @@
     # %I  iconname (without its path)
     # %p  progress value ([  0%] to [100%])
 
-    format = "%s %b"
+    format = "<b>%s</b>\n%b"
 
     sort = yes
 
@@ -46,3 +47,8 @@
 [ponymix]
     appname=ponymix
     format=""
+
+[Spotify]
+    appname=Spotify
+    background = "#648F00"
+    foreground = "#ffffff"
