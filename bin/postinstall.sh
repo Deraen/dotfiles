@@ -46,12 +46,14 @@ make ycm_support_libs -j
 header "Install boot"
 (
 cd $HOME/bin
-if [ ! -f boot ]; then
-    curl -L https://github.com/boot-clj/boot/releases/download/2.2.0/boot.sh -o boot
-    chmod +x boot
-else
-    boot -u
+header=""
+if [[ -f boot ]]; then
+    mod=$(stat -c %y boot)
+    mod_f=$(date -d $mod -R)
+    header="-H \"If-Modified-Since: $mod_f\""
 fi
+eval curl ${header} -L https://github.com/boot-clj/boot/releases/download/2.2.0/boot.sh -o boot
+chmod +x boot
 )
 
 if [[ $desktop == true ]]; then
