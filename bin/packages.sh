@@ -36,7 +36,7 @@ repo fpco "deb http://download.fpcomplete.com/ubuntu/vivid stable main"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin vivid
-        ppa mamarley nvidia vivid
+        ppa graphics-drivers ppa vivid
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
