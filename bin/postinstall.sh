@@ -60,6 +60,16 @@ if [[ $desktop == true ]]; then
     make -C $HOME/.local/modules/frakkin-xkb -j
     header "Build i3-utils"
     make -C $HOME/.local/modules/i3-utils -j
+    header "Build rofi"
+    (
+    cd $HOME/.local/modules/rofi
+    autoreconf -i
+    mkdir -p build
+    cd build
+    ../configure --prefix=$HOME/.local
+    make -j
+    make install
+    )
 
     header "Xss-lock"
     (

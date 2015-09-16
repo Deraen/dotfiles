@@ -11,7 +11,7 @@ NAME=$( \
   | join -t "	" --nocheck-order -a 1 ~/.cache/desktopfiles.txt - \
   | sort -t "	" -k3 -n -r \
   | cut -f1 \
-  | dmenu $STYLE)
+  | rofi -no-case-sensitive -dmenu $STYLE)
 
 [[ "$NAME" == "" ]] && exit 1
 

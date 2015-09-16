@@ -3,7 +3,8 @@
 # Dmenu
 exec_always update-desktopfiles-list.sh
 bindsym $mod+r exec --no-startup-id dmenu.sh
-bindsym $mod+ctrl+r exec --no-startup-id dmenu_run
+bindsym $mod+ctrl+r exec --no-startup-id rofi -show run
+bindsym $mod+e exec --no-startup-id rofi -show window
 
 bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py && rndbg.sh
 bindsym $mod+Shift+F11 exec togglecompton.sh

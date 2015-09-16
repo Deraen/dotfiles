@@ -267,3 +267,6 @@
 [submodule ".vim/bundle/targets.vim"]
 	path = .vim/bundle/targets.vim
 	url = git@github.com:wellle/targets.vim.git
+[submodule ".local/modules/rofi"]
+	path = .local/modules/rofi
+	url = git@github.com:DaveDavenport/rofi.git
