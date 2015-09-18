@@ -58,6 +58,10 @@ if has("gui_gtk2")
   set guifont=Consolas\ 10
 endif
 
+if has("mouse")
+  set mouse=
+endif
+
 " Colors
 " FIXME: Use thematic theme
 if $PRESENTATION_MODE == '1'
