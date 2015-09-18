@@ -22,3 +22,5 @@ autocmd FileType clojure setlocal lispwords+=add-encoder
 autocmd FileType clojure setlocal lispwords+=with-call-in,with-eval-in,with-pre-wrap,with-post-wrap
 " Re-frame
 autocmd FileType clojure setlocal lispwords+=register-handler,register-sub
+" Cats
+autocmd FileType clojure setlocal lispwords+=with-context,alet,mlet
