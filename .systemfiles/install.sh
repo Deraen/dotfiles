@@ -33,8 +33,8 @@ if [[ $HOSTNAME == "juho-laptop" ]]; then
 fi
 
 sudo update-alternatives --set dmenu /usr/bin/dmenu.xft
-sudo update-alternatives --set google-chrome /usr/bin/google-chrome-unstable
-sudo update-alternatives --set x-www-browser /usr/bin/google-chrome-unstable
+sudo update-alternatives --set google-chrome /usr/bin/google-chrome-beta
+sudo update-alternatives --set x-www-browser /usr/bin/google-chrome-beta
 
 # sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
 # sudo update-alternatives --set vi /usr/bin/nvim
