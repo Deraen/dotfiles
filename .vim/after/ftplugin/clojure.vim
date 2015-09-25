@@ -4,6 +4,8 @@ let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY',
 
 " Clojure test
 autocmd FileType clojure setlocal lispwords+=describe,it
+" Core.match
+autocmd FileType clojure setlocal lispwords+=match
 " Compojure-api
 autocmd FileType clojure setlocal lispwords+=context,swaggered,middlewares,context*
 " Midje
