@@ -163,9 +163,9 @@ install mongodb-server
 install rabbitmq-server
 install sqlite3
 install httpie
-install robomongo 0.8.4 http://robomongo.org/files/linux/robomongo-0.8.4-x86_64.deb
+install robomongo 0.8.5 http://robomongo.org/files/linux/robomongo-0.8.5-x86_64.deb
 install ansible
-install vagrant "1:1.7.2" https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
+install vagrant "1:1.7.4" https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
 install rlwrap
 
 # Dev dependencies
@@ -251,11 +251,11 @@ install transmission-remote-gtk
 install transmission-cli
 install deluge
 install unetbootin # Install Linux/etc images into USB stiff
-install virtualbox-4.3
+install virtualbox-5.0
 install wine1.7
 install typecatcher # Install Google webfonts
 install cheese # Webcam
-install bjnplugin "2.100.41.8-1" https://swdl.bluejeans.com/skinny/bjnplugin_2.100.41.8-1_amd64.deb
+install bjnplugin "2.105.232.5-1" https://swdl.bluejeans.com/skinny/bjnplugin_2.105.232.5-1_amd64.deb
 
 install network-manager-openconnect-gnome # Cisco VPN
 

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "bower": "^1.4.1",
+    "bower": "^1.5.3",
     "forever": "^0.14.1",
     "grunt-cli": "^0.1.13",
     "gulp": "^3.8.11",
