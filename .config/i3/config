@@ -108,6 +108,7 @@ assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → $comm
 assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
+for_window [class="Simplescreenrecorder"] floating enable
 # Incanter windows
 for_window [title="^Incanter (Matrix|Dataset)"] floating enable
 # Google hangouts
