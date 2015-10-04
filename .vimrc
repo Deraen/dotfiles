@@ -119,6 +119,9 @@ nnoremap <M-w> :BD<cr>
 nnoremap <C-j> :res -5<cr>
 nnoremap <C-k> :res +5<cr>
 
+" Unbind Ex mode
+nnoremap Q <nop>
+
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 
