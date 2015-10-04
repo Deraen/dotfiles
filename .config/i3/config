@@ -113,6 +113,8 @@ for_window [class="Simplescreenrecorder"] floating enable
 for_window [title="^Incanter (Matrix|Dataset)"] floating enable
 # Google hangouts
 for_window [title="^Google\+ Hangouts is sharing.*$"] floating enable
+# Mplayer webcam for screencasts
+for_window [instance="webcam"] floating enable, border pixel 0
 
 for_window [class="^([gG]oogle-chrome|[gG]oogle-chrome-(stable|beta|unstable)|X-www-browser)$"] border pixel 2
 for_window [class="^(quassel|Spotify)$"] border pixel 2
