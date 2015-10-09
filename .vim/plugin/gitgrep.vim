@@ -1,6 +1,6 @@
 function! Gitgrep(arg)
   setlocal grepprg=git\ grep\ --no-color\ --line-number\ -n\ $*
-  silent execute ':grep! '.a:arg
+  silent execute ':grep! '.shellescape(a:arg)
   silent cwin
   redraw!
 endfunction
