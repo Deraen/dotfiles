@@ -5,7 +5,8 @@ from xdg.BaseDirectory import load_data_paths
 from xdg.DesktopEntry import DesktopEntry
 from glob import glob
 from re import sub
-from os.path import basename
+from os.path import basename, expanduser
+from os import makedirs, walk, remove
 
 # To remove duplicates
 data = {}
@@ -18,5 +19,15 @@ for d in load_data_paths("applications"):
         if (not desktop.getHidden() and not desktop.getNoDisplay()) and name not in data:
             data[name] = basename(app)
 
+path = expanduser("~/.cache/desktopfiles/")
+makedirs(path, exist_ok=True)
+
 for name, cmd in data.items():
-    print('{}\t{}'.format(name, cmd))
+    with open(path + name, 'w') as f:
+        f.write(cmd)
+
+# Old files are kept so their extended attributes are preserved
+# Remove old files
+existing_files = set(next(walk(path))[2])
+for filename in existing_files.difference(set(data.keys())):
+    remove(path + filename)

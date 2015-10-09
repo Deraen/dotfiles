@@ -5,27 +5,16 @@
 # displays dmenu filled with entries from desktop files.
 # Most used one is shown first.
 
-STYLE="-i -b -nb #3C3B37 -nf #fff -sb #955 -fn Ubuntu-17"
+FILES=~/.cache/desktopfiles/
+
 NAME=$( \
-  sort ~/.cache/desktopfilesuses.txt \
-  | join -t "	" --nocheck-order -a 1 ~/.cache/desktopfiles.txt - \
-  | sort -t "	" -k3 -n -r \
-  | cut -f1 \
-  | rofi -no-levenshtein-sort -i -p "" -dmenu $STYLE)
+  ls-uses $FILES \
+  | sort -r \
+  | cut -f2 \
+  | rofi -no-levenshtein-sort -b -i -p "" -dmenu)
 
 [[ "$NAME" == "" ]] && exit 1
 
-DESKTOPFILE=$(grep "$NAME	" ~/.cache/desktopfiles.txt | cut -f2)
+attr -qs uses -V $(($(attr -qg uses $FILES/$NAME 2>/dev/null || echo 0) + 1)) $FILES/$NAME
 
-[[ ! -e ~/.cache/desktopfilesuses.txt ]] && touch ~/.cache/desktopfilesuses.txt
-
-MATCH=$(grep "$NAME" ~/.cache/desktopfilesuses.txt)
-if [[ "$MATCH" == "" ]]; then
-  echo "$NAME	1" >> ~/.cache/desktopfilesuses.txt
-else
-  MATCHES=${MATCH//[a-zA-Z()]/}
-  MATCHES=$[$MATCHES + 1]
-  sed -i "s/$MATCH/$NAME	$MATCHES/" ~/.cache/desktopfilesuses.txt
-fi
-
-gtk-launch "$DESKTOPFILE" || exec $NAME
+gtk-launch "$(cat $FILES/$NAME)" || exec $NAME

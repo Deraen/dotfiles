@@ -1,5 +1,3 @@
 #!/bin/bash
 
-parse-desktop-files.py \
-    | sort -t "	" \
-    > ~/.cache/desktopfiles.txt
+parse-desktop-files.py
