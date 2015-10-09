@@ -66,7 +66,6 @@ URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 rofi.case-sensitive: false
-rofi.fuzzy: true
 rofi.bg: #3C3B37
 rofi.fg: #fff
 rofi.font: Ubuntu 17
