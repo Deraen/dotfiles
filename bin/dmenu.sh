@@ -15,6 +15,8 @@ NAME=$( \
 
 [[ "$NAME" == "" ]] && exit 1
 
-attr -qs uses -V $(($(attr -qg uses $FILES/$NAME 2>/dev/null || echo 0) + 1)) $FILES/$NAME
+attr -qs uses -V $(($(attr -qg uses "$FILES/$NAME" 2>/dev/null || echo 0) + 1)) "$FILES/$NAME"
 
-gtk-launch "$(cat $FILES/$NAME)" || exec $NAME
+DESKTOPFILE=$(cat "$FILES/$NAME")
+
+gtk-launch "$DESKTOPFILE" || exec $NAME
