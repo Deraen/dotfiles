@@ -270,3 +270,6 @@
 [submodule ".local/modules/rofi"]
 	path = .local/modules/rofi
 	url = git@github.com:DaveDavenport/rofi.git
+[submodule ".local/modules/screenkey"]
+	path = .local/modules/screenkey
+	url = git@github.com:wavexx/screenkey.git
