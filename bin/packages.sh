@@ -4,7 +4,6 @@
 
 . $HOME/.local/modules/pmm/init.sh
 
-ppa ajf transmission-remote-gtk-unstable trusty
 ppa maarten-baert simplescreenrecorder vivid
 ppa nilarimogard webupd8 vivid # Launchpad-getkeys? Stuff
 ppa otto-kesselgulasch gimp vivid
@@ -186,6 +185,8 @@ install libxcb-util0-dev
 install libxi-dev
 # i3-utils
 install libjson-glib-dev
+# rofi
+install libstartup-notification0-dev
 
 # Docker
 install lxc-docker
@@ -236,6 +237,7 @@ install gparted
 install inkscape
 install keepassx # Password manager
 install keepass2
+install pass
 install mumble
 install pgadmin3 # PostgreSQL admin
 install pitivi # Video editor
@@ -247,22 +249,20 @@ install mpv
 install smplayer
 install spotify-client
 install steam-launcher
-install transmission-remote-gtk
-install transmission-cli
 install deluge
 install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-5.0
 install wine1.7
 install typecatcher # Install Google webfonts
 install cheese # Webcam
-install bjnplugin "2.105.232.5-1" https://swdl.bluejeans.com/skinny/bjnplugin_2.105.232.5-1_amd64.deb
+install bjnplugin "2.110.76.8-1" https://swdl.bluejeans.com/skinny/bjnplugin_2.110.76.8-1_amd64.deb
 
 install network-manager-openconnect-gnome # Cisco VPN
 
 install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        install "nvidia-346"
+        install "nvidia-352"
         install playonlinux # Wine frontend for games
         install fail2ban
         install palm-novacom # HP Touchpad. Local?
