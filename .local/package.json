@@ -4,17 +4,17 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "bower": "^1.5.3",
-    "forever": "^0.14.1",
+    "bower": "^1.6.5",
+    "forever": "^0.15.1",
     "grunt-cli": "^0.1.13",
-    "gulp": "^3.8.11",
-    "jshint": "^2.7.0",
-    "less": "^2.5.0",
-    "mongo-hacker": "^0.0.5",
+    "gulp": "^3.9.0",
+    "jshint": "^2.8.0",
+    "less": "^2.5.3",
+    "mongo-hacker": "^0.0.8",
     "nodefront": "^1.0.7",
-    "npm-check-updates": "^1.5.1",
-    "phantomjs": "^1.9.16",
-    "uglify-js": "^2.4.21",
+    "npm-check-updates": "^2.3.4",
+    "phantomjs": "^1.9.18",
+    "uglify-js": "^2.5.0",
     "vtop": "^0.5.5"
   }
 }

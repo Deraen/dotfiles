@@ -32,6 +32,7 @@ repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /"
 repo bluejeans "deb http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs stable main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/vivid stable main"
+repo nodesource "deb https://deb.nodesource.com/node_0.12 vivid main\ndeb-src https://deb.nodesource.com/node_0.12 vivid main\n"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin vivid
@@ -262,7 +263,7 @@ install network-manager-openconnect-gnome # Cisco VPN
 install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        install "nvidia-352"
+        install "nvidia-355"
         install playonlinux # Wine frontend for games
         install fail2ban
         install palm-novacom # HP Touchpad. Local?
