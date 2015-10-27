@@ -66,9 +66,6 @@
 	path = .vim/bundle/vim-pairs
 	url = https://github.com/kurkale6ka/vim-pairs.git
 	ignore = dirty
-[submodule ".vim/bundle/vim-signify"]
-	path = .vim/bundle/vim-signify
-	url = https://github.com/mhinz/vim-signify.git
 [submodule ".vim/bundle/vim-argumentative"]
 	path = .vim/bundle/vim-argumentative
 	url = https://github.com/PeterRincker/vim-argumentative.git
@@ -273,3 +270,6 @@
 [submodule ".local/modules/screenkey"]
 	path = .local/modules/screenkey
 	url = git@github.com:wavexx/screenkey.git
+[submodule ".vim/bundle/vim-gitgutter"]
+	path = .vim/bundle/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
