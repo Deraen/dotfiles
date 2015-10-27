@@ -31,3 +31,5 @@ acpi -b | awk '
     for (; i < 10; ++i) bar=bar "░"
 }
 END { print states[status] dur " " bar " " percent "%" }'
+echo
+echo "#93dc48"

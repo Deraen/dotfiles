@@ -10,9 +10,11 @@ elif [[ $BLOCK_BUTTON == "5" ]]; then
 fi
 
 if ponymix is-muted; then
-    echo -n " mute";
+    echo " mute";
+    echo " mute";
 else
     echo -n " ";
     ponymix get-volume | tr -d '\n';
-    echo -n "%";
+    echo -n "%\n";
+    echo
 fi

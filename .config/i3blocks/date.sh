@@ -4,3 +4,5 @@ if [[ $BLOCK_BUTTON == "1" ]]; then
 fi
 
 date +"%a %d %b %H:%M"
+date +"%a %d %b %H:%M"
+echo "#f3759a"
