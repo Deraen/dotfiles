@@ -17,6 +17,7 @@ ppa webupd8team themes utopic
 ppa ansible ansible vivid
 ppa neovim-ppa unstable wily
 ppa fish-shell release-2 wily
+ppa openconnect daily vivid
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu wily main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
@@ -247,6 +248,8 @@ install skype:i386
 install mpv
 install smplayer
 install spotify-client
+# For spotify
+install libgcrypt11 "1.5.3-2ubuntu4.2" http://dk.archive.ubuntu.com/ubuntu/pool/main/libg/libgcrypt11/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb
 install steam-launcher
 install deluge
 install unetbootin # Install Linux/etc images into USB stiff
