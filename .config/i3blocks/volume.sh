@@ -15,6 +15,7 @@ if ponymix is-muted; then
 else
     echo -n " ";
     ponymix get-volume | tr -d '\n';
-    echo -n "%\n";
+    echo "%";
     echo
 fi
+echo "#ffffff"
