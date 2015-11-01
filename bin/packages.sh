@@ -17,7 +17,7 @@ ppa webupd8team themes utopic
 ppa ansible ansible vivid
 ppa neovim-ppa unstable vivid
 ppa fish-shell release-2 vivid
-repo dropbox "deb http://linux.dropbox.com/ubuntu vivid main"
+repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu vivid main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
@@ -120,7 +120,6 @@ install ant
 
 # Node
 install nodejs
-install npm
 
 # Haskell
 install stack
@@ -256,7 +255,7 @@ install virtualbox-5.0
 install wine1.7
 install typecatcher # Install Google webfonts
 install cheese # Webcam
-install bjnplugin "2.110.76.8-1" https://swdl.bluejeans.com/skinny/bjnplugin_2.110.76.8-1_amd64.deb
+install bjnplugin
 
 install network-manager-openconnect-gnome # Cisco VPN
 
