@@ -4,43 +4,42 @@
 
 . $HOME/.local/modules/pmm/init.sh
 
-ppa maarten-baert simplescreenrecorder vivid
-ppa nilarimogard webupd8 vivid # Launchpad-getkeys? Stuff
-ppa otto-kesselgulasch gimp vivid
-ppa rvm smplayer vivid # Mplayer UI
+ppa maarten-baert simplescreenrecorder wily
+ppa nilarimogard webupd8 wily # Launchpad-getkeys? Stuff
+ppa otto-kesselgulasch gimp wily
+ppa rvm smplayer wily # Mplayer UI
 ppa mc3man mpv-tests vivid # Mpv, mplayer[|2] fork
-ppa ubuntu-wine ppa vivid
-ppa videolan master-daily vivid
-ppa webupd8team java vivid # Oracle java
-ppa webupd8team sublime-text-3 vivid
+ppa ubuntu-wine ppa wily
+ppa videolan master-daily wily
+ppa webupd8team java wily # Oracle java
+ppa webupd8team sublime-text-3 wily
 ppa webupd8team themes utopic
 ppa ansible ansible vivid
-ppa neovim-ppa unstable vivid
-ppa fish-shell release-2 vivid
-repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu vivid main"
+ppa neovim-ppa unstable wily
+ppa fish-shell release-2 wily
+repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu wily main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
-repo i3 "deb http://debian.sur5r.net/i3/ vivid universe"
-repo opera "deb http://deb.opera.com/opera-beta/ stable non-free"
+repo i3 "deb http://debian.sur5r.net/i3/ wily universe"
 repo spotify "deb http://repository.spotify.com stable non-free"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
-repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian vivid non-free contrib"
+repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian wily non-free contrib"
 repo docker "deb https://get.docker.io/ubuntu docker main"
 repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /"
 repo bluejeans "deb http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs stable main"
-repo fpco "deb http://download.fpcomplete.com/ubuntu/vivid stable main"
-repo nodesource "deb https://deb.nodesource.com/node_0.12 vivid main\ndeb-src https://deb.nodesource.com/node_0.12 vivid main\n"
+repo fpco "deb http://download.fpcomplete.com/ubuntu/wily stable main"
+repo nodesource "deb https://deb.nodesource.com/node_4.x wily main\ndeb-src https://deb.nodesource.com/node_4.x wily main\n"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        ppa bitcoin bitcoin vivid
-        ppa graphics-drivers ppa vivid
+        ppa bitcoin bitcoin wily
+        ppa graphics-drivers ppa wily
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        ppa linrunner tlp vivid
+        ppa linrunner tlp wily
 fi
 
 clearRepos
@@ -79,7 +78,7 @@ install htop
 install iotop
 install jq # JSON processor
 install launchpad-getkeys
-install libav-tools
+install libav-tools-links
 install mosh
 install openssh-client
 install p7zip
