@@ -97,6 +97,8 @@ install cloc
 install dos2unix
 install exuberant-ctags
 install inotify-tools
+# For dmenu.sh
+install attr
 
 # R
 install r-base
