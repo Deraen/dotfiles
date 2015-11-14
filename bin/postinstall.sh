@@ -43,12 +43,6 @@ cmake -G "Unix Makefiles" \
 make ycm_support_libs -j
 )
 
-header "Install boot"
-(
-cd $HOME/bin
-./update-boot.sh
-)
-
 if [[ $desktop == true ]]; then
     gcc $HOME/bin/ls-uses.c -o $HOME/bin/ls-uses
 
