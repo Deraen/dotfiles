@@ -12,8 +12,12 @@ autocmd FileType clojure setlocal lispwords+=context,swaggered,middlewares,conte
 autocmd FileType clojure setlocal lispwords+=fact,facts,provided,fact-group
 " Core.logic
 autocmd FileType clojure setlocal lispwords+=run*
+" Om
+autocmd FileType clojure setlocal lispwords+=will-mount,render,render-state,init-state,did-mount,should-update,will-receive-props,will-update,did-update,display-name,will-unmount
+" Om next
+autocmd FileType clojure setlocal lispwords+=query,ident
 " Cljs
-autocmd FileType clojure setlocal lispwords+=will-mount,render,render-state,init-state,did-mount,should-update,will-receive-props,will-update,did-update,display-name,will-unmount,this-as
+autocmd FileType clojure setlocal lispwords+=this-as
 " Plumbing
 autocmd FileType clojure setlocal lispwords+=for-map,fnk,letk
 " Core.async
