@@ -4,6 +4,7 @@ source /home/$USER/.profile
 
 xmodmap .Xmodmap
 
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 export GPG_AGENT_INFO SSH_AUTH_SOCK
 
