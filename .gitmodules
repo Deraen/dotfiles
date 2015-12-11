@@ -120,9 +120,6 @@
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule ".vim/bundle/bufkill.vim"]
-	path = .vim/bundle/bufkill.vim
-	url = https://github.com/vim-scripts/bufkill.vim.git
 [submodule ".vim/bundle/vim-sensible"]
 	path = .vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
@@ -273,3 +270,6 @@
 [submodule ".vim/bundle/vimagit"]
 	path = .vim/bundle/vimagit
 	url = git@github.com:jreybert/vimagit.git
+[submodule ".vim/bundle/vim-bufkill"]
+	path = .vim/bundle/vim-bufkill
+	url = https://github.com/qpkorr/vim-bufkill.git
