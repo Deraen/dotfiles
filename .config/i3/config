@@ -80,14 +80,14 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Workspaces
-set $www 1: WWW
-set $irc 2: IRC
-set $dev 3: DEV
-set $comm §: COMM
-set $music F1: MUSIC
-set $video F2: VIDEO
-set $steam F3: STEAM
-set $downloads F4: DOWNLOADS
+set $www 1:
+set $irc 2:
+set $dev 3:
+set $comm 0:
+set $music 11:MUSIC
+set $video 12:VIDEO
+set $steam 13:STEAM
+set $downloads 14:DOWNLOADS
 
 # Defaults for desktop computer
 workspace "$irc" output DVI-D-0
@@ -197,9 +197,12 @@ bindsym Ctrl+Print exec gnome-screenshot -i
 bar {
   position top
   status_command i3blocks
+  strip_workspace_numbers yes
   colors {
-    background #000000
+    background #121212
+    separator  #121212
+    active_workspace   #304f66 #304f66 #d0d0d0
+    focused_workspace  #304f66 #304f66 #d0d0d0
+    inactive_workspace #121212 #121212 #d0d0d0
   }
 }
-
-exec --no-startup-id sleep 2 && transset -n i3bar 0.8
