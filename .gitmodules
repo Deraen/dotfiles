@@ -284,7 +284,7 @@
 	url = https://github.com/baskerville/xtitle.git
 [submodule ".local/modules/bar"]
 	path = .local/modules/bar
-	url = https://github.com/LemonBoy/bar.git
+	url = https://github.com/krypt-n/bar.git
 [submodule ".local/modules/xdo"]
 	path = .local/modules/xdo
 	url = https://github.com/baskerville/xdo.git

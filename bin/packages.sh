@@ -199,6 +199,7 @@ install libxcb-keysyms1-dev
 install libxcb-xinerama0-dev
 install libasound2-dev
 install libxcb-xtest0-dev
+install libx11-xcb-dev
 
 # Docker
 install lxc-docker
