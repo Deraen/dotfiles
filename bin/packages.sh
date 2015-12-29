@@ -13,8 +13,8 @@ ppa ubuntu-wine ppa wily
 ppa videolan master-daily wily
 ppa webupd8team java wily # Oracle java
 ppa webupd8team sublime-text-3 wily
-ppa webupd8team themes utopic
-ppa ansible ansible vivid
+ppa webupd8team themes vivid
+ppa ansible ansible wily
 ppa neovim-ppa unstable wily
 ppa fish-shell release-2 wily
 ppa openconnect daily vivid
@@ -243,6 +243,7 @@ install pass
 install mumble
 install pgadmin3 # PostgreSQL admin
 install pitivi # Video editor
+install xsane
 install qgit
 install quassel-client-qt4 # Irc
 install simplescreenrecorder
@@ -250,6 +251,7 @@ install skype:i386
 install mpv
 install smplayer
 install spotify-client
+install vlc-plugin-fluidsynth
 # For spotify
 install libgcrypt11 "1.5.3-2ubuntu4.2" http://dk.archive.ubuntu.com/ubuntu/pool/main/libg/libgcrypt11/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb
 install steam-launcher
@@ -262,6 +264,7 @@ install cheese # Webcam
 install bjnplugin
 
 install network-manager-openconnect-gnome # Cisco VPN
+install openvpn
 
 install spotify-client
 
