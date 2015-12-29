@@ -53,6 +53,8 @@ if [[ $desktop == true ]]; then
     make -C $HOME/.local/modules/sutils -j
     make -C $HOME/.local/modules/xtitle -j
     make -C $HOME/.local/modules/bar -j
+    header "i3-gaps"
+    make -C $HOME/.local/modules/i3 -j
     header "Build Ponymix"
     make -C $HOME/.local/modules/ponymix -j
     header "Build Dunst"

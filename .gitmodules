@@ -288,3 +288,6 @@
 [submodule ".local/modules/xdo"]
 	path = .local/modules/xdo
 	url = https://github.com/baskerville/xdo.git
+[submodule ".local/modules/i3"]
+	path = .local/modules/i3
+	url = https://github.com/Airblader/i3.git

@@ -11,15 +11,21 @@ bindsym $mod+Shift+F11 exec togglecompton.sh
 
 # Preferences
 set $mod Mod4
-set $bg #3C3B37
+set $bg #121212
+set $active #425295
+
+gaps inner 5
+gaps outer 0
+smart_gaps on
+smart_borders no_gaps
 
 font pango:Ubuntu, Icons 8
 
 # class                 border  backgr. text    indicator
-client.focused          #4c7899 #304f66 #ffffff #184c73
-client.focused_inactive #375870 #0c1319 #ffffff #484e50
+client.focused          $active $active #d0d0d0 #184c73
+client.focused_inactive #222222 #222222 #d0d0d0 #484e50
 client.unfocused        $bg     $bg     #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
+client.urgent           #2f343a #900000 #d0d0d0 #900000
 
 focus_follows_mouse no
 workspace_auto_back_and_forth yes
@@ -106,6 +112,8 @@ assign [class="Skype"] → $comm
 assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → $comm
 # IRCCloud
 assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
+
+for_window [class="^.*"] border pixel 0
 # Eclipse splashscreen
 for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
 for_window [class="Simplescreenrecorder"] floating enable
@@ -120,7 +128,7 @@ for_window [class="^([gG]oogle-chrome|[gG]oogle-chrome-(stable|beta|unstable)|X-
 for_window [class="^(quassel|Spotify)$"] border pixel 2
 for_window [class="^(Eclipse|GVim)$"] border pixel 2
 for_window [instance="jetbrains-idea-ce"] border pixel 2
-for_window [class="^(URxvt|Termite|st-256color)$"] border pixel 2
+for_window [class="^(URxvt|Termite|st-256color)$"] border pixel 0
 for_window [class="Steam" title="^(Steam - .*|Friends)$"] floating enable
 for_window [class="Gnome-screenshot"] floating enable
 
