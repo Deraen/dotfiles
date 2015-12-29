@@ -6,3 +6,6 @@ fi
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
+addPath "$HOME/.config/bspwm/panel"
+
+export PANEL_FIFO="/tmp/panel-fifo"

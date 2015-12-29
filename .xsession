@@ -35,3 +35,6 @@ xkblayout.sh
 frakkin-xkb -t 1000 xkblayout.sh &
 
 exec i3
+# sxhkd &
+# panel &
+# exec bspwm
