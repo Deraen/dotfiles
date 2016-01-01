@@ -55,6 +55,10 @@ install lsb-base
 install linux-generic
 install build-essential
 install libnss-myhostname # Why doesn't systemd-services require this...?
+install linux-signed-generic
+install shim-signed
+install grub-efi-amd64-signed
+install nfs-client
 
 # Language stuff
 install "language-pack-gnome-en"
@@ -170,6 +174,7 @@ install vagrant "1:1.7.4" https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4
 install rlwrap
 
 # Dev dependencies
+install autoconf
 install libboost-all-dev
 install libpulse-dev # Ponymix
 # Dunst
@@ -185,6 +190,15 @@ install libxcb-screensaver0-dev
 install libxcb-util0-dev
 # frakking-xkb
 install libxi-dev
+# i3
+install libxcb-xkb-dev
+install libev-dev
+install libxcb-cursor-dev
+install libxcb-image0-dev
+install libxcb-render-util0-dev
+install libxkbcommon-dev
+install libxkbcommon-x11-dev
+install libyajl-dev
 # i3-utils
 install libjson-glib-dev
 # rofi
@@ -253,6 +267,7 @@ install keepass2
 install pass
 install mumble
 install pgadmin3 # PostgreSQL admin
+install postgresql-9.4
 install pitivi # Video editor
 install xsane
 install qgit
@@ -281,6 +296,7 @@ install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install "nvidia-355"
+        install nvidia-settings
         install playonlinux # Wine frontend for games
         install fail2ban
         install palm-novacom # HP Touchpad. Local?
@@ -304,9 +320,6 @@ fi
 
 # Laptop specific
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        install linux-signed-generic
-        install shim-signed
-        install grub-efi-amd64-signed
         install lvm2
         install cryptsetup
         install xbacklight
@@ -316,7 +329,6 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install tlp
         install xautolock
         install hipchat
-        install postgresql-9.4
 fi
 
 markauto
