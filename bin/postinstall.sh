@@ -85,11 +85,10 @@ if [[ $desktop == true ]]; then
     make -j
     )
 
-    header "Gnome settings"
+    header "Settings"
     gsettings set org.gnome.desktop.background show-desktop-icons false
-
-    header "Qt settings"
-    crudini $HOME/.config/Trolltech.conf Qt style GTK+
+    crudini --set $HOME/.config/Trolltech.conf Qt style GTK+
+    crudini --merge $HOME/.config/keepassx/config.ini < $HOME/.config/keepassx/config.ini.sample
 fi
 
 header "Systemfiles"
