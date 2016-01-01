@@ -175,8 +175,6 @@ for_window [instance="crx_mnfehgbmkapmjnhcnbodoamcioleeooe"] move scratchpad
 bindsym $mod+F5 exec scratchpad "gtk-launch DevDocs" "crx_mnfehgbmkapmjnhcnbodoamcioleeooe"
 for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
 bindsym $mod+F6 exec scratchpad keepassx keepassx
-for_window [instance="crx_mojepfklcankkmikonjlnidiooanmpbb"] move scratchpad
-bindsym $mod+F7 exec scratchpad "gtk-launch Sunrise" "crx_mojepfklcankkmikonjlnidiooanmpbb"
 
 # I3
 bindsym $mod+Shift+C reload
