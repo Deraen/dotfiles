@@ -103,6 +103,8 @@ install exuberant-ctags
 install inotify-tools
 # For dmenu.sh
 install attr
+# Edit ini files (e.g. Trolltech.conf) from CLI
+install crudinit
 
 # R
 install r-base

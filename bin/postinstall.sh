@@ -87,6 +87,9 @@ if [[ $desktop == true ]]; then
 
     header "Gnome settings"
     gsettings set org.gnome.desktop.background show-desktop-icons false
+
+    header "Qt settings"
+    crudini $HOME/.config/Trolltech.conf Qt style GTK+
 fi
 
 header "Systemfiles"
