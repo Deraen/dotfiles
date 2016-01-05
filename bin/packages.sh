@@ -192,15 +192,6 @@ install libxcb-screensaver0-dev
 install libxcb-util0-dev
 # frakking-xkb
 install libxi-dev
-# i3
-install libxcb-xkb-dev
-install libev-dev
-install libxcb-cursor-dev
-install libxcb-image0-dev
-install libxcb-render-util0-dev
-install libxkbcommon-dev
-install libxkbcommon-x11-dev
-install libyajl-dev
 # i3-utils
 install libjson-glib-dev
 # rofi
