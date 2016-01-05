@@ -6,6 +6,9 @@ AutoSave=false
 AutoSaveChange=true
 UrlCmdDef=false
 UrlCmd=/usr/bin/google-chrome-beta
+LockOnMinimize=false
+LockOnInactivity=true
+LockAfterSec=120
 
 [UI]
 HideUsernames=false
