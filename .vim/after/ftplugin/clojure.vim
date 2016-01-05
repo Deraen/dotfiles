@@ -1,6 +1,6 @@
 " defschema, defnk...
 " GET/POST... and GET*/POST* for Compojure-api
-let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
+let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def', '^let', '^with']
 
 " Clojure test
 autocmd FileType clojure setlocal lispwords+=describe,it
@@ -30,3 +30,4 @@ autocmd FileType clojure setlocal lispwords+=with-call-in,with-eval-in,with-pre-
 autocmd FileType clojure setlocal lispwords+=register-handler,register-sub
 " Cats
 autocmd FileType clojure setlocal lispwords+=with-context,alet,mlet
+" Manifold
