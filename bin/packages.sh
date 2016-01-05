@@ -104,7 +104,7 @@ install inotify-tools
 # For dmenu.sh
 install attr
 # Edit ini files (e.g. Trolltech.conf) from CLI
-install crudinit
+install crudini
 
 # R
 install r-base
