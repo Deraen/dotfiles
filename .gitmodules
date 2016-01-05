@@ -270,6 +270,3 @@
 [submodule ".vim/bundle/vim-bufkill"]
 	path = .vim/bundle/vim-bufkill
 	url = https://github.com/qpkorr/vim-bufkill.git
-[submodule ".local/modules/i3"]
-	path = .local/modules/i3
-	url = https://github.com/Airblader/i3.git

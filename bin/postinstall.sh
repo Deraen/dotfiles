@@ -46,8 +46,6 @@ make ycm_support_libs -j
 if [[ $desktop == true ]]; then
     gcc $HOME/bin/ls-uses.c -o $HOME/bin/ls-uses
 
-    header "i3-gaps"
-    make -C $HOME/.local/modules/i3 -j
     header "Build Ponymix"
     make -C $HOME/.local/modules/ponymix -j
     header "Build Dunst"
