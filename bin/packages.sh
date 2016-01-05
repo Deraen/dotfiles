@@ -205,17 +205,6 @@ install libyajl-dev
 install libjson-glib-dev
 # rofi
 install libstartup-notification0-dev
-# bspwm & sxhkd
-install xcb
-install libxcb-util0-dev
-install libxcb-ewmh-dev
-install libxcb-randr0-dev
-install libxcb-icccm4-dev
-install libxcb-keysyms1-dev
-install libxcb-xinerama0-dev
-install libasound2-dev
-install libxcb-xtest0-dev
-install libx11-xcb-dev
 
 # Docker
 install lxc-docker

@@ -46,13 +46,6 @@ make ycm_support_libs -j
 if [[ $desktop == true ]]; then
     gcc $HOME/bin/ls-uses.c -o $HOME/bin/ls-uses
 
-    header "Build bspwm & co"
-    make -C $HOME/.local/modules/bspwm -j
-    make -C $HOME/.local/modules/sxhkd -j
-    make -C $HOME/.local/modules/xdo -j
-    make -C $HOME/.local/modules/sutils -j
-    make -C $HOME/.local/modules/xtitle -j
-    make -C $HOME/.local/modules/bar -j
     header "i3-gaps"
     make -C $HOME/.local/modules/i3 -j
     header "Build Ponymix"

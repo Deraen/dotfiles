@@ -270,24 +270,6 @@
 [submodule ".vim/bundle/vim-bufkill"]
 	path = .vim/bundle/vim-bufkill
 	url = https://github.com/qpkorr/vim-bufkill.git
-[submodule ".local/modules/bspwm"]
-	path = .local/modules/bspwm
-	url = https://github.com/baskerville/bspwm.git
-[submodule ".local/modules/sxhkd"]
-	path = .local/modules/sxhkd
-	url = https://github.com/baskerville/sxhkd.git
-[submodule ".local/modules/sutils"]
-	path = .local/modules/sutils
-	url = https://github.com/baskerville/sutils.git
-[submodule ".local/modules/xtitle"]
-	path = .local/modules/xtitle
-	url = https://github.com/baskerville/xtitle.git
-[submodule ".local/modules/bar"]
-	path = .local/modules/bar
-	url = https://github.com/krypt-n/bar.git
-[submodule ".local/modules/xdo"]
-	path = .local/modules/xdo
-	url = https://github.com/baskerville/xdo.git
 [submodule ".local/modules/i3"]
 	path = .local/modules/i3
 	url = https://github.com/Airblader/i3.git
