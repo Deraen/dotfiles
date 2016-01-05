@@ -14,11 +14,6 @@ set $mod Mod4
 set $bg #121212
 set $active #454B7F
 
-gaps inner 8
-gaps outer 0
-smart_gaps on
-smart_borders no_gaps
-
 font pango:Ubuntu, Icons 8
 
 # class                 border  backgr. text    indicator
@@ -31,7 +26,7 @@ focus_follows_mouse no
 workspace_auto_back_and_forth yes
 floating_modifier $mod
 
-hide_edge_borders both
+hide_edge_borders none
 
 # Launch
 bindsym $mod+Return exec TERMINAL="urxvt.sh" i3-sensible-terminal
