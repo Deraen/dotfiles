@@ -12,10 +12,13 @@
        'refactor-nrepl.middleware/wrap-refactor)
 
 ;; Read credentials from Lein directory
-(configure-repositories!
- (fn [m]
-   (merge m (some (fn [[regex cred]] (if (re-find regex (:url m)) cred))
-                  (gpg-decrypt (clojure.java.io/file (System/getProperty "user.home") ".lein/credentials.clj.gpg") :as :edn)))))
+(try
+ ((resolve 'boot.core/configure-repositories!)
+  (fn [m]
+    (merge m (some (fn [[regex cred]] (if (re-find regex (:url m)) cred))
+                   ((resolve 'boot.core/gpg-decrypt) (clojure.java.io/file (System/getProperty "user.home") ".lein/credentials.clj.gpg") :as :edn)))))
+ (catch Exception _
+   nil))
 
 (task-options!
   repl {:eval '(do (require '[vinyasa.inject :as inject])
