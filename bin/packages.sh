@@ -33,6 +33,7 @@ repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/comm
 repo bluejeans "deb http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs stable main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/wily stable main"
 repo nodesource "deb https://deb.nodesource.com/node_4.x wily main\ndeb-src https://deb.nodesource.com/node_4.x wily main\n"
+repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### Modifications may be lost.\n\ndeb http://dist.keybase.io/linux/deb/repo stable main\n"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin wily
@@ -270,6 +271,7 @@ install wine1.7
 install typecatcher # Install Google webfonts
 install cheese # Webcam
 install bjnplugin
+install keybase
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn

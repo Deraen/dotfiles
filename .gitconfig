@@ -1,6 +1,7 @@
 [user]
 	name = Juho Teperi
 	email = juho.teperi@iki.fi
+	signingkey = 8950366D
 [alias]
 	untracked = ls-files -o --exclude-standard
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
