@@ -126,14 +126,11 @@ nnoremap Q <nop>
 vmap <Enter> <Plug>(EasyAlign)
 
 " Vim-switch
-nnoremap <C-s> :Switch<cr>
+let g:switch_mapping = "<C-s>"
 
 " Move parameters around
 nmap <a <Plug>Argumentative_MoveLeft
 nmap >a <Plug>Argumentative_MoveRight
-
-" space-space toggles search hilight
-nnoremap <silent><space><space> :set nohls!<cr>
 
 " ctrl-p/space-p open files in project
 nnoremap <silent><space>p :CtrlP<cr>
@@ -141,10 +138,6 @@ nnoremap <silent><space>p :CtrlP<cr>
 nnoremap <silent><space>l :CtrlPLine %<cr>
 " space-b change buffer
 nnoremap <silent><space>b :CtrlPBuffer<cr>
-
-" Next/prev buffer
-nnoremap <silent><space><C-p> :bprevious<CR>
-nnoremap <silent><space><C-n> :bnext<CR>
 
 " Quick macro stuff
 nnoremap § qqqqq
@@ -360,3 +353,8 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+nnoremap <space>g :Grepper -tool git -noswitch<cr>
+nnoremap <space>a :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)

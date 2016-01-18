@@ -273,3 +273,6 @@
 [submodule ".vim/bundle/vim-gnupg"]
 	path = .vim/bundle/vim-gnupg
 	url = https://github.com/jamessan/vim-gnupg.git
+[submodule ".vim/bundle/vim-grepper"]
+	path = .vim/bundle/vim-grepper
+	url = https://github.com/mhinz/vim-grepper.git
