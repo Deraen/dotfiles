@@ -1,0 +1,5 @@
+[Default Applications]
+video/x-matroska=mpv.desktop
+
+[Added Associations]
+video/x-matroska=mpv.desktop;
