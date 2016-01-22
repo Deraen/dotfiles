@@ -209,6 +209,7 @@ install picocom
 
 # TEX
 install texlive-latex-extra
+install texlive-bibtex-extra
 install texlive-xetex
 install texlive-fonts-recommended
 install texlive-lang-european

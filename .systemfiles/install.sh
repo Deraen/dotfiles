@@ -32,7 +32,6 @@ if [[ $HOSTNAME == "juho-laptop" ]]; then
     install "/etc/systemd/logind.conf"
 fi
 
-sudo update-alternatives --set dmenu /usr/bin/dmenu.xft
 sudo update-alternatives --set google-chrome /usr/bin/google-chrome-beta
 sudo update-alternatives --set x-www-browser /usr/bin/google-chrome-beta
 
