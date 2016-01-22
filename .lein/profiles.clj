@@ -1,4 +1,4 @@
-{:repl {:plugins [[cider/cider-nrepl "0.10.0"]
+{:repl {:plugins [[cider/cider-nrepl "0.10.1"]
                   [refactor-nrepl "1.1.0"]
                   [venantius/ultra "0.3.3"]]}
  :user {:plugins [[lein-ancient "0.6.7"]

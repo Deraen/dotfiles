@@ -1,7 +1,7 @@
 (require 'boot.repl)
 
 (swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.10.0"]
+       concat '[[cider/cider-nrepl "0.10.1"]
                 [refactor-nrepl "1.1.0"]
                 [org.clojure/tools.namespace "0.2.11"]
                 [im.chit/vinyasa.inject "0.3.0"]
