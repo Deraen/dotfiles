@@ -204,9 +204,6 @@
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
-[submodule "updated-ansiesc"]
-	path = .vim/bundle/AnsiEsc.vim
-	url = git@github.com:Deraen/AnsiEsc.vim.git
 [submodule ".local/modules/xss-lock"]
 	path = .local/modules/xss-lock
 	url = https://bitbucket.org/raymonad/xss-lock.git
@@ -276,3 +273,6 @@
 [submodule ".vim/bundle/vim-grepper"]
 	path = .vim/bundle/vim-grepper
 	url = https://github.com/mhinz/vim-grepper.git
+[submodule ".vim/bundle/Colorizer"]
+	path = .vim/bundle/Colorizer
+	url = https://github.com/chrisbra/Colorizer.git

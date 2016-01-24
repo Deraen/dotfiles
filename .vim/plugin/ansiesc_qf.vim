@@ -1,12 +1,5 @@
 function! EnableAnsiEsc()
-  let buf=bufnr("%")
-  normal mz
-  if !exists("g:AnsiEsc_enabled_{buf}") || !g:AnsiEsc_enabled_{buf}
-    call AnsiEsc#AnsiEsc(0)
-  else
-    call AnsiEsc#AnsiEsc(1)
-  endif
-  normal `z
+  call Colorizer#DoColor(0, 1, line('$'))
 endfunc
 
 autocmd BufEnter    *    if &buftype == 'quickfix' | call EnableAnsiEsc() | endif
