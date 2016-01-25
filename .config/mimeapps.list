@@ -1,5 +1,16 @@
 [Default Applications]
+video/quicktime=mpv.desktop
 video/x-matroska=mpv.desktop
+video/mp4=mpv.desktop
 
 [Added Associations]
+video/quicktime=mpv.desktop;
+text/html=google-chrome.desktop;
+text/xml=google-chrome.desktop;
+application/xhtml_xml=google-chrome.desktop;
+image/webp=google-chrome.desktop;
+x-scheme-handler/https=google-chrome.desktop;
+x-scheme-handler/ftp=google-chrome.desktop;
 video/x-matroska=mpv.desktop;
+application/xml=vim.desktop;
+video/mp4=mpv.desktop;
