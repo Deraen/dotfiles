@@ -5,6 +5,7 @@
   "description": "",
   "dependencies": {
     "bower": "^1.6.5",
+    "cloc": "^2.0.0",
     "forever": "^0.15.1",
     "grunt-cli": "^0.1.13",
     "gulp": "^3.9.0",
