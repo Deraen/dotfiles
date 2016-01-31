@@ -18,6 +18,7 @@ ppa ansible ansible wily
 ppa neovim-ppa unstable wily
 ppa fish-shell release-2 wily
 ppa openconnect daily vivid
+ppa yubico stable wily
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu wily main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
@@ -225,6 +226,16 @@ install suckless-tools
 install "rxvt-unicode-256color"
 install faenza-icon-theme
 
+# GPG stuff
+install gnupg2
+install pcscd
+install scdaemon
+install keybase
+install libu2f-host0
+install yubikey-neo-manager
+install yubikey-personalization
+install yubikey-personalization-gui
+
 # GUI software
 install blender
 install calibre # Ebook library / reader
@@ -271,7 +282,6 @@ install wine1.7
 install typecatcher # Install Google webfonts
 install cheese # Webcam
 install bjnplugin
-install keybase
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
