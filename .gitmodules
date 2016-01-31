@@ -276,3 +276,12 @@
 [submodule ".vim/bundle/Colorizer"]
 	path = .vim/bundle/Colorizer
 	url = https://github.com/chrisbra/Colorizer.git
+[submodule ".vim/bundle_clojure/clj-refactor.nvim"]
+	path = .vim/bundle_clojure/clj-refactor.nvim
+	url = https://github.com/snoe/clj-refactor.nvim.git
+[submodule ".vim/bundle/node-host"]
+	path = .vim/bundle/node-host
+	url = https://github.com/neovim/node-host.git
+[submodule ".vim/bundle/vim-dispatch-neovim"]
+	path = .vim/bundle/vim-dispatch-neovim
+	url = https://github.com/radenling/vim-dispatch-neovim.git
