@@ -332,11 +332,10 @@ let g:magit_show_help=0
 function! s:goyo_enter()
   set noshowmode
   set noshowcmd
-  set scrolloff=999
+  set scrolloff=10
   set wrap
   set linebreak
   set number
-  set numberwidth=10
   highligh LineNr ctermfg=235 ctermbg=233
   augroup goyo_resize
     autocmd!
