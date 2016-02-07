@@ -285,3 +285,6 @@
 [submodule ".vim/bundle/vim-dispatch-neovim"]
 	path = .vim/bundle/vim-dispatch-neovim
 	url = https://github.com/radenling/vim-dispatch-neovim.git
+[submodule ".vim/bundle/github-issues.vim"]
+	path = .vim/bundle/github-issues.vim
+	url = https://github.com/jaxbot/github-issues.vim.git
