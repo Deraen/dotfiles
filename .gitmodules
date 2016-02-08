@@ -288,3 +288,6 @@
 [submodule ".vim/bundle/github-issues.vim"]
 	path = .vim/bundle/github-issues.vim
 	url = https://github.com/jaxbot/github-issues.vim.git
+[submodule ".vim/bundle/vim-airline-themes"]
+	path = .vim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
