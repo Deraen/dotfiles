@@ -356,3 +356,6 @@ nnoremap <space>g :Grepper -tool git -noswitch<cr>
 nnoremap <space>a :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
+
+let g:gissues_lazy_load = 1
+let g:gissues_async_omni = 1
