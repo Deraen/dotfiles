@@ -71,7 +71,8 @@ endif
 let g:thematic#themes = {
       \ 'seoul256': {'background': 'dark'},
       \ 'presentation': {'colorscheme': 'seoul256',
-      \                  'background': 'light'},
+      \                  'background': 'light',
+      \                  'airline-theme': 'papercolor'},
       \ }
 
 if $PRESENTATION_MODE == '1'
