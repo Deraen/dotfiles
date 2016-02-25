@@ -4,7 +4,6 @@
        concat '[[cider/cider-nrepl "0.10.1"]
                 [refactor-nrepl "2.0.0-SNAPSHOT"]
                 [org.clojure/tools.namespace "0.2.11"]
-                [im.chit/vinyasa.inject "0.3.0"]
                 [aprint "0.1.3"]])
 
 (swap! boot.repl/*default-middleware* conj
@@ -19,13 +18,3 @@
                    ((resolve 'boot.core/gpg-decrypt) (clojure.java.io/file (System/getProperty "user.home") ".lein/credentials.clj.gpg") :as :edn)))))
  (catch Exception _
    nil))
-
-(task-options!
-  repl {:eval '(do (require '[vinyasa.inject :as inject])
-                   (require 'clojure.repl)
-                   (inject/in
-                     ;; To . namespace
-                     [vinyasa.inject inject]
-                     [clojure.tools.namespace.repl refresh clear]
-                     [aprint.core aprint ap]
-                     [clojure.repl source doc]))})
