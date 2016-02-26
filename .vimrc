@@ -251,19 +251,6 @@ function! CtrlPMappings()
   nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
 endfunction
 
-" ycm
-let g:ycm_filetype_blacklist = {
-      \ 'notes': 1,
-      \ 'gitcommit': 1,
-      \ 'markdown': 1,
-      \ 'text': 1,
-      \ }
-let g:ycm_semantic_triggers = {
-      \ 'haskell' : ['.'],
-      \ }
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-
 " Clojure options
 autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
 let g:refactor_nrepl_options = '{:prefix-rewriting false}'
@@ -360,3 +347,10 @@ xmap gs <plug>(GrepperOperator)
 
 let g:gissues_lazy_load = 1
 let g:gissues_async_omni = 1
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.]*'
+
+" Select next with tab if popup menu is open
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "	"
