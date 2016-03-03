@@ -26,10 +26,6 @@
 [submodule ".vim/bundle/seoul256.vim"]
 	path = .vim/bundle/seoul256.vim
 	url = https://github.com/Deraen/seoul256.vim.git
-[submodule ".vim/bundle/vim-fixkey"]
-	path = .vim/bundle/vim-fixkey
-	url = https://github.com/drmikehenry/vim-fixkey.git
-	ignore = dirty
 [submodule ".vim/bundle/vim-textobj-comment"]
 	path = .vim/bundle/vim-textobj-comment
 	url = https://github.com/glts/vim-textobj-comment.git
