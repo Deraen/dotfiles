@@ -66,3 +66,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+
+# 4k smartcard requires gpg2
+export LEIN_GPG=gpg2
