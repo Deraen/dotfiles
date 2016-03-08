@@ -91,6 +91,13 @@ function! s:RemoveNs() abort
   return result
 endfunction
 
+function! s:ResetReloadedRepl() abort
+  let result = fireplace#echo_session_eval("(reloaded.repl/reset)")
+  return result
+endfunction
+
+nnoremap <silent> <Plug>ResetReloadedRepl :<C-U>call <SID>ResetReloadedRepl()<CR>
+
 function! s:set_up() abort
   nmap <buffer> ce  <Plug>EvalPaste
   nmap <buffer> cep <Plug>EvalPasteCount
@@ -100,6 +107,8 @@ function! s:set_up() abort
   nmap <buffer> cpt <Plug>TestToplevel
 
   command! -buffer RemoveNs call s:RemoveNs()
+
+  nmap <buffer> cpR <Plug>ResetReloadedRepl
 endfunction
 
 augroup fireplace_eval_paste
