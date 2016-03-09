@@ -60,7 +60,7 @@ install libnss-myhostname # Why doesn't systemd-services require this...?
 install linux-signed-generic
 install shim-signed
 install grub-efi-amd64-signed
-install nfs-client
+install nfs-common
 
 # Language stuff
 install "language-pack-gnome-en"
@@ -207,11 +207,14 @@ install libusb-1.0-0-dev
 # Arduino
 install picocom
 
+install graphviz
+
 # TEX
 install texlive-latex-extra
 install texlive-bibtex-extra
 install texlive-xetex
 install texlive-fonts-recommended
+install lmodern
 install texlive-lang-european
 install biber
 
@@ -267,7 +270,6 @@ install xsane
 install qgit
 install quassel-client-qt4 # Irc
 install simplescreenrecorder
-install skype:i386
 install mpv
 install smplayer
 install spotify-client
@@ -278,10 +280,12 @@ install steam-launcher
 install deluge
 install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-5.0
-install wine1.7
 install typecatcher # Install Google webfonts
 install cheese # Webcam
 install bjnplugin
+install sweethome3d
+install sweethome3d-furniture
+install sweethome3d-furniture-nonfree
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
@@ -289,7 +293,7 @@ install openvpn
 install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        install "nvidia-355"
+        install "nvidia-361"
         install nvidia-settings
         install playonlinux # Wine frontend for games
         install fail2ban
@@ -307,9 +311,7 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install guitarix # Guitar AMP
         install vnstat # Network usage
         install rrdtool # Stats
-        install adobeair 1:2.6.0.19170 # For Defender's Quest: Valley of the Forgotten
         install youtube-dl
-        install openra
 fi
 
 # Laptop specific
