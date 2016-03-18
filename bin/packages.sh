@@ -93,7 +93,6 @@ install powertop
 install ppa-purge
 install silversearcher-ag # Fast file searches
 install sshfs
-install tarsnap "1.0.34-1" http://juho.tontut.fi/debs/tarsnap_1.0.34-1_amd64.deb # Backups
 install tmispell-voikko
 install tmux
 install tree
@@ -164,16 +163,15 @@ install qgit
 
 # Dev tools
 install heroku-toolbelt
-install leap 0.8.0 # Leapmotion
 install devscripts
 install ubuntu-dev-tools
 install mongodb-server
 install rabbitmq-server
 install sqlite3
 install httpie
-install robomongo 0.8.5 http://robomongo.org/files/linux/robomongo-0.8.5-x86_64.deb
+install robomongo 0.8.5 https://download.robomongo.org/0.8.5/linux/robomongo-0.8.5-x86_64.deb
 install ansible
-install vagrant "1:1.7.4" https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.4_x86_64.deb
+install vagrant
 install rlwrap
 
 # Dev dependencies
@@ -274,8 +272,6 @@ install mpv
 install smplayer
 install spotify-client
 install vlc-plugin-fluidsynth
-# For spotify
-install libgcrypt11 "1.5.3-2ubuntu4.2" http://dk.archive.ubuntu.com/ubuntu/pool/main/libg/libgcrypt11/libgcrypt11_1.5.3-2ubuntu4.2_amd64.deb
 install steam-launcher
 install deluge
 install unetbootin # Install Linux/etc images into USB stiff

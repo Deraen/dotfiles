@@ -33,16 +33,6 @@ npm install
 header "Build vimproc"
 make -C $HOME/.vim/bundle/vimproc -j
 
-header "Build YCM"
-(
-mkdir -p $HOME/tmp/ycm_build
-cd $HOME/tmp/ycm_build
-cmake -G "Unix Makefiles" \
-    -DUSE_CLANG_COMPLETER=ON \
-    . $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-make ycm_support_libs -j
-)
-
 if [[ $desktop == true ]]; then
     gcc $HOME/bin/ls-uses.c -o $HOME/bin/ls-uses
 
