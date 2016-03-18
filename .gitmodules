@@ -151,9 +151,6 @@
 [submodule ".local/modules/zsh-completions"]
 	path = .local/modules/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
-[submodule ".vim/bundle/VimCom"]
-	path = .local/modules/VimCom
-	url = https://github.com/jalvesaq/VimCom.git
 [submodule ".vim/bundle/Vim-R-plugin"]
 	path = .vim/bundle_r/Vim-R-plugin
 	url = https://github.com/vim-scripts/Vim-R-plugin.git
