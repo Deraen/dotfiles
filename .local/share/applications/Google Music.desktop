@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Google Play Music 2
+Exec=/opt/google/chrome-beta/google-chrome-beta --user-data-dir=/home/juho/.config/google-chrome-beta --profile-directory=Default --app-id=icppfcnhkcmnfdhfhphakoifcfokfdhg
+Icon=chrome-icppfcnhkcmnfdhfhphakoifcfokfdhg-Default
+StartupWMClass=crx_icppfcnhkcmnfdhfhphakoifcfokfdhg
