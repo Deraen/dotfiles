@@ -4,6 +4,6 @@ Version=1.0
 Terminal=false
 Type=Application
 Name=Netflix
-Exec=/usr/bin/google-chrome --profile-directory=Default --app-id=jjhjknnccbfnebpfmelblipfmbgghcmn
-Icon=chrome-jjhjknnccbfnebpfmelblipfmbgghcmn-Default
-StartupWMClass=crx_jjhjknnccbfnebpfmelblipfmbgghcmn
+Exec=/usr/bin/google-chrome  --profile-directory=Default --app-id=deceagebecbceejblnlcjooeohmmeldh
+Icon=chrome-deceagebecbceejblnlcjooeohmmeldh-Default
+StartupWMClass=crx_deceagebecbceejblnlcjooeohmmeldh
