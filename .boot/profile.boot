@@ -15,6 +15,6 @@
  ((resolve 'boot.core/configure-repositories!)
   (fn [m]
     (merge m (some (fn [[regex cred]] (if (re-find regex (:url m)) cred))
-                   ((resolve 'boot.core/gpg-decrypt) (clojure.java.io/file (System/getProperty "user.home") ".lein/credentials.clj.gpg") :as :edn)))))
+                   (read-string (slurp (clojure.java.io/file (System/getProperty "user.home") ".lein/credentials.clj")))))))
  (catch Exception _
    nil))
