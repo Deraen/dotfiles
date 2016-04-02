@@ -35,6 +35,7 @@ repo bluejeans "deb http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/deb
 repo fpco "deb http://download.fpcomplete.com/ubuntu/wily stable main"
 repo nodesource "deb https://deb.nodesource.com/node_4.x wily main\ndeb-src https://deb.nodesource.com/node_4.x wily main\n"
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### Modifications may be lost.\n\ndeb http://dist.keybase.io/linux/deb/repo stable main\n"
+repo tiliado "deb https://tiliado.eu/nuvolaplayer/repository/deb/ wily stable"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin wily
@@ -271,6 +272,9 @@ install simplescreenrecorder
 install mpv
 install smplayer
 install spotify-client
+install nuvolaplayer3
+install nuvolaplayer3-google-play-music
+install nuvolaplayer3-spotify
 install vlc-plugin-fluidsynth
 install steam-launcher
 install deluge
