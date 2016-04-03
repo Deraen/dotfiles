@@ -50,12 +50,6 @@ if [[ $(uname) != "Linux" ]]; then
   MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
 
-# Home git repo, don't show untracked files on status
-(
-cd $HOME
-[[ $(git config status.showUntrackedFiles) != "yes" ]] && git config status.showUntrackedFiles no
-)
-
 # Enable viewing gziped text files directly
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 

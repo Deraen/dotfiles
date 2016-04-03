@@ -70,6 +70,12 @@ if [[ $desktop == true ]]; then
     gsettings set org.gnome.desktop.background show-desktop-icons false
     crudini --set $HOME/.config/Trolltech.conf Qt style GTK+
     crudini --merge $HOME/.config/keepassx/config.ini < $HOME/.config/keepassx/config.ini.sample
+
+    (
+    cd $HOME
+    # Home git repo, don't show untracked files on status
+    git config status.showUntrackedFiles no
+    )
 fi
 
 header "Systemfiles"
