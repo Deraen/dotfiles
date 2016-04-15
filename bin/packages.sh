@@ -253,7 +253,6 @@ install gimp
 install gimp-plugin-registry
 install google-chrome-stable
 install google-chrome-beta
-install google-chrome-unstable
 install google-talkplugin
 install meld
 install gparted
