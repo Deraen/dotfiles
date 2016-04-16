@@ -21,7 +21,7 @@ ppa openconnect daily vivid
 ppa yubico stable wily
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu wily main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
-repo google-chrome "deb http://dl.google.com/linux/chrome/deb/ stable main"
+repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
 repo i3 "deb http://debian.sur5r.net/i3/ wily universe"
@@ -254,6 +254,7 @@ install gimp-plugin-registry
 install google-chrome-stable
 install google-chrome-beta
 install google-talkplugin
+install google-play-music-desktop-player
 install meld
 install gparted
 install inkscape
