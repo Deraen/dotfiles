@@ -106,6 +106,9 @@ install inotify-tools
 install attr
 # Edit ini files (e.g. Trolltech.conf) from CLI
 install crudini
+install john
+install optipng
+install tarsnap
 
 # R
 install r-base
@@ -174,6 +177,7 @@ install robomongo 0.8.5 https://download.robomongo.org/0.8.5/linux/robomongo-0.8
 install ansible
 install vagrant
 install rlwrap
+install cloc
 
 # Dev dependencies
 install autoconf
