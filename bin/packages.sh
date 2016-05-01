@@ -4,46 +4,46 @@
 
 . $HOME/.local/modules/pmm/init.sh
 
-ppa maarten-baert simplescreenrecorder wily
-ppa nilarimogard webupd8 wily # Launchpad-getkeys? Stuff
-ppa otto-kesselgulasch gimp wily
-ppa rvm smplayer wily # Mplayer UI
+ppa maarten-baert simplescreenrecorder xenial
+ppa nilarimogard webupd8 xenial # Launchpad-getkeys? Stuff
+ppa otto-kesselgulasch gimp xenial
+ppa rvm smplayer xenial # Mplayer UI
 ppa mc3man mpv-tests vivid # Mpv, mplayer[|2] fork
-ppa ubuntu-wine ppa wily
-ppa videolan master-daily wily
-ppa webupd8team java wily # Oracle java
-ppa webupd8team sublime-text-3 wily
+ppa ubuntu-wine ppa xenial
+ppa videolan master-daily xenial
+ppa webupd8team java xenial # Oracle java
+ppa webupd8team sublime-text-3 xenial
 ppa webupd8team themes vivid
 ppa ansible ansible wily
-ppa neovim-ppa unstable wily
-ppa fish-shell release-2 wily
+ppa neovim-ppa unstable xenial
+ppa fish-shell release-2 xenial
 ppa openconnect daily vivid
-ppa yubico stable wily
-repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu wily main"
+ppa yubico stable xenial
+repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
 repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
-repo i3 "deb http://debian.sur5r.net/i3/ wily universe"
+repo i3 "deb http://debian.sur5r.net/i3/ xenial universe"
 repo spotify "deb http://repository.spotify.com stable non-free"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
-repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian wily non-free contrib"
+repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non-free contrib"
 repo docker "deb https://get.docker.io/ubuntu docker main"
 repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
 repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /"
 repo bluejeans "deb http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs stable main"
-repo fpco "deb http://download.fpcomplete.com/ubuntu/wily stable main"
-repo nodesource "deb https://deb.nodesource.com/node_4.x wily main\ndeb-src https://deb.nodesource.com/node_4.x wily main\n"
+repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
+repo nodesource "deb https://deb.nodesource.com/node_4.x xenial main\ndeb-src https://deb.nodesource.com/node_4.x xenial main\n"
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### Modifications may be lost.\n\ndeb http://dist.keybase.io/linux/deb/repo stable main\n"
-repo tiliado "deb https://tiliado.eu/nuvolaplayer/repository/deb/ wily stable"
+repo tiliado "deb https://tiliado.eu/nuvolaplayer/repository/deb/ xenial stable"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        ppa bitcoin bitcoin wily
-        ppa graphics-drivers ppa wily
+        ppa bitcoin bitcoin xenial
+        ppa graphics-drivers ppa xenial
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        ppa linrunner tlp wily
+        ppa linrunner tlp xenial
 fi
 
 clearRepos
