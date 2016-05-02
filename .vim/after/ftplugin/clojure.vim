@@ -15,7 +15,7 @@ autocmd FileType clojure setlocal lispwords+=run*
 " Om
 autocmd FileType clojure setlocal lispwords+=will-mount,render,render-state,init-state,did-mount,should-update,will-receive-props,will-update,did-update,display-name,will-unmount
 " Om next
-autocmd FileType clojure setlocal lispwords+=query,ident
+autocmd FileType clojure setlocal lispwords+=ident
 " Cljs
 autocmd FileType clojure setlocal lispwords+=this-as
 " Plumbing
