@@ -201,6 +201,13 @@ install libxi-dev
 install libjson-glib-dev
 # rofi
 install libstartup-notification0-dev
+install libxcb-xkb-dev
+install libxcb-ewmh-dev
+install libxcb-xinerama0-dev
+install libxcb-icccm4-dev
+install libxkbcommon-dev
+install libxkbcommon-x11-dev
+install libx11-xcb-dev
 
 # Docker
 install lxc-docker
