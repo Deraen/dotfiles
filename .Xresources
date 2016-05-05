@@ -66,6 +66,12 @@ URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 rofi.case-sensitive: false
-rofi.bg: #3C3B37
 rofi.fg: #fff
 rofi.font: Ubuntu 17
+rofi.color-normal:                   #3C3B37,#fff,#3C3B37,#586e75,#eee8d5
+rofi.color-urgent:                   #3C3B37,#dc322f,#eee8d5,#dc322f,#fdf6e3
+rofi.color-active:                   #3C3B37,#268bd2,#eee8d5,#268bd2,#fdf6e3
+rofi.color-window:                   #3C3B37,#3C3B37
+rofi.location: 6
+rofi.display-drun:
+rofi.modi: drun,run,window
