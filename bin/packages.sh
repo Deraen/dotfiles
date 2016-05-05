@@ -299,6 +299,7 @@ install bjnplugin
 install sweethome3d
 install sweethome3d-furniture
 install sweethome3d-furniture-nonfree
+install yad # Zenity alternative with proper color picker
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
