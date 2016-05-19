@@ -192,6 +192,7 @@ install libxdg-basedir-dev
 install libxss-dev # libXscrnsaver
 install libxinerama-dev
 install libnotify-dev
+install libdbus-1-dev
 # xss-lock
 install libxcb-screensaver0-dev
 install libxcb-util0-dev
