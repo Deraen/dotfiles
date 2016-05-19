@@ -69,7 +69,7 @@ if [[ $desktop == true ]]; then
     header "Settings"
     gsettings set org.gnome.desktop.background show-desktop-icons false
     crudini --set $HOME/.config/Trolltech.conf Qt style GTK+
-    crudini --merge $HOME/.config/keepassx/config.ini < $HOME/.config/keepassx/config.ini.sample
+    crudini --merge $HOME/.config/keepassx/keepassx2.ini < $HOME/.config/keepassx/keepassx2.ini.sample
 
     (
     cd $HOME
