@@ -283,3 +283,6 @@
 [submodule ".vim/bundle/FastFold"]
 	path = .vim/bundle/FastFold
 	url = https://github.com/Konfekt/FastFold.git
+[submodule ".vim/bundle/ReplaceWithRegister"]
+	path = .vim/bundle/ReplaceWithRegister
+	url = https://github.com/vim-scripts/ReplaceWithRegister.git
