@@ -164,9 +164,7 @@ bindsym $mod+x move workspace to output right
 bindsym $mod+Ctrl+x exec i3-switch-all
 
 # Scratchpad
-for_window [instance="crx_mnfehgbmkapmjnhcnbodoamcioleeooe"] move scratchpad
-bindsym $mod+F5 exec scratchpad "gtk-launch DevDocs" "crx_mnfehgbmkapmjnhcnbodoamcioleeooe"
-for_window [class="Keepassx" title="^(KeePassX - Password Manager|.* - KeePassX)$"] move scratchpad
+for_window [class="Keepassx"] floating enable
 bindsym $mod+F6 exec scratchpad keepassx keepassx
 
 # I3
