@@ -8,19 +8,18 @@ ppa maarten-baert simplescreenrecorder xenial
 ppa nilarimogard webupd8 xenial # Launchpad-getkeys? Stuff
 ppa otto-kesselgulasch gimp xenial
 ppa rvm smplayer xenial # Mplayer UI
-ppa mc3man mpv-tests vivid # Mpv, mplayer[|2] fork
+ppa mc3man mpv-tests xenial # Mpv, mplayer[|2] fork
 ppa ubuntu-wine ppa xenial
 ppa videolan master-daily xenial
 ppa webupd8team java xenial # Oracle java
 ppa webupd8team sublime-text-3 xenial
-ppa webupd8team themes vivid
-ppa ansible ansible wily
+ppa webupd8team atom xenial
+ppa ansible ansible xenial
 ppa neovim-ppa unstable xenial
 ppa fish-shell release-2 xenial
 ppa openconnect daily vivid
 ppa yubico stable xenial
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
-repo getdeb "deb http://archive.getdeb.net/ubuntu precise-getdeb apps games"
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
@@ -29,9 +28,6 @@ repo spotify "deb http://repository.spotify.com stable non-free"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non-free contrib"
 repo docker "deb https://get.docker.io/ubuntu docker main"
-repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
-repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /"
-repo bluejeans "deb http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs stable main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
 repo nodesource "deb https://deb.nodesource.com/node_4.x xenial main\ndeb-src https://deb.nodesource.com/node_4.x xenial main\n"
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### Modifications may be lost.\n\ndeb http://dist.keybase.io/linux/deb/repo stable main\n"
@@ -139,9 +135,6 @@ install stack
 
 # Prolog
 install gprolog
-
-# Scala
-install sbt 0.13.7 http://dl.bintray.com/sbt/debian/sbt-0.13.7.deb
 
 # Embedded
 install gcc-msp430 # TI Launchpad
@@ -296,7 +289,6 @@ install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-5.0
 install typecatcher # Install Google webfonts
 install cheese # Webcam
-install bjnplugin
 install sweethome3d
 install sweethome3d-furniture
 install sweethome3d-furniture-nonfree
@@ -334,12 +326,11 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install lvm2
         install cryptsetup
         install xbacklight
-        install prey 1.4.1 https://s3.amazonaws.com/prey-releases/node-client/1.4.1/prey_1.4.1_amd64.deb
+        install prey 1.5.1 https://s3.amazonaws.com/prey-releases/node-client/1.5.1/prey_1.5.1_amd64.deb
         install thinkfan
         install i965-va-driver
         install tlp
         install xautolock
-        install hipchat
 fi
 
 markauto
