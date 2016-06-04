@@ -9,7 +9,7 @@ ppa nilarimogard webupd8 xenial # Launchpad-getkeys? Stuff
 ppa otto-kesselgulasch gimp xenial
 ppa rvm smplayer xenial # Mplayer UI
 ppa mc3man mpv-tests vivid # Mpv, mplayer[|2] fork
-ppa ubuntu-wine ppa xenial
+ppa wine wine-builds xenial
 ppa videolan master-daily xenial
 ppa webupd8team java xenial # Oracle java
 ppa webupd8team sublime-text-3 xenial
@@ -30,13 +30,12 @@ repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise st
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non-free contrib"
 repo docker "deb https://get.docker.io/ubuntu docker main"
 repo hipchat "deb http://downloads.hipchat.com/linux/apt stable main"
-repo owncloud "deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/xUbuntu_14.04/ /"
-repo bluejeans "deb http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs stable main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
 repo nodesource "deb https://deb.nodesource.com/node_4.x xenial main\ndeb-src https://deb.nodesource.com/node_4.x xenial main\n"
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### Modifications may be lost.\n\ndeb http://dist.keybase.io/linux/deb/repo stable main\n"
 repo tiliado "deb https://tiliado.eu/nuvolaplayer/repository/deb/ xenial stable"
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
+repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin xenial
@@ -109,7 +108,10 @@ install attr
 install crudini
 install john
 install optipng
-install tarsnap
+install tarsnap 1.0.37-1 ~/Dropbox/Packages/tarsnap_1.0.37-1_amd64.deb
+# apt-get build-dep tarsnap
+# apt-get source --compile tarsnap
+# dpkg -i ...
 
 # R
 install r-base
@@ -119,7 +121,7 @@ install vim-gtk
 install neovim
 install emacs24
 install sublime-text-installer
-install atom
+install atom 1.7.4 ~/Dropbox/Packages/atom_1.7.4_amd64.deb
 
 # Neovim
 install luarocks
@@ -268,12 +270,11 @@ install google-chrome-stable
 install google-chrome-beta
 install google-talkplugin
 install slack-desktop
-install google-play-music-desktop-player
+# install google-play-music-desktop-player
 install meld
 install gparted
 install inkscape
 install keepassx # Password manager
-install keepass2
 install pass
 install mumble
 install pgadmin3 # PostgreSQL admin
@@ -296,11 +297,11 @@ install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-5.0
 install typecatcher # Install Google webfonts
 install cheese # Webcam
-install bjnplugin
 install sweethome3d
 install sweethome3d-furniture
 install sweethome3d-furniture-nonfree
 install yad # Zenity alternative with proper color picker
+install winehq-devel
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
@@ -308,11 +309,12 @@ install openvpn
 install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        install "nvidia-361"
+        install "nvidia-367"
         install nvidia-settings
         install playonlinux # Wine frontend for games
         install fail2ban
-        install palm-novacom # HP Touchpad. Local?
+        # HP Touchpad
+        install palm-novacom 1.0.64 ~/Dropbox/Packages/palm-novacom_1.0.64_amd64.deb
         install bitcoin-qt
         install picard # MusicBrainz audio tagger
         install puddletag # MP3 tagger
