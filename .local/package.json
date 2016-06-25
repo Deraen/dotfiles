@@ -4,19 +4,19 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "bower": "^1.6.5",
+    "bower": "^1.7.9",
     "cloc": "^2.0.0",
-    "forever": "^0.15.1",
+    "forever": "^0.15.2",
     "grunt-cli": "^1.2.0",
-    "gulp": "^3.9.0",
-    "jshint": "^2.8.0",
+    "gulp": "^3.9.1",
+    "jshint": "^2.9.2",
     "karma-cli": "^1.0.0",
-    "less": "^2.5.3",
+    "less": "^2.7.1",
     "mongo-hacker": "^0.0.13",
     "nodefront": "^1.0.7",
-    "npm-check-updates": "^2.3.4",
-    "phantomjs": "^2.1.7",
-    "uglify-js": "^2.5.0",
+    "npm-check-updates": "^2.6.7",
+    "phantomjs-prebuilt": "^2.1.7",
+    "uglify-js": "^2.6.4",
     "vtop": "^0.5.5"
   }
 }
