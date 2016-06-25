@@ -19,3 +19,4 @@ x-scheme-handler/ftp=google-chrome.desktop;
 video/x-matroska=mpv.desktop;
 application/xml=vim.desktop;
 video/mp4=mpv.desktop;
+application/pdf=inkscape.desktop;
