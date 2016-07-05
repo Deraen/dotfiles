@@ -5,6 +5,3 @@ INST=$2
 
 i3-window-exists -i $INST || i3-msg "exec $EXE"
 i3-msg "[instance=$INST] scratchpad show"
-i3-msg "mark current_workspace"
-i3-msg "[instance=$INST] move window to mark current_workspace"
-i3-msg "unmark current_workspace"

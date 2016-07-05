@@ -164,7 +164,8 @@ bindsym $mod+x move workspace to output right
 bindsym $mod+Ctrl+x exec i3-switch-all
 
 # Scratchpad
-for_window [class="Keepassx"] floating enable
+# Enable scratchpad for keepassx, but show after starting the app
+for_window [class="Keepassx"] move scratchpad, scratchpad show
 bindsym $mod+F6 exec scratchpad keepassx keepassx
 
 # I3
