@@ -299,6 +299,7 @@ let g:vim_json_syntax_conceal = 0
 let vimrplugin_term="urxvt"
 
 let g:sql_type_default = 'pgsql'
+let g:ftplugin_sql_omni_key = '<C-j>'
 
 autocmd VimResized  *    exe "normal! \<c-w>="
 
