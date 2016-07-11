@@ -84,7 +84,7 @@ install htop
 install iotop
 install jq # JSON processor
 install launchpad-getkeys
-install libav-tools-links
+install libav-tools
 install mosh
 install openssh-client
 install p7zip
@@ -119,7 +119,7 @@ install vim-gtk
 install neovim
 install emacs24
 install sublime-text-installer
-install atom 1.7.4 ~/Dropbox/Packages/atom_1.7.4_amd64.deb
+install atom
 
 # Neovim
 install luarocks
@@ -173,7 +173,7 @@ install sqlite3
 install httpie
 install robomongo 0.8.5 https://download.robomongo.org/0.8.5/linux/robomongo-0.8.5-x86_64.deb
 install ansible
-install vagrant
+install vagrant 1:1.8.4 https://releases.hashicorp.com/vagrant/1.8.4/vagrant_1.8.4_x86_64.deb
 install rlwrap
 install cloc
 
@@ -205,7 +205,7 @@ install libxcb-xinerama0-dev
 install libxcb-icccm4-dev
 install libxkbcommon-dev
 install libxkbcommon-x11-dev
-install libx11-xcb-dev
+install libxcb-xrm-dev
 
 # Docker
 install lxc-docker
@@ -273,7 +273,7 @@ install keepassx # Password manager
 install pass
 install mumble
 install pgadmin3 # PostgreSQL admin
-install postgresql-9.4
+install postgresql-9.5
 install pitivi # Video editor
 install xsane
 install qgit
