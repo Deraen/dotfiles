@@ -230,6 +230,7 @@ install biber
 install gnuplot-nox
 
 # Desktop env
+install sur5r-keyring
 install i3 # Tiling WM
 install i3lock
 install compton # Compositing, xcompmgr fork
