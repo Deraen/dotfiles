@@ -21,9 +21,7 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=10000
 SAVEHIST=10000
 
-exportIfExists ANDROID_HOME "/raid/opt/android-sdk-linux_x86"
-exportIfExists ANDROID_HOME "/opt/android-sdk-linux_x86"
-exportIfExists ANDROID_HOME "$HOME/.local/android-sdk"
+exportIfExists ANDROID_HOME "/opt/android-sdk"
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
@@ -31,12 +29,8 @@ addPath "$HOME/.local/node_modules/.bin"
 addPath "$HOME/.cabal/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.8.4/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.10.1/bin"
-addPath /raid/opt/android-sdk-linux_x86/platform-tools
-addPath /raid/opt/android-sdk-linux_x86/tools
-addPath /raid/opt/android-ndk
-addPath /opt/android-sdk-linux_x86/platform-tools
-addPath /opt/android-sdk-linux_x86/tools
-addPath /opt/android-ndk
+addPath /opt/android-sdk/platform-tools
+addPath /opt/android-sdk/tools
 addPath /usr/local/cuda-5.5/bin
 addPath /opt/PebbleSDK-3.0/bin
 
