@@ -14,7 +14,8 @@ install() {
 }
 
 install "/etc/default/keyboard"
-install "/etc/udev/rules.d/11-android.rules"
+sudo rm -f "/etc/udev/rules.d/11-android.rules"
+install "/etc/udev/rules.d/51-android.rules"
 install "/etc/udev/rules.d/46-TI_launchpad.rules"
 install "/etc/udev/rules.d/47-altera.rules"
 install "/etc/udev/rules.d/60-vboxdrv.rules"
