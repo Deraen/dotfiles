@@ -1,8 +1,8 @@
 (require 'boot.repl)
 
 (swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.10.1"]
-                [refactor-nrepl "2.0.0-SNAPSHOT"]
+       concat '[[cider/cider-nrepl "0.12.0"]
+                [refactor-nrepl "2.2.0"]
                 [org.clojure/tools.namespace "0.2.11"]
                 [aprint "0.1.3"]])
 
