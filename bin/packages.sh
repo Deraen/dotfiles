@@ -106,7 +106,7 @@ install attr
 install crudini
 install john
 install optipng
-install tarsnap 1.0.37-1 ~/Dropbox/Packages/tarsnap_1.0.37-1_amd64.deb
+install tarsnap
 # apt-get build-dep tarsnap
 # apt-get source --compile tarsnap
 # dpkg -i ...
@@ -333,7 +333,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install lvm2
         install cryptsetup
         install xbacklight
-        install prey 1.5.1 https://s3.amazonaws.com/prey-releases/node-client/1.5.1/prey_1.5.1_amd64.deb
+        # install prey 1.5.1 https://s3.amazonaws.com/prey-releases/node-client/1.5.1/prey_1.5.1_amd64.deb
         install thinkfan
         install i965-va-driver
         install tlp
