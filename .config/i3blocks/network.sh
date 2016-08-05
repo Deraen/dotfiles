@@ -6,10 +6,10 @@ fi
 WLAN=$(iwgetid -r)
 
 if [[ $WLAN != "" ]]; then
-    echo " $WLAN"
-    echo " $WLAN"
+    echo -e "\uf35c $WLAN"
+    echo -e "\uf35c $WLAN"
 else
-    echo ""
-    echo ""
+    echo -e "\uf368"
+    echo -e "\uf368"
 fi
 echo "#8ecaed"

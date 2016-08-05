@@ -4,10 +4,12 @@ color=#ffffff
 [network]
 command=~/.config/i3blocks/network.sh
 interval=10
+markup=pango
 
 [battery]
 interval=5
 command=~/.config/i3blocks/battery.sh
+markup=pango
 
 [volume]
 signal=1
@@ -15,7 +17,9 @@ interval=once
 command=~/.config/i3blocks/volume.sh
 min_width=40
 align=center
+markup=pango
 
 [time]
 interval=5
 command=~/.config/i3blocks/date.sh
+markup=pango

@@ -34,6 +34,5 @@ acpi -b | awk '
     }
     out=out states[status] dur " " bar " " percent "%"
 }
-END { print out }'
-echo
+END { print out; print out; }'
 echo "#93dc48"
