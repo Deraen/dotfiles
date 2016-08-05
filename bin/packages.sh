@@ -154,8 +154,9 @@ install cppcheck
 
 # Python
 install pep8
-install python3-pip
 install pylint
+install python3-pip
+install python3-venv
 
 # Version control
 install git

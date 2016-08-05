@@ -33,6 +33,17 @@ npm install
 header "Build vimproc"
 make -C $HOME/.vim/bundle/vimproc -j
 
+header "Neovim Python virtualenv"
+
+(
+cd $HOME/.local/virtualenvs
+if [[ ! -f neovim/bin/activate ]]; then
+    python -m venv neovim
+fi
+source neovim/bin/activate
+pip install -r neovim/requirements.txt
+)
+
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
     make -C $HOME/.local/modules/ponymix -j
