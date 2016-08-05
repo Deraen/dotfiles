@@ -42,6 +42,11 @@ if [[ ! -f neovim/bin/activate ]]; then
 fi
 source neovim/bin/activate
 pip install -r neovim/requirements.txt
+
+if confirm -i "Update neovim python packages?"; then
+    pip install `pip freeze -l | cut --fields=1 -d = -` --upgrade
+    pip freeze > neovim/requirements.txt
+fi
 )
 
 if [[ $desktop == true ]]; then
