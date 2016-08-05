@@ -28,7 +28,10 @@ if [[ $HOSTNAME == "juho-desktop" ]]; then
 fi
 
 if [[ $HOSTNAME == "juho-laptop" ]]; then
-    install "/etc/thinkfan.conf"
+    # X220
+    if grep -q i7-2640 /proc/cpuinfo; then
+        install "/etc/thinkfan.conf"
+    fi
     install "/etc/NetworkManager/dispatcher.d/99nfs"
     install "/etc/systemd/logind.conf"
 fi
