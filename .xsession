@@ -4,6 +4,8 @@ source /home/$USER/.profile
 
 xmodmap .Xmodmap
 
+synclient TouchpadOff=1
+
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 
 eval "$(gpg-agent --daemon --sh)" >/dev/null
