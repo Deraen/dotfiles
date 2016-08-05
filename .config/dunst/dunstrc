@@ -12,7 +12,7 @@
     # %I  iconname (without its path)
     # %p  progress value ([  0%] to [100%])
 
-    format = "<b>%s</b>\n%b"
+    format = "<b>%s</b>\n%b%p"
 
     sort = yes
 
@@ -46,7 +46,7 @@
 
 [ponymix]
     appname=ponymix
-    format=""
+    format="Volume\n%b%p"
 
 [Spotify]
     appname=Spotify

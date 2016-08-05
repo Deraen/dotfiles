@@ -3,7 +3,7 @@ maxdisplays: 2
 displays:
 - eDP1:
     auto: yes
-    dpi: 136
+    dpi: 144
 - LVDS1:
     auto: Yes
 - LVDS1: # Laptop + Projector
