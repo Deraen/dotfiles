@@ -1,9 +1,10 @@
 #!/bin/bash
 
-if [ $HOSTNAME == "juho-desktop" ]; then
-    SIZE=17
-else
-    SIZE=13
+SIZE=17
+if [[ $HOSTNAME == "juho-laptop" ]]; then
+    if grep -q i7-2640 /proc/cpuinfo; then
+        SIZE=13
+    fi
 fi
 
 exec urxvt \
