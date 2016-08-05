@@ -29,7 +29,11 @@ acpi -b | awk '
     i=0
     for (; i < 10 && i < int(percent / 10); ++i) bar=bar "█"
     for (; i < 10; ++i) bar=bar "░"
+    if (out != "") {
+        out=out "  |  "
+    }
+    out=out states[status] dur " " bar " " percent "%"
 }
-END { print states[status] dur " " bar " " percent "%" }'
+END { print out }'
 echo
 echo "#93dc48"
