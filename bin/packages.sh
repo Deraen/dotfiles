@@ -179,6 +179,7 @@ install cloc
 
 # Dev dependencies
 install autoconf
+install automake
 install libboost-all-dev
 install libpulse-dev # Ponymix
 # Dunst
