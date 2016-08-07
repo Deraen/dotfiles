@@ -45,7 +45,7 @@ URxvt.secondaryScreen:   false
 URxvt.skipScroll:        true
 URxvt.smallfont_key:     p
 URxvt.tripleclickwords:  on
-URxvt.url-select.launcher:  google-chrome
+URxvt.url-select.launcher: open-url.sh
 URxvt.url-select.underline: true
 URxvt*keysym.Control-Up:    \033[1;5A
 URxvt*keysym.Control-Down:  \033[1;5B
