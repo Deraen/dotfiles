@@ -4,6 +4,12 @@ displays:
 - eDP1:
     auto: yes
     dpi: 144
+- eDP1:
+    auto: yes
+    dpi: 144
+  DP2-1:
+    auto: yes
+    right-of: eDP1
 - LVDS1:
     auto: Yes
 - LVDS1: # Laptop + Projector
