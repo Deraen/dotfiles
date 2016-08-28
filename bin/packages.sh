@@ -250,6 +250,7 @@ install libu2f-host0
 install yubikey-neo-manager
 install yubikey-personalization
 install yubikey-personalization-gui
+install pinentry-gtk2
 
 # GUI software
 install blender
