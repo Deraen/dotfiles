@@ -38,14 +38,14 @@ header "Neovim Python virtualenv"
 (
 cd $HOME/.local/virtualenvs
 if [[ ! -f neovim/bin/activate ]]; then
-    python -m venv neovim
+    python3 -m venv neovim
 fi
 source neovim/bin/activate
-pip install -r neovim/requirements.txt
+pip3 install -r neovim/requirements.txt
 
 if confirm -i "Update neovim python packages?"; then
-    pip install `pip freeze -l | cut --fields=1 -d = -` --upgrade
-    pip freeze > neovim/requirements.txt
+    pip3 install `pip freeze -l | cut --fields=1 -d = -` --upgrade
+    pip3 freeze > neovim/requirements.txt
 fi
 )
 
