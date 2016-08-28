@@ -286,3 +286,6 @@
 [submodule ".vim/bundle/ReplaceWithRegister"]
 	path = .vim/bundle/ReplaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister.git
+[submodule ".vim/bundle/DidYouMean"]
+	path = .vim/bundle/DidYouMean
+	url = https://github.com/EinfachToll/DidYouMean.git

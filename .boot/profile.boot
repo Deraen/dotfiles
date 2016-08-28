@@ -1,14 +1,14 @@
 (require 'boot.repl)
 
-(swap! boot.repl/*default-dependencies*
-       concat '[[cider/cider-nrepl "0.12.0"]
-                [refactor-nrepl "2.2.0"]
-                [org.clojure/tools.namespace "0.2.11"]
-                [aprint "0.1.3"]])
+(swap! boot.repl/*default-dependencies* into
+       '[[cider/cider-nrepl "0.13.0"]
+         [refactor-nrepl "2.2.0"]
+         [org.clojure/tools.namespace "0.2.11"]
+         [aprint "0.1.3"]])
 
-(swap! boot.repl/*default-middleware* conj
-       'cider.nrepl/cider-middleware
-       'refactor-nrepl.middleware/wrap-refactor)
+(swap! boot.repl/*default-middleware* into
+       '[cider.nrepl/cider-middleware
+         refactor-nrepl.middleware/wrap-refactor])
 
 ;; Read credentials from Lein directory
 (try
