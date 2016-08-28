@@ -286,3 +286,9 @@
 [submodule ".vim/bundle/ReplaceWithRegister"]
 	path = .vim/bundle/ReplaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister.git
+[submodule ".local/modules/wlc"]
+	path = .local/modules/wlc
+	url = https://github.com/Cloudef/wlc.git
+[submodule ".local/modules/sway"]
+	path = .local/modules/sway
+	url = https://github.com/SirCmpwn/sway.git

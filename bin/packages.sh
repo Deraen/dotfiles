@@ -208,6 +208,14 @@ install libxcb-icccm4-dev
 install libxkbcommon-dev
 install libxkbcommon-x11-dev
 install libxcb-xrm-dev
+# wlc, sway
+install lininput-dev
+install linudev-dev
+install doxygen
+install libgbm-dev
+install libxcb-image0-dev
+install libxcb-composite0-dev
+install libjson-c-dev
 
 # Docker
 install lxc-docker
