@@ -25,6 +25,7 @@ repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable ma
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
 repo i3 "deb http://debian.sur5r.net/i3/ xenial universe"
 repo spotify "deb http://repository.spotify.com stable non-free"
+repo spotify-hack "deb http://se.archive.ubuntu.com/ubuntu trusty main universe\ndeb http://security.ubuntu.com/ubuntu trusty-security main universe"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non-free contrib"
 repo docker "deb https://get.docker.io/ubuntu docker main"
@@ -286,6 +287,8 @@ install simplescreenrecorder
 install mpv
 install smplayer
 install spotify-client
+install libavcodec54 # Spotify local files
+install libavformat54
 install nuvolaplayer3
 install nuvolaplayer3-google-play-music
 install nuvolaplayer3-spotify
