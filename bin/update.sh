@@ -17,7 +17,7 @@ update_module() {
 submodules=($(git submodule foreach --quiet pwd))
 
 for m in ${submodules[@]}; do
-  echo ">>> Update $m"
+  echo ">> Update $m"
   update_module "$m"
 done
 

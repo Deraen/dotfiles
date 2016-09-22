@@ -25,7 +25,7 @@ confirm() {
 
 header() {
     echo
-    echo -e "\e[1m\e[32m>>"
-    echo -e ">> $1"
-    echo -e ">>\e[0m"
+    echo -e "\e[1m\e[32m▄"
+    echo -e "█ $1"
+    echo -e "▀\e[0m"
 }
