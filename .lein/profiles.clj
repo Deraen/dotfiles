@@ -1,6 +1,6 @@
-{:repl {:plugins [[cider/cider-nrepl "0.12.0"]
+{:repl {:plugins [[cider/cider-nrepl "0.13.0"]
                   [refactor-nrepl "2.2.0"]
-                  [venantius/ultra "0.4.1"]]}
+                  [venantius/ultra "0.5.0" :exclusions [org.clojure/clojure]]]}
  :user {:plugins [[lein-ancient "0.6.10"]
                   [lein-deps-tree "0.1.2"]
                   [lein-pprint "1.1.2"]
