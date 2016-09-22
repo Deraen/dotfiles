@@ -19,3 +19,5 @@
 	whitespace = fix
 [gpg]
 	program = gpg2
+[submodule]
+	fetchJobs = 10

@@ -26,7 +26,7 @@ changed submodule after updating submodules: `git log -p --submodule=log` or
 Prerequisites: git, bash
 
 ```bash
-git clone git@github.com:Deraen/dotfiles.git
+git clone --recurse-submodules git@github.com:Deraen/dotfiles.git
 cd dotfiles
 shopt -s dotglob # bash, or
 setopt globdots # zsh
