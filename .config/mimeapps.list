@@ -7,6 +7,7 @@ x-scheme-handler/https=google-chrome.desktop
 text/html=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
+video/mpeg=mpv.desktop
 
 [Added Associations]
 video/quicktime=mpv.desktop;
@@ -20,3 +21,4 @@ video/x-matroska=mpv.desktop;
 application/xml=vim.desktop;
 video/mp4=mpv.desktop;
 application/pdf=inkscape.desktop;
+video/mpeg=mpv.desktop;
