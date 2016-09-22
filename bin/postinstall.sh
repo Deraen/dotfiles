@@ -66,7 +66,7 @@ if [[ $desktop == true ]]; then
     autoreconf -i
     mkdir -p build
     cd build
-    ../configure --prefix=$HOME/.local
+    ../configure --prefix=$HOME/.local --enable-drun
     make -j
     make install
     )
