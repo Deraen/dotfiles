@@ -29,7 +29,7 @@ repo spotify "deb http://repository.spotify.com stable non-free"
 repo spotify-hack "deb http://se.archive.ubuntu.com/ubuntu trusty main universe\ndeb http://security.ubuntu.com/ubuntu trusty-security main universe"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non-free contrib"
-repo docker "deb https://get.docker.io/ubuntu docker main"
+repo docker "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
 repo nodesource "deb https://deb.nodesource.com/node_4.x xenial main\ndeb-src https://deb.nodesource.com/node_4.x xenial main\n"
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### Modifications may be lost.\n\ndeb http://dist.keybase.io/linux/deb/repo stable main\n"
@@ -246,7 +246,6 @@ install faenza-icon-theme
 
 # GPG stuff
 install gnupg2
-install pcscd
 install scdaemon
 install keybase
 install libu2f-host0
