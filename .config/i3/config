@@ -9,6 +9,7 @@ font pango:Ubuntu, Icons 8
 
 # Dmenu
 bindsym $mod+r exec rofi -show drun
+bindsym $mod+s exec code
 
 bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py && rndbg.sh
 bindsym $mod+Shift+F11 exec togglecompton.sh
@@ -26,7 +27,7 @@ floating_modifier $mod
 hide_edge_borders both
 
 # Launch
-bindsym $mod+Return exec TERMINAL="urxvt.sh" i3-sensible-terminal
+bindsym $mod+Return exec TERMINAL="term" i3-sensible-terminal
 bindsym $mod+Shift+Return exec nautilus
 bindsym $mod+Shift+Q kill
 

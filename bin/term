@@ -1,10 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
-# Launch one or more terminals
-# $ term
-# $ term 4
+if [[ $1 == "--help" ]]; then
+  echo "Usage: $0 [number of terminals to start] [ARGS TO URXVT]"
+  exit
+fi
 
-# Open new terminal in current dir
-for i in $(seq 1 ${1:-1}); do
-  urxvt.sh &> /dev/null
+n=1
+if [ $1 -eq $1 ] 2>/dev/null; then
+  n=$1
+  shift
+fi
+
+args=$@
+
+for i in $(seq 1 $n); do
+  urxvt.sh $args & > /dev/null
 done

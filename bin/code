@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd ~/Source
+
+if [[ ! -z $1 ]]; then
+    i3-msg "append_layout ~/.config/i3/code_layout.json; exec term -cd ~/Source/$1 -title vim -e vim -S; exec term 3 -cd ~/Source/$1"
+    exit
+fi
+
+dir=$(find . -maxdepth 3 -type d -name ".git" -printf "%h\n" | sed 's_\./__' | rofi -dmenu -p "Project: ")
+
+if [[ ! -z $dir ]]; then
+    $0 $dir
+fi

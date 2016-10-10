@@ -238,6 +238,7 @@ install gnuplot-nox
 install sur5r-keyring
 install i3 # Tiling WM
 install i3lock
+install libanyevent-perl-i3
 install compton # Compositing, xcompmgr fork
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools
