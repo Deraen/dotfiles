@@ -8,7 +8,7 @@ markup=pango
 
 [battery]
 interval=5
-command=~/.config/i3blocks/battery.sh
+command=~/.config/i3blocks/battery2.sh
 markup=pango
 
 [volume]
