@@ -101,15 +101,16 @@ assign [class="Steam"] → $steam
 assign [class="Spotify"] → $music
 assign [class="HipChat"] → $comm
 assign [class="Skype"] → $comm
+assign [class="Slack"] → $comm
 # Flowdock
 assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → $comm
 # IRCCloud
 assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
 
 for_window [class="^.*"] border pixel 2
-# Eclipse splashscreen
-for_window [class="Java" title="^Eclipse( SDK )?$"] floating enable
 for_window [class="Simplescreenrecorder"] floating enable
+for_window [class="Gnome-power-statistics"] floating enable
+for_window [class="Yad"] floating enable
 # Incanter windows
 for_window [title="^Incanter (Matrix|Dataset)"] floating enable
 # Google hangouts
