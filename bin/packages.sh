@@ -17,7 +17,7 @@ ppa webupd8team atom xenial
 ppa ansible ansible xenial
 ppa neovim-ppa unstable xenial
 ppa fish-shell release-2 xenial
-ppa openconnect daily vivid
+ppa openconnect daily xenial
 ppa yubico stable xenial
 ppa git-core ppa xenial
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
@@ -33,7 +33,6 @@ repo docker "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
 repo nodesource "deb https://deb.nodesource.com/node_4.x xenial main\ndeb-src https://deb.nodesource.com/node_4.x xenial main\n"
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### Modifications may be lost.\n\ndeb http://dist.keybase.io/linux/deb/repo stable main\n"
-repo tiliado "deb https://tiliado.eu/nuvolaplayer/repository/deb/ xenial stable"
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
 repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./"
 
@@ -272,7 +271,6 @@ install google-chrome-stable
 install google-chrome-beta
 install google-talkplugin
 install slack-desktop
-# install google-play-music-desktop-player
 install meld
 install gparted
 install inkscape
@@ -291,9 +289,6 @@ install smplayer
 install spotify-client
 install libavcodec54 # Spotify local files
 install libavformat54
-install nuvolaplayer3
-install nuvolaplayer3-google-play-music
-install nuvolaplayer3-spotify
 install vlc-plugin-fluidsynth
 install steam-launcher
 install deluge
@@ -301,9 +296,6 @@ install unetbootin # Install Linux/etc images into USB stiff
 install virtualbox-5.0
 install typecatcher # Install Google webfonts
 install cheese # Webcam
-install sweethome3d
-install sweethome3d-furniture
-install sweethome3d-furniture-nonfree
 install yad # Zenity alternative with proper color picker
 install winehq-devel
 
