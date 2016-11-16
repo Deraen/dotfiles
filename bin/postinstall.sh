@@ -93,7 +93,7 @@ if [[ $desktop == true ]]; then
     )
 fi
 
-header "Systemfiles"
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then
+    header "Systemfiles"
     $HOME/.systemfiles/install.sh
 fi
