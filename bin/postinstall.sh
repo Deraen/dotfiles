@@ -24,10 +24,11 @@ header "NPM Utils"
 (
 cd $HOME/.local
 if confirm -i "Update Node utils?"; then
-    npm-check-updates -u
+    npm-check-updates --upgradeAll
 fi
 npm prune
 npm install
+npm update
 )
 
 header "Build vimproc"
