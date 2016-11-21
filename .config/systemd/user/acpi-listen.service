@@ -1,0 +1,9 @@
+[Unit]
+Description=ACPI listener
+
+[Service]
+Type=simple
+ExecStart=/home/juho/bin/acpi-listen
+
+[Install]
+WantedBy=default.target

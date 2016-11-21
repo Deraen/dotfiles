@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case $1 in
+    jack/headphone)
+        case $3 in
+            unplug) systemctl --user start headphone-unplugged.target;;
+        esac;;
+    ibm/hotkey)
+        case $2 in
+            LEN0068:00)
+                case $4 in
+                    00004010) systemctl --user start docked.target;;
+                    00004011) systemctl --user start undocked.target;;
+                esac;;
+        esac;;
+esac
