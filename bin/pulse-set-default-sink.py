@@ -4,6 +4,7 @@ import os
 from dbus.mainloop.glib import DBusGMainLoop
 import gobject
 from subprocess import call
+import sys
 
 def pulse_bus_address():
     if 'PULSE_DBUS_SERVER' in os.environ:
@@ -18,6 +19,12 @@ loop = gobject.MainLoop()
 pulse_bus = None
 pulse_core = None
 
+if len(sys.argv) < 2:
+    print("Usage %s [device-name]" % sys.argv[0])
+    sys.exit(1)
+
+device = sys.argv[1]
+
 def set_fallback_sink(name):
     print("Setting fallback sink to %s" % name)
     # FIXME: org.PulseAudio.Core1.NoSuchPropertyError: There are no sinks, and therefore no fallback sink either.
@@ -29,7 +36,7 @@ def new_sink(sink_path):
     sink = pulse_bus.get_object(object_path=sink_path)
     name = sink.Get('org.PulseAudio.Core1.Device', 'Name')
 
-    if name == 'alsa_output.usb-Audinst__Inc._Audinst_HUD-mx1-01.analog-stereo':
+    if name == device:
         # set_fallback_sink(sink_path)
         set_fallback_sink(name)
 
@@ -43,11 +50,9 @@ def connect():
 
     # Set default when starting also
 
-    name='alsa_output.usb-Audinst__Inc._Audinst_HUD-mx1-01.analog-stereo'
-
     try:
-        sink_path = pulse_core.GetSinkByName(name)
-        set_fallback_sink(name)
+        sink_path = pulse_core.GetSinkByName(device)
+        set_fallback_sink(device)
         # set_fallback_sink(sink_path)
     except dbus.DBusException, e:
         pass
