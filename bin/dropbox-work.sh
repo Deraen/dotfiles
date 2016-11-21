@@ -6,4 +6,4 @@ if ! [ -d "$HOME/.dropbox-work" ]; then
 fi
 HOME="$HOME/.dropbox-work"
 
-/home/$USER/.dropbox-dist/dropboxd 2> /dev/null &
+/home/$USER/.dropbox-dist/dropboxd

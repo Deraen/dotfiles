@@ -1,0 +1,10 @@
+[Unit]
+Description=Dropbox
+
+[Install]
+WantedBy=default.target
+
+[Service]
+Restart=on-failure
+Type=simple
+ExecStart=/home/juho/bin/dropbox-work.sh

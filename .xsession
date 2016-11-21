@@ -2,6 +2,8 @@
 
 source /home/$USER/.profile
 
+systemctl --user import-environment
+
 xmodmap .Xmodmap
 
 synclient TouchpadOff=1
@@ -22,8 +24,6 @@ fi
 
 dunst &
 nm-applet &
-dropbox start &
-dropbox-work.sh &
 if [[ $HOST == "juho-laptop" ]]; then
     xset dpms 300
     xset s 300
