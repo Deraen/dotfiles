@@ -1,0 +1,9 @@
+[Unit]
+Description=Pulseaudio set default sink
+
+[Service]
+Type=simple
+ExecStart=/home/juho/bin/pulse-set-default-sink.py
+
+[Install]
+WantedBy=default.target

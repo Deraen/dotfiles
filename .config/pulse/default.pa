@@ -1,0 +1,5 @@
+#!/usr/bin/pulseaudio -nF
+
+.include /etc/pulse/default.pa
+
+load-module module-dbus-protocol
