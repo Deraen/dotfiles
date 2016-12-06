@@ -56,8 +56,8 @@ URxvt*scrollTtyOutput:      false
 URxvt*scrollWithBuffer:     true
 URxvt*scrollTtyKeypress:    true
 
-URxvt.perl-lib: /home/juho/.local/modules/urxvt-perls:/home/juho/.local/modules/urxvt-font-size
-URxvt.perl-ext: default,font-size,keyboard-select,matcher,selection-to-clipboard
+URxvt.perl-lib: /home/juho/.local/modules/urxvt-font-size
+URxvt.perl-ext: default,font-size,matcher,selection-to-clipboard
 URxvt.keysym.M-u:      perl:matcher:list
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease

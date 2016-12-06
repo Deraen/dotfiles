@@ -1,9 +1,6 @@
 [submodule ".local/modules/dspmgr"]
 	path = .local/modules/dspmgr
 	url = git@github.com:Deraen/dspmgr.git
-[submodule ".local/modules/urxvt-perls"]
-	path = .local/modules/urxvt-perls
-	url = https://github.com/muennich/urxvt-perls.git
 [submodule ".local/modules/urxvt-font-size"]
 	path = .local/modules/urxvt-font-size
 	url = https://github.com/majutsushi/urxvt-font-size.git
