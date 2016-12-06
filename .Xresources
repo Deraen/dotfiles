@@ -45,8 +45,6 @@ URxvt.secondaryScreen:   false
 URxvt.skipScroll:        true
 URxvt.smallfont_key:     p
 URxvt.tripleclickwords:  on
-URxvt.url-select.launcher: open-url.sh
-URxvt.url-select.underline: true
 URxvt*keysym.Control-Up:    \033[1;5A
 URxvt*keysym.Control-Down:  \033[1;5B
 URxvt*keysym.Control-Left:  \033[1;5D
@@ -59,14 +57,18 @@ URxvt*scrollWithBuffer:     true
 URxvt*scrollTtyKeypress:    true
 
 URxvt.perl-lib: /home/juho/.local/modules/urxvt-perls:/home/juho/.local/modules/urxvt-font-size
-URxvt.perl-ext:          default,url-select,font-size,keyboard-select,clipboard
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.perl-ext: default,font-size,keyboard-select,matcher,selection-to-clipboard
+URxvt.keysym.M-u:      perl:matcher:list
 URxvt.keysym.C-Up:     perl:font-size:increase
 URxvt.keysym.C-Down:   perl:font-size:decrease
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.url-launcher:       open-url.sh
+URxvt.matcher.button:     1
+URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.launcher.2: gvim +$2 $1
 
 rofi.case-sensitive: false
 rofi.fg: #fff
