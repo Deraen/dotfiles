@@ -333,7 +333,10 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install cryptsetup
         install xbacklight
         # install prey 1.5.1 https://s3.amazonaws.com/prey-releases/node-client/1.5.1/prey_1.5.1_amd64.deb
-        install thinkfan
+        # X220
+        if grep -q i7-2640 /proc/cpuinfo; then
+                install thinkfan
+        fi
         install i965-va-driver
         install tlp
         install xautolock
