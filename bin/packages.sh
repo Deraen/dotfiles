@@ -43,6 +43,7 @@ fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         ppa linrunner tlp xenial
+        ppa oibaf graphics-drivers xenial
 fi
 
 clearRepos
@@ -175,7 +176,7 @@ install sqlite3
 install httpie
 install robomongo 0.8.5 https://download.robomongo.org/0.8.5/linux/robomongo-0.8.5-x86_64.deb
 install ansible
-install vagrant 1:1.8.4 https://releases.hashicorp.com/vagrant/1.8.4/vagrant_1.8.4_x86_64.deb
+install vagrant 1:1.9.1 https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb
 install rlwrap
 install cloc
 
@@ -293,11 +294,12 @@ install vlc-plugin-fluidsynth
 install steam-launcher
 install deluge
 install unetbootin # Install Linux/etc images into USB stiff
-install virtualbox-5.0
+install virtualbox-5.1
 install typecatcher # Install Google webfonts
 install cheese # Webcam
 install yad # Zenity alternative with proper color picker
 install winehq-devel
+install mesa-utils
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
