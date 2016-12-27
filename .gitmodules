@@ -286,6 +286,3 @@
 [submodule ".vim/bundle/DidYouMean"]
 	path = .vim/bundle/DidYouMean
 	url = https://github.com/EinfachToll/DidYouMean.git
-[submodule ".vim/bundle_clojure/clojure-socketrepl.nvim"]
-	path = .vim/bundle_clojure/clojure-socketrepl.nvim
-	url = https://github.com/jebberjeb/clojure-socketrepl.nvim.git
