@@ -9,6 +9,7 @@
     "forever": "^0.15.3",
     "grunt-cli": "^1.2.0",
     "gulp": "^3.9.1",
+    "gzip-size-cli": "^1.0.0",
     "jshint": "^2.9.4",
     "karma-cli": "^1.0.1",
     "less": "^2.7.1",
@@ -16,6 +17,7 @@
     "nodefront": "^1.0.7",
     "npm-check-updates": "^2.8.8",
     "phantomjs-prebuilt": "^2.1.13",
+    "pretty-bytes-cli": "^2.0.0",
     "uglify-js": "^2.7.5",
     "vtop": "^0.5.7"
   }
