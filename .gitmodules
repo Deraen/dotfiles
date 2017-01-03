@@ -286,3 +286,9 @@
 [submodule ".vim/bundle/DidYouMean"]
 	path = .vim/bundle/DidYouMean
 	url = https://github.com/EinfachToll/DidYouMean.git
+[submodule ".vim/bundle/auto_mkdir"]
+	path = .vim/bundle/auto_mkdir
+	url = https://github.com/DataWraith/auto_mkdir.git
+[submodule ".vim/bundle/far.vim"]
+	path = .vim/bundle/far.vim
+	url = https://github.com/brooth/far.vim.git
