@@ -176,7 +176,7 @@ install sqlite3
 install httpie
 install robomongo 0.8.5 https://download.robomongo.org/0.8.5/linux/robomongo-0.8.5-x86_64.deb
 install ansible
-install vagrant 1:1.9.1 https://releases.hashicorp.com/vagrant/1.9.1/vagrant_1.9.1_x86_64.deb
+install vagrant 1:1.8.6 https://releases.hashicorp.com/vagrant/1.8.6/vagrant_1.8.6_x86_64.deb
 install rlwrap
 install cloc
 
@@ -307,7 +307,7 @@ install openvpn
 install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        install "nvidia-367"
+        install "nvidia-375"
         install nvidia-settings
         install playonlinux # Wine frontend for games
         install fail2ban
