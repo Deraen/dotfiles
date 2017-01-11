@@ -338,4 +338,4 @@ let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.]*'
 " Select next with tab if popup menu is open
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "	"
 
-autocmd User Fugitive nnoremap <buffer> <M-w> <C-w>c
+autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
