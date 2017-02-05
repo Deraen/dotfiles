@@ -292,3 +292,6 @@
 [submodule ".vim/bundle/far.vim"]
 	path = .vim/bundle/far.vim
 	url = https://github.com/brooth/far.vim.git
+[submodule ".nvm"]
+	path = .nvm
+	url = https://github.com/creationix/nvm.git
