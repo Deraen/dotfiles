@@ -48,3 +48,5 @@ alias egrep='egrep --color=auto'
 # 4k smartcard requires gpg2
 export LEIN_GPG=gpg2
 export BOOT_GPG_COMMAND=gpg2
+
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
