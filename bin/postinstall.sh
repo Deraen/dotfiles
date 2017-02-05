@@ -21,6 +21,11 @@ fi
 git submodule update --init --recursive
 
 header "NPM Utils"
+
+nvm install --lts
+nvm alias default stable
+nvm use stable
+
 (
 cd $HOME/.local
 if confirm -i "Update Node utils?"; then
