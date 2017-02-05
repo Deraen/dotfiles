@@ -9,10 +9,7 @@ fi
 
 header "Submodules"
 if confirm -i "Update all submodules?"; then
-    git submodule foreach git checkout
-    git submodule foreach git pull origin master
-    # Updated modules have to be added to the index, or the next step would undo this
-    git add -A $HOME/.local/modules $HOME/.vim/bundle
+    ./update.sh
 fi
 
 # Update all submodules to version defined

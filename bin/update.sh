@@ -1,28 +1,8 @@
 #!/bin/bash
 
-PARALLEL_MAX=$(($(nproc) * 2))
+git submodule update --remote
 
-update_module() {
-  while [ $(ps --no-headers -o pid --ppid=$$ | wc -l) -gt $PARALLEL_MAX ]; do
-    sleep .1
-  done
-  (
-  cd "$@"
-  git checkout
-  git pull origin master
-  echo "<<< Ready $@"
-  ) &
-}
+( cd "$NVM_DIR" && git checkout $(git describe --abbrev=0 --tags --match "v[0-9]*" origin) )
+( cd .local/modules/rofi && git checkout $(git describe --abbrev=0 --tags --match "[0-9]*" origin) )
 
-submodules=($(git submodule foreach --quiet pwd))
-
-for m in ${submodules[@]}; do
-  echo ">> Update $m"
-  update_module "$m"
-done
-
-wait
-
-git add $(git submodule foreach --quiet pwd)
-
-git submodule update --init --recursive
+git add -A $HOME/.local/modules $HOME/.vim/bundle
