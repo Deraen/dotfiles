@@ -213,7 +213,7 @@ install libxkbcommon-x11-dev
 install libxcb-xrm-dev
 
 # Docker
-install lxc-docker
+install docker-engine
 
 # Tessel
 install libusb-1.0-0-dev
