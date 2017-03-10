@@ -8,4 +8,5 @@
         :dependencies [[org.clojure/tools.nrepl "0.2.12"]
                        [org.clojure/tools.namespace "0.2.11"]
                        [aprint "0.1.3"]]
-        :ultra {:color-scheme :solarized_dark}}}
+        :ultra {:color-scheme :solarized_dark}}
+ :auth {:repository-auth #=(eval (read-string (slurp (clojure.java.io/file (System/getProperty "user.home") ".lein/credentials.clj"))))}}
