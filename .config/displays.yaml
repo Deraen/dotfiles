@@ -36,8 +36,7 @@ displays:
     mode: 1920x1200
     pos: "0x320"
     rotate: left
-  DP-1:
+  DP-2:
     mode: 3840x2160
     pos: 1200x200
     primary: Yes
-  DVI-I-1: No
