@@ -1,2 +1,0 @@
-SUBSYSTEM=="sound", SUBSYSTEMS=="usb", ATTRS{idVendor}=="17a0", ATTRS{idProduct}=="0302", ACTION=="add", RUN+="/home/juho/bin/audiodevices.sh --fork mic"
-SUBSYSTEM=="sound", SUBSYSTEMS=="usb", ATTRS{idVendor}=="1852", ATTRS{idProduct}=="7925", ACTION=="add", RUN+="/home/juho/bin/audiodevices.sh --fork dac"
