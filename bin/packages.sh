@@ -309,7 +309,7 @@ install openvpn
 install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        install "nvidia-375"
+        install "nvidia-381"
         install nvidia-settings
         install playonlinux # Wine frontend for games
         install fail2ban
