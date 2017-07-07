@@ -49,7 +49,5 @@ alias egrep='egrep --color=auto'
 export LEIN_GPG=gpg2
 export BOOT_GPG_COMMAND=gpg2
 
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 export NVM_DIR="/home/juho/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
