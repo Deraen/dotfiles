@@ -1,6 +1,6 @@
 [global]
     font = Ubuntu-12
-    allow_markup=yes
+    markup=full
     padding = 3
     horizontal_padding = 5
 

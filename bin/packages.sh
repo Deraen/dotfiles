@@ -15,7 +15,7 @@ ppa webupd8team java xenial # Oracle java
 ppa webupd8team sublime-text-3 xenial
 ppa webupd8team atom xenial
 ppa ansible ansible xenial
-ppa neovim-ppa unstable xenial
+ppa neovim-ppa stable xenial
 ppa fish-shell release-2 xenial
 ppa openconnect daily xenial
 ppa yubico stable xenial
@@ -41,6 +41,8 @@ repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./"
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin xenial
         ppa graphics-drivers ppa xenial
+        ppa team-xbmc ppa xenial
+        repo acestream "deb http://repo.acestream.org/ubuntu/ trusty main"
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
@@ -115,9 +117,6 @@ install tarsnap
 # apt-get source --compile tarsnap
 # dpkg -i ...
 
-# R
-install r-base
-
 # Editor
 install vim-gtk
 install neovim
@@ -145,8 +144,8 @@ install stack
 install gprolog
 
 # Embedded
-install gcc-msp430 # TI Launchpad
-install mspdebug
+# install gcc-msp430 # TI Launchpad
+# install mspdebug
 install arduino
 
 # C++
@@ -172,8 +171,7 @@ install qgit
 install heroku-toolbelt
 install devscripts
 install ubuntu-dev-tools
-install mongodb-server
-install rabbitmq-server
+install mongodb-clients
 install sqlite3
 install httpie
 install robomongo 0.8.5 https://download.robomongo.org/0.8.5/linux/robomongo-0.8.5-x86_64.deb
@@ -196,6 +194,8 @@ install libxss-dev # libXscrnsaver
 install libxinerama-dev
 install libnotify-dev
 install libdbus-1-dev
+install libxrandr-dev
+install libgtk2.0-dev
 # xss-lock
 install libxcb-screensaver0-dev
 install libxcb-util0-dev
@@ -240,7 +240,6 @@ install gnuplot-nox
 install sur5r-keyring
 install i3 # Tiling WM
 install i3lock
-install libanyevent-perl-i3
 install compton # Compositing, xcompmgr fork
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools
@@ -265,7 +264,6 @@ install d-feet # Browse DBus
 install synaptic
 install dconf-editor # Edit Dconf settings (mostly Gnome stuff)
 install dropbox
-install feh # Image viewer
 install flashplugin-installer
 install ghex # Hex editor
 install gimp
@@ -281,11 +279,11 @@ install keepassx # Password manager
 install pass
 install mumble
 install pgadmin3 # PostgreSQL admin
-install postgresql-9.5
+install postgresql-client-9.5
+install libpq-dev
 install pitivi # Video editor
 install xsane
 install qgit
-install quassel-client-qt4 # Irc
 install simplescreenrecorder
 install mpv
 install smplayer
@@ -311,6 +309,7 @@ install spotify-client
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install "nvidia-381"
         install nvidia-settings
+        install "nvidia-cg-toolkit"
         install playonlinux # Wine frontend for games
         install fail2ban
         # HP Touchpad
@@ -320,8 +319,7 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install puddletag # MP3 tagger
         install mp3splt
         install mp3splt-gtk
-        install luminance-hdr # HDR images
-        install transmageddon # Video transcoder
+        # install luminance-hdr # HDR images
         install vdpau-va-driver # Use vdpau from VA api? For VLC?
         install hugin # Panorama stitcher
         install jack-rack # JACK LADSPA effects
@@ -329,6 +327,9 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install vnstat # Network usage
         install rrdtool # Stats
         install youtube-dl
+        install audacity
+        install acestream-engine
+        install kodi
 fi
 
 # Laptop specific
