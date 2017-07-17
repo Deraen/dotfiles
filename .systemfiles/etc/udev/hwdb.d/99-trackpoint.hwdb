@@ -1,0 +1,3 @@
+evdev:name:TPPS/2 IBM TrackPoint:dmi:bvn*:bvr*:bd*:svnLENOVO:pn*:pvrThinkPad??60?:*
+  POINTINGSTICK_SENSITIVITY=217
+  POINTINGSTICK_CONST_ACCEL=1.5

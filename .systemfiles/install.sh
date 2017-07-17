@@ -34,6 +34,7 @@ if [[ $HOSTNAME == "juho-laptop" ]]; then
     fi
     install "/etc/NetworkManager/dispatcher.d/99nfs"
     install "/etc/systemd/logind.conf"
+    install "/etc/udev/hwdb.d/99-trackpoint.hwdb"
 fi
 
 sudo update-alternatives --set google-chrome /usr/bin/google-chrome-stable

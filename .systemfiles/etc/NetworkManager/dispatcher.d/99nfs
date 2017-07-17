@@ -6,7 +6,7 @@ STATUS=$2
 if [ "${IF}" = "wlan1" ] && [ "${STATUS}" = "up" ]; then
   ssid=`/sbin/iwgetid --raw`
 
-  if [ "${ssid}" = "DERAENN" ]; then
+  if [ "${ssid}" = "DERAEN" ]; then
     logger "Home wlan0 up: mounting nfs"
 
     mount /levyt

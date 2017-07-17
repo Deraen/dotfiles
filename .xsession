@@ -6,6 +6,7 @@ systemctl --user import-environment
 
 xmodmap .Xmodmap
 
+# Disable touchpad
 synclient TouchpadOff=1
 
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
