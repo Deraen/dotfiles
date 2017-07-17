@@ -7,4 +7,4 @@ WantedBy=default.target
 [Service]
 Restart=on-failure
 Type=simple
-ExecStart=/home/juho/.dropbox-dist/dropboxd
+ExecStart=/home/juho/bin/dropbox.sh
