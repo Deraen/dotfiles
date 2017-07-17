@@ -48,6 +48,7 @@ fi
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         ppa linrunner tlp xenial
         ppa oibaf graphics-drivers xenial
+        repo telred "deb https://tel.red/repos/ubuntu xenial non-free"
 fi
 
 clearRepos
@@ -112,6 +113,8 @@ install attr
 install crudini
 install john
 install optipng
+install jpegoptim
+install libinput-tools
 install tarsnap
 # apt-get build-dep tarsnap
 # apt-get source --compile tarsnap
@@ -131,6 +134,7 @@ install xclip
 
 # Java
 install "oracle-java8-set-default"
+install "oracle-java8-unlimited-jce-policy"
 install maven
 install ant
 
@@ -179,6 +183,7 @@ install ansible
 install vagrant 1:1.8.6 https://releases.hashicorp.com/vagrant/1.8.6/vagrant_1.8.6_x86_64.deb
 install rlwrap
 install cloc
+install shellcheck
 
 # Dev dependencies
 install autoconf
@@ -334,6 +339,8 @@ fi
 
 # Laptop specific
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
+        install hipchat4
+        install forticlient-sslvpn
         install lvm2
         install cryptsetup
         install xbacklight
@@ -345,6 +352,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         install i965-va-driver
         install tlp
         install xautolock
+        install sky
 fi
 
 markauto
