@@ -80,7 +80,7 @@ function! s:TestToplevel() abort
     let line2 = searchpair('(','',')', 'rn', g:fireplace#skip)
     let expr = join(getline(line1, line2), "\n")
     let var = fireplace#session_eval(expr)
-    let result = fireplace#echo_session_eval("(clojure.test/test-var " . var . ")")
+    let result = fireplace#echo_session_eval("(clojure.test/test-vars [" . var . "])")
     return result
 endfunction
 
