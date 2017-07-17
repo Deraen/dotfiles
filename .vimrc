@@ -51,6 +51,7 @@ if !has('nvim')
   set ttyfast
   set ttyscroll=1
 endif
+set sidescroll=1
 " Pretty character for vsplit separator
 set fillchars+=vert:│
 " Save vim undo history to file, so history persists through sessions
