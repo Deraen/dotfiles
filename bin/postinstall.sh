@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $HOME/.local/lib/functions.sh
+. "$HOME/.local/lib/functions.sh"
 
 desktop=false
 if [[ $HOSTNAME == "juho-desktop" ]] || [[ $HOSTNAME == "juho-laptop" ]]; then
@@ -24,7 +24,7 @@ nvm alias default stable
 nvm use stable
 
 (
-cd $HOME/.local
+cd "$HOME/.local"
 if confirm -i "Update Node utils?"; then
     npm-check-updates --upgradeAll
 fi
@@ -34,12 +34,12 @@ npm update
 )
 
 header "Build vimproc"
-make -C $HOME/.vim/bundle/vimproc -j
+make -C "$HOME/.vim/bundle/vimproc" -j
 
 header "Neovim Python virtualenv"
 
 (
-cd $HOME/.local/virtualenvs
+cd "$HOME/.local/virtualenvs"
 if [[ ! -f neovim/bin/activate ]]; then
     python3 -m venv neovim
 fi
@@ -54,29 +54,29 @@ fi
 
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
-    make -C $HOME/.local/modules/ponymix -j
+    make -C "$HOME/.local/modules/ponymix" -j
     header "Build Dunst"
-    make -C $HOME/.local/modules/dunst -j
+    make -C "$HOME/.local/modules/dunst" -j
     header "Build i3blocks"
-    make -C $HOME/.local/modules/i3blocks -j
+    make -C "$HOME/.local/modules/i3blocks" -j
     header "Build frakkin-xkb"
-    make -C $HOME/.local/modules/frakkin-xkb -j
+    make -C "$HOME/.local/modules/frakkin-xkb" -j
     header "Build i3-utils"
-    make -C $HOME/.local/modules/i3-utils -j
+    make -C "$HOME/.local/modules/i3-utils" -j
     header "Build rofi"
     (
-    cd $HOME/.local/modules/rofi
+    cd "$HOME/.local/modules/rofi"
     autoreconf -i
     mkdir -p build
     cd build
-    ../configure --prefix=$HOME/.local --enable-drun
+    ../configure --prefix="$HOME/.local" --enable-drun
     make -j
     make install
     )
 
     header "Xss-lock"
     (
-    cd $HOME/.local/modules/xss-lock
+    cd "$HOME/.local/modules/xss-lock"
     mkdir -p build
     cd build
     cmake ..
@@ -85,8 +85,8 @@ if [[ $desktop == true ]]; then
 
     header "Settings"
     gsettings set org.gnome.desktop.background show-desktop-icons false
-    crudini --set $HOME/.config/Trolltech.conf Qt style GTK+
-    crudini --merge $HOME/.config/keepassx/keepassx2.ini < $HOME/.config/keepassx/keepassx2.ini.sample
+    crudini --set "$HOME/.config/Trolltech.conf" Qt style GTK+
+    crudini --merge "$HOME/.config/keepassx/keepassx2.ini" < "$HOME/.config/keepassx/keepassx2.ini.sample"
 
     (
     cd $HOME

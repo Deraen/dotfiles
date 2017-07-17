@@ -2,7 +2,7 @@
 
 # PMM - Package Manager Manager!
 
-. $HOME/.local/modules/pmm/init.sh
+. "$HOME/.local/modules/pmm/init.sh"
 
 ppa maarten-baert simplescreenrecorder xenial
 ppa nilarimogard webupd8 xenial # Launchpad-getkeys? Stuff
