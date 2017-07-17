@@ -339,3 +339,5 @@ let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.]*'
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "	"
 
 autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
+
+autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
