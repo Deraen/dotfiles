@@ -29,6 +29,7 @@ addPath "$HOME/.local/node_modules/.bin"
 addPath "$HOME/.cabal/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.8.4/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.10.1/bin"
+addPath "$HOME/.gem/ruby/2.3.0/bin"
 addPath /opt/android-sdk/platform-tools
 addPath /opt/android-sdk/tools
 addPath /usr/local/cuda-5.5/bin
@@ -36,6 +37,8 @@ addPath /opt/PebbleSDK-3.0/bin
 
 # Enable viewing gziped text files directly
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+which kontena > /dev/null && . "$( kontena whoami --bash-completion-path )"
 
 # Colors
 test -r $HOME/.local/modules/dircolors-solarized/dircolors.256dark && eval "$(dircolors $HOME/.local/modules/dircolors-solarized/dircolors.256dark)"
