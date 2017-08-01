@@ -269,6 +269,7 @@ install d-feet # Browse DBus
 install synaptic
 install dconf-editor # Edit Dconf settings (mostly Gnome stuff)
 install dropbox
+install feh
 install flashplugin-installer
 install ghex # Hex editor
 install gimp

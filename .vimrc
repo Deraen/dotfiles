@@ -51,7 +51,7 @@ if !has('nvim')
   set ttyfast
   set ttyscroll=1
 endif
-set sidescroll=1
+" set sidescroll=1
 " Pretty character for vsplit separator
 set fillchars+=vert:│
 " Save vim undo history to file, so history persists through sessions
@@ -342,3 +342,5 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "	"
 autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
 
 autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
+
+let g:ledger_bin="hledger"
