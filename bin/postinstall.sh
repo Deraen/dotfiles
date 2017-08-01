@@ -19,9 +19,12 @@ git submodule update --init --recursive
 
 header "NPM Utils"
 
-nvm install --lts
+NVM_DIR="/home/juho/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+
+nvm install stable
 nvm alias default stable
-nvm use stable
+# nvm use stable
 
 (
 cd "$HOME/.local"

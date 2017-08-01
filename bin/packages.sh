@@ -31,7 +31,7 @@ repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise st
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non-free contrib"
 repo docker "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
-repo nodesource "deb https://deb.nodesource.com/node_4.x xenial main\ndeb-src https://deb.nodesource.com/node_4.x xenial main\n"
+repo nodesource "deb https://deb.nodesource.com/node_6.x xenial main\ndeb-src https://deb.nodesource.com/node_6.x xenial main\n"
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### Modifications may be lost.\n\ndeb http://dist.keybase.io/linux/deb/repo stable main\n"
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
 repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./"
