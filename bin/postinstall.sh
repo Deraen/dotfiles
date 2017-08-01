@@ -36,6 +36,12 @@ npm install
 npm update
 )
 
+if confirm -i "Update Docker-compose?"; then
+    version=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r ".name")
+    curl -s -L --fail "https://github.com/docker/compose/releases/download/$version/run.sh" > "$HOME/bin/docker-compose"
+    chmod +x "$HOME/bin/docker-compose"
+fi
+
 header "Build vimproc"
 make -C "$HOME/.vim/bundle/vimproc" -j
 
