@@ -1,4 +1,0 @@
-greenlet==0.4.12
-msgpack-python==0.4.8
-neovim==0.1.13
-pkg-resources==0.0.0

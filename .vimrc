@@ -5,8 +5,6 @@ endif
 if has('nvim')
   " Disable Python 2
   let g:loaded_python_provider = 1
-  " Use Virtualenv
-  let g:python3_host_prog = expand("$HOME/.local/virtualenvs/neovim/bin/python")
 
   runtime! plugin/python_setup.vim
 endif

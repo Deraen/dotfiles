@@ -39,22 +39,6 @@ npm update
 header "Build vimproc"
 make -C "$HOME/.vim/bundle/vimproc" -j
 
-header "Neovim Python virtualenv"
-
-(
-cd "$HOME/.local/virtualenvs"
-if [[ ! -f neovim/bin/activate ]]; then
-    python3 -m venv neovim
-fi
-source neovim/bin/activate
-pip3 install -r neovim.txt
-
-if confirm -i "Update neovim python packages?"; then
-    pip3 install `pip freeze -l | cut --fields=1 -d = -` --upgrade
-    pip3 freeze > neovim.txt
-fi
-)
-
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
     make -C "$HOME/.local/modules/ponymix" -j
