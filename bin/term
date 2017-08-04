@@ -14,5 +14,5 @@ fi
 args=$@
 
 for i in $(seq 1 $n); do
-  urxvt.sh $args & > /dev/null
+  termite.sh $args & > /dev/null
 done
