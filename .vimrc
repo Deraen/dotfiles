@@ -227,6 +227,8 @@ let g:syntastic_mode_map = {
 let g:syntastic_error_symbol='✕'
 let g:syntastic_warning_symbol='✕'
 " let g:syntastic_enable_highlighting = 0
+let g:syntastic_go_checkers = ['golint', 'govet']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }"
 
 " CtrlP
 let g:ctrlp_extensions = ['line']
