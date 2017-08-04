@@ -19,6 +19,7 @@
     "npm-check-updates": "^2.8.8",
     "phantomjs-prebuilt": "^2.1.13",
     "pretty-bytes-cli": "^2.0.0",
+    "source-map-explorer": "^1.4.0",
     "svgo": "^0.7.1",
     "uglify-js": "^2.7.5",
     "vtop": "^0.5.7"
