@@ -42,6 +42,11 @@ if confirm -i "Update Docker-compose?"; then
     chmod +x "$HOME/bin/docker-compose"
 fi
 
+if [[ ! -d ~/.cargo ]]; then
+    header "Install Rust"
+    curl https://sh.rustup.rs -sSf | sh
+fi
+
 header "Build vimproc"
 make -C "$HOME/.vim/bundle/vimproc" -j
 

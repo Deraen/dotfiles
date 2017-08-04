@@ -30,6 +30,7 @@ addPath "$HOME/.cabal/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.8.4/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.10.1/bin"
 addPath "$HOME/.gem/ruby/2.3.0/bin"
+addPath "$HOME/.cargo/bin"
 addPath "$HOME/Source/go/bin"
 addPath /opt/android-sdk/platform-tools
 addPath /opt/android-sdk/tools
