@@ -327,8 +327,8 @@ augroup END
 
 let g:magit_show_help=0
 
-nnoremap <space>g :Grepper -tool git -noswitch<cr>
-nnoremap <space>a :Grepper -tool ag  -grepprg ag --vimgrep -G '^.+\.txt'<cr>
+nnoremap <space>g :Grepper -tool git<cr>
+nnoremap <space>a :Grepper -tool ag<cr>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
