@@ -30,6 +30,7 @@ addPath "$HOME/.cabal/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.8.4/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.10.1/bin"
 addPath "$HOME/.gem/ruby/2.3.0/bin"
+addPath "$HOME/Source/go/bin"
 addPath /opt/android-sdk/platform-tools
 addPath /opt/android-sdk/tools
 addPath /usr/local/cuda-5.5/bin
@@ -54,3 +55,5 @@ export BOOT_GPG_COMMAND=gpg2
 
 export NVM_DIR="/home/juho/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+
+export GOPATH="/home/juho/Source/go"

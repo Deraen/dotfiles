@@ -20,6 +20,7 @@ ppa fish-shell release-2 xenial
 ppa openconnect daily xenial
 ppa yubico stable xenial
 ppa git-core ppa xenial
+ppa longsleep golang-backports xenial
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
@@ -185,6 +186,7 @@ install vagrant 1:1.8.6 https://releases.hashicorp.com/vagrant/1.8.6/vagrant_1.8
 install rlwrap
 install cloc
 install shellcheck
+install golang-1.8-go
 
 # Dev dependencies
 install autoconf
