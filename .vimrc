@@ -5,6 +5,7 @@ endif
 if has('nvim')
   " Disable Python 2
   let g:loaded_python_provider = 1
+  let g:loaded_ruby_provider = 1
 
   runtime! plugin/python_setup.vim
 endif

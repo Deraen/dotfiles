@@ -19,13 +19,6 @@ git submodule update --init --recursive
 
 header "NPM Utils"
 
-NVM_DIR="/home/juho/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
-
-nvm install stable
-nvm alias default stable
-# nvm use stable
-
 (
 cd "$HOME/.local"
 if confirm -i "Update Node utils?"; then
@@ -87,13 +80,12 @@ if [[ $desktop == true ]]; then
     crudini --merge "$HOME/.config/keepassx/keepassx2.ini" < "$HOME/.config/keepassx/keepassx2.ini.sample"
 
     (
-    cd $HOME
     # Home git repo, don't show untracked files on status
-    git config status.showUntrackedFiles no
+    cd "$HOME" && git config status.showUntrackedFiles no
     )
 fi
 
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then
     header "Systemfiles"
-    $HOME/.systemfiles/install.sh
+    . "$HOME/.systemfiles/install.sh"
 fi
