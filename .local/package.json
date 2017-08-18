@@ -15,6 +15,7 @@
     "karma-cli": "^1.0.1",
     "less": "^2.7.1",
     "mongo-hacker": "^0.0.15",
+    "neovim": "^3.4.5",
     "nodefront": "^1.0.7",
     "npm-check-updates": "^2.8.8",
     "phantomjs-prebuilt": "^2.1.13",
