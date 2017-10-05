@@ -92,11 +92,19 @@ function! s:RemoveNs() abort
 endfunction
 
 function! s:ResetReloadedRepl() abort
-  let result = fireplace#echo_session_eval("(reloaded.repl/reset)")
+  " This should find the open connection even from markdown or other files
+  let client = fireplace#platform('%')
+  let opts = {'ns': 'user'}
+  " Presume reset from reloaded.repl or integrant.repl or such is loaded
+  " in user ns.
+  let result = client.eval("(reset)", opts)
   return result
 endfunction
 
 nnoremap <silent> <Plug>ResetReloadedRepl :<C-U>call <SID>ResetReloadedRepl()<CR>
+
+" Global binding which can be used from any filetype! E.g. README.md
+nmap cpR <Plug>ResetReloadedRepl
 
 function! s:set_up() abort
   nmap <buffer> ce  <Plug>EvalPaste
@@ -107,8 +115,6 @@ function! s:set_up() abort
   nmap <buffer> cpt <Plug>TestToplevel
 
   command! -buffer RemoveNs call s:RemoveNs()
-
-  nmap <buffer> cpR <Plug>ResetReloadedRepl
 endfunction
 
 augroup fireplace_eval_paste
