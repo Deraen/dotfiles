@@ -12,5 +12,5 @@ if [ "$1" -eq "$1" ] 2>/dev/null; then
 fi
 
 for i in $(seq 1 $n); do
-  termite $@ & > /dev/null
+  termite $@ &> /dev/null &
 done
