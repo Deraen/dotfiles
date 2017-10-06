@@ -92,13 +92,13 @@ function! s:RemoveNs() abort
 endfunction
 
 function! s:ResetReloadedRepl() abort
-  " This should find the open connection even from markdown or other files
-  let client = fireplace#platform('%')
+  " Presume reset from reloaded.repl or integrant.repl or such is loaded in user ns.
+  " Using user ns always, should allow fireplace to find connection
+  " even when calling this from README.md or such.
+  " Only works when inside a folder with .nrepl-port.
   let opts = {'ns': 'user'}
-  " Presume reset from reloaded.repl or integrant.repl or such is loaded
-  " in user ns.
-  let result = client.eval("(reset)", opts)
-  return result
+  let r = fireplace#echo_session_eval("(reset)", opts)
+  return r
 endfunction
 
 nnoremap <silent> <Plug>ResetReloadedRepl :<C-U>call <SID>ResetReloadedRepl()<CR>
