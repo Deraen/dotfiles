@@ -189,7 +189,7 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.parse = 'ρ'
 
 let g:airline#extensions#ctrlp#show_adjacent_modes = 0
-let g:airline_theme='wombat'
+let g:airline_theme='seoul256'
 let g:airline_exclude_preview = 1
 let g:airline_inactive_collapse = 0
 let g:airline_mode_map = {
@@ -214,7 +214,7 @@ let g:airline_section_gutter = airline#section#create(['%='])
 let g:airline_section_x = airline#section#create_right(['tagbar'])
 let g:airline_section_y = airline#section#create_right([])
 let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v '])
-let g:airline_section_warning = airline#section#create(['syntastic', 'eclim', 'whitespace'])
+" let g:airline_section_warning = airline#section#create(['syntastic-warn', 'whitespace'])
 
 " Syntastic
 let g:syntastic_python_checkers = ['pep8']
