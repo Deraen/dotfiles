@@ -12,6 +12,7 @@
     "gulp": "^3.9.1",
     "gzip-size-cli": "^2.0.0",
     "jshint": "^2.9.5",
+    "karma-cli": "^1.0.1",
     "less": "^2.7.2",
     "lumo-cljs": "^1.7.0",
     "neovim": "^3.4.5",
@@ -20,6 +21,7 @@
     "phantomjs-prebuilt": "^2.1.15",
     "pretty-bytes-cli": "^2.0.0",
     "source-map-explorer": "^1.4.0",
+    "stylelint": "^8.2.0",
     "svgo": "^0.7.2",
     "uglify-js": "^3.0.28"
   }
