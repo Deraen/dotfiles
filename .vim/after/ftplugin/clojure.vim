@@ -17,7 +17,7 @@ autocmd FileType clojure setlocal lispwords+=will-mount,render,render-state,init
 " Om next
 autocmd FileType clojure setlocal lispwords+=ident
 " Cljs
-autocmd FileType clojure setlocal lispwords+=this-as
+autocmd FileType clojure setlocal lispwords+=this-as,async
 " Plumbing
 autocmd FileType clojure setlocal lispwords+=for-map,fnk,letk
 " Core.async
