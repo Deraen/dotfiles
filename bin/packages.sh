@@ -33,7 +33,7 @@ repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non
 repo docker "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
 repo nodesource "deb https://deb.nodesource.com/node_8.x xenial main\ndeb-src https://deb.nodesource.com/node_8.x xenial main\n"
-repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### Modifications may be lost.\n\ndeb http://dist.keybase.io/linux/deb/repo stable main\n"
+repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n"
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
 repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./"
 # wget https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
@@ -187,6 +187,7 @@ install rlwrap
 install cloc
 install shellcheck
 install golang-1.8-go
+install android-tools-adb
 
 # Dev dependencies
 install autoconf
@@ -299,7 +300,6 @@ install smplayer
 install spotify-client
 install libavcodec54 # Spotify local files
 install libavformat54
-install vlc-plugin-fluidsynth
 install steam-launcher
 install deluge
 install unetbootin # Install Linux/etc images into USB stiff
@@ -332,6 +332,7 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install vdpau-va-driver # Use vdpau from VA api? For VLC?
         install hugin # Panorama stitcher
         install jack-rack # JACK LADSPA effects
+        install qjackctl
         install guitarix # Guitar AMP
         install vnstat # Network usage
         install rrdtool # Stats
