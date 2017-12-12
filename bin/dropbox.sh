@@ -6,7 +6,7 @@ if [[ $1 == "work" ]]; then
         pkill dropbox
         env HOME="$HOME/.dropbox-work" /usr/bin/dropbox start -i
     fi
-    env HOME="$HOME/.dropbox-work" "/home/$USER/.dropbox-work/.dropbox-dist/dropboxd"
+    exec env HOME="$HOME/.dropbox-work" "/home/$USER/.dropbox-work/.dropbox-dist/dropboxd"
 else
-    "$HOME/.dropbox-dist/dropboxd"
+    exec "$HOME/.dropbox-dist/dropboxd"
 fi
