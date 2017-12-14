@@ -206,7 +206,7 @@ install libxinerama-dev
 install libnotify-dev
 install libdbus-1-dev
 install libxrandr-dev
-install libgtk2.0-dev
+install libgtk-3-dev
 # xss-lock
 install libxcb-screensaver0-dev
 install libxcb-util0-dev
@@ -224,6 +224,9 @@ install libxcb-icccm4-dev
 install libxkbcommon-dev
 install libxkbcommon-x11-dev
 install libxcb-xrm-dev
+install bison
+install flex
+install librsvg2-dev
 
 # Docker
 install docker-engine
@@ -318,7 +321,7 @@ install openvpn
 install spotify-client
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        install "nvidia-381"
+        install "nvidia-387"
         install nvidia-settings
         install "nvidia-cg-toolkit"
         install playonlinux # Wine frontend for games
