@@ -234,7 +234,7 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }"
 " CtrlP
 let g:ctrlp_extensions = ['line']
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard']
+let g:ctrlp_user_command = ['.git', "cd %s && git ls-files . -z --cached --exclude-standard | tr '\\0' '\n'"]
 " When opening file with CtrlP always open in new buffer even if its already
 " open somewhere
 let g:ctrlp_switch_buffer = '0'
