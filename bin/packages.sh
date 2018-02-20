@@ -36,6 +36,7 @@ repo nodesource "deb https://deb.nodesource.com/node_8.x xenial main\ndeb-src ht
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n"
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
 repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./"
+repo mongodb-org-3.6 "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse"
 # wget https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
 # sudo apt-key add tarsnap-deb-packaging-key.asc
 
@@ -177,7 +178,7 @@ install qgit
 install heroku-toolbelt
 install devscripts
 install ubuntu-dev-tools
-install mongodb-clients
+install mongodb-org-tools
 install sqlite3
 install httpie
 install robomongo 0.8.5 https://download.robomongo.org/0.8.5/linux/robomongo-0.8.5-x86_64.deb
