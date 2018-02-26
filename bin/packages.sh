@@ -182,7 +182,6 @@ install ubuntu-dev-tools
 install mongodb-org-tools
 install sqlite3
 install httpie
-install robomongo 0.8.5 https://download.robomongo.org/0.8.5/linux/robomongo-0.8.5-x86_64.deb
 install ansible
 install vagrant 1:2.0.1 https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.deb
 install rlwrap
@@ -192,6 +191,8 @@ install golang-go
 install golang-doc
 install golang-src
 install android-tools-adb
+install diffpdf
+install gdal-bin
 
 # Dev dependencies
 install autoconf
@@ -229,6 +230,7 @@ install libxcb-xrm-dev
 install bison
 install flex
 install librsvg2-dev
+install libpng16-dev
 
 # Docker
 install docker-engine
