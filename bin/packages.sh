@@ -21,6 +21,7 @@ ppa openconnect daily xenial
 ppa yubico stable xenial
 ppa git-core ppa xenial
 ppa longsleep golang-backports xenial
+ppa phoerious keepassxc xenial
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
@@ -291,7 +292,7 @@ install slack-desktop
 install meld
 install gparted
 install inkscape
-install keepassx # Password manager
+install keepassxc # Password manager
 install pass
 install mumble
 install pgadmin3 # PostgreSQL admin
