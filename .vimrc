@@ -173,6 +173,8 @@ nnoremap <silent> <Space>k :<C-U>VertigoUp n<CR>
 vnoremap <silent> <Space>k :<C-U>VertigoUp v<CR>
 onoremap <silent> <Space>k :<C-U>VertigoUp o<CR>
 
+set updatetime=100
+
 " Vim-rsi (readline insertmode bindings)
 " Disable meta maps because <M-d> bindings breaks ä
 let g:rsi_no_meta=1
