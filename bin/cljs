@@ -1,0 +1,3 @@
+#!/bin/sh
+
+clj -Aclojurescript-cli -m cljs.main "$@"
