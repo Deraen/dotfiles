@@ -10,36 +10,39 @@ ppa otto-kesselgulasch gimp xenial
 ppa rvm smplayer xenial # Mplayer UI
 ppa mc3man mpv-tests xenial # Mpv, mplayer[|2] fork
 ppa wine wine-builds xenial
-ppa videolan master-daily xenial
 ppa webupd8team java xenial # Oracle java
 ppa webupd8team sublime-text-3 xenial
 ppa webupd8team atom xenial
 ppa ansible ansible xenial
-ppa neovim-ppa unstable xenial
+ppa neovim-ppa stable xenial
 ppa fish-shell release-2 xenial
 ppa openconnect daily xenial
 ppa yubico stable xenial
 ppa git-core ppa xenial
 ppa longsleep golang-backports xenial
 ppa phoerious keepassxc xenial
+ppa deraen random xenial --keyid 8EE3F468
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
-repo i3 "deb http://debian.sur5r.net/i3/ xenial universe"
+repo i3 "deb http://debian.sur5r.net/i3/ xenial universe" \
+        --keyring sur5r-keyring \
+        --keyid 941C42E6
 repo spotify "deb http://repository.spotify.com stable non-free"
 repo spotify-hack "deb http://se.archive.ubuntu.com/ubuntu trusty main universe\ndeb http://security.ubuntu.com/ubuntu trusty-security main universe"
-repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam"
+repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
+        --keyid B05498B7
 repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non-free contrib"
 repo docker "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
 repo nodesource "deb https://deb.nodesource.com/node_8.x xenial main\ndeb-src https://deb.nodesource.com/node_8.x xenial main\n"
-repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n"
+repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
+        --key-url https://keybase.io/docs/server_security/code_signing_key.asc
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
-repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./"
+repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
+        --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
 repo mongodb-org-3.6 "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse"
-# wget https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
-# sudo apt-key add tarsnap-deb-packaging-key.asc
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa bitcoin bitcoin xenial
@@ -54,9 +57,7 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         repo telred "deb https://tel.red/repos/ubuntu xenial non-free"
 fi
 
-clearRepos
-# launchpad-getkeys?
-# apt-get update?
+updateRepos
 
 # BASE
 install ubuntu-desktop
@@ -110,6 +111,7 @@ install fish
 install dos2unix
 install exuberant-ctags
 install inotify-tools
+install nvme-cli
 # For dmenu.sh
 install attr
 # Edit ini files (e.g. Trolltech.conf) from CLI
@@ -230,7 +232,7 @@ install libxcb-xrm-dev
 install bison
 install flex
 install librsvg2-dev
-install libpng16-dev
+# install libpng16-dev
 
 # Docker
 install docker-engine
