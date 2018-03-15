@@ -37,6 +37,7 @@ repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non
 repo docker "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
 repo nodesource "deb https://deb.nodesource.com/node_8.x xenial main\ndeb-src https://deb.nodesource.com/node_8.x xenial main\n"
+repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n"
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
@@ -146,6 +147,7 @@ install ant
 
 # Node
 install nodejs
+install yarn
 
 # Haskell
 install stack
