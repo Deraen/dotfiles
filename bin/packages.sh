@@ -130,7 +130,6 @@ install tarsnap
 install vim-gtk
 install neovim
 install python3-neovim 0.1.13-2 ~/Dropbox/Packages/python3-neovim_0.1.13-2_all.deb
-install emacs24
 install sublime-text-installer
 install atom
 

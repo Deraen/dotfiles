@@ -46,3 +46,7 @@ displays:
     mode: 3840x2160
     pos: 1200x200
     primary: Yes
+- DP-2: # Home, desktop, 32
+    mode: 3840x2160
+    pos: 1200x200
+    primary: Yes
