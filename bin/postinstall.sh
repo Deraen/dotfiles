@@ -43,6 +43,18 @@ fi
 header "Build vimproc"
 make -C "$HOME/.vim/bundle/vimproc" -j
 
+header "Install clojure"
+clojure_tool_version=1.9.0.358
+clojure_bin=$HOME/.local/bin/clojure
+
+if [[ ! -f $clojure_bin ]] || ! grep -q "# Version = $clojure_tool_version" "$clojure_bin"; then
+    curl "https://download.clojure.org/install/linux-install-$clojure_tool_version.sh" \
+        -o /tmp/clojure-installer.sh
+    chmod +x /tmp/clojure-installer.sh
+    /tmp/clojure-installer.sh --prefix "$HOME/.local"
+    rm /tmp/clojure-installer.sh
+fi
+
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
     make -C "$HOME/.local/modules/ponymix" -j
