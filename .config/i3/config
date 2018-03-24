@@ -175,9 +175,9 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+R restart
 
 # Spotify, pulseaudio
-bindsym Mod1+Delete exec music.sh PlayPause
-bindsym Mod1+Home exec music.sh Previous
-bindsym Mod1+End exec music.sh Next
+bindsym Mod1+Delete exec playerctl play-pause
+bindsym Mod1+Home exec playerctl previous
+bindsym Mod1+End exec playerctl next
 bindsym Mod1+Page_Up exec volume.sh increase 2
 bindsym Mod1+Page_Down exec volume.sh decrease 2
 bindsym XF86AudioRaiseVolume exec volume.sh increase 2

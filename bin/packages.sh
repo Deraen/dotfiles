@@ -313,6 +313,7 @@ install simplescreenrecorder
 install mpv
 install smplayer
 install spotify-client
+install playerctl 0.5.0 https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
 install libavcodec54 # Spotify local files
 install libavformat54
 install steam-launcher
