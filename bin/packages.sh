@@ -22,6 +22,8 @@ ppa git-core ppa xenial
 ppa longsleep golang-backports xenial
 ppa phoerious keepassxc xenial
 ppa deraen random xenial --keyid 8EE3F468
+repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
+        --key-url http://archive.getdeb.net/getdeb-archive.key
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
@@ -129,7 +131,7 @@ install tarsnap
 # Editor
 install vim-gtk
 install neovim
-install python3-neovim 0.1.13-2 ~/Dropbox/Packages/python3-neovim_0.1.13-2_all.deb
+install python3-neovim
 install sublime-text-installer
 install atom
 
@@ -266,6 +268,7 @@ install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools
 install "rxvt-unicode-256color"
 install faenza-icon-theme
+install polybar
 
 # GPG stuff
 install gnupg2
