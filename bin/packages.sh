@@ -131,6 +131,7 @@ install tarsnap
 # Editor
 install vim-gtk
 install neovim
+install python3-msgpack # FIXME
 install python3-neovim
 install sublime-text-installer
 install atom
