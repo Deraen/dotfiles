@@ -3,4 +3,4 @@ Description=Pause Spotify
 
 [Service]
 Type=simple
-ExecStart=/home/juho/bin/music.sh Pause
+ExecStart=/usr/bin/playerctl pause
