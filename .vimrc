@@ -165,14 +165,6 @@ nmap K <Plug>SplitLine
 " Leave paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
 
-let g:Vertigo_homerow='asdfghjklö'
-nnoremap <silent> <Space>j :<C-U>VertigoDown n<CR>
-vnoremap <silent> <Space>j :<C-U>VertigoDown v<CR>
-onoremap <silent> <Space>j :<C-U>VertigoDown o<CR>
-nnoremap <silent> <Space>k :<C-U>VertigoUp n<CR>
-vnoremap <silent> <Space>k :<C-U>VertigoUp v<CR>
-onoremap <silent> <Space>k :<C-U>VertigoUp o<CR>
-
 set updatetime=100
 
 " Vim-rsi (readline insertmode bindings)

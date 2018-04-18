@@ -11,9 +11,6 @@
 	path = .vim/bundle/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
 	ignore = dirty
-[submodule ".vim/bundle/vim-vertigo"]
-	path = .vim/bundle/vim-vertigo
-	url = https://github.com/baabelfish/vim-vertigo.git
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
