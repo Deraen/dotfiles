@@ -335,7 +335,9 @@ nnoremap <space>a :Grepper -tool ag<cr>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
-let g:grepper = {}
+if !exists('g:grepper')
+  let g:grepper = {}
+endif
 let g:grepper.prompt_quote = 2
 
 let g:deoplete#enable_at_startup = 1
