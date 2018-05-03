@@ -124,6 +124,7 @@ install tarsnap
 # apt-get build-dep tarsnap
 # apt-get source --compile tarsnap
 # dpkg -i ...
+install sysfsutils
 
 # Editor
 install vim-gtk
@@ -232,6 +233,12 @@ install bison
 install flex
 install librsvg2-dev
 # install libpng16-dev
+# Python-neovim build-deps
+install python-all
+install python3-all
+install cython
+install python-trollius
+
 
 # Docker
 install docker-engine
