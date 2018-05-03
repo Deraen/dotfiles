@@ -17,12 +17,6 @@
 [submodule ".vim/bundle/seoul256.vim"]
 	path = .vim/bundle/seoul256.vim
 	url = https://github.com/Deraen/seoul256.vim.git
-[submodule ".vim/bundle/vim-textobj-comment"]
-	path = .vim/bundle/vim-textobj-comment
-	url = https://github.com/glts/vim-textobj-comment.git
-[submodule ".vim/bundle/gitv"]
-	path = .vim/bundle/gitv
-	url = https://github.com/gregsexton/gitv.git
 [submodule ".vim/bundle/vim-sexp"]
 	path = .vim/bundle_clojure/vim-sexp
 	url = https://github.com/guns/vim-sexp.git
@@ -30,21 +24,6 @@
 [submodule ".vim/bundle/xterm-color-table.vim"]
 	path = .vim/bundle/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim.git
-	ignore = dirty
-[submodule ".vim/bundle/vim-sneak"]
-	path = .vim/bundle/vim-sneak
-	url = https://github.com/justinmk/vim-sneak.git
-[submodule ".vim/bundle/vim-textobj-entire"]
-	path = .vim/bundle/vim-textobj-entire
-	url = https://github.com/kana/vim-textobj-entire.git
-	ignore = dirty
-[submodule ".vim/bundle/vim-textobj-indent"]
-	path = .vim/bundle/vim-textobj-indent
-	url = https://github.com/kana/vim-textobj-indent.git
-	ignore = dirty
-[submodule ".vim/bundle/vim-textobj-user"]
-	path = .vim/bundle/vim-textobj-user
-	url = https://github.com/kana/vim-textobj-user.git
 	ignore = dirty
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
@@ -148,18 +127,12 @@
 [submodule ".vim/bundle/vim-kangaroo"]
 	path = .vim/bundle/vim-kangaroo
 	url = https://github.com/tommcdo/vim-kangaroo.git
-[submodule ".vim/bundle/vim-ninja-feet"]
-	path = .vim/bundle/vim-ninja-feet
-	url = https://github.com/tommcdo/vim-ninja-feet.git
 [submodule ".vim/bundle/gapply.vim"]
 	path = .vim/bundle/gapply.vim
 	url = https://github.com/AndrewRadev/gapply.vim.git
 [submodule ".vim/bundle/vim-easy-align"]
 	path = .vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
-[submodule ".vim/bundle/pgsql"]
-	path = .vim/bundle/pgsql
-	url = https://github.com/exu/pgsql.vim.git
 [submodule ".vim/bundle/dbext"]
 	path = .vim/bundle/dbext
 	url = https://github.com/vim-scripts/dbext.vim.git
@@ -172,36 +145,21 @@
 [submodule ".vim/bundle/neco-ghc"]
 	path = .vim/bundle_haskell/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
-[submodule ".vim/bundle/vim-typedclojure"]
-	path = .vim/bundle_clojure/vim-typedclojure
-	url = https://github.com/typedclojure/vim-typedclojure.git
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
 [submodule ".local/modules/xss-lock"]
 	path = .local/modules/xss-lock
 	url = https://bitbucket.org/raymonad/xss-lock.git
-[submodule ".vim/bundle/vim-merginal"]
-	path = .vim/bundle/vim-merginal
-	url = https://github.com/idanarye/vim-merginal.git
-[submodule ".vim/bundle/vim-arduino-ino"]
-	path = .vim/bundle/vim-arduino-ino
-	url = https://github.com/jplaut/vim-arduino-ino.git
 [submodule ".vim/bundle/vim-lua-ftplugin"]
 	path = .vim/bundle_lua/vim-lua-ftplugin
 	url = https://github.com/xolox/vim-lua-ftplugin.git
 [submodule ".vim/bundle/vim-lua-inspect"]
 	path = .vim/bundle_lua/vim-lua-inspect
 	url = https://github.com/xolox/vim-lua-inspect.git
-[submodule ".vim/bundle/vim-misc"]
-	path = .vim/bundle/vim-misc
-	url = https://github.com/xolox/vim-misc.git
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundle/vim-fish"]
-	path = .vim/bundle/vim-fish
-	url = https://github.com/dag/vim-fish.git
 [submodule ".vim/bundle/rainbow"]
 	path = .vim/bundle_clojure/rainbow
 	url = https://github.com/luochen1990/rainbow.git
@@ -220,9 +178,6 @@
 [submodule ".vim/bundle/vim-thematic"]
 	path = .vim/bundle/vim-thematic
 	url = https://github.com/reedes/vim-thematic.git
-[submodule ".vim/bundle/goyo.vim"]
-	path = .vim/bundle/goyo.vim
-	url = git@github.com:junegunn/goyo.vim.git
 [submodule ".vim/bundle/targets.vim"]
 	path = .vim/bundle/targets.vim
 	url = git@github.com:wellle/targets.vim.git
@@ -253,9 +208,6 @@
 [submodule ".vim/bundle_clojure/clj-refactor.nvim"]
 	path = .vim/bundle_clojure/clj-refactor.nvim
 	url = https://github.com/snoe/clj-refactor.nvim.git
-[submodule ".vim/bundle/node-host"]
-	path = .vim/bundle/node-host
-	url = https://github.com/neovim/node-host.git
 [submodule ".vim/bundle/vim-dispatch-neovim"]
 	path = .vim/bundle/vim-dispatch-neovim
 	url = https://github.com/radenling/vim-dispatch-neovim.git
@@ -280,15 +232,9 @@
 [submodule ".vim/bundle/auto_mkdir"]
 	path = .vim/bundle/auto_mkdir
 	url = https://github.com/DataWraith/auto_mkdir.git
-[submodule ".vim/bundle/far.vim"]
-	path = .vim/bundle/far.vim
-	url = https://github.com/brooth/far.vim.git
 [submodule ".nvm"]
 	path = .nvm
 	url = https://github.com/creationix/nvm.git
-[submodule ".vim/bundle/vim-ledger"]
-	path = .vim/bundle/vim-ledger
-	url = https://github.com/ledger/vim-ledger.git
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
