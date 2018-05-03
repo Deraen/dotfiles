@@ -21,7 +21,8 @@ set noswapfile
 set nowritebackup
 set nowrap
 set nofoldenable
-set lazyredraw
+" lazyredraw flickers in alacritty, but perf seems ok without
+set nolazyredraw
 set number
 set expandtab
 set ignorecase

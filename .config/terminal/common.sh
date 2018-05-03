@@ -53,6 +53,10 @@ export LEIN_GPG=gpg2
 export BOOT_GPG_COMMAND=gpg2
 
 export NVM_DIR="/home/juho/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+# Init nvm when first called
+nvm() {
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+  nvm "$@"
+}
 
 export GOPATH="/home/juho/Source/go"

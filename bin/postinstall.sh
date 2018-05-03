@@ -55,6 +55,9 @@ if [[ ! -f $clojure_bin ]] || ! grep -q "# Version = $clojure_tool_version" "$cl
     rm /tmp/clojure-installer.sh
 fi
 
+# Rebuild zsh completion
+rm -f ~/.zcompdump; compinit
+
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
     make -C "$HOME/.local/modules/ponymix" -j

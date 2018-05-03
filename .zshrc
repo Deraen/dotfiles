@@ -8,9 +8,6 @@ autoload -U promptinit && promptinit
 PURE_GIT_PULL=0
 prompt pure
 
-# Autocompletion (requires on OS X?)
-autoload -U compinit && compinit
-
 # Search history
 bindkey '^R' history-incremental-search-backward
 
