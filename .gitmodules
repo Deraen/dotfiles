@@ -151,12 +151,6 @@
 [submodule ".local/modules/xss-lock"]
 	path = .local/modules/xss-lock
 	url = https://bitbucket.org/raymonad/xss-lock.git
-[submodule ".vim/bundle/vim-lua-ftplugin"]
-	path = .vim/bundle_lua/vim-lua-ftplugin
-	url = https://github.com/xolox/vim-lua-ftplugin.git
-[submodule ".vim/bundle/vim-lua-inspect"]
-	path = .vim/bundle_lua/vim-lua-inspect
-	url = https://github.com/xolox/vim-lua-inspect.git
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git

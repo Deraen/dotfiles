@@ -1,6 +1,8 @@
 #!/bin/bash
 
-if [[ -f $HOME/Source/termite-install/termite ]]; then
+if [[ -f $HOME/.local/bin/alacritty ]]; then
+    alacritty $@
+elif [[ -f $HOME/Source/termite-install/termite ]]; then
     TERMINFO=$HOME/.local/share/terminfo LD_LIBRARY_PATH=$HOME/Source/termite-install:$LD_LIBRARY_PATH exec $HOME/Source/termite-install/termite $@
 else
     exec urxvt.sh $@
