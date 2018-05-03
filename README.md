@@ -44,3 +44,10 @@ apt-get install git
 sudo bin/packages.sh
 sudo apt-get update
 ```
+
+## Notes
+
+```
+# Remove old packages
+dpkg -l | grep oibaf | awk '{print $2}' | xargs sudo dpkg --remove --force-all
+```

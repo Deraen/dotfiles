@@ -4,42 +4,39 @@
 
 . "$HOME/.local/modules/pmm/init.sh"
 
-ppa maarten-baert simplescreenrecorder xenial
-ppa nilarimogard webupd8 xenial # Launchpad-getkeys? Stuff
-ppa otto-kesselgulasch gimp xenial
-ppa rvm smplayer xenial # Mplayer UI
-ppa mc3man mpv-tests xenial # Mpv, mplayer[|2] fork
-ppa wine wine-builds xenial
-ppa webupd8team java xenial # Oracle java
-ppa webupd8team sublime-text-3 xenial
-ppa webupd8team atom xenial
-ppa ansible ansible xenial
-ppa neovim-ppa stable xenial
-ppa fish-shell release-2 xenial
-ppa openconnect daily xenial
-ppa yubico stable xenial
-ppa git-core ppa xenial
-ppa longsleep golang-backports xenial
-ppa phoerious keepassxc xenial
-ppa deraen random xenial --keyid 8EE3F468
+ppa maarten-baert simplescreenrecorder bionic
+ppa nilarimogard webupd8 bionic # Launchpad-getkeys? Stuff
+ppa otto-kesselgulasch gimp bionic
+ppa rvm smplayer bionic # Mplayer UI
+ppa mc3man mpv-tests bionic # Mpv, mplayer[|2] fork
+ppa webupd8team java bionic # Oracle java
+ppa ansible ansible bionic
+ppa neovim-ppa stable bionic
+# ppa openconnect daily bionic
+ppa yubico stable bionic
+ppa git-core ppa bionic
+# ppa longsleep golang-backports bionic
+ppa phoerious keepassxc bionic
+ppa deraen random bionic --keyid 8EE3F468
 repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
         --key-url http://archive.getdeb.net/getdeb-archive.key
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
 repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
-repo i3 "deb http://debian.sur5r.net/i3/ xenial universe" \
+repo i3 "deb http://debian.sur5r.net/i3/ bionic universe" \
         --keyring sur5r-keyring \
         --keyid 941C42E6
 repo spotify "deb http://repository.spotify.com stable non-free"
 repo spotify-hack "deb http://se.archive.ubuntu.com/ubuntu trusty main universe\ndeb http://security.ubuntu.com/ubuntu trusty-security main universe"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
-repo virtualbox "deb http://download.virtualbox.org/virtualbox/debian xenial non-free contrib"
-repo docker "deb https://apt.dockerproject.org/repo ubuntu-xenial main"
+repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic non-free contrib"
+repo docker "deb https://apt.dockerproject.org/repo ubuntu-zesty main"
 repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
-repo nodesource "deb https://deb.nodesource.com/node_8.x xenial main\ndeb-src https://deb.nodesource.com/node_8.x xenial main\n"
-repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n"
+repo nodesource "deb https://deb.nodesource.com/node_8.x bionic main\ndeb-src https://deb.nodesource.com/node_8.x bionic main\n"
+repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
+        --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
@@ -48,16 +45,16 @@ repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
 repo mongodb-org-3.6 "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        ppa bitcoin bitcoin xenial
-        ppa graphics-drivers ppa xenial
-        ppa team-xbmc ppa xenial
+        ppa bitcoin bitcoin bionic
+        ppa graphics-drivers ppa bionic
+        ppa team-xbmc ppa bionic
         repo acestream "deb http://repo.acestream.org/ubuntu/ trusty main"
 fi
 
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        ppa linrunner tlp xenial
-        ppa oibaf graphics-drivers xenial
-        repo telred "deb https://tel.red/repos/ubuntu xenial non-free"
+        ppa linrunner tlp bionic
+        ppa oibaf graphics-drivers bionic
+        repo telred "deb https://tel.red/repos/ubuntu bionic non-free"
 fi
 
 updateRepos
@@ -110,8 +107,8 @@ install tmispell-voikko
 install tmux
 install tree
 install zsh
-install fish
 install dos2unix
+install rename
 install exuberant-ctags
 install inotify-tools
 install nvme-cli
@@ -131,10 +128,8 @@ install tarsnap
 # Editor
 install vim-gtk
 install neovim
-install python3-msgpack # FIXME
+install python3-msgpack
 install python3-neovim
-install sublime-text-installer
-install atom
 
 # Neovim
 install luarocks
@@ -305,7 +300,8 @@ install keepassxc # Password manager
 install pass
 install mumble
 install pgadmin3 # PostgreSQL admin
-install postgresql-client-9.5
+install postgresql-client-10
+install stress
 install libpq-dev
 install pitivi # Video editor
 install xsane
