@@ -165,7 +165,7 @@ nmap K <Plug>SplitLine
 " Leave paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
 
-set updatetime=100
+set updatetime=500
 
 " Vim-rsi (readline insertmode bindings)
 " Disable meta maps because <M-d> bindings breaks ä
@@ -260,7 +260,7 @@ au FileType clojure let b:delimitMate_quotes = "\" `"
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 0
-let g:clojure_maxlines = 500
+let g:clojure_maxlines = 200
 let g:leiningen_no_auto_repl = 1
 let g:rainbow_active = 1
 let g:rainbow_conf = {

@@ -40,8 +40,6 @@ addPath /opt/PebbleSDK-3.0/bin
 # Enable viewing gziped text files directly
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-which kontena > /dev/null && . "$( kontena whoami --bash-completion-path )"
-
 # Colors
 test -r $HOME/.local/modules/dircolors-solarized/dircolors.256dark && eval "$(dircolors $HOME/.local/modules/dircolors-solarized/dircolors.256dark)"
 alias ls='ls --color=auto'
