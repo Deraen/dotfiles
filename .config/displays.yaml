@@ -16,6 +16,11 @@ displays:
   DP1:
     auto: yes
     right-of: eDP1
+- eDP1:
+    auto: yes
+  HDMI2:
+    auto: yes
+    right-of: eDP1
 - LVDS1:
     auto: Yes
 - LVDS1: # Laptop + Projector
