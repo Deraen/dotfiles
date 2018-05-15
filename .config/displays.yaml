@@ -1,33 +1,36 @@
 --- # DSPMGR conf
 maxdisplays: 2
 displays:
-- eDP1:
+# T460s
+- eDP-1:
     auto: yes
     dpi: 144
-- eDP1:
+- eDP-1:
     auto: yes
     dpi: 144
-  DP2-1:
+  DP-2-1:
     auto: yes
-    right-of: eDP1
-- eDP1:
+    right-of: eDP-1
+- eDP-1:
     auto: yes
     dpi: 144
-  DP1:
+  DP-1:
     auto: yes
-    right-of: eDP1
-- eDP1:
+    right-of: eDP-1
+- eDP-1:
     auto: yes
-  HDMI2:
+  HDMI-2:
     auto: yes
-    right-of: eDP1
+    right-of: eDP-1
 - LVDS1:
     auto: Yes
-- LVDS1: # Laptop + Projector
+# Laptop + Projector
+- LVDS1:
     auto: Yes
   VGA1:
     auto: Yes
     pos: "0x0"
+# X220
 - LVDS1: # Work, docked, 27
     auto: Yes
   DP2:
@@ -43,15 +46,6 @@ displays:
   DP1:
     auto: Yes
     left-of: LVDS1
-- DVI-D-0: # Home, desktop, 24 pivot - 32 - 27 pivot
-    mode: 1920x1200
-    pos: "0x320"
-    rotate: left
-  DP-2:
+# Home
+- DP-2:
     mode: 3840x2160
-    pos: 1200x200
-    primary: Yes
-- DP-2: # Home, desktop, 32
-    mode: 3840x2160
-    pos: 1200x200
-    primary: Yes
