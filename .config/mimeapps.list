@@ -29,3 +29,4 @@ application/x-font-ttf=inkscape.desktop;org.gnome.font-viewer.desktop;
 image/vnd.adobe.photoshop=gimp.desktop;
 video/x-ms-wmv=mpv.desktop;
 video/x-msvideo=mpv.desktop;
+image/x-eps=inkscape.desktop;
