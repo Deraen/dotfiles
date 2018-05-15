@@ -9,28 +9,21 @@
 #
 # If the script is run with a non-Alacritty window in focus or a non-compliant
 # version of Alacritty, an instance will be spawned in the user's $HOME.
-#
-# TODO: If active window isn't alacritty (e.g. rofi) select first Alacritty
-# in active i3 workspace?
 
-ACTIVE_WINDOW=$(xdotool getactivewindow)
+ACTIVE_WINDOW=$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2)
 ACTIVE_WM_CLASS=$(xprop -id "$ACTIVE_WINDOW" | grep WM_CLASS)
+
 if [[ $ACTIVE_WM_CLASS == *"Alacritty"* ]]; then
-    # Get PID. If _NET_WM_PID isn't set, bail.
     PID=$(xprop -id "$ACTIVE_WINDOW" | grep _NET_WM_PID | grep -oP "\d+")
-    if [[ "$PID" == "" ]]
-    then
+    if [[ -z "$PID" ]]; then
         alacritty
     fi
-    # Get first child of terminal
-    CHILD_PID=$(pgrep -P "$PID")
-    if [[ "$PID" == "" ]]; then
+    # Get first child of terminal, this should be the shell
+    CHILD_PID=$(pgrep -P "$PID" | head -n1)
+    if [[ -z "$CHILD_PID" ]]; then
         alacritty
     fi
-    # Get current directory of child. The first child should be the shell.
-    pushd "/proc/${CHILD_PID}/cwd"
-    SHELL_CWD=$(pwd -P)
-    popd
+    SHELL_CWD=$(readlink -f "/proc/${CHILD_PID}/cwd")
     # Start alacritty with the working directory
     alacritty --working-directory "$SHELL_CWD"
 else
