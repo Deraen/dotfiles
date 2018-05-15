@@ -1,31 +1,11 @@
 #!/bin/bash
-# Source: https://github.com/jwilm/alacritty/issues/808#issuecomment-334200570
-#
-# Spawn a new instance of Alacritty using the CWD of the currently focused
-# Alacritty process.
-#
-# This is useful in environment like i3 where terminals are opened using a
-# key-combination while another terminal is already focused.
-#
-# If the script is run with a non-Alacritty window in focus or a non-compliant
-# version of Alacritty, an instance will be spawned in the user's $HOME.
-
 ACTIVE_WINDOW=$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2)
-ACTIVE_WM_CLASS=$(xprop -id "$ACTIVE_WINDOW" | grep WM_CLASS)
+PID=$(xprop -id "$ACTIVE_WINDOW" | grep _NET_WM_PID | grep -oP "\d+")
+CHILD_PID=$(pgrep -P "$PID" zsh | head -n1)
+CWD=$(readlink -e "/proc/$CHILD_PID/cwd")
 
-if [[ $ACTIVE_WM_CLASS == *"Alacritty"* ]]; then
-    PID=$(xprop -id "$ACTIVE_WINDOW" | grep _NET_WM_PID | grep -oP "\d+")
-    if [[ -z "$PID" ]]; then
-        alacritty
-    fi
-    # Get first child of terminal, this should be the shell
-    CHILD_PID=$(pgrep -P "$PID" | head -n1)
-    if [[ -z "$CHILD_PID" ]]; then
-        alacritty
-    fi
-    SHELL_CWD=$(readlink -f "/proc/${CHILD_PID}/cwd")
-    # Start alacritty with the working directory
-    alacritty --working-directory "$SHELL_CWD"
+if [[ ! -z "$CWD" ]]; then
+    alacritty --working-directory "$CWD"
 else
     alacritty
 fi
