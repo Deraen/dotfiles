@@ -27,8 +27,6 @@ repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
 repo i3 "deb http://debian.sur5r.net/i3/ bionic universe" \
         --keyring sur5r-keyring \
         --keyid 941C42E6
-repo spotify "deb http://repository.spotify.com stable non-free"
-repo spotify-hack "deb http://se.archive.ubuntu.com/ubuntu trusty main universe\ndeb http://security.ubuntu.com/ubuntu trusty-security main universe"
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
 repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic non-free contrib"
@@ -39,13 +37,11 @@ repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
         --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
-repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
 repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
         --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
 repo mongodb-org-3.6 "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
-        ppa bitcoin bitcoin bionic
         ppa graphics-drivers ppa bionic
         ppa team-xbmc ppa bionic
         repo acestream "deb http://repo.acestream.org/ubuntu/ trusty main"
@@ -81,7 +77,6 @@ install "openoffice.org-hyphenation"
 install "hyphen-en-us"
 install "libreoffice-l10n-en-gb"
 install "firefox-locale-en"
-install "thunderbird-locale-en"
 
 # Devices?
 install usb-modeswitch # for 3G usb modems
@@ -299,7 +294,6 @@ install gimp-plugin-registry
 install google-chrome-stable
 install google-chrome-beta
 install google-talkplugin
-install slack-desktop
 install meld
 install gparted
 install inkscape
@@ -316,9 +310,7 @@ install qgit
 install simplescreenrecorder
 install mpv
 install smplayer
-install spotify-client
 install playerctl 0.5.0 https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
-install libavcodec54 # Spotify local files
 install libavformat54
 install steam-launcher
 install deluge
@@ -333,8 +325,6 @@ install mesa-utils
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
 
-install spotify-client
-
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install "nvidia-387"
         install nvidia-settings
@@ -343,7 +333,6 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install fail2ban
         # HP Touchpad
         install palm-novacom 1.0.64 ~/Dropbox/Packages/palm-novacom_1.0.64_amd64.deb
-        install bitcoin-qt
         install picard # MusicBrainz audio tagger
         install puddletag # MP3 tagger
         install mp3splt
@@ -358,13 +347,10 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install rrdtool # Stats
         install youtube-dl
         install audacity
-        install acestream-engine
-        install kodi
 fi
 
 # Laptop specific
 if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        install hipchat4
         install forticlient-sslvpn
         install lvm2
         install cryptsetup
