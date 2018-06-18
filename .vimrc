@@ -30,6 +30,8 @@ set smartcase
 set noshowmode
 set modeline
 
+set noshowcmd
+
 " Display whitespaces as nice unicode chars
 set list
 set listchars=""
