@@ -20,7 +20,9 @@ git submodule update --init --recursive
 header "NPM Utils"
 
 (
-cd "$HOME/.local"
+cd "$HOME/.local" || exit
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 if confirm -i "Update Node utils?"; then
     npm-check-updates --upgradeAll
 fi
