@@ -1,5 +1,4 @@
 source $HOME/.config/terminal/functions.sh
-source $HOME/.config/terminal/aliases.sh
 
 # Disable software flow control (Ctrl-s hangs terminal)
 stty -ixon
@@ -41,8 +40,12 @@ addPath /opt/PebbleSDK-3.0/bin
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Colors
-test -r $HOME/.local/modules/dircolors-solarized/dircolors.256dark && eval "$(dircolors $HOME/.local/modules/dircolors-solarized/dircolors.256dark)"
+test -r "$HOME/.local/modules/dircolors-solarized/dircolors.256dark" && eval "$(dircolors $HOME/.local/modules/dircolors-solarized/dircolors.256dark)"
 alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias apt-add-key='apt-key adv --keyserver keyserver.ubuntu.com --recv-keys '
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -53,10 +56,25 @@ export LEIN_GPG=gpg2
 export BOOT_GPG_COMMAND=gpg2
 
 export NVM_DIR="/home/juho/.nvm"
+
 # Init nvm when first called
 nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
   nvm "$@"
 }
+
+# Use default nvm version when node/npm called the first time
+# and no nvm enabled.
+init_nvm() {
+  unalias npm
+  unalias node
+  if [[ -z $NVM_BIN ]]; then
+    nvm use default
+  fi
+  "$@"
+}
+
+alias npm='init_nvm npm'
+alias node='init_nvm node'
 
 export GOPATH="/home/juho/Source/go"

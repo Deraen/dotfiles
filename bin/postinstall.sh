@@ -73,10 +73,10 @@ if [[ $desktop == true ]]; then
     make -C "$HOME/.local/modules/i3-utils" -j
     header "Build rofi"
     (
-    cd "$HOME/.local/modules/rofi"
+    cd "$HOME/.local/modules/rofi" || exit
     autoreconf -i
     mkdir -p build
-    cd build
+    cd build || exit
     ../configure --prefix="$HOME/.local" --enable-drun --disable-check
     make -j
     make install
@@ -84,18 +84,18 @@ if [[ $desktop == true ]]; then
 
     header "Xss-lock"
     (
-    cd "$HOME/.local/modules/xss-lock"
+    cd "$HOME/.local/modules/xss-lock" || exit
     mkdir -p build
-    cd build
+    cd build || exit
     cmake ..
     make -j
     )
 
     header "Alacritty"
     (
-    cd "$HOME/Source/alacritty"
+    cd "$HOME/Source/alacritty" || exit
     cargo build --release
-    cp target/release/alacritty "$HOME/.local/bin/alacritty"
+    mv target/release/alacritty "$HOME/.local/bin/alacritty"
     )
 
     header "Settings"
