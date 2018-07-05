@@ -143,8 +143,6 @@ nmap >a <Plug>Argumentative_MoveRight
 
 " ctrl-p/space-p open files in project
 nnoremap <silent><space>p :CtrlP<cr>
-" space-l fuzzy search in current file
-nnoremap <silent><space>l :CtrlPLine %<cr>
 " space-b change buffer
 nnoremap <silent><space>b :CtrlPBuffer<cr>
 
