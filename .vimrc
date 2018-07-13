@@ -215,6 +215,7 @@ let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v 
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_java_checkers = ['']
 let g:syntastic_mode_map = {
       \ 'mode': 'active',
       \ 'active_filetypes': [],
