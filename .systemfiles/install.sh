@@ -1,14 +1,14 @@
 #!/bin/bash
 
-. $HOME/.local/lib/functions.sh
+. "$HOME/.local/lib/functions.sh"
 
 install() {
-    if sudo diff $1 $HOME/.systemfiles$1 >/dev/null; then
+    if sudo diff "$1" "$HOME/.systemfiles$1" >/dev/null; then
         echo "$1: Ok"
     else
-        sudo diff -u $1 $HOME/.systemfiles$1
+        sudo diff -u "$1" "$HOME/.systemfiles$1"
         if confirm "$1: replace?"; then
-            sudo cp $HOME/.systemfiles$1 $1
+            sudo cp "$HOME/.systemfiles$1" "$1"
         fi
     fi
 }
