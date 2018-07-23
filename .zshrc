@@ -6,6 +6,7 @@ HISTFILE=$HOME/.zsh_history
 # Load Pure prompt
 autoload -U promptinit && promptinit
 PURE_GIT_PULL=0
+PURE_GIT_UNTRACKED_DIRTY=0
 prompt pure
 
 # Search history

@@ -1,16 +1,49 @@
 #!/bin/bash
 
-if [[ $1 == "--help" ]]; then
-  echo "Usage: $0 [number of terminals to start] [ARGS TO URXVT]"
+usage() {
+  echo "Usage: $0 [-h|--help] [number of terminals] [--] [ARGS TO TERMINAL APP...]"
   exit
-fi
+}
 
-n=1
-if [ "$1" -eq "$1" ] 2>/dev/null; then
-  n=$1
-  shift
-fi
+POSITIONAL=()
+while [[ $# -gt 0 ]]; do
+  key="$1"
 
-for i in $(seq 1 $n); do
-  termite $@ &> /dev/null &
+  case $key in
+    --)
+      while [[ $# -gt 0 ]]; do
+        POSITIONAL+=("$1")
+        shift
+      done
+      ;;
+    -h|--help)
+      usage
+      ;;
+    *)
+      POSITIONAL+=("$1")
+      shift
+      ;;
+  esac
 done
+
+set -- "${POSITIONAL[@]}" # restore positional parameters
+
+N=
+if [[ ! -z $1 ]]; then
+  if [[ $1 =~ ^[0-9]+$ ]]; then
+    N=$1
+  fi
+fi
+shift
+
+if [[ ! -z $N ]]; then
+  for i in $(seq 1 "$N"); do
+    $0 -- "$@" &> /dev/null &
+  done
+else
+  if [[ -f $HOME/.local/bin/alacritty ]]; then
+    alacritty "$@" &
+  else
+    urxvt.sh "$@" &
+  fi
+fi
