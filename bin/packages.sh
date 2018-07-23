@@ -180,7 +180,7 @@ install mongodb-org-tools
 install sqlite3
 install httpie
 install ansible
-install vagrant 1:2.0.1 https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.deb
+install vagrant 1:2.1.2 https://releases.hashicorp.com/vagrant/2.1.2/vagrant_2.1.2_x86_64.deb
 install rlwrap
 install cloc
 install shellcheck
