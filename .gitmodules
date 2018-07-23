@@ -232,3 +232,6 @@
 [submodule ".vim/bundle/vim-go"]
 	path = .vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule ".local/modules/oh-my-zsh"]
+	path = .local/modules/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh
