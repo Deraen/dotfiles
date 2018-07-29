@@ -6,5 +6,3 @@ fi
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
-
-export PANEL_FIFO="/tmp/panel-fifo"

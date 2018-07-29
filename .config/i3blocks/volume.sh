@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ $BLOCK_BUTTON == "1" ]]; then
-    unity-control-center sound > /dev/null &
+    exec gnome-control-center sound > /dev/null &
 elif [[ $BLOCK_BUTTON == "3" ]]; then
     ponymix toggle > /dev/null
 elif [[ $BLOCK_BUTTON == "4" ]]; then

@@ -10,6 +10,7 @@ xmodmap .Xmodmap
 synclient TouchpadOff=1
 
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/gnome-settings-daemon/gsd-rfkill &
 
 eval "$(gpg-agent --daemon --sh)" >/dev/null
 export GPG_AGENT_INFO
@@ -36,6 +37,8 @@ compton &
 
 xkblayout.sh
 frakkin-xkb -t 1000 xkblayout.sh &
+
+export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 
 exec i3
 # sxhkd &

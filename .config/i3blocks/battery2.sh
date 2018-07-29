@@ -3,7 +3,7 @@
 [[ ! -d /sys/class/power_supply/BAT0 ]] && exit
 
 if [[ $BLOCK_BUTTON == "1" ]]; then
-    gtk-launch gnome-power-statistics > /dev/null &
+    exec gnome-power-statistics > /dev/null &
 fi
 
 energy_total=0
