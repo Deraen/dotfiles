@@ -31,7 +31,8 @@ repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise st
         --keyid B05498B7
 repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic non-free contrib"
 repo docker "deb https://apt.dockerproject.org/repo ubuntu-zesty main"
-repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main"
+repo fpco "deb http://download.fpcomplete.com/ubuntu/xenial stable main" \
+        --keyid 575159689BEFB442
 repo nodesource "deb https://deb.nodesource.com/node_8.x bionic main\ndeb-src https://deb.nodesource.com/node_8.x bionic main\n"
 repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
         --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
@@ -310,7 +311,7 @@ install qgit
 install simplescreenrecorder
 install mpv
 install smplayer
-install playerctl 0.5.0 https://github.com/acrisci/playerctl/releases/download/v0.5.0/playerctl-0.5.0_amd64.deb
+install playerctl 0.6.1 https://github.com/acrisci/playerctl/releases/download/v0.6.1/playerctl-0.6.1_amd64.deb
 install libavformat54
 install steam-launcher
 install deluge
