@@ -1,6 +1,11 @@
 color=#ffffff
 # https://www.dropbox.com/s/9iysh2i0gadi4ic/icons.pdf
 
+[music]
+command=~/.config/i3blocks/music.sh
+interval=5
+markup=pango
+
 [network]
 command=~/.config/i3blocks/network.sh
 interval=10
