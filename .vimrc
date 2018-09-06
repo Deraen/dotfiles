@@ -11,7 +11,11 @@ if has('nvim')
 endif
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect('bundle/{}', 'bundle_clojure/{}', 'bundle_haskell/{}', 'bundle_lua/{}', 'bundle_r/{}')
+execute pathogen#infect(
+      \ 'bundle/{}',
+      \ 'bundle_clojure/{}',
+      \ 'bundle_haskell/{}',
+      \ 'bundle_lua/{}')
 
 " Uses tpope's vim-sensible defaults
 
@@ -338,6 +342,7 @@ let g:grepper.prompt_quote = 2
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.]*'
+call deoplete#custom#option('auto_complete_delay', 180)
 
 " Select next with tab if popup menu is open
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "	"
