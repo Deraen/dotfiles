@@ -63,33 +63,10 @@ rm -f ~/.zcompdump; compinit
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
     make -C "$HOME/.local/modules/ponymix" -j
-    header "Build Dunst"
-    make -C "$HOME/.local/modules/dunst" -j
-    header "Build i3blocks"
-    make -C "$HOME/.local/modules/i3blocks" -j
     header "Build frakkin-xkb"
     make -C "$HOME/.local/modules/frakkin-xkb" -j
     header "Build i3-utils"
     make -C "$HOME/.local/modules/i3-utils" -j
-    header "Build rofi"
-    (
-    cd "$HOME/.local/modules/rofi" || exit
-    autoreconf -i
-    mkdir -p build
-    cd build || exit
-    ../configure --prefix="$HOME/.local" --enable-drun --disable-check
-    make -j
-    make install
-    )
-
-    header "Xss-lock"
-    (
-    cd "$HOME/.local/modules/xss-lock" || exit
-    mkdir -p build
-    cd build || exit
-    cmake ..
-    make -j
-    )
 
     header "Alacritty"
     (
