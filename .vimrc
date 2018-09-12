@@ -141,10 +141,11 @@ let g:switch_mapping = "<C-s>"
 nmap <a <Plug>Argumentative_MoveLeft
 nmap >a <Plug>Argumentative_MoveRight
 
-" ctrl-p/space-p open files in project
-nnoremap <silent><space>p :CtrlP<cr>
-" space-b change buffer
-nnoremap <silent><space>b :CtrlPBuffer<cr>
+" ctrl-p and space-p change file
+nmap <space>p <Plug>(ctrlp)
+" ctrl-b and space-b change buffer
+nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
+nnoremap <silent> <C-b>    :<C-u>CtrlPBuffer<cr>
 
 " Quick macro stuff
 nnoremap § qqqqq
