@@ -224,8 +224,8 @@ install suckless-tools
 install "rxvt-unicode-256color"
 install faenza-icon-theme
 # install polybar
-install qt5ct
 install qt5-style-plugins
+install qt5-gtk-platformtheme
 
 # GPG stuff
 install gnupg2
