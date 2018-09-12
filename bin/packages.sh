@@ -116,7 +116,6 @@ install tarsnap
 install sysfsutils
 
 # Editor
-install vim-gtk
 install neovim
 install python3-msgpack
 install python3-neovim "0.2.6-3" "http://ftp.de.debian.org/debian/pool/main/p/python-neovim/python3-neovim_0.2.6-3_all.deb"
@@ -225,6 +224,8 @@ install suckless-tools
 install "rxvt-unicode-256color"
 install faenza-icon-theme
 # install polybar
+install qt5ct
+install qt5-style-plugins
 
 # GPG stuff
 install gnupg2

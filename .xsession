@@ -39,6 +39,7 @@ xkblayout.sh
 frakkin-xkb -t 1000 xkblayout.sh &
 
 export XDG_CURRENT_DESKTOP=ubuntu:GNOME
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 exec i3
 # sxhkd &
