@@ -262,6 +262,10 @@ install gnuplot-nox
 install sur5r-keyring
 install i3 # Tiling WM
 install i3lock
+install i3blocks
+install dunst # Notifications
+install xss-lock
+install rofi # Runner menu
 install compton # Compositing, xcompmgr fork
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools

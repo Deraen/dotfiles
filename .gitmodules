@@ -94,9 +94,6 @@
 [submodule ".local/modules/ponymix"]
 	path = .local/modules/ponymix
 	url = https://github.com/falconindy/ponymix.git
-[submodule ".local/modules/dunst"]
-	path = .local/modules/dunst
-	url = https://github.com/knopwob/dunst.git
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
@@ -112,9 +109,6 @@
 [submodule ".local/modules/tpm-filemanagement"]
 	path = .local/modules/tpm-filemanagement
 	url = https://github.com/baabelfish/tpm-filemanagement.git
-[submodule ".local/modules/i3blocks"]
-	path = .local/modules/i3blocks
-	url = https://github.com/vivien/i3blocks.git
 [submodule ".local/modules/pmm"]
 	path = .local/modules/pmm
 	url = git@github.com:Deraen/pmm.git
@@ -148,9 +142,6 @@
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
-[submodule ".local/modules/xss-lock"]
-	path = .local/modules/xss-lock
-	url = https://bitbucket.org/raymonad/xss-lock.git
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
@@ -175,9 +166,6 @@
 [submodule ".vim/bundle/targets.vim"]
 	path = .vim/bundle/targets.vim
 	url = git@github.com:wellle/targets.vim.git
-[submodule ".local/modules/rofi"]
-	path = .local/modules/rofi
-	url = git@github.com:DaveDavenport/rofi.git
 [submodule ".local/modules/screenkey"]
 	path = .local/modules/screenkey
 	url = git@github.com:wavexx/screenkey.git
