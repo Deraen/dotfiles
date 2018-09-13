@@ -16,6 +16,7 @@ ppa yubico stable bionic
 ppa git-core ppa bionic
 ppa phoerious keepassxc bionic
 ppa deraen random bionic --keyid 8EE3F468
+ppa s.noack ppa bionic --keyid E1285F2F
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
 #         --key-url http://archive.getdeb.net/getdeb-archive.key
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
@@ -218,6 +219,7 @@ install i3blocks
 install dunst # Notifications
 install xss-lock
 install rofi # Runner menu
+install sway
 install compton # Compositing, xcompmgr fork
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools

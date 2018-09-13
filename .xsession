@@ -1,6 +1,12 @@
 #!/bin/bash
 
-source /home/$USER/.profile
+WM=i3
+if [[ ! -z $1 ]]; then
+    WM=$1
+fi
+
+# shellcheck source=.profile
+source "/home/$USER/.profile"
 
 systemctl --user import-environment
 
@@ -40,7 +46,7 @@ frakkin-xkb -t 1000 xkblayout.sh &
 
 export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 
-exec i3
+exec "$WM"
 # sxhkd &
 # panel &
 # exec bspwm
