@@ -28,3 +28,5 @@ autocmd FileType clojure setlocal lispwords+=add-encoder
 autocmd FileType clojure setlocal lispwords+=with-call-in,with-eval-in,with-pre-wrap,with-post-wrap
 " Cats
 autocmd FileType clojure setlocal lispwords+=with-context,alet,mlet
+" Clojure.spec
+autocmd FileType clojure setlocal lispwords+=fdef
