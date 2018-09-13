@@ -1,3 +1,4 @@
+# shellcheck source=.config/terminal/functions.sh
 source "$HOME/.config/terminal/functions.sh"
 
 if [ -n "$BASH_VERSION" ]; then
