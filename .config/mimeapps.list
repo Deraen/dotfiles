@@ -31,3 +31,4 @@ video/x-ms-wmv=mpv.desktop;
 video/x-msvideo=mpv.desktop;
 image/x-eps=inkscape.desktop;
 image/png=gimp.desktop;
+image/svg+xml=inkscape.desktop;
