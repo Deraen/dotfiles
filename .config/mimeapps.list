@@ -32,3 +32,4 @@ video/x-msvideo=mpv.desktop;
 image/x-eps=inkscape.desktop;
 image/png=gimp.desktop;
 image/svg+xml=inkscape.desktop;
+application/x-java-archive=org.gnome.FileRoller.desktop;
