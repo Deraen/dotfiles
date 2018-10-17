@@ -10,3 +10,5 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 . $HOME/.config/terminal/common.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

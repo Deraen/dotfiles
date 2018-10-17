@@ -38,3 +38,5 @@ source $HOME/.config/terminal/common.sh
 
 # Color commands
 source $HOME/.local/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

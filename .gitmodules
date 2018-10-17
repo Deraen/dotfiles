@@ -223,3 +223,9 @@
 [submodule ".local/modules/oh-my-zsh"]
 	path = .local/modules/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
+[submodule ".vim/bundle/fzf.vim"]
+	path = .vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "/home/juho/.fzf"]
+	path = /home/juho/.fzf
+	url = https://github.com/junegunn/fzf.git

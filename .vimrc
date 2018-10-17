@@ -10,6 +10,8 @@ if has('nvim')
   runtime! plugin/python_setup.vim
 endif
 
+set rtp+=~/.fzf
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect(
       \ 'bundle/{}',
@@ -146,10 +148,10 @@ nmap <a <Plug>Argumentative_MoveLeft
 nmap >a <Plug>Argumentative_MoveRight
 
 " ctrl-p and space-p change file
-nmap <space>p <Plug>(ctrlp)
+nmap <space>p :<C-u>GFiles<cr>
 " ctrl-b and space-b change buffer
-nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
-nnoremap <silent> <C-b>    :<C-u>CtrlPBuffer<cr>
+nnoremap <silent> <space>b :<C-u>Buffers<cr>
+nnoremap <silent> <C-b>    :<C-u>Buffers<cr>
 
 " Quick macro stuff
 nnoremap § qqqqq
@@ -231,6 +233,18 @@ let g:syntastic_warning_symbol='✕'
 " let g:syntastic_enable_highlighting = 0
 let g:syntastic_go_checkers = ['golint', 'govet']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }"
+
+" FZF
+
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+      \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit',
+  \ 'alt-w': 'wall | bdelete' }
 
 " CtrlP
 let g:ctrlp_extensions = ['line']
