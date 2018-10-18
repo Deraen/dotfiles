@@ -28,7 +28,8 @@ repo i3 "deb http://debian.sur5r.net/i3/ bionic universe" \
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
 repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic non-free contrib"
-repo docker "deb https://apt.dockerproject.org/repo ubuntu-zesty main"
+repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
+        --keyid 0EBFCD88
 repo nodesource "deb https://deb.nodesource.com/node_10.x bionic main\ndeb-src https://deb.nodesource.com/node_10.x bionic main\n"
 repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
         --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
@@ -190,7 +191,7 @@ install libxi-dev
 install libjson-glib-dev
 
 # Docker
-install docker-engine
+install docker-ce
 
 # Tessel
 install libusb-1.0-0-dev
