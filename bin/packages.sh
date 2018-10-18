@@ -184,6 +184,7 @@ install autoconf
 install automake
 install libboost-all-dev
 install libpulse-dev # Ponymix
+install libfreetype6-dev
 # frakking-xkb
 install libxi-dev
 # i3-utils

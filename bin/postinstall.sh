@@ -42,6 +42,9 @@ if [[ ! -d ~/.cargo ]]; then
     curl https://sh.rustup.rs -sSf | sh
 fi
 
+header "Update Rust"
+rustup update
+
 header "Build vimproc"
 make -C "$HOME/.vim/bundle/vimproc" -j
 
@@ -70,7 +73,7 @@ if [[ $desktop == true ]]; then
 
     header "Alacritty"
     (
-    cd "$HOME/Source/alacritty" || exit
+    cd "$HOME/.local/modules/alacritty" || exit
     cargo build --release
     mv target/release/alacritty "$HOME/.local/bin/alacritty"
     )
