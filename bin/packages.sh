@@ -9,7 +9,6 @@ ppa nilarimogard webupd8 bionic # Launchpad-getkeys? Stuff
 ppa otto-kesselgulasch gimp bionic
 ppa rvm smplayer bionic # Mplayer UI
 ppa mc3man mpv-tests bionic # Mpv, mplayer[|2] fork
-ppa webupd8team java bionic # Oracle java
 ppa ansible ansible bionic
 ppa neovim-ppa stable bionic
 ppa yubico stable bionic
@@ -127,8 +126,8 @@ install libmsgpack-dev
 install xclip
 
 # Java
-install "oracle-java8-set-default"
-install "oracle-java8-unlimited-jce-policy"
+install openjdk-8-jre
+install openjdk-11-jre
 install maven
 install ant
 
