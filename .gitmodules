@@ -226,9 +226,9 @@
 [submodule ".vim/bundle/fzf.vim"]
 	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule "/home/juho/.fzf"]
-	path = /home/juho/.fzf
-	url = https://github.com/junegunn/fzf.git
 [submodule ".local/modules/alacritty"]
 	path = .local/modules/alacritty
 	url = https://github.com/jwilm/alacritty.git
+[submodule ".fzf"]
+	path = .fzf
+	url = https://github.com/junegunn/fzf.git
