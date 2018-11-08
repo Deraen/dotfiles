@@ -275,6 +275,10 @@ let g:refactor_nrepl_options = '{:prefix-rewriting false}'
 
 au FileType clojure let b:delimitMate_quotes = "\" `"
 
+let g:fireplace_cljs_repl_opts = {
+      \ 'enabled': 0,
+      \ }
+
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 0
 let g:clojure_maxlines = 200

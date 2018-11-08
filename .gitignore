@@ -6,3 +6,7 @@ doc/tags
 .idea
 *.o
 .DS_Store
+
+.cljs_node_repl/
+.cljs_nashorn_repl/
+.cpcache/
