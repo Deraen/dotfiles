@@ -149,9 +149,10 @@ nmap >a <Plug>Argumentative_MoveRight
 
 " ctrl-p and space-p change file
 " nmap <space>p :<C-u>GFiles<cr>
-nmap <space>p <Plug>(ctrlp)
+" nmap <space>p <Plug>(ctrlp)
+" nnoremap <silent> <space>p :<C-u>CtrlPCurWD<cr>
 " ctrl-b and space-b change buffer
-nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
+" nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
 nnoremap <silent> <C-b>    :<C-u>CtrlPBuffer<cr>
 
 " Quick macro stuff
