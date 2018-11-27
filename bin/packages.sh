@@ -280,6 +280,7 @@ install yad # Zenity alternative with proper color picker
 install wine-development
 install mesa-utils
 install nemo
+install flameshot
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn

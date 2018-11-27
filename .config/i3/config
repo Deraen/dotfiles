@@ -192,8 +192,10 @@ bindsym XF86MonBrightnessUp exec backlight.sh + 5
 
 # Screenshots
 bindsym Print exec gnome-screenshot
-bindsym Mod1+Print exec gnome-screenshot -w
 bindsym Ctrl+Print exec gnome-screenshot -i
+bindsym Mod4+Print exec flameshot gui
+# Color picker
+bindsym Shift+Print exec yad --color
 
 bar {
   position top
