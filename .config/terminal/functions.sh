@@ -12,3 +12,13 @@ function exportIfExists {
 function addSource {
     [[ -f "$1" ]] && source "$1"
 }
+
+function removePath {
+    WORK=:$PATH:
+    for var in "$@"; do
+        WORK=${WORK/:$var:/:}
+    done
+    WORK=${WORK%:}
+    WORK=${WORK#:}
+    export PATH="$WORK"
+}

@@ -78,3 +78,19 @@ alias npm='init_nvm npm'
 alias node='init_nvm node'
 
 export GOPATH="/home/juho/Source/go"
+
+choose_jdk() {
+  VERSION=$1
+  PREV=$JAVA_HOME
+  JAVA_HOME=/usr/lib/jvm/java-${VERSION}-openjdk-amd64
+  if [[ ! -d $JAVA_HOME ]]; then
+    echo "Bad java path $JAVA_HOME"
+    exit 1
+  fi
+  export JAVA_HOME
+  addPath "$JAVA_HOME/jre/bin"
+  addPath "$JAVA_HOME/bin"
+  removePath "$PREV/bin"
+  removePath "$PREV/jre/bin"
+  removePath "$PREV/db/bin"
+}
