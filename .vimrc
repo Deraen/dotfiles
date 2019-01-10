@@ -274,11 +274,10 @@ endfunction
 autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
 let g:refactor_nrepl_options = '{:prefix-rewriting false}'
 
-au FileType clojure let b:delimitMate_quotes = "\" `"
+" ' and ` are used alone in Clojure
+au FileType clojure let b:delimitMate_quotes = "\""
 
-let g:fireplace_cljs_repl_opts = {
-      \ 'enabled': 0,
-      \ }
+let g:fireplace_default_cljs_repl = ""
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 0
