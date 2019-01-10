@@ -114,6 +114,12 @@ function! s:set_up() abort
 
   nmap <buffer> cpt <Plug>TestToplevel
 
+  " <LocalLeader> ö
+  " öo = raise form
+  " öO = raise element
+  " ÖO = raise keyword to symbol (:foo bar) -> foo
+  nmap <buffer> ÖO öOBx
+
   command! -buffer RemoveNs call s:RemoveNs()
 endfunction
 
