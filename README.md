@@ -51,3 +51,19 @@ sudo apt-get update
 # Remove old packages
 dpkg -l | grep oibaf | awk '{print $2}' | xargs sudo dpkg --remove --force-all
 ```
+
+### Remove automatically added Chrome search engines
+
+Only leave search engines where keyword doesn't contain dots, i.e. keyword is not the domain:
+
+```js
+settings.SearchEnginesBrowserProxyImpl.prototype.getSearchEnginesList()
+    .then(function(val) {
+        val.others.sort(function(a, b) { return b.modelIndex - a.modelIndex; });
+        val.others.forEach(function(engine) {
+            if (engine.keyword.indexOf('.') !== -1) {
+                settings.SearchEnginesBrowserProxyImpl.prototype.removeSearchEngine(engine.modelIndex);
+            }
+        });
+    });
+```
