@@ -39,6 +39,8 @@ repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
         --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
 repo mongodb-org-4.0 "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" \
         --keyid 9DA31620334BD75D9DCB49F368818C72E52529D4
+repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-$(lsb_release -c -s) main" \
+        --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa graphics-drivers ppa bionic
@@ -119,7 +121,7 @@ install sysfsutils
 # Editor
 install neovim
 install python3-msgpack
-install python3-neovim "0.2.6-3" "http://ftp.de.debian.org/debian/pool/main/p/python-neovim/python3-neovim_0.2.6-3_all.deb"
+install python3-neovim
 
 # Neovim
 install luarocks
@@ -192,6 +194,7 @@ install libjson-glib-dev
 
 # Docker
 install docker-ce
+install google-cloud-sdk
 
 # Tessel
 install libusb-1.0-0-dev
