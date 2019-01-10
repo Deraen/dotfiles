@@ -80,32 +80,24 @@ bindsym $mod+minus scratchpad show
 
 # Workspaces
 set $www 1:
-set $irc 2:
-set $dev 3:
 set $comm 0:
 set $music 11:MUSIC
 set $video 12:VIDEO
-set $steam 13:STEAM
+set $games 13:STEAM
 set $downloads 14:DOWNLOADS
 
-# Defaults for desktop computer
-workspace "$irc" output DVI-D-0
-workspace "$video" output DVI-D-1
+bindsym $mod+e exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # Defaults
 # $ xprop
-assign [class="quassel"] → $irc
-assign [class="Transmission-remote-gtk"] → $downloads
-assign [class="Smplayer"] → $video
-assign [class="Steam"] → $steam
-assign [class="Spotify"] → $music
-assign [class="HipChat"] → $comm
-assign [class="Skype"] → $comm
-assign [class="Slack"] → $comm
+assign [class="Deluge"] → number 14
+assign [class="Smplayer"] → number 12
+assign [class="Steam"] → number 13
+assign [class="Spotify"] → number 11
+assign [class="HipChat"] → number $comm
+assign [class="Slack"] → number $comm
 # Flowdock
-assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → $comm
-# IRCCloud
-assign [instance="crx_pnpnebpkafjbaejjhkkaiandjbnbbbak"] → $irc
+assign [instance="crx_ecfaiclpokecdjgdbnoogehobmmgalah"] → number $comm
 
 for_window [class="^.*"] border pixel 2
 for_window [class="Simplescreenrecorder"] floating enable
@@ -127,37 +119,37 @@ for_window [class="^(URxvt|Termite|st-256color)$"] border pixel 2
 for_window [class="Steam" title="^(Steam - .*|Friends)$"] floating enable
 for_window [class="Gnome-screenshot"] floating enable
 
-bindsym $mod+section workspace "$comm"
-bindsym $mod+1 workspace "$www"
-bindsym $mod+2 workspace "$irc"
-bindsym $mod+3 workspace "$dev"
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-bindsym $mod+F1 workspace "$music"
-bindsym $mod+F2 workspace "$video"
-bindsym $mod+F3 workspace "$steam"
-bindsym $mod+F4 workspace "$downloads"
+bindsym $mod+section workspace number $comm
+bindsym $mod+1 workspace number $www
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+bindsym $mod+F1 workspace number $music
+bindsym $mod+F2 workspace number $video
+bindsym $mod+F3 workspace number $games
+bindsym $mod+F4 workspace number $downloads
 
-bindsym $mod+Shift+section move container to workspace "$comm"
-bindsym $mod+Shift+exclam move container to workspace "$www"
-bindsym $mod+Shift+quotedbl move container to workspace "$irc"
-bindsym $mod+Shift+numbersign move container to workspace "$dev"
-bindsym $mod+Shift+currency move container to workspace 4
-bindsym $mod+Shift+percent move container to workspace 5
-bindsym $mod+Shift+ampersand move container to workspace 6
-bindsym $mod+Shift+slash move container to workspace 7
-bindsym $mod+Shift+parenleft move container to workspace 8
-bindsym $mod+Shift+parenright move container to workspace 9
-bindsym $mod+Shift+equal move container to workspace 10
-bindsym $mod+Shift+F1 move container to workspace "$music"
-bindsym $mod+Shift+F2 move container to workspace "$video"
-bindsym $mod+Shift+F3 move container to workspace "$steam"
-bindsym $mod+Shift+F4 move container to workspace "$downloads"
+bindsym $mod+Shift+section move container to workspace number $comm
+bindsym $mod+Shift+exclam move container to workspace number $www
+bindsym $mod+Shift+quotedbl move container to workspace number 2
+bindsym $mod+Shift+numbersign move container to workspace number 3
+bindsym $mod+Shift+currency move container to workspace number 4
+bindsym $mod+Shift+percent move container to workspace number 5
+bindsym $mod+Shift+ampersand move container to workspace number 6
+bindsym $mod+Shift+slash move container to workspace number 7
+bindsym $mod+Shift+parenleft move container to workspace number 8
+bindsym $mod+Shift+parenright move container to workspace number 9
+bindsym $mod+Shift+equal move container to workspace number 10
+bindsym $mod+Shift+F1 move container to workspace number $music
+bindsym $mod+Shift+F2 move container to workspace number $video
+bindsym $mod+Shift+F3 move container to workspace number $games
+bindsym $mod+Shift+F4 move container to workspace number $downloads
 
 # Move container/workspace to other output
 bindsym $mod+Shift+x move container to output right
