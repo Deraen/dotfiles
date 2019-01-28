@@ -1,0 +1,1 @@
+../../../.local/modules/alacritty/alacritty-completions.zsh

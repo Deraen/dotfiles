@@ -75,6 +75,7 @@ if [[ $desktop == true ]]; then
     (
     cd "$HOME/.local/modules/alacritty" || exit
     cargo build --release
+    sudo tic -e alacritty,alacritty-direct alacritty.info
     mv target/release/alacritty "$HOME/.local/bin/alacritty"
     )
 

@@ -149,9 +149,10 @@ nmap >a <Plug>Argumentative_MoveRight
 
 " ctrl-p and space-p change file
 " nmap <space>p :<C-u>GFiles<cr>
-nmap <space>p <Plug>(ctrlp)
+" nmap <space>p <Plug>(ctrlp)
+" nnoremap <silent> <space>p :<C-u>CtrlPCurWD<cr>
 " ctrl-b and space-b change buffer
-nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
+" nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
 nnoremap <silent> <C-b>    :<C-u>CtrlPBuffer<cr>
 
 " Quick macro stuff
@@ -274,6 +275,10 @@ autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
 let g:refactor_nrepl_options = '{:prefix-rewriting false}'
 
 au FileType clojure let b:delimitMate_quotes = "\" `"
+
+let g:fireplace_cljs_repl_opts = {
+      \ 'enabled': 0,
+      \ }
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 0
