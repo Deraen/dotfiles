@@ -8,44 +8,33 @@ displays:
 - eDP-1:
     auto: yes
     dpi: 144
-  DP-2-1:
+    # Refer to name matched by DP property
+    left-of:
+      name: DP
+  DP:
+    # DP-4, DP-2-2 etc.
+    match: ^DP-\d[\d-]*$
     auto: yes
-    right-of: eDP-1
-- eDP-1:
-    auto: yes
-    dpi: 144
-  DP-1:
-    auto: yes
-    right-of: eDP-1
+    # right-of: eDP-1
 - eDP-1:
     auto: yes
   HDMI-2:
     auto: yes
     right-of: eDP-1
+# X220
 - LVDS1:
     auto: Yes
-# Laptop + Projector
 - LVDS1:
     auto: Yes
   VGA1:
     auto: Yes
     pos: "0x0"
-# X220
-- LVDS1: # Work, docked, 27
+- LVDS1:
     auto: Yes
-  DP2:
+  DP:
+    match: ^DP-\d$
     auto: Yes
     right-of: LVDS1
-- LVDS1:
-    auto: yes
-  DP2:
-    auto: Yes
-    right-of: LVDS1
-- LVDS1:
-    auto: yes
-  DP1:
-    auto: Yes
-    left-of: LVDS1
 # Home
 - DP-2:
     mode: 3840x2160
