@@ -232,3 +232,6 @@
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule ".vim/bundle_clojure/vim-iced"]
+	path = .vim/bundle_clojure/vim-iced
+	url = https://github.com/liquidz/vim-iced.git
