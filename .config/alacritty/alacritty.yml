@@ -12,15 +12,19 @@
 # (changes require restart)
 window:
   dimensions:
-    columns: 80
-    lines: 24
+    columns: 0
+    lines: 0
 
-# Adds this many blank pixels of padding around the window
-# Units are physical pixels; this is not DPI aware.
-# (change requires restart)
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is scaled
+  # by DPI and the specified value is always added at both opposing sides.
   padding:
     x: 2
     y: 2
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: false
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
@@ -218,6 +222,27 @@ mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
 
+  # If this is `true`, the cursor is temporarily hidden when typing.
+  hide_when_typing: false
+
+  url:
+    # URL launcher
+    #
+    # This program is executed when clicking on a text which is recognized as a URL.
+    # The URL is always added to the command as the last parameter.
+    #
+    # Default:
+    #   - (macOS) open
+    #   - (Linux) xdg-open
+    #   - (Windows) explorer
+    launcher: xdg-open
+
+    # URL modifiers
+    #
+    # These are the modifiers that need to be held down for opening URLs when clicking
+    # on them. The available modifiers are documented in the key binding section.
+    modifiers: Alt
+
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
@@ -236,6 +261,9 @@ cursor:
 
 # Live config reload (changes require restart)
 live_config_reload: true
+
+# Send ESC (\x1b) before characters when alt is pressed.
+alt_send_esc: true
 
 # Shell
 #
@@ -306,6 +334,8 @@ key_bindings:
   - { key: Key0,     mods: Control, action: ResetFontSize                }
   - { key: Add,   mods: Control, action: IncreaseFontSize             }
   - { key: Subtract, mods: Control, action: DecreaseFontSize             }
+  - { key: Paste,                   action: Paste                        }
+  - { key: Copy,                    action: Copy                         }
   - { key: Home,                    chars: "\x1bOH",   mode: AppCursor   }
   - { key: Home,                    chars: "\x1b[H",   mode: ~AppCursor  }
   - { key: End,                     chars: "\x1bOF",   mode: AppCursor   }
@@ -401,4 +431,5 @@ key_bindings:
   - { key: F10,      mods: Super,   chars: "\x1b[21;3~"                  }
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                  }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                  }
+  - { key: NumpadEnter,             chars: "\n"                          }
   - { key: T,        mods: Control|Shift, command: {program: "alacritty-cwd"}}
