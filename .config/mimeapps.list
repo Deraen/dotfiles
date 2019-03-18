@@ -11,6 +11,7 @@ video/mpeg=mpv.desktop
 video/x-ms-wmv=mpv.desktop
 video/x-msvideo=mpv.desktop
 application/x-font-ttf=org.gnome.font-viewer.desktop
+text/markdown=org.gnome.gedit.desktop
 
 [Added Associations]
 video/quicktime=mpv.desktop;
@@ -33,3 +34,4 @@ image/x-eps=inkscape.desktop;
 image/png=gimp.desktop;
 image/svg+xml=inkscape.desktop;
 application/x-java-archive=org.gnome.FileRoller.desktop;
+text/markdown=org.gnome.gedit.desktop;
