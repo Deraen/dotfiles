@@ -46,7 +46,7 @@ frakkin-xkb -t 1000 xkblayout.sh &
 
 export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 
-exec "$WM"
+exec "$WM" > "$HOME/.logs/wm-log-$(date +'%F-%k-%M-%S')" 2>&1
 # sxhkd &
 # panel &
 # exec bspwm
