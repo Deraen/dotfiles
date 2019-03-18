@@ -3,14 +3,16 @@
 (def java-8 (.startsWith (System/getProperty "java.version") "1.8.0"))
 
 (swap! boot.repl/*default-dependencies* into
-       '[[cider/cider-nrepl "0.18.0"]
+       '[[cider/cider-nrepl "0.20.0"]
          [org.clojure/tools.namespace "0.2.11"]
          [aprint "0.1.3"]
-         [refactor-nrepl "2.4.0"]])
+         [refactor-nrepl "2.4.0"]
+         [iced-nrepl "0.4.0"]])
 
 (swap! boot.repl/*default-middleware* into
        '[cider.nrepl/cider-middleware
-         refactor-nrepl.middleware/wrap-refactor])
+         refactor-nrepl.middleware/wrap-refactor
+         iced.nrepl/wrap-iced])
 
 ;; Read credentials from Lein directory
 (try
