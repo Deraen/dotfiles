@@ -41,6 +41,10 @@ repo mongodb-org-4.0 "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bio
         --keyid 9DA31620334BD75D9DCB49F368818C72E52529D4
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-$(lsb_release -c -s) main" \
         --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+repo spotify "deb http://repository.spotify.com stable non-free" \
+        --keyid 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+repo mopidy "deb http://apt.mopidy.com/ stretch main contrib non-free\ndeb-src http://apt.mopidy.com/ stretch main contrib non-free" \
+        --key-url https://apt.mopidy.com/mopidy.gpg
 
 if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         ppa graphics-drivers ppa bionic
@@ -276,13 +280,14 @@ install smplayer
 install playerctl 0.6.1 https://github.com/acrisci/playerctl/releases/download/v0.6.1/playerctl-0.6.1_amd64.deb
 install steam-launcher
 install deluge
-install virtualbox-5.2
+install virtualbox-6.0
 install typecatcher # Install Google webfonts
 install cheese # Webcam
 install yad # Zenity alternative with proper color picker
 install wine-development
 install mesa-utils
 install nemo
+install spotify-client
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
