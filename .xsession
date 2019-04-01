@@ -21,6 +21,8 @@ synclient TouchpadOff=1
 eval "$(gpg-agent --daemon --sh)" >/dev/null
 export GPG_AGENT_INFO
 
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+
 if [[ $HOST == "juho-desktop" ]]; then
     export __GL_SYNC_TO_VBLANK=1
     export __GL_SYNC_DISPLAY_DEVICE=DP-1
