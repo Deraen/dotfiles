@@ -9,7 +9,6 @@ font pango:Ubuntu, Icons 8
 
 # Dmenu
 bindsym $mod+r exec rofi -show drun
-bindsym $mod+s exec code
 
 bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py && rndbg.sh
 bindsym $mod+Shift+F11 exec togglecompton.sh
