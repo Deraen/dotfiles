@@ -1,4 +1,4 @@
-{:repl {:plugins [[cider/cider-nrepl "0.20.0"]
+{:repl {:plugins [[cider/cider-nrepl "0.21.1"]
                   [refactor-nrepl "2.4.0"]
                   #_[venantius/ultra "0.5.2"]]}
  :user {:plugins [[lein-ancient "0.6.15"]
@@ -6,7 +6,7 @@
                   [lein-pprint "1.2.0"]
                   [lein-licenses "0.2.2"]
                   [lein-try "0.4.3"]]
-        :dependencies [[nrepl "0.5.3"]
+        :dependencies [[nrepl "0.6.0"]
                        [org.clojure/tools.namespace "0.2.11"]
                        [aprint "0.1.3"]]
         :ultra {:color-scheme :solarized_dark}}
