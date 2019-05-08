@@ -4,33 +4,37 @@
 
 . "$HOME/.local/modules/pmm/init.sh"
 
-ppa maarten-baert simplescreenrecorder bionic
-ppa nilarimogard webupd8 bionic # Launchpad-getkeys? Stuff
-ppa otto-kesselgulasch gimp bionic
-ppa rvm smplayer bionic # Mplayer UI
-ppa mc3man mpv-tests bionic # Mpv, mplayer[|2] fork
-ppa ansible ansible bionic
-ppa neovim-ppa stable bionic
-ppa yubico stable bionic
-ppa git-core ppa bionic
-ppa phoerious keepassxc bionic
+ppa maarten-baert simplescreenrecorder bionic --keyid 409C8B51283EC8CD
+ppa nilarimogard webupd8 bionic --keyid 531EE72F4C9D234C
+ppa otto-kesselgulasch gimp bionic --keyid 3BDAAC08614C4B38
+ppa rvm smplayer bionic --keyid A7E13D78E4A4F4F4
+ppa mc3man mpv-tests bionic --keyid 90BD7EACED8E640A
+ppa ansible ansible bionic --keyid 93C4A3FD7BB9C367
+ppa neovim-ppa stable bionic --keyid 55F96FCF8231B6DD
+ppa yubico stable bionic --keyid 43D5C49532CBA1A9
+ppa git-core ppa bionic --keyid A1715D88E1DF1F24
+ppa phoerious keepassxc bionic --keyid 61922AB60068FCD6
 ppa deraen random bionic --keyid 8EE3F468
 ppa s.noack ppa bionic --keyid E1285F2F
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
 #         --key-url http://archive.getdeb.net/getdeb-archive.key
-repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
-repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
-repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
-repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
+repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main" \
+        --keyid FC918B335044912E
+repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
+        --keyid 6494C6D6997C215E
+repo heroku "deb http://toolbelt.heroku.com/ubuntu ./" \
+        --keyid C927EBE00F1B0520
 repo i3 "deb http://debian.sur5r.net/i3/ bionic universe" \
         --keyring sur5r-keyring \
         --keyid 941C42E6
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
-repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic non-free contrib"
+repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic non-free contrib" \
+        --keyid A2F683C52980AECF
 repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
         --keyid 0EBFCD88
-repo nodesource "deb https://deb.nodesource.com/node_10.x bionic main\ndeb-src https://deb.nodesource.com/node_10.x bionic main\n"
+repo nodesource "deb https://deb.nodesource.com/node_10.x bionic main\ndeb-src https://deb.nodesource.com/node_10.x bionic main\n" \
+        --keyid 1655A0AB68576280
 repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
         --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
@@ -195,6 +199,7 @@ install libfreetype6-dev
 install libxi-dev
 # i3-utils
 install libjson-glib-dev
+install libfontconfig1-dev # alacritty
 
 # Docker
 install docker-ce
