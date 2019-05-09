@@ -50,14 +50,13 @@ repo spotify "deb http://repository.spotify.com stable non-free" \
 repo mopidy "deb http://apt.mopidy.com/ stretch main contrib non-free\ndeb-src http://apt.mopidy.com/ stretch main contrib non-free" \
         --key-url https://apt.mopidy.com/mopidy.gpg
 
-if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
+if [[ $DESKTOP == "true" ]]; then
         ppa graphics-drivers ppa bionic
 fi
 
-if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        ppa linrunner tlp bionic
-        ppa oibaf graphics-drivers bionic
-        repo telred "deb https://tel.red/repos/ubuntu bionic non-free"
+if [[ $LAPTOP == "true" ]]; then
+        ppa linrunner tlp bionic --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers bionic --keyid 957D2708A03A4626
 fi
 
 updateRepos
@@ -282,7 +281,7 @@ install qgit
 install simplescreenrecorder
 install mpv
 install smplayer
-install playerctl 0.6.1 https://github.com/acrisci/playerctl/releases/download/v0.6.1/playerctl-0.6.1_amd64.deb
+install playerctl
 install steam-launcher
 install deluge
 install virtualbox-6.0
@@ -297,7 +296,7 @@ install spotify-client
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
 
-if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
+if [[ $DESKTOP == "true" ]]; then
         install "nvidia-driver-396"
         install nvidia-settings
         install fail2ban
@@ -320,8 +319,7 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
 fi
 
 # Laptop specific
-if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
-        install forticlient-sslvpn
+if [[ $LAPTOP == "true" ]]; then
         install lvm2
         install cryptsetup
         install xbacklight
@@ -330,7 +328,6 @@ if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
         if grep -q i7-2640 /proc/cpuinfo; then
                 install thinkfan
         fi
-        install i965-va-driver
         install tlp
 fi
 

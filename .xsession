@@ -5,7 +5,6 @@ if [[ ! -z $1 ]]; then
     WM=$1
 fi
 
-# shellcheck source=.profile
 source "/home/$USER/.profile"
 
 systemctl --user import-environment
@@ -34,10 +33,10 @@ fi
 
 dunst &
 nm-applet &
-if [[ $HOST == "juho-laptop" ]]; then
+if [[ $LAPTOP == "true" ]]; then
     xset dpms 300 300 300
     xss-lock lock.sh &
-elif [[ $HOST == "juho-desktop" ]]; then
+elif [[ $DESKTOP == "true" ]]; then
     xset dpms 600 600 600
 fi
 rndbg.sh
