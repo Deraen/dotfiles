@@ -14,6 +14,8 @@ xmodmap .Xmodmap
 # Disable touchpad
 synclient TouchpadOff=1
 
+gsettings set org.gnome.settings-daemon.plugins.xsettings overrides '@a{sv} {"Gtk/ShellShowsAppMenu": <int32 0>}'
+
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/gnome-settings-daemon/gsd-rfkill &
 
