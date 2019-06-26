@@ -2,9 +2,23 @@
 maxdisplays: 2
 displays:
 # T460s
+- eDP1:
+    auto: yes
+    dpi: 144
+    scale: 1x1
 - eDP-1:
     auto: yes
     dpi: 144
+    scale: 1x1
+# T490
+- eDP:
+    auto: yes
+    match: ^eDP-?1$
+  DP:
+    match: ^DP-?\d[\d-]*$
+    auto: yes
+    right-of:
+      name: eDP
 - eDP-1:
     auto: yes
     dpi: 144
