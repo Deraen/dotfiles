@@ -94,17 +94,3 @@ choose_jdk() {
   removePath "$PREV/jre/bin"
   removePath "$PREV/db/bin"
 }
-
-if [[ $HOST == "juho-laptop" ]] || \
-    [[ $HOST == "juho-ThinkPad-T490" ]]
-then
-    LAPTOP=true
-    DESKTOP=false
-elif [[ $HOST == "juho-desktop" ]]
-then
-    LAPTOP=false
-    DESKTOP=true
-fi
-
-export LAPTOP
-export DESKTOP
