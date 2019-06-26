@@ -4,9 +4,9 @@ if [[ $BLOCK_BUTTON == "1" ]]; then
 elif [[ $BLOCK_BUTTON == "3" ]]; then
     ponymix toggle > /dev/null
 elif [[ $BLOCK_BUTTON == "4" ]]; then
-    ponymix -N increase 2
+    ponymix -N increase 2 > /dev/null
 elif [[ $BLOCK_BUTTON == "5" ]]; then
-    ponymix -N decrease 2
+    ponymix -N decrease 2 > /dev/null
 fi
 
 if ponymix is-muted; then

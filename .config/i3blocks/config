@@ -2,6 +2,7 @@ color=#ffffff
 # https://www.dropbox.com/s/9iysh2i0gadi4ic/icons.pdf
 
 [music]
+signal=2
 command=~/.config/i3blocks/music.sh
 interval=5
 markup=pango
