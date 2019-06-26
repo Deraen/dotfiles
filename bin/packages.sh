@@ -136,8 +136,8 @@ install libmsgpack-dev
 install xclip
 
 # Java
-install openjdk-8-jre
-install openjdk-11-jre
+install openjdk-8-jdk
+install openjdk-11-jdk
 install maven
 install ant
 
@@ -199,6 +199,9 @@ install libxi-dev
 # i3-utils
 install libjson-glib-dev
 install libfontconfig1-dev # alacritty
+# srandrd
+install libxrandr-dev
+install libxinerama-dev
 
 # Docker
 install docker-ce
@@ -249,6 +252,7 @@ install libu2f-host0
 install yubikey-personalization
 install yubikey-personalization-gui
 install pinentry-gtk2
+install pcscd
 
 # GUI software
 install blender
