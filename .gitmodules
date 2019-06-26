@@ -235,3 +235,6 @@
 [submodule ".vim/bundle_clojure/vim-iced"]
 	path = .vim/bundle_clojure/vim-iced
 	url = https://github.com/liquidz/vim-iced.git
+[submodule ".local/modules/sdrandrd"]
+	path = .local/modules/srandrd
+	url = https://github.com/jceb/srandrd.git
