@@ -238,3 +238,6 @@
 [submodule ".local/modules/sdrandrd"]
 	path = .local/modules/srandrd
 	url = https://github.com/jceb/srandrd.git
+[submodule ".vim/bundle/asyncomplete.vim"]
+	path = .vim/bundle/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim.git
