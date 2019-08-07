@@ -82,9 +82,19 @@ function! s:RemoveNs() abort
 endfunction
 
 function! s:reset_callback(id, buffer, message) abort
-  " Check out prop
+  " TODO: Check out/err/ex prop
   if has_key(a:message, "value")
     echom get(a:message, "value")
+  endif
+
+  echom string(a:message)
+
+  if has_key(a:message, "status")
+    if index(get(a:message, "status", {}), "done") >= 0
+      echom "Success: (reset)"
+    else
+      echom "Failure: (reset)"
+    endif
   endif
 endfunction
 
@@ -94,7 +104,14 @@ function! s:ResetReloadedRepl() abort
   " even when calling this from README.md or such.
   " Only works when inside a folder with .nrepl-port.
   let platform = fireplace#clj()
-  let msg = platform.Message({"op": "eval", "code": "(reset)", "ns": platform.UserNs()}, function("s:reset_callback", [(get(getqflist({'id': 0}), 'id')), []]))
+  echom "Started: (reset)"
+  let msg = platform.Message(
+        \ {
+        \   "op": "eval",
+        \   "code": "(reset)",
+        \   "ns": platform.UserNs()
+        \ },
+        \ function("s:reset_callback", [(get(getqflist({'id': 0}), 'id')), []]))
   return msg
 endfunction
 
