@@ -198,7 +198,11 @@ install libfreetype6-dev
 install libxi-dev
 # i3-utils
 install libjson-glib-dev
-install libfontconfig1-dev # alacritty
+# alacritty
+install libfontconfig1-dev
+install libxcb-render0-dev
+install libxcb-shape0-dev
+install libxcb-xfixes0-dev
 # srandrd
 install libxrandr-dev
 install libxinerama-dev
