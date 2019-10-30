@@ -5,7 +5,7 @@
   "description": "",
   "dependencies": {
     "@juxt/mach": "1.4.7",
-    "bower": "1.8.4",
+    "bower": "1.8.8",
     "cloc": "2.3.4",
     "cordova": "8.1.2",
     "externs-generator": "0.3.3",
