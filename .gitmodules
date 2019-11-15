@@ -184,9 +184,6 @@
 [submodule ".vim/bundle/vim-grepper"]
 	path = .vim/bundle/vim-grepper
 	url = https://github.com/mhinz/vim-grepper.git
-[submodule ".vim/bundle/Colorizer"]
-	path = .vim/bundle/Colorizer
-	url = https://github.com/chrisbra/Colorizer.git
 [submodule ".vim/bundle_clojure/clj-refactor.nvim"]
 	path = .vim/bundle_clojure/clj-refactor.nvim
 	url = https://github.com/snoe/clj-refactor.nvim.git
@@ -241,3 +238,12 @@
 [submodule ".vim/bundle/asyncomplete.vim"]
 	path = .vim/bundle/asyncomplete.vim
 	url = https://github.com/prabirshrestha/asyncomplete.vim.git
+[submodule ".vim/bundle/ale"]
+	path = .vim/bundle/ale
+	url = https://github.com/dense-analysis/ale.git
+[submodule ".vim/bundle/coc.nvim"]
+	path = .vim/bundle/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
+[submodule ".vim/bundle/nvim-colorizer.lua"]
+	path = .vim/bundle/nvim-colorizer.lua
+	url = https://github.com/norcalli/nvim-colorizer.lua
