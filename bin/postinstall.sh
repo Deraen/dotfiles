@@ -51,7 +51,7 @@ header "Build vimproc"
 make -C "$HOME/.vim/bundle/vimproc" -j
 
 header "Install clojure"
-clojure_tool_version=1.10.0.442
+clojure_tool_version=1.10.1.447
 clojure_bin=$HOME/.local/bin/clojure
 
 if [[ ! -f $clojure_bin ]] || ! grep -q "# Version = $clojure_tool_version" "$clojure_bin"; then
