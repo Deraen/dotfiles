@@ -95,3 +95,24 @@ choose_jdk() {
   removePath "$PREV/jre/bin"
   removePath "$PREV/db/bin"
 }
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+addPath "$HOME/.rvm/bin"
+
+# FIXME: SLOW!
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+init_rvm() {
+  unalias ruby
+  unalias gem
+  unalias bundle
+  if [[ -z $RUBY_VERSION ]]; then
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+    rvm use default
+  fi
+  "$@"
+}
+
+alias ruby='init_rvm ruby'
+alias gem='init_rvm gem'
+alias bundle='init_rvm bundle'
