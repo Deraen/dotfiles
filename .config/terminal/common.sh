@@ -21,6 +21,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 exportIfExists ANDROID_HOME "/opt/android-sdk"
+exportIfExists ANDROID_HOME "/home/juho/Android/Sdk"
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
@@ -31,8 +32,8 @@ addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.10.1/bin"
 addPath "$HOME/.gem/ruby/2.3.0/bin"
 addPath "$HOME/.cargo/bin"
 addPath "$HOME/Source/go/bin"
-addPath /opt/android-sdk/platform-tools
-addPath /opt/android-sdk/tools
+addPath "$ANDROID_HOME/platform-tools"
+addPath "$ANDROID_HOME/tools"
 addPath /usr/local/cuda-5.5/bin
 addPath /opt/PebbleSDK-3.0/bin
 
