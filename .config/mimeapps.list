@@ -11,6 +11,8 @@ video/mpeg=mpv.desktop
 video/x-ms-wmv=mpv.desktop
 video/x-msvideo=mpv.desktop
 application/x-font-ttf=org.gnome.font-viewer.desktop
+x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/mailto=google-chrome.desktop
 
 [Added Associations]
 video/quicktime=mpv.desktop;
@@ -23,7 +25,7 @@ x-scheme-handler/ftp=google-chrome.desktop;
 video/x-matroska=mpv.desktop;
 application/xml=vim.desktop;
 video/mp4=mpv.desktop;
-application/pdf=inkscape.desktop;
+application/pdf=gimp.desktop;inkscape.desktop;
 video/mpeg=mpv.desktop;
 application/x-font-ttf=inkscape.desktop;org.gnome.font-viewer.desktop;
 image/vnd.adobe.photoshop=gimp.desktop;
@@ -33,3 +35,4 @@ image/x-eps=inkscape.desktop;
 image/png=gimp.desktop;
 image/svg+xml=inkscape.desktop;
 application/x-java-archive=org.gnome.FileRoller.desktop;
+image/jpeg=gimp.desktop;
