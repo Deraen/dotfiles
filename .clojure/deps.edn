@@ -9,7 +9,8 @@
  ;;   make-classpath aliases (-C) affect the classpath generation, options:
  ;;     :extra-paths - vector of additional paths to add to the classpath
  ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
- :aliases {:clojurescript-cli {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.145"}}}}
+ :aliases {:clojurescript-cli {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.145"}}}
+           :local-cljs {:extra-deps {org.clojure/clojurescript {:local/root "/home/juho/Source/clojurescript"}}}}
 
  ;; Provider attributes
 
