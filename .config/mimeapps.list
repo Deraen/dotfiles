@@ -11,8 +11,8 @@ video/mpeg=mpv.desktop
 video/x-ms-wmv=mpv.desktop
 video/x-msvideo=mpv.desktop
 application/x-font-ttf=org.gnome.font-viewer.desktop
-x-scheme-handler/webcal=google-chrome.desktop
 x-scheme-handler/mailto=google-chrome.desktop
+x-scheme-handler/webcal=google-chrome.desktop
 
 [Added Associations]
 video/quicktime=mpv.desktop;

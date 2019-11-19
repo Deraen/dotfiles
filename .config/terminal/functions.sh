@@ -12,3 +12,27 @@ function exportIfExists {
 function addSource {
     [[ -f "$1" ]] && source "$1"
 }
+
+function removePath {
+    WORK=:$PATH:
+    for var in "$@"; do
+        WORK=${WORK/:$var:/:}
+    done
+    WORK=${WORK%:}
+    WORK=${WORK#:}
+    export PATH="$WORK"
+}
+
+if [[ $(hostname -s) == "juho-laptop" ]] || \
+    [[ $(hostname -s) == "juho-ThinkPad-T490" ]]
+then
+    LAPTOP=true
+    DESKTOP=false
+elif [[ $(hostname -s) == "juho-desktop" ]]
+then
+    LAPTOP=false
+    DESKTOP=true
+fi
+
+export LAPTOP
+export DESKTOP

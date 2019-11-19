@@ -12,13 +12,15 @@ s="Unknown"
 power_now=0
 
 add_battery() {
-    let energy_total+=$(cat /sys/class/power_supply/$1/energy_full)
-    let energy_now+=$(cat /sys/class/power_supply/$1/energy_now)
+    if [[ -d "/sys/class/power_supply/$1" ]]; then
+        let energy_total+=$(cat /sys/class/power_supply/$1/energy_full)
+        let energy_now+=$(cat /sys/class/power_supply/$1/energy_now)
 
-    x=$(cat /sys/class/power_supply/$1/status)
-    if [[ "Unknown" != $x ]] && [[ "Full" != $x ]]; then
-        s=$x
-        let power_now+=$(cat /sys/class/power_supply/$1/power_now)
+        x=$(cat /sys/class/power_supply/$1/status)
+        if [[ "Unknown" != $x ]] && [[ "Full" != $x ]]; then
+            s=$x
+            let power_now+=$(cat /sys/class/power_supply/$1/power_now)
+        fi
     fi
 }
 

@@ -5,7 +5,6 @@ if [[ ! -z $1 ]]; then
     WM=$1
 fi
 
-# shellcheck source=.profile
 source "/home/$USER/.profile"
 
 systemctl --user import-environment
@@ -15,11 +14,15 @@ xmodmap .Xmodmap
 # Disable touchpad
 synclient TouchpadOff=1
 
+gsettings set org.gnome.settings-daemon.plugins.xsettings overrides '@a{sv} {"Gtk/ShellShowsAppMenu": <int32 0>}'
+
 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/gnome-settings-daemon/gsd-rfkill &
 
 eval "$(gpg-agent --daemon --sh)" >/dev/null
 export GPG_AGENT_INFO
+
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 if [[ $HOST == "juho-desktop" ]]; then
     export __GL_SYNC_TO_VBLANK=1
@@ -32,10 +35,10 @@ fi
 
 dunst &
 nm-applet &
-if [[ $HOST == "juho-laptop" ]]; then
+if [[ $LAPTOP == "true" ]]; then
     xset dpms 300 300 300
     xss-lock lock.sh &
-elif [[ $HOST == "juho-desktop" ]]; then
+elif [[ $DESKTOP == "true" ]]; then
     xset dpms 600 600 600
 fi
 rndbg.sh
@@ -46,7 +49,7 @@ frakkin-xkb -t 1000 xkblayout.sh &
 
 export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 
-exec "$WM"
+exec "$WM" > "$HOME/.logs/wm-log-$(date +'%F-%k-%M-%S')" 2>&1
 # sxhkd &
 # panel &
 # exec bspwm

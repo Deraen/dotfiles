@@ -1,0 +1,4 @@
+[Lenovo T490 Trackpoint]
+MatchName=*TPPS/2 Elan TrackPoint
+MatchDMIModalias=dmi:*svnLENOVO:*pvrThinkPadT490:*
+AttrTrackpointMultiplier=1.5

@@ -21,6 +21,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 exportIfExists ANDROID_HOME "/opt/android-sdk"
+exportIfExists ANDROID_HOME "/home/juho/Android/Sdk"
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
@@ -31,8 +32,8 @@ addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.10.1/bin"
 addPath "$HOME/.gem/ruby/2.3.0/bin"
 addPath "$HOME/.cargo/bin"
 addPath "$HOME/Source/go/bin"
-addPath /opt/android-sdk/platform-tools
-addPath /opt/android-sdk/tools
+addPath "$ANDROID_HOME/platform-tools"
+addPath "$ANDROID_HOME/tools"
 addPath /usr/local/cuda-5.5/bin
 addPath /opt/PebbleSDK-3.0/bin
 
@@ -78,3 +79,40 @@ alias npm='init_nvm npm'
 alias node='init_nvm node'
 
 export GOPATH="/home/juho/Source/go"
+
+choose_jdk() {
+  VERSION=$1
+  PREV=$JAVA_HOME
+  JAVA_HOME=/usr/lib/jvm/java-${VERSION}-openjdk-amd64
+  if [[ ! -d $JAVA_HOME ]]; then
+    echo "Bad java path $JAVA_HOME"
+    exit 1
+  fi
+  export JAVA_HOME
+  addPath "$JAVA_HOME/jre/bin"
+  addPath "$JAVA_HOME/bin"
+  removePath "$PREV/bin"
+  removePath "$PREV/jre/bin"
+  removePath "$PREV/db/bin"
+}
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+addPath "$HOME/.rvm/bin"
+
+# FIXME: SLOW!
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+init_rvm() {
+  unalias ruby
+  unalias gem
+  unalias bundle
+  if [[ -z $RUBY_VERSION ]]; then
+    [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+    rvm use default
+  fi
+  "$@"
+}
+
+alias ruby='init_rvm ruby'
+alias gem='init_rvm gem'
+alias bundle='init_rvm bundle'

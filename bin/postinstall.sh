@@ -3,7 +3,9 @@
 . "$HOME/.local/lib/functions.sh"
 
 desktop=false
-if [[ $(hostname -s) == "juho-desktop" ]] || [[ $(hostname -s) == "juho-laptop" ]]; then
+if [[ $(hostname -s) == "juho-desktop" ]] ||
+    [[ $(hostname -s) == "juho-ThinkPad-T490" ]] ||
+    [[ $(hostname -s) == "juho-laptop" ]]; then
     desktop=true
 fi
 
@@ -49,7 +51,7 @@ header "Build vimproc"
 make -C "$HOME/.vim/bundle/vimproc" -j
 
 header "Install clojure"
-clojure_tool_version=1.9.0.394
+clojure_tool_version=1.10.1.447
 clojure_bin=$HOME/.local/bin/clojure
 
 if [[ ! -f $clojure_bin ]] || ! grep -q "# Version = $clojure_tool_version" "$clojure_bin"; then
@@ -75,7 +77,7 @@ if [[ $desktop == true ]]; then
     (
     cd "$HOME/.local/modules/alacritty" || exit
     cargo build --release
-    sudo tic -e alacritty,alacritty-direct alacritty.info
+    sudo tic -e alacritty,alacritty-direct extra/alacritty.info
     mv target/release/alacritty "$HOME/.local/bin/alacritty"
     )
 

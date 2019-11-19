@@ -4,33 +4,37 @@
 
 . "$HOME/.local/modules/pmm/init.sh"
 
-ppa maarten-baert simplescreenrecorder bionic
-ppa nilarimogard webupd8 bionic # Launchpad-getkeys? Stuff
-ppa otto-kesselgulasch gimp bionic
-ppa rvm smplayer bionic # Mplayer UI
-ppa mc3man mpv-tests bionic # Mpv, mplayer[|2] fork
-ppa ansible ansible bionic
-ppa neovim-ppa stable bionic
-ppa yubico stable bionic
-ppa git-core ppa bionic
-ppa phoerious keepassxc bionic
+ppa maarten-baert simplescreenrecorder bionic --keyid 409C8B51283EC8CD
+ppa nilarimogard webupd8 bionic --keyid 531EE72F4C9D234C
+ppa otto-kesselgulasch gimp bionic --keyid 3BDAAC08614C4B38
+ppa rvm smplayer bionic --keyid A7E13D78E4A4F4F4
+ppa mc3man mpv-tests bionic --keyid 90BD7EACED8E640A
+ppa ansible ansible bionic --keyid 93C4A3FD7BB9C367
+ppa neovim-ppa stable bionic --keyid 55F96FCF8231B6DD
+ppa yubico stable bionic --keyid 43D5C49532CBA1A9
+ppa git-core ppa bionic --keyid A1715D88E1DF1F24
+ppa phoerious keepassxc bionic --keyid 61922AB60068FCD6
 ppa deraen random bionic --keyid 8EE3F468
 ppa s.noack ppa bionic --keyid E1285F2F
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
 #         --key-url http://archive.getdeb.net/getdeb-archive.key
-repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main"
-repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n"
-repo google-talkplugin "deb http://dl.google.com/linux/talkplugin/deb/ stable main"
-repo heroku "deb http://toolbelt.heroku.com/ubuntu ./"
+repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main" \
+        --keyid FC918B335044912E
+repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
+        --keyid 6494C6D6997C215E
+repo heroku "deb http://toolbelt.heroku.com/ubuntu ./" \
+        --keyid C927EBE00F1B0520
 repo i3 "deb http://debian.sur5r.net/i3/ bionic universe" \
         --keyring sur5r-keyring \
         --keyid 941C42E6
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
-repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic non-free contrib"
+repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic non-free contrib" \
+        --keyid A2F683C52980AECF
 repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
         --keyid 0EBFCD88
-repo nodesource "deb https://deb.nodesource.com/node_10.x bionic main\ndeb-src https://deb.nodesource.com/node_10.x bionic main\n"
+repo nodesource "deb https://deb.nodesource.com/node_10.x bionic main\ndeb-src https://deb.nodesource.com/node_10.x bionic main\n" \
+        --keyid 1655A0AB68576280
 repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
         --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
@@ -39,17 +43,22 @@ repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
         --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
 repo mongodb-org-4.0 "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" \
         --keyid 9DA31620334BD75D9DCB49F368818C72E52529D4
+repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-$(lsb_release -c -s) main" \
+        --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+repo spotify "deb http://repository.spotify.com stable non-free" \
+        --keyid 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+repo mopidy "deb http://apt.mopidy.com/ stretch main contrib non-free\ndeb-src http://apt.mopidy.com/ stretch main contrib non-free" \
+        --key-url https://apt.mopidy.com/mopidy.gpg
 
-if [[ "$(hostname -s)" == "juho-desktop" ]]; then
+if [[ $DESKTOP == "true" ]]; then
         ppa graphics-drivers ppa bionic
         ppa lutris-team lutris bionic \
                 --keyid 37B90EDD4E3EFAE4
 fi
 
-if [[ "$(hostname -s)" == "juho-laptop" ]]; then
-        ppa linrunner tlp bionic
-        ppa oibaf graphics-drivers bionic
-        repo telred "deb https://tel.red/repos/ubuntu bionic non-free"
+if [[ $LAPTOP == "true" ]]; then
+        ppa linrunner tlp bionic --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers bionic --keyid 957D2708A03A4626
 fi
 
 updateRepos
@@ -121,7 +130,7 @@ install sysfsutils
 # Editor
 install neovim
 install python3-msgpack
-install python3-neovim "0.2.6-3" "http://ftp.de.debian.org/debian/pool/main/p/python-neovim/python3-neovim_0.2.6-3_all.deb"
+install python3-neovim
 
 # Neovim
 install luarocks
@@ -129,8 +138,8 @@ install libmsgpack-dev
 install xclip
 
 # Java
-install openjdk-8-jre
-install openjdk-11-jre
+install openjdk-8-jdk
+install openjdk-11-jdk
 install maven
 install ant
 
@@ -191,9 +200,18 @@ install libfreetype6-dev
 install libxi-dev
 # i3-utils
 install libjson-glib-dev
+# alacritty
+install libfontconfig1-dev
+install libxcb-render0-dev
+install libxcb-shape0-dev
+install libxcb-xfixes0-dev
+# srandrd
+install libxrandr-dev
+install libxinerama-dev
 
 # Docker
 install docker-ce
+install google-cloud-sdk
 
 # Tessel
 install libusb-1.0-0-dev
@@ -240,6 +258,7 @@ install libu2f-host0
 install yubikey-personalization
 install yubikey-personalization-gui
 install pinentry-gtk2
+install pcscd
 
 # GUI software
 install blender
@@ -275,7 +294,7 @@ install smplayer
 install playerctl
 install steam-launcher
 install deluge
-install virtualbox-5.2
+install virtualbox-6.0
 install typecatcher # Install Google webfonts
 install cheese # Webcam
 install yad # Zenity alternative with proper color picker
@@ -283,11 +302,12 @@ install wine-development
 install mesa-utils
 install nemo
 install flameshot
+# install spotify-client
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
 
-if [[ $(hostname -s) == "juho-desktop" ]]; then
+if [[ $DESKTOP == "true" ]]; then
         install "nvidia-driver-396"
         install nvidia-settings
         install fail2ban
@@ -311,8 +331,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
 fi
 
 # Laptop specific
-if [[ $(hostname -s) == "juho-laptop" ]]; then
-        install forticlient-sslvpn
+if [[ $LAPTOP == "true" ]]; then
         install lvm2
         install cryptsetup
         install xbacklight
@@ -321,7 +340,6 @@ if [[ $(hostname -s) == "juho-laptop" ]]; then
         if grep -q i7-2640 /proc/cpuinfo; then
                 install thinkfan
         fi
-        install i965-va-driver
         install tlp
 fi
 
