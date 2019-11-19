@@ -195,7 +195,8 @@ bindsym Print exec gnome-screenshot
 bindsym Ctrl+Print exec gnome-screenshot -i
 bindsym Mod4+Print exec flameshot gui
 # Color picker
-bindsym Shift+Print exec yad --color
+bindsym Shift+Print exec bash -c 'gpick --no-start -s -o | tee >(xclip -sel clipboard) | tee >(xclip)'
+bindsym Ctrl+Shift+Print exec bash -c 'yad --color | tee >(xclip -sel clipboard) | tee >(xclip)'
 
 bar {
   position top
