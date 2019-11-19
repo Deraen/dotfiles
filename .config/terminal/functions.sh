@@ -22,17 +22,3 @@ function removePath {
     WORK=${WORK#:}
     export PATH="$WORK"
 }
-
-if [[ $(hostname -s) == "juho-laptop" ]] || \
-    [[ $(hostname -s) == "juho-ThinkPad-T490" ]]
-then
-    LAPTOP=true
-    DESKTOP=false
-elif [[ $(hostname -s) == "juho-desktop" ]]
-then
-    LAPTOP=false
-    DESKTOP=true
-fi
-
-export LAPTOP
-export DESKTOP

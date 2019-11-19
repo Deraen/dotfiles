@@ -43,17 +43,17 @@ repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-$(lsb_release -c -s) main" \
         --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 repo spotify "deb http://repository.spotify.com stable non-free" \
-        --keyid 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+        --keyid 4773BD5E130D1D45
 repo mopidy "deb http://apt.mopidy.com/ stretch main contrib non-free\ndeb-src http://apt.mopidy.com/ stretch main contrib non-free" \
         --key-url https://apt.mopidy.com/mopidy.gpg
 
-if [[ $DESKTOP == "true" ]]; then
+if [[ $(hostname -s) == "juho-desktop" ]]; then
         ppa graphics-drivers ppa disco
         ppa lutris-team lutris disco \
                 --keyid 37B90EDD4E3EFAE4
 fi
 
-if [[ $LAPTOP == "true" ]]; then
+if [[ $(hostname -s) == "juho-laptop" ]]; then
         ppa linrunner tlp disco --keyid 2B3F92F902D65EFF
         ppa oibaf graphics-drivers disco --keyid 957D2708A03A4626
 fi
@@ -65,6 +65,7 @@ install ubuntu-desktop
 install ubuntu-minimal
 install ubuntu-standard
 install ubuntu-restricted-addons
+install ubuntu-artwork
 install lsb-base
 install linux-generic
 install build-essential
@@ -310,12 +311,14 @@ install nemo
 install flameshot
 install spotify-client
 install usb-creator-gtk
+install wmctrl
+install xdotool
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
 install stoken
 
-if [[ $DESKTOP == "true" ]]; then
+if [[ $(hostname -s) == "juho-desktop" ]]; then
         install "nvidia-driver-396"
         install nvidia-settings
         install fail2ban
@@ -336,10 +339,11 @@ if [[ $DESKTOP == "true" ]]; then
         install youtube-dl
         install audacity
         install lutris
+        install autokey-gtk
 fi
 
 # Laptop specific
-if [[ $LAPTOP == "true" ]]; then
+if [[ $(hostname -s) == "juho-laptop" ]]; then
         install lvm2
         install cryptsetup
         install xbacklight
