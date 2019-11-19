@@ -40,11 +40,13 @@ repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
 repo mongodb-org-4.0 "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" \
         --keyid 9DA31620334BD75D9DCB49F368818C72E52529D4
 
-if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
+if [[ "$(hostname -s)" == "juho-desktop" ]]; then
         ppa graphics-drivers ppa bionic
+        ppa lutris-team lutris bionic \
+                --keyid 37B90EDD4E3EFAE4
 fi
 
-if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
+if [[ "$(hostname -s)" == "juho-laptop" ]]; then
         ppa linrunner tlp bionic
         ppa oibaf graphics-drivers bionic
         repo telred "deb https://tel.red/repos/ubuntu bionic non-free"
@@ -270,7 +272,7 @@ install qgit
 install simplescreenrecorder
 install mpv
 install smplayer
-install playerctl 0.6.1 https://github.com/acrisci/playerctl/releases/download/v0.6.1/playerctl-0.6.1_amd64.deb
+install playerctl
 install steam-launcher
 install deluge
 install virtualbox-5.2
@@ -285,7 +287,7 @@ install flameshot
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
 
-if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
+if [[ $(hostname -s) == "juho-desktop" ]]; then
         install "nvidia-driver-396"
         install nvidia-settings
         install fail2ban
@@ -305,10 +307,11 @@ if [[ "${HOSTNAME}" == "juho-desktop" ]]; then
         install rrdtool # Stats
         install youtube-dl
         install audacity
+        install lutris
 fi
 
 # Laptop specific
-if [[ "${HOSTNAME}" == "juho-laptop" ]]; then
+if [[ $(hostname -s) == "juho-laptop" ]]; then
         install forticlient-sslvpn
         install lvm2
         install cryptsetup

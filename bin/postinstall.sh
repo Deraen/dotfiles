@@ -3,7 +3,7 @@
 . "$HOME/.local/lib/functions.sh"
 
 desktop=false
-if [[ $HOSTNAME == "juho-desktop" ]] || [[ $HOSTNAME == "juho-laptop" ]]; then
+if [[ $(hostname -s) == "juho-desktop" ]] || [[ $(hostname -s) == "juho-laptop" ]]; then
     desktop=true
 fi
 
