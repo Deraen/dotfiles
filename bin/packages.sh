@@ -4,16 +4,15 @@
 
 . "$HOME/.local/modules/pmm/init.sh"
 
-ppa maarten-baert simplescreenrecorder bionic --keyid 409C8B51283EC8CD
-ppa nilarimogard webupd8 bionic --keyid 531EE72F4C9D234C
-ppa otto-kesselgulasch gimp bionic --keyid 3BDAAC08614C4B38
-ppa rvm smplayer bionic --keyid A7E13D78E4A4F4F4
-ppa mc3man mpv-tests bionic --keyid 90BD7EACED8E640A
-ppa ansible ansible bionic --keyid 93C4A3FD7BB9C367
-ppa neovim-ppa stable bionic --keyid 55F96FCF8231B6DD
-ppa yubico stable bionic --keyid 43D5C49532CBA1A9
-ppa git-core ppa bionic --keyid A1715D88E1DF1F24
-ppa phoerious keepassxc bionic --keyid 61922AB60068FCD6
+ppa nilarimogard webupd8 disco --keyid 531EE72F4C9D234C
+ppa otto-kesselgulasch gimp disco --keyid 3BDAAC08614C4B38
+ppa rvm smplayer disco --keyid A7E13D78E4A4F4F4
+ppa mc3man mpv-tests disco --keyid 90BD7EACED8E640A
+ppa ansible ansible disco --keyid 93C4A3FD7BB9C367
+ppa neovim-ppa stable disco --keyid 55F96FCF8231B6DD
+ppa yubico stable disco --keyid 43D5C49532CBA1A9
+ppa git-core ppa disco --keyid A1715D88E1DF1F24
+ppa phoerious keepassxc disco --keyid 61922AB60068FCD6
 ppa deraen random bionic --keyid 8EE3F468
 ppa s.noack ppa bionic --keyid E1285F2F
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
@@ -24,16 +23,16 @@ repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may com
         --keyid 6494C6D6997C215E
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./" \
         --keyid C927EBE00F1B0520
-repo i3 "deb http://debian.sur5r.net/i3/ bionic universe" \
+repo i3 "deb http://debian.sur5r.net/i3/ disco universe" \
         --keyring sur5r-keyring \
         --keyid 941C42E6
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
-repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic non-free contrib" \
+repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian disco non-free contrib" \
         --keyid A2F683C52980AECF
-repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" \
+repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable" \
         --keyid 0EBFCD88
-repo nodesource "deb https://deb.nodesource.com/node_10.x bionic main\ndeb-src https://deb.nodesource.com/node_10.x bionic main\n" \
+repo nodesource "deb https://deb.nodesource.com/node_10.x disco main\ndeb-src https://deb.nodesource.com/node_10.x disco main\n" \
         --keyid 1655A0AB68576280
 repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
         --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
@@ -41,8 +40,6 @@ repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment ou
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
 repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
         --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
-repo mongodb-org-4.0 "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" \
-        --keyid 9DA31620334BD75D9DCB49F368818C72E52529D4
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-$(lsb_release -c -s) main" \
         --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 repo spotify "deb http://repository.spotify.com stable non-free" \
@@ -51,14 +48,14 @@ repo mopidy "deb http://apt.mopidy.com/ stretch main contrib non-free\ndeb-src h
         --key-url https://apt.mopidy.com/mopidy.gpg
 
 if [[ $DESKTOP == "true" ]]; then
-        ppa graphics-drivers ppa bionic
-        ppa lutris-team lutris bionic \
+        ppa graphics-drivers ppa disco
+        ppa lutris-team lutris disco \
                 --keyid 37B90EDD4E3EFAE4
 fi
 
 if [[ $LAPTOP == "true" ]]; then
-        ppa linrunner tlp bionic --keyid 2B3F92F902D65EFF
-        ppa oibaf graphics-drivers bionic --keyid 957D2708A03A4626
+        ppa linrunner tlp disco --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers disco --keyid 957D2708A03A4626
 fi
 
 updateRepos
@@ -67,6 +64,7 @@ updateRepos
 install ubuntu-desktop
 install ubuntu-minimal
 install ubuntu-standard
+install ubuntu-restricted-addons
 install lsb-base
 install linux-generic
 install build-essential
@@ -119,6 +117,7 @@ install nvme-cli
 install crudini
 install john
 install optipng
+install webp
 install jpegoptim
 install libinput-tools
 install tarsnap
@@ -162,8 +161,11 @@ install cppcheck
 # Python
 install pep8
 install pylint
+install python-pip
 install python3-pip
 install python3-venv
+install python3.8
+install python3.8-venv
 
 # Version control
 install git
@@ -177,7 +179,7 @@ install devscripts
 install ubuntu-dev-tools
 install mongodb-org-tools
 install sqlite3
-install httpie
+# install httpie
 install ansible
 install vagrant 1:2.1.2 https://releases.hashicorp.com/vagrant/2.1.2/vagrant_2.1.2_x86_64.deb
 install rlwrap
@@ -189,6 +191,10 @@ install golang-src
 install android-tools-adb
 install diffpdf
 install gdal-bin
+install cmatrix
+install sl
+install sassc
+install xmlstarlet
 
 # Dev dependencies
 install autoconf
@@ -196,11 +202,12 @@ install automake
 install libboost-all-dev
 install libpulse-dev # Ponymix
 install libfreetype6-dev
+install virtualenv
 # frakking-xkb
 install libxi-dev
 # i3-utils
 install libjson-glib-dev
-# alacritty
+
 install libfontconfig1-dev
 install libxcb-render0-dev
 install libxcb-shape0-dev
@@ -274,7 +281,6 @@ install gimp
 # install gimp-plugin-registry
 install google-chrome-stable
 install google-chrome-beta
-install google-talkplugin
 install meld
 install gparted
 install inkscape
@@ -282,7 +288,7 @@ install keepassxc # Password manager
 install pass
 install mumble
 install pgadmin3 # PostgreSQL admin
-install postgresql-client-10
+install pgtop
 install stress
 install libpq-dev
 install pitivi # Video editor
@@ -302,10 +308,12 @@ install wine-development
 install mesa-utils
 install nemo
 install flameshot
-# install spotify-client
+install spotify-client
+install usb-creator-gtk
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
+install stoken
 
 if [[ $DESKTOP == "true" ]]; then
         install "nvidia-driver-396"

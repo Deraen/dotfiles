@@ -10,6 +10,10 @@ if has('nvim')
   runtime! plugin/python_setup.vim
 endif
 
+let g:loaded_deoplete = 1
+let g:asyncomplete_loaded = 1
+" let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
+
 set rtp+=~/.fzf
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -65,7 +69,8 @@ set fillchars+=vert:│
 " Save vim undo history to file, so history persists through sessions
 set undofile
 set undodir=~/.vim/undo
-set completeopt-=preview
+" set completeopt-=preview
+set signcolumn=yes
 
 if has("gui_gtk2")
   set guioptions=ca
@@ -94,6 +99,8 @@ if $PRESENTATION_MODE == '1'
 else
   let g:thematic#theme_name = 'seoul256'
 endif
+
+set termguicolors
 
 " Mappings
 let mapleader = 'å'
@@ -236,6 +243,15 @@ let g:syntastic_warning_symbol='✕'
 let g:syntastic_go_checkers = ['golint', 'govet']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }"
 
+" Ale
+
+" Todo: replace syntastic with Ale?
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+      \ 'clojure': ['clj-kondo'],
+      \ 'scss': ['stylelint']
+      \ }
+
 " FZF
 
 let g:fzf_action = {
@@ -353,39 +369,73 @@ if !exists('g:grepper')
 endif
 let g:grepper.prompt_quote = 2
 
-let g:deoplete#enable_at_startup = 0
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.]*'
-call deoplete#custom#option('auto_complete_delay', 180)
+" let g:deoplete#enable_at_startup = 0
+" let g:deoplete#keyword_patterns = {}
+" let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.]*'
+" call deoplete#custom#option('auto_complete_delay', 180)
 
-let g:asyncomplete_auto_popup = 1
+" let g:asyncomplete_auto_popup = 0
 
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
+" function! s:check_back_space() abort
+"     let col = col('.') - 1
+"     return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
 
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <silent><expr> <TAB>
+"   \ pumvisible() ? "\<C-n>" :
+"   \ <SID>check_back_space() ? "\<TAB>" :
+"   \ asyncomplete#force_refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-au User asyncomplete_setup call asyncomplete#register_source({
-    \ 'name': 'fireplace',
-    \ 'whitelist': ['clojure'],
-    \ 'completor': function('async_clj_omni#sources#complete'),
-    \ })
+" au User asyncomplete_setup call asyncomplete#register_source({
+"     \ 'name': 'fireplace',
+"     \ 'whitelist': ['clojure'],
+"     \ 'completor': function('async_clj_omni#sources#complete'),
+"     \ })
 
 " Select next with tab if popup menu is open
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "	"
+" inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "	"
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
 
 autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
 
 let g:ledger_bin="hledger"
+
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+
+" #f0f
+
+" lua require'colorizer'.setup()

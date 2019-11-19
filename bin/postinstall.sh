@@ -63,7 +63,7 @@ if [[ ! -f $clojure_bin ]] || ! grep -q "# Version = $clojure_tool_version" "$cl
 fi
 
 # Rebuild zsh completion
-rm -f ~/.zcompdump; compinit
+# rm -f ~/.zcompdump; compinit
 
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
