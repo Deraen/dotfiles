@@ -158,7 +158,7 @@ bindsym $mod+Ctrl+x exec i3-switch-all
 
 # Scratchpad
 # Enable scratchpad for keepassx, but show after starting the app
-for_window [class="keepassxc"] move scratchpad, scratchpad show
+for_window [class="KeePassXC"] move scratchpad, scratchpad show
 bindsym $mod+F6 exec scratchpad keepassxc keepassxc
 
 # I3
