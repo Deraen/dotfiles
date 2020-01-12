@@ -3,15 +3,8 @@
 . "$HOME/.local/lib/functions.sh"
 
 desktop=false
-if [[ $(hostname -s) == "juho-desktop" ]] ||
-    [[ $(hostname -s) == "juho-ThinkPad-T490" ]] ||
-    [[ $(hostname -s) == "juho-laptop" ]]; then
+if [[ $(hostname -s) == "juho-desktop" ]] || [[ $(hostname -s) == "juho-laptop" ]]; then
     desktop=true
-fi
-
-header "Submodules"
-if confirm -i "Update all submodules?"; then
-    ./update.sh
 fi
 
 # Update all submodules to version defined
@@ -25,19 +18,10 @@ header "NPM Utils"
 cd "$HOME/.local" || exit
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-if confirm -i "Update Node utils?"; then
-    npm-check-updates --upgradeAll
-fi
 npm prune
 npm install
 npm update
 )
-
-if confirm -i "Update Docker-compose?"; then
-    version=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r ".name")
-    curl -s -L --fail "https://github.com/docker/compose/releases/download/$version/run.sh" > "$HOME/bin/docker-compose"
-    chmod +x "$HOME/bin/docker-compose"
-fi
 
 if [[ ! -d ~/.cargo ]]; then
     header "Install Rust"
