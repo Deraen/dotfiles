@@ -35,10 +35,10 @@ fi
 
 dunst &
 nm-applet &
-if [[ $LAPTOP == "true" ]]; then
+if [[ $HOST == "juho-laptop" ]]; then
     xset dpms 300 300 300
     xss-lock lock.sh &
-elif [[ $DESKTOP == "true" ]]; then
+elif [[ $HOST == "juho-desktop" ]]; then
     xset dpms 600 600 600
 fi
 rndbg.sh
