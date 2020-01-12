@@ -4,15 +4,15 @@
 
 . "$HOME/.local/modules/pmm/init.sh"
 
-ppa nilarimogard webupd8 disco --keyid 531EE72F4C9D234C
-ppa otto-kesselgulasch gimp disco --keyid 3BDAAC08614C4B38
-ppa rvm smplayer disco --keyid A7E13D78E4A4F4F4
-ppa mc3man mpv-tests disco --keyid 90BD7EACED8E640A
-ppa ansible ansible disco --keyid 93C4A3FD7BB9C367
+ppa nilarimogard webupd8 eoan --keyid 531EE72F4C9D234C
+ppa otto-kesselgulasch gimp eoan --keyid 3BDAAC08614C4B38
+ppa rvm smplayer eoan --keyid A7E13D78E4A4F4F4
+ppa mc3man mpv-tests eoan --keyid 90BD7EACED8E640A
+ppa ansible ansible eoan --keyid 93C4A3FD7BB9C367
 ppa neovim-ppa stable disco --keyid 55F96FCF8231B6DD
-ppa yubico stable disco --keyid 43D5C49532CBA1A9
-ppa git-core ppa disco --keyid A1715D88E1DF1F24
-ppa phoerious keepassxc disco --keyid 61922AB60068FCD6
+ppa yubico stable eoan --keyid 43D5C49532CBA1A9
+ppa git-core ppa eoan --keyid A1715D88E1DF1F24
+ppa phoerious keepassxc eoan --keyid 61922AB60068FCD6
 ppa deraen random bionic --keyid 8EE3F468
 ppa s.noack ppa bionic --keyid E1285F2F
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
@@ -23,24 +23,24 @@ repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may com
         --keyid 6494C6D6997C215E
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./" \
         --keyid C927EBE00F1B0520
-repo i3 "deb http://debian.sur5r.net/i3/ disco universe" \
+repo i3 "deb http://debian.sur5r.net/i3/ eoan universe" \
         --keyring sur5r-keyring \
         --keyid 941C42E6
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
-repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian disco non-free contrib" \
+repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian eoan non-free contrib" \
         --keyid A2F683C52980AECF
 repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable" \
         --keyid 0EBFCD88
-repo nodesource "deb https://deb.nodesource.com/node_10.x disco main\ndeb-src https://deb.nodesource.com/node_10.x disco main\n" \
+repo nodesource "deb https://deb.nodesource.com/node_10.x eoan main\ndeb-src https://deb.nodesource.com/node_10.x eoan main\n" \
         --keyid 1655A0AB68576280
-repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
-        --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
+# repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
+#         --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
-repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
-        --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
-repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-$(lsb_release -c -s) main" \
+# repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
+#         --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
+repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 repo spotify "deb http://repository.spotify.com stable non-free" \
         --keyid 4773BD5E130D1D45
@@ -48,14 +48,14 @@ repo mopidy "deb http://apt.mopidy.com/ stretch main contrib non-free\ndeb-src h
         --key-url https://apt.mopidy.com/mopidy.gpg
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        ppa graphics-drivers ppa disco
-        ppa lutris-team lutris disco \
+        ppa graphics-drivers ppa eoan
+        ppa lutris-team lutris eoan \
                 --keyid 37B90EDD4E3EFAE4
 fi
 
 if [[ $(hostname -s) == "juho-laptop" ]]; then
-        ppa linrunner tlp disco --keyid 2B3F92F902D65EFF
-        ppa oibaf graphics-drivers disco --keyid 957D2708A03A4626
+        ppa linrunner tlp eoan --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers eoan --keyid 957D2708A03A4626
 fi
 
 updateRepos
@@ -338,6 +338,7 @@ install wmctrl
 install xdotool
 
 install network-manager-openconnect-gnome # Cisco VPN
+install ifupdown
 install openvpn
 install stoken
 
