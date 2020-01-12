@@ -342,7 +342,7 @@ install openvpn
 install stoken
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        install "nvidia-driver-396"
+        install "nvidia-driver-440"
         install nvidia-settings
         install fail2ban
         # HP Touchpad
