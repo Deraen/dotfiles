@@ -42,7 +42,7 @@ elif [[ $HOST == "juho-desktop" ]]; then
     xset dpms 600 600 600
 fi
 rndbg.sh
-compton &
+picom &
 
 xkblayout.sh
 frakkin-xkb -t 1000 xkblayout.sh &

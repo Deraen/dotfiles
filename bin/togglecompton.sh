@@ -1,6 +1,6 @@
 #!/bin/bash
-if [[ $(pidof -x compton) ]]; then
-  pkill compton
+if [[ $(pidof -x picom) ]]; then
+  pkill picom
 else
-  compton &
+  picom &
 fi

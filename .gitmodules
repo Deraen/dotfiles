@@ -247,3 +247,6 @@
 [submodule ".vim/bundle/nvim-colorizer.lua"]
 	path = .vim/bundle/nvim-colorizer.lua
 	url = https://github.com/norcalli/nvim-colorizer.lua
+[submodule ".local/modules/picom"]
+	path = .local/modules/picom
+	url = https://github.com/yshui/picom.git

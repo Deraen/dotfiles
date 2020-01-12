@@ -73,6 +73,13 @@ if [[ $desktop == true ]]; then
     header "Build i3-utils"
     make -C "$HOME/.local/modules/i3-utils" -j
 
+    header "Build picom"
+    (
+    cd "$HOME/.local/modules/picom" || exit
+    meson -Dprefix="$HOME/.local" --buildtype=release . build
+    ninja -C build install
+    )
+
     header "Alacritty"
     (
     cd "$HOME/.local/modules/alacritty" || exit
