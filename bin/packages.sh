@@ -2,14 +2,16 @@
 
 # PMM - Package Manager Manager!
 
-. "$HOME/.local/modules/pmm/init.sh"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+. "$DIR/../.local/modules/pmm/init.sh"
 
 ppa nilarimogard webupd8 eoan --keyid 531EE72F4C9D234C
 ppa otto-kesselgulasch gimp eoan --keyid 3BDAAC08614C4B38
 ppa rvm smplayer eoan --keyid A7E13D78E4A4F4F4
 ppa mc3man mpv-tests eoan --keyid 90BD7EACED8E640A
 ppa ansible ansible eoan --keyid 93C4A3FD7BB9C367
-ppa neovim-ppa stable disco --keyid 55F96FCF8231B6DD
+ppa neovim-ppa unstable disco --keyid 55F96FCF8231B6DD
 ppa yubico stable eoan --keyid 43D5C49532CBA1A9
 ppa git-core ppa eoan --keyid A1715D88E1DF1F24
 ppa phoerious keepassxc eoan --keyid 61922AB60068FCD6

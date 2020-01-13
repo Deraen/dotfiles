@@ -1,14 +1,21 @@
 #!/bin/bash
 
+. "$HOME/.local/lib/functions.sh"
+
 git submodule update --remote
 
 ( cd "$NVM_DIR" && git checkout "$(git describe --abbrev=0 --tags --match "v[0-9]*" origin)" )
 ( cd "$HOME/.local/modules/alacritty" && git checkout "$(git describe --abbrev=0 --tags --match "v[0-9]*" origin)" )
+( cd "$HOME/.local/modules/picom" && git checkout "$(git describe --abbrev=0 --tags --match "v[0-9]*" origin)" )
 
-git add -A "$HOME/.local/modules" "$HOME/.vim/bundle*" "$HOME/.fzf"
+git add -A "$HOME/.local/modules" "$HOME/.vim/bundle*" "$HOME/.fzf" "$HOME/.nvm"
 
 if confirm -i "Update Node utils?"; then
-    npm-check-updates --upgradeAll
+    (
+    cd "$HOME/.local"
+    ncu -u
+    npm install
+    )
 fi
 
 if confirm -i "Update Docker-compose?"; then
@@ -17,4 +24,4 @@ if confirm -i "Update Docker-compose?"; then
     chmod +x "$HOME/bin/docker-compose"
 fi
 
-./postinstall.sh
+postinstall.sh
