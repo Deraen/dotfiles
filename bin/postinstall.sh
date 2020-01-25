@@ -80,6 +80,11 @@ if [[ $desktop == true ]]; then
     # Home git repo, don't show untracked files on status
     cd "$HOME" && git config status.showUntrackedFiles no
     )
+
+    (
+    cd "$HOME/.vim/bundle/vim-clap" || exit
+    cargo build --release
+    )
 fi
 
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then

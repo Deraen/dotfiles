@@ -10,10 +10,6 @@ if has('nvim')
   runtime! plugin/python_setup.vim
 endif
 
-let g:loaded_deoplete = 1
-let g:asyncomplete_loaded = 1
-" let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
-
 set rtp+=~/.fzf
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -70,6 +66,7 @@ set fillchars+=vert:│
 set undofile
 set undodir=~/.vim/undo
 " set completeopt-=preview
+set completeopt=noinsert,menuone,noselect
 set signcolumn=yes
 
 if has("gui_gtk2")
@@ -160,7 +157,8 @@ nmap >a <Plug>Argumentative_MoveRight
 " nnoremap <silent> <space>p :<C-u>CtrlPCurWD<cr>
 " ctrl-b and space-b change buffer
 " nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
-nnoremap <silent> <C-b>    :<C-u>CtrlPBuffer<cr>
+nnoremap <silent> <C-b>    :<C-u>Clap buffers<cr>
+nnoremap <silent> <C-p>    :<C-u>Clap gfiles<cr>
 
 " Quick macro stuff
 nnoremap § qqqqq
@@ -182,6 +180,8 @@ nmap K <Plug>SplitLine
 " Leave paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
 
+set cmdheight=2
+
 set updatetime=500
 
 " Vim-rsi (readline insertmode bindings)
@@ -199,6 +199,7 @@ let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = ''
 let g:airline_symbols.parse = 'ρ'
 
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#ctrlp#show_adjacent_modes = 0
 let g:airline_theme='seoul256'
 let g:airline_exclude_preview = 1
@@ -251,6 +252,12 @@ let g:ale_linters = {
       \ 'clojure': ['clj-kondo'],
       \ 'scss': ['stylelint']
       \ }
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+
+let g:ale_pattern_options = {
+      \ '^iced_': {'ale_linters': [], 'ale_fixers': []},
+      \}
 
 " FZF
 
@@ -335,6 +342,10 @@ endfunc
 
 let g:vim_json_syntax_conceal = 0
 
+" autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" let g:LanguageClient_settingsPath=".lsp/settings.json"
+
 " R
 let vimrplugin_term="urxvt"
 
@@ -354,7 +365,6 @@ augroup markdown
   autocmd FileType markdown set cc=80
   autocmd FileType markdown syntax match urls /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/ contains=@NoSpell
   autocmd FileType markdown syntax match javapkg /\(java\|org\)\(\.[A-Za-z]\+\)\+/ contains=@NoSpell
-  autocmd FileType markdown let b:deoplete_disable_auto_complete=1
 augroup END
 
 let g:magit_show_help=0
@@ -369,36 +379,32 @@ if !exists('g:grepper')
 endif
 let g:grepper.prompt_quote = 2
 
-" let g:deoplete#enable_at_startup = 0
-" let g:deoplete#keyword_patterns = {}
-" let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.]*'
-" call deoplete#custom#option('auto_complete_delay', 180)
+let g:float_preview#docked = 0
+let g:float_preview#max_width = 70
 
-" let g:asyncomplete_auto_popup = 0
+function! DisableExtras()
+  call nvim_win_set_option(g:float_preview#win, 'number', v:false)
+  call nvim_win_set_option(g:float_preview#win, 'relativenumber', v:false)
+  call nvim_win_set_option(g:float_preview#win, 'cursorline', v:false)
+endfunction
 
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+autocmd User FloatPreviewWinOpen call DisableExtras()
 
-" function! s:check_back_space() abort
-"     let col = col('.') - 1
-"     return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction
+autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
 
-" inoremap <silent><expr> <TAB>
-"   \ pumvisible() ? "\<C-n>" :
-"   \ <SID>check_back_space() ? "\<TAB>" :
-"   \ asyncomplete#force_refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
 
-" au User asyncomplete_setup call asyncomplete#register_source({
-"     \ 'name': 'fireplace',
-"     \ 'whitelist': ['clojure'],
-"     \ 'completor': function('async_clj_omni#sources#complete'),
-"     \ })
+let g:ledger_bin="hledger"
 
-" Select next with tab if popup menu is open
-" inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "	"
+" #f0f
+
+" lua require'colorizer'.setup()
+
+"
+" COC
+"
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -417,25 +423,92 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
-
-autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
-
-let g:ledger_bin="hledger"
-
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
 
-" #f0f
+" Use K to show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" lua require'colorizer'.setup()
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
+
+" Highlight symbol under cursor on CursorHold
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+" nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+
+" augroup mygroup
+"   autocmd!
+"   " Setup formatexpr specified filetype(s).
+"   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+"   " Update signature help on jump placeholder
+"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+" augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+" nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+" nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+" xmap if <Plug>(coc-funcobj-i)
+" xmap af <Plug>(coc-funcobj-a)
+" omap if <Plug>(coc-funcobj-i)
+" omap af <Plug>(coc-funcobj-a)
+
+" Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+" nmap <silent> <TAB> <Plug>(coc-range-select)
+" xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+" command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+" command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+" nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+" nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+" nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Clap

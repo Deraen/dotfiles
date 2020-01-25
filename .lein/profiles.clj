@@ -1,5 +1,6 @@
-{:repl {:plugins [[cider/cider-nrepl "0.21.1"]
+{:repl {:plugins [[cider/cider-nrepl "0.22.4"]
                   [refactor-nrepl "2.4.0"]
+                  [iced-nrepl "0.7.0"]
                   #_[venantius/ultra "0.5.2"]]}
  :user {:plugins [[lein-ancient "0.6.15"]
                   [lein-deps-tree "0.1.2" :exclusions [org.clojure/clojure]]

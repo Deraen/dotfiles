@@ -1,5 +1,5 @@
-autocmd FileType clojure nmap <buffer> <F2>  <Plug>FireplaceK
-autocmd FileType clojure nmap <buffer> <F3>  <Plug>FireplaceSource
+" autocmd FileType clojure nmap <buffer> <F2>  <Plug>FireplaceK
+" autocmd FileType clojure nmap <buffer> <F3>  <Plug>FireplaceSource
 
 " Variant of eval where result of expression (outermost form) is pasted onto the document
 " following the evaluated form.
@@ -69,11 +69,11 @@ function! s:eval_paste(type) abort
 endfunction
 
 " nnoremap <silent> <Plug>EvalPasteLast  :exe <SID>paste_last()<CR>
-nnoremap <silent> <Plug>EvalPaste      :<C-U>set opfunc=<SID>eval_paste<CR>g@
-xnoremap <silent> <Plug>EvalPaste      :<C-U>call <SID>eval_paste(visualmode())<CR>
-nnoremap <silent> <Plug>EvalPasteCount :<C-U>call <SID>eval_paste(v:count)<CR>
+" nnoremap <silent> <Plug>EvalPaste      :<C-U>set opfunc=<SID>eval_paste<CR>g@
+" xnoremap <silent> <Plug>EvalPaste      :<C-U>call <SID>eval_paste(visualmode())<CR>
+" nnoremap <silent> <Plug>EvalPasteCount :<C-U>call <SID>eval_paste(v:count)<CR>
 
-nnoremap <silent> <Plug>TestToplevel :<C-U>.RunTests<CR>
+" nnoremap <silent> <Plug>TestToplevel :<C-U>.RunTests<CR>
 
 function! s:RemoveNs() abort
   " TODO: Async
@@ -115,18 +115,18 @@ function! s:ResetReloadedRepl() abort
   return msg
 endfunction
 
-nnoremap <silent> <Plug>ResetReloadedRepl :<C-U>call <SID>ResetReloadedRepl()<CR>
+" nnoremap <silent> <Plug>ResetReloadedRepl :<C-U>call <SID>ResetReloadedRepl()<CR>
 
 " Global binding which can be used from any filetype! E.g. README.md
-nmap cpR <Plug>ResetReloadedRepl
+" nmap cpR <Plug>ResetReloadedRepl
 
 function! s:set_up() abort
-  nmap <buffer> ce  <Plug>EvalPaste
-  nmap <buffer> cep <Plug>EvalPasteCount
+  " nmap <buffer> ce  <Plug>EvalPaste
+  " nmap <buffer> cep <Plug>EvalPasteCount
   " Remove eval result lines
-  nmap <buffer> ced :%g/^;; =>/d<CR>
+  " nmap <buffer> ced :%g/^;; =>/d<CR>
 
-  nmap <buffer> cpt <Plug>TestToplevel
+  " nmap <buffer> cpt <Plug>TestToplevel
 
   " <LocalLeader> ö
   " öo = raise form

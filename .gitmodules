@@ -25,9 +25,6 @@
 	path = .vim/bundle/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim.git
 	ignore = dirty
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule ".vim/bundle/vim-pairs"]
 	path = .vim/bundle/vim-pairs
 	url = https://github.com/kurkale6ka/vim-pairs.git
@@ -57,9 +54,6 @@
 [submodule ".vim/bundle/vim-eunuch"]
 	path = .vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule ".vim/bundle/vim-fireplace"]
-	path = .vim/bundle_clojure/vim-fireplace
-	url = https://github.com/tpope/vim-fireplace.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -127,9 +121,6 @@
 [submodule ".vim/bundle/vim-easy-align"]
 	path = .vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
-[submodule ".vim/bundle/dbext"]
-	path = .vim/bundle/dbext
-	url = https://github.com/vim-scripts/dbext.vim.git
 [submodule ".vim/bundle/vim-toplevel"]
 	path = .vim/bundle/vim-toplevel
 	url = https://github.com/vim-scripts/vim-toplevel.git
@@ -154,9 +145,6 @@
 [submodule ".vim/bundle/vColoor.vim"]
 	path = .vim/bundle/vColoor.vim
 	url = https://github.com/KabbAmine/vCoolor.vim.git
-[submodule ".vim/bundle/vim-cider"]
-	path = .vim/bundle_clojure/vim-cider
-	url = git@github.com:Deraen/vim-cider.git
 [submodule ".local/modules/i3-utils"]
 	path = .local/modules/i3-utils
 	url = git@github.com:Deraen/i3-utils.git
@@ -193,12 +181,6 @@
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule ".vim/bundle_clojure/async-clj-omni"]
-	path = .vim/bundle_clojure/async-clj-omni
-	url = https://github.com/SevereOverfl0w/async-clj-omni.git
-[submodule ".vim/bundle/deoplete.nvim"]
-	path = .vim/bundle/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule ".vim/bundle/FastFold"]
 	path = .vim/bundle/FastFold
 	url = https://github.com/Konfekt/FastFold.git
@@ -235,9 +217,6 @@
 [submodule ".local/modules/sdrandrd"]
 	path = .local/modules/srandrd
 	url = https://github.com/jceb/srandrd.git
-[submodule ".vim/bundle/asyncomplete.vim"]
-	path = .vim/bundle/asyncomplete.vim
-	url = https://github.com/prabirshrestha/asyncomplete.vim.git
 [submodule ".vim/bundle/ale"]
 	path = .vim/bundle/ale
 	url = https://github.com/dense-analysis/ale.git
@@ -250,3 +229,21 @@
 [submodule ".local/modules/picom"]
 	path = .local/modules/picom
 	url = https://github.com/yshui/picom.git
+[submodule ".vim/bundle/nvim-yarp"]
+	path = .vim/bundle/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp.git
+[submodule ".vim/bundle/float-preview.nvim"]
+	path = .vim/bundle/float-preview.nvim
+	url = https://github.com/ncm2/float-preview.nvim
+[submodule ".vim/bundle/vim-dadbod"]
+	path = .vim/bundle/vim-dadbod
+	url = https://github.com/tpope/vim-dadbod.git
+[submodule ".vim/bundle/vim-jdaddy"]
+	path = .vim/bundle/vim-jdaddy
+	url = https://github.com/tpope/vim-jdaddy.git
+[submodule ".vim/bundle_clojure/vim-iced-coc-source"]
+	path = .vim/bundle_clojure/vim-iced-coc-source
+	url = https://github.com/liquidz/vim-iced-coc-source.git
+[submodule ".vim/bundle/vim-clap"]
+	path = .vim/bundle/vim-clap
+	url = https://github.com/liuchengxu/vim-clap.git
