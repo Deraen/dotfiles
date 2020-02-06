@@ -32,6 +32,8 @@ addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.10.1/bin"
 addPath "$HOME/.gem/ruby/2.3.0/bin"
 addPath "$HOME/.cargo/bin"
 addPath "$HOME/Source/go/bin"
+addPath "$HOME/.vim/bundle_clojure/vim-iced/bin"
+addPath /usr/lib/go-1.13/bin/
 addPath "$ANDROID_HOME/platform-tools"
 addPath "$ANDROID_HOME/tools"
 addPath /usr/local/cuda-5.5/bin

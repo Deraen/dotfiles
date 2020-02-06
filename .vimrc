@@ -159,6 +159,7 @@ nmap >a <Plug>Argumentative_MoveRight
 " nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
 nnoremap <silent> <C-b>    :<C-u>Clap buffers<cr>
 nnoremap <silent> <C-p>    :<C-u>Clap gfiles<cr>
+nnoremap <silent> <C-P>    :<C-u>Clap files<cr>
 
 " Quick macro stuff
 nnoremap § qqqqq
@@ -512,3 +513,5 @@ inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<
 " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Clap
+
+let g:clap_disable_run_rooter = 0
