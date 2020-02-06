@@ -2,6 +2,6 @@ xkb_keymap {
 	xkb_keycodes  { include "evdev+aliases(qwerty)"	};
 	xkb_types     { include "complete"	};
 	xkb_compat    { include "complete"	};
-	xkb_symbols   { include "pc+fi+inet(evdev)+altwin(alt_super_win)+capslock(escape)+deraen(keys)+deraen(mods)"	};
+	xkb_symbols   { include "pc+fi+inet(evdev)+capslock(escape)+deraen(keys)+deraen(mods)"	};
 	xkb_geometry  { include "pc(pc105)"	};
 };

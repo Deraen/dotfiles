@@ -10,4 +10,5 @@ xkb_symbols "keys" {
 
 partial modifier_keys
 xkb_symbols "mods" {
+    key <MENU> { [ Alt_R, Meta_R ] };
 };
