@@ -14,6 +14,7 @@ displays:
 - eDP:
     auto: yes
     match: ^eDP-?1$
+    disable-if-lid-closed: yes
   DP:
     match: ^DP-?\d[\d-]*$
     auto: yes
