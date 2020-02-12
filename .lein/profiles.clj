@@ -1,14 +1,11 @@
-{:repl {:plugins [[cider/cider-nrepl "0.22.4"]
+{:repl {:plugins [[cider/cider-nrepl "0.23.0"]
                   [refactor-nrepl "2.4.0"]
-                  [iced-nrepl "0.7.0"]
-                  #_[venantius/ultra "0.5.2"]]}
+                  [iced-nrepl "0.7.1"]]}
  :user {:plugins [[lein-ancient "0.6.15"]
-                  [lein-deps-tree "0.1.2" :exclusions [org.clojure/clojure]]
-                  [lein-pprint "1.2.0"]
-                  [lein-licenses "0.2.2"]
-                  [lein-try "0.4.3"]]
+                  [lein-pprint "1.3.2"]
+                  [lein-licenses "0.2.2"]]
         :dependencies [[nrepl "0.6.0"]
-                       [org.clojure/tools.namespace "0.2.11"]
+                       [org.clojure/tools.namespace "0.3.1"]
                        [aprint "0.1.3"]]
         :ultra {:color-scheme :solarized_dark}}
  :auth {:repository-auth #=(eval (read-string (slurp (clojure.java.io/file (System/getProperty "user.home") ".lein/credentials.clj"))))}}
