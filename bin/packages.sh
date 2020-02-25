@@ -34,19 +34,13 @@ repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debi
         --keyid A2F683C52980AECF
 repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable" \
         --keyid 0EBFCD88
-repo nodesource "deb https://deb.nodesource.com/node_10.x eoan main\ndeb-src https://deb.nodesource.com/node_10.x eoan main\n" \
-        --keyid 1655A0AB68576280
-# repo yarn "deb https://dl.yarnpkg.com/debian/ stable main\n" \
-#         --key-url https://dl.yarnpkg.com/debian/pubkey.gpg
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
 # repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
 #         --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
-repo spotify "deb http://repository.spotify.com stable non-free" \
-        --keyid 4773BD5E130D1D45
-repo mopidy "deb http://apt.mopidy.com/ stretch main contrib non-free\ndeb-src http://apt.mopidy.com/ stretch main contrib non-free" \
+repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src http://apt.mopidy.com/ buster main contrib non-free" \
         --key-url https://apt.mopidy.com/mopidy.gpg
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
@@ -334,7 +328,6 @@ install wine-development
 install mesa-utils
 install nemo
 install flameshot
-install spotify-client
 install usb-creator-gtk
 install wmctrl
 install xdotool
