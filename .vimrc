@@ -318,7 +318,6 @@ let g:rainbow_conf = {
 
 " These confict with my window bindings, tpopes plugin already has these bound
 " to rational keys
-" FIXME: Add raise bindings
 let g:sexp_mappings = {
       \ 'sexp_swap_list_backward': '',
       \ 'sexp_swap_list_forward': '',
@@ -330,6 +329,8 @@ let g:sexp_mappings = {
       \ 'sexp_move_to_next_element_tail': '',
       \ 'sexp_raise_list':                '<LocalLeader>o',
       \ 'sexp_raise_element':             '<LocalLeader>O',
+      \ 'sexp_indent': '',
+      \ 'sexp_indent_top': '',
       \}
 let g:sexp_enable_insert_mode_mappings = 0
 
