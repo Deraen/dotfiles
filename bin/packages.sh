@@ -283,6 +283,7 @@ install faenza-icon-theme
 # install polybar
 install qt5-style-plugins
 install qt5-gtk-platformtheme
+install alacritty 0.4.1 https://github.com/alacritty/alacritty/releases/download/v0.4.1/Alacritty-v0.4.1-ubuntu_18_04_amd64.deb
 
 # GPG stuff
 install gnupg2

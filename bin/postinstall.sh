@@ -64,14 +64,6 @@ if [[ $desktop == true ]]; then
     ninja -C build install
     )
 
-    header "Alacritty"
-    (
-    cd "$HOME/.local/modules/alacritty" || exit
-    cargo build --release
-    sudo tic -e alacritty,alacritty-direct extra/alacritty.info
-    mv target/release/alacritty "$HOME/.local/bin/alacritty"
-    )
-
     header "Settings"
     gsettings set org.gnome.desktop.background show-desktop-icons false
     crudini --set "$HOME/.config/Trolltech.conf" Qt style GTK+

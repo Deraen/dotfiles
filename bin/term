@@ -41,7 +41,7 @@ if [[ ! -z $N ]]; then
     $0 -- "$@" &> /dev/null &
   done
 else
-  if [[ -f $HOME/.local/bin/alacritty ]]; then
+  if [[ -f /usr/bin/alacritty ]]; then
     alacritty "$@" &
   else
     urxvt.sh "$@" &

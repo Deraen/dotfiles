@@ -14,7 +14,6 @@ get_lastest_tag() {
 }
 
 get_lastest_tag "$NVM_DIR"
-get_lastest_tag "$HOME/.local/modules/alacritty"
 get_lastest_tag "$HOME/.local/modules/picom"
 get_lastest_tag "$HOME/.vim/bundle/vim-go"
 get_lastest_tag "$HOME/.vim/bundle/vim-clap"
