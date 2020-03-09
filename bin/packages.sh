@@ -19,7 +19,7 @@ ppa deraen random bionic --keyid 8EE3F468
 ppa s.noack ppa bionic --keyid E1285F2F
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
 #         --key-url http://archive.getdeb.net/getdeb-archive.key
-repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu xenial main" \
+repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
         --keyid 6494C6D6997C215E
@@ -52,6 +52,8 @@ fi
 if [[ $(hostname -s) == "juho-laptop" ]]; then
         ppa linrunner tlp eoan --keyid 2B3F92F902D65EFF
         ppa oibaf graphics-drivers eoan --keyid 957D2708A03A4626
+        repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main"
+
 fi
 
 updateRepos
@@ -122,6 +124,7 @@ install tarsnap
 # apt-get source --compile tarsnap
 # dpkg -i ...
 install sysfsutils
+install command-not-found-data
 
 # Editor
 install neovim
@@ -178,6 +181,7 @@ install mongodb-org-tools
 install sqlite3
 # install httpie
 install ansible
+install ansible-lint
 install vagrant 1:2.1.2 https://releases.hashicorp.com/vagrant/2.1.2/vagrant_2.1.2_x86_64.deb
 install rlwrap
 install cloc
@@ -185,6 +189,7 @@ install shellcheck
 install golang-go
 install golang-doc
 install golang-src
+install golang-1.13
 install android-tools-adb
 install diffpdf
 install gdal-bin
@@ -192,6 +197,8 @@ install cmatrix
 install sl
 install sassc
 install xmlstarlet
+install wireshark
+install phantomjs
 
 # Dev dependencies
 install autoconf
@@ -320,7 +327,7 @@ install smplayer
 install playerctl
 install steam-launcher
 install deluge
-install virtualbox-6.0
+install virtualbox-6.1
 install typecatcher # Install Google webfonts
 install cheese # Webcam
 install yad # Zenity alternative with proper color picker
@@ -331,6 +338,12 @@ install flameshot
 install usb-creator-gtk
 install wmctrl
 install xdotool
+
+install mopidy
+install mopidy-spotify
+install mopidy-beets
+install cantata # MPD client
+install sonata
 
 install network-manager-openconnect-gnome # Cisco VPN
 install ifupdown
@@ -372,6 +385,7 @@ if [[ $(hostname -s) == "juho-laptop" ]]; then
                 install thinkfan
         fi
         install tlp
+        install teams
 fi
 
 markauto

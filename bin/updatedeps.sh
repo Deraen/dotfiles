@@ -4,15 +4,27 @@
 
 git submodule update --remote
 
-( cd "$NVM_DIR" && git checkout "$(git describe --abbrev=0 --tags --match "v[0-9]*" origin)" )
-( cd "$HOME/.local/modules/alacritty" && git checkout "$(git describe --abbrev=0 --tags --match "v[0-9]*" origin)" )
-( cd "$HOME/.local/modules/picom" && git checkout "$(git describe --abbrev=0 --tags --match "v[0-9]*" origin)" )
+get_lastest_tag() {
+    (
+    cd "$1" || exit
+    tag=$(git describe --abbrev=0 --tags --match "v[0-9]*" origin)
+    echo "$(basename "$1") checkout $tag"
+    git checkout "$tag"
+    )
+}
+
+get_lastest_tag "$NVM_DIR"
+get_lastest_tag "$HOME/.local/modules/alacritty"
+get_lastest_tag "$HOME/.local/modules/picom"
+get_lastest_tag "$HOME/.vim/bundle/vim-go"
+get_lastest_tag "$HOME/.vim/bundle/vim-clap"
+get_lastest_tag "$HOME/.vim/bundle_clojure/vim-iced"
 
 git add -A "$HOME/.local/modules" "$HOME/.vim/bundle*" "$HOME/.fzf" "$HOME/.nvm"
 
 if confirm -i "Update Node utils?"; then
     (
-    cd "$HOME/.local"
+    cd "$HOME/.local" || exit
     ncu -u
     npm install
     )

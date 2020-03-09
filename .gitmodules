@@ -1,198 +1,261 @@
 [submodule ".local/modules/dspmgr"]
 	path = .local/modules/dspmgr
 	url = git@github.com:Deraen/dspmgr.git
+	branch = master
 [submodule ".local/modules/urxvt-font-size"]
 	path = .local/modules/urxvt-font-size
 	url = https://github.com/majutsushi/urxvt-font-size.git
+	branch = master
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+	branch = master
 [submodule ".vim/bundle/switch.vim"]
 	path = .vim/bundle/switch.vim
 	url = https://github.com/AndrewRadev/switch.vim.git
+	branch = master
 	ignore = dirty
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
+	branch = master
 [submodule ".vim/bundle/seoul256.vim"]
 	path = .vim/bundle/seoul256.vim
 	url = https://github.com/Deraen/seoul256.vim.git
+	branch = master
 [submodule ".vim/bundle/vim-sexp"]
 	path = .vim/bundle_clojure/vim-sexp
 	url = https://github.com/guns/vim-sexp.git
+	branch = master
 	ignore = dirty
 [submodule ".vim/bundle/xterm-color-table.vim"]
 	path = .vim/bundle/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim.git
+	branch = master
 	ignore = dirty
 [submodule ".vim/bundle/vim-pairs"]
 	path = .vim/bundle/vim-pairs
 	url = https://github.com/kurkale6ka/vim-pairs.git
+	branch = master
 	ignore = dirty
 [submodule ".vim/bundle/vim-argumentative"]
 	path = .vim/bundle/vim-argumentative
 	url = https://github.com/PeterRincker/vim-argumentative.git
+	branch = master
 	ignore = dirty
 [submodule ".vim/bundle/delimitMate"]
 	path = .vim/bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
+	branch = master
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+	branch = master
 [submodule ".vim/bundle/vimproc"]
 	path = .vim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.git
+	branch = master
 [submodule ".vim/bundle/vim-abolish"]
 	path = .vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
+	branch = master
 [submodule ".vim/bundle/vim-characterize"]
 	path = .vim/bundle/vim-characterize
 	url = https://github.com/tpope/vim-characterize.git
+	branch = master
 [submodule ".vim/bundle/vim-dispatch"]
 	path = .vim/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+	branch = master
 [submodule ".vim/bundle/vim-eunuch"]
 	path = .vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+	branch = master
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+	branch = master
 [submodule ".vim/bundle/vim-repeat"]
 	path = .vim/bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+	branch = master
 [submodule ".vim/bundle/vim-sexp-mappings-for-regular-people"]
 	path = .vim/bundle_clojure/vim-sexp-mappings-for-regular-people
 	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
+	branch = master
 [submodule ".vim/bundle/vim-sleuth"]
 	path = .vim/bundle/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth.git
+	branch = master
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+	branch = master
 [submodule ".vim/bundle/MatchTagAlways"]
 	path = .vim/bundle/MatchTagAlways
 	url = https://github.com/Valloric/MatchTagAlways.git
+	branch = master
 	ignore = dirty
 [submodule ".vim/bundle/vim-sensible"]
 	path = .vim/bundle/vim-sensible
 	url = https://github.com/tpope/vim-sensible.git
+	branch = master
 [submodule ".local/modules/pure"]
 	path = .local/modules/pure
 	url = https://github.com/sindresorhus/pure.git
+	branch = master
 [submodule ".local/modules/zsh-syntax-highlighting"]
 	path = .local/modules/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+	branch = master
 [submodule ".local/modules/dircolors-solarized"]
 	path = .local/modules/dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized.git
+	branch = master
 [submodule ".local/modules/ponymix"]
 	path = .local/modules/ponymix
 	url = https://github.com/falconindy/ponymix.git
+	branch = master
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+	branch = master
 [submodule ".vim/bundle/vim-rsi"]
 	path = .vim/bundle/vim-rsi
 	url = https://github.com/tpope/vim-rsi.git
+	branch = master
 [submodule ".vim/bundle/vim-vinegar"]
 	path = .vim/bundle/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+	branch = master
 [submodule ".vim/bundle/vim-obsession"]
 	path = .vim/bundle/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
+	branch = master
 [submodule ".local/modules/tpm-filemanagement"]
 	path = .local/modules/tpm-filemanagement
 	url = https://github.com/baabelfish/tpm-filemanagement.git
+	branch = master
 [submodule ".local/modules/pmm"]
 	path = .local/modules/pmm
 	url = git@github.com:Deraen/pmm.git
+	branch = master
 [submodule ".local/modules/zsh-completions"]
 	path = .local/modules/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+	branch = master
 [submodule ".vim/bundle/vim-polyglot"]
 	path = .vim/bundle/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+	branch = master
 [submodule ".vim/bundle/vim-kangaroo"]
 	path = .vim/bundle/vim-kangaroo
 	url = https://github.com/tommcdo/vim-kangaroo.git
+	branch = master
 [submodule ".vim/bundle/gapply.vim"]
 	path = .vim/bundle/gapply.vim
 	url = https://github.com/AndrewRadev/gapply.vim.git
+	branch = master
 [submodule ".vim/bundle/vim-easy-align"]
 	path = .vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
+	branch = master
 [submodule ".vim/bundle/vim-toplevel"]
 	path = .vim/bundle/vim-toplevel
 	url = https://github.com/vim-scripts/vim-toplevel.git
+	branch = master
 [submodule ".vim/bundle/ghcmod-vim"]
 	path = .vim/bundle_haskell/ghcmod-vim
 	url = https://github.com/eagletmt/ghcmod-vim.git
+	branch = master
 [submodule ".vim/bundle/neco-ghc"]
 	path = .vim/bundle_haskell/neco-ghc
 	url = https://github.com/eagletmt/neco-ghc.git
+	branch = master
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
+	branch = master
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+	branch = master
 [submodule ".vim/bundle/rainbow"]
 	path = .vim/bundle_clojure/rainbow
 	url = https://github.com/luochen1990/rainbow.git
+	branch = master
 [submodule ".local/modules/frakkin-xkb"]
 	path = .local/modules/frakkin-xkb
 	url = git@github.com:Deraen/frakkin-xkb.git
+	branch = master
 [submodule ".vim/bundle/vColoor.vim"]
 	path = .vim/bundle/vColoor.vim
 	url = https://github.com/KabbAmine/vCoolor.vim.git
+	branch = master
 [submodule ".local/modules/i3-utils"]
 	path = .local/modules/i3-utils
 	url = git@github.com:Deraen/i3-utils.git
+	branch = master
 [submodule ".vim/bundle/vim-thematic"]
 	path = .vim/bundle/vim-thematic
 	url = https://github.com/reedes/vim-thematic.git
+	branch = master
 [submodule ".vim/bundle/targets.vim"]
 	path = .vim/bundle/targets.vim
 	url = git@github.com:wellle/targets.vim.git
+	branch = master
 [submodule ".local/modules/screenkey"]
 	path = .local/modules/screenkey
 	url = git@github.com:wavexx/screenkey.git
+	branch = master
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
+	branch = master
 [submodule ".vim/bundle/vimagit"]
 	path = .vim/bundle/vimagit
 	url = git@github.com:jreybert/vimagit.git
+	branch = master
 [submodule ".vim/bundle/vim-bufkill"]
 	path = .vim/bundle/vim-bufkill
 	url = https://github.com/qpkorr/vim-bufkill.git
+	branch = master
 [submodule ".vim/bundle/vim-gnupg"]
 	path = .vim/bundle/vim-gnupg
 	url = https://github.com/jamessan/vim-gnupg.git
+	branch = master
 [submodule ".vim/bundle/vim-grepper"]
 	path = .vim/bundle/vim-grepper
 	url = https://github.com/mhinz/vim-grepper.git
+	branch = master
 [submodule ".vim/bundle_clojure/clj-refactor.nvim"]
 	path = .vim/bundle_clojure/clj-refactor.nvim
 	url = https://github.com/snoe/clj-refactor.nvim.git
+	branch = master
 [submodule ".vim/bundle/vim-dispatch-neovim"]
 	path = .vim/bundle/vim-dispatch-neovim
 	url = https://github.com/radenling/vim-dispatch-neovim.git
+	branch = master
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+	branch = master
 [submodule ".vim/bundle/FastFold"]
 	path = .vim/bundle/FastFold
 	url = https://github.com/Konfekt/FastFold.git
+	branch = master
 [submodule ".vim/bundle/ReplaceWithRegister"]
 	path = .vim/bundle/ReplaceWithRegister
 	url = https://github.com/vim-scripts/ReplaceWithRegister.git
+	branch = master
 [submodule ".vim/bundle/DidYouMean"]
 	path = .vim/bundle/DidYouMean
 	url = https://github.com/EinfachToll/DidYouMean.git
+	branch = master
 [submodule ".vim/bundle/auto_mkdir"]
 	path = .vim/bundle/auto_mkdir
 	url = https://github.com/DataWraith/auto_mkdir.git
+	branch = master
 [submodule ".nvm"]
 	path = .nvm
 	url = https://github.com/creationix/nvm.git
@@ -202,48 +265,60 @@
 [submodule ".local/modules/oh-my-zsh"]
 	path = .local/modules/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
+	branch = master
 [submodule ".vim/bundle/fzf.vim"]
 	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+	branch = master
 [submodule ".local/modules/alacritty"]
 	path = .local/modules/alacritty
 	url = https://github.com/jwilm/alacritty.git
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf.git
+	branch = master
 [submodule ".vim/bundle_clojure/vim-iced"]
 	path = .vim/bundle_clojure/vim-iced
 	url = https://github.com/liquidz/vim-iced.git
 [submodule ".local/modules/sdrandrd"]
 	path = .local/modules/srandrd
 	url = https://github.com/jceb/srandrd.git
+	branch = master
 [submodule ".vim/bundle/ale"]
 	path = .vim/bundle/ale
 	url = https://github.com/dense-analysis/ale.git
+	branch = master
 [submodule ".vim/bundle/coc.nvim"]
 	path = .vim/bundle/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
+	branch = master
 [submodule ".vim/bundle/nvim-colorizer.lua"]
 	path = .vim/bundle/nvim-colorizer.lua
 	url = https://github.com/norcalli/nvim-colorizer.lua
+	branch = master
 [submodule ".local/modules/picom"]
 	path = .local/modules/picom
 	url = https://github.com/yshui/picom.git
 [submodule ".vim/bundle/nvim-yarp"]
 	path = .vim/bundle/nvim-yarp
 	url = https://github.com/roxma/nvim-yarp.git
+	branch = master
 [submodule ".vim/bundle/float-preview.nvim"]
 	path = .vim/bundle/float-preview.nvim
 	url = https://github.com/ncm2/float-preview.nvim
+	branch = master
 [submodule ".vim/bundle/vim-dadbod"]
 	path = .vim/bundle/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod.git
+	branch = master
 [submodule ".vim/bundle/vim-jdaddy"]
 	path = .vim/bundle/vim-jdaddy
 	url = https://github.com/tpope/vim-jdaddy.git
+	branch = master
 [submodule ".vim/bundle_clojure/vim-iced-coc-source"]
 	path = .vim/bundle_clojure/vim-iced-coc-source
 	url = https://github.com/liquidz/vim-iced-coc-source.git
+	branch = master
 [submodule ".vim/bundle/vim-clap"]
 	path = .vim/bundle/vim-clap
 	url = https://github.com/liuchengxu/vim-clap.git
