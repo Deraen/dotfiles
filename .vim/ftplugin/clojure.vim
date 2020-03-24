@@ -113,15 +113,15 @@ silent! nmap <buffer> cjl <Plug>(iced_jump_to_let)
 " silent! nmap <buffer> <Leader>dlt <Plug>(iced_clear_tapped)
 
 "" Misc
-silent! nmap <buffer> == <Plug>(iced_format)
-silent! nmap <buffer> =G <Plug>(iced_format_all)
+" silent! nmap <buffer> == <Plug>(iced_format)
+" silent! nmap <buffer> =G <Plug>(iced_format_all)
 " silent! nmap <buffer> <Leader>* <Plug>(iced_grep)
 " silent! nmap <buffer> <Leader>/ :<C-u>IcedGrep<Space>
 
 " nnoremap <buffer> <Leader>go :<C-u>IcedEval (user/go)<CR>
 nnoremap <buffer> cpR :<C-u>IcedEval (do (in-ns 'user) (reset))<CR>
 
-let g:iced_formatter = 'zprint'
+" let g:iced_formatter = 'zprint'
 
 function! s:auto_connect() abort
   if expand('%:t') ==# 'project.clj' || expand('%:e') ==# 'edn'

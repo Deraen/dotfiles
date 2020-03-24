@@ -329,8 +329,6 @@ let g:sexp_mappings = {
       \ 'sexp_move_to_next_element_tail': '',
       \ 'sexp_raise_list':                '<LocalLeader>o',
       \ 'sexp_raise_element':             '<LocalLeader>O',
-      \ 'sexp_indent': '',
-      \ 'sexp_indent_top': '',
       \}
 let g:sexp_enable_insert_mode_mappings = 0
 
