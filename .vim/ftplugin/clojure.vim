@@ -132,7 +132,7 @@ endfunction
 
 aug ClojureSettings
   au!
-  au VimEnter * call s:auto_connect()
+  " au VimEnter * call s:auto_connect()
 aug END
 
 aug VimIcedAutoOpenQuickfix

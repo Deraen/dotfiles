@@ -285,10 +285,6 @@
 	path = .vim/bundle/ale
 	url = https://github.com/dense-analysis/ale.git
 	branch = master
-[submodule ".vim/bundle/coc.nvim"]
-	path = .vim/bundle/coc.nvim
-	url = https://github.com/neoclide/coc.nvim.git
-	branch = master
 [submodule ".vim/bundle/nvim-colorizer.lua"]
 	path = .vim/bundle/nvim-colorizer.lua
 	url = https://github.com/norcalli/nvim-colorizer.lua
@@ -312,10 +308,12 @@
 	path = .vim/bundle/vim-jdaddy
 	url = https://github.com/tpope/vim-jdaddy.git
 	branch = master
-[submodule ".vim/bundle_clojure/vim-iced-coc-source"]
-	path = .vim/bundle_clojure/vim-iced-coc-source
-	url = https://github.com/liquidz/vim-iced-coc-source.git
-	branch = master
 [submodule ".vim/bundle/vim-clap"]
 	path = .vim/bundle/vim-clap
 	url = https://github.com/liuchengxu/vim-clap.git
+[submodule ".vim/bundle/ncm2"]
+	path = .vim/bundle/ncm2
+	url = https://github.com/ncm2/ncm2.git
+[submodule ".vim/bundle_clojure/vim-iced-ncm2"]
+	path = .vim/bundle_clojure/vim-iced-ncm2
+	url = https://github.com/nbardiuk/vim-iced-ncm2.git
