@@ -121,7 +121,7 @@ silent! nmap <buffer> cjl <Plug>(iced_jump_to_let)
 " nnoremap <buffer> <Leader>go :<C-u>IcedEval (user/go)<CR>
 nnoremap <buffer> cpR :<C-u>IcedEval (do (in-ns 'user) (reset))<CR>
 
-" let g:iced_formatter = 'zprint'
+let g:iced_formatter = 'zprint'
 
 " function! s:auto_connect() abort
 "   if expand('%:t') ==# 'project.clj' || expand('%:e') ==# 'edn'
