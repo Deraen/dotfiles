@@ -123,17 +123,17 @@ nnoremap <buffer> cpR :<C-u>IcedEval (do (in-ns 'user) (reset))<CR>
 
 " let g:iced_formatter = 'zprint'
 
-function! s:auto_connect() abort
-  if expand('%:t') ==# 'project.clj' || expand('%:e') ==# 'edn'
-    return
-  endif
-  call IcedConnect
-endfunction
+" function! s:auto_connect() abort
+"   if expand('%:t') ==# 'project.clj' || expand('%:e') ==# 'edn'
+"     return
+"   endif
+"   call IcedConnect
+" endfunction
 
-aug ClojureSettings
-  au!
-  " au VimEnter * call s:auto_connect()
-aug END
+" aug ClojureSettings
+"   au!
+"   au VimEnter * call s:auto_connect()
+" aug END
 
 aug VimIcedAutoOpenQuickfix
   au!
