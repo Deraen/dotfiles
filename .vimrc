@@ -410,7 +410,7 @@ let g:ledger_bin="hledger"
 
 " Ncm2
 
-let g:ncm2#complete_delay = 100
+let g:ncm2#complete_delay = 400
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
 
