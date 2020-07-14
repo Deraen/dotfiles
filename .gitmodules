@@ -285,10 +285,6 @@
 	path = .vim/bundle/ale
 	url = https://github.com/dense-analysis/ale.git
 	branch = master
-[submodule ".vim/bundle/nvim-colorizer.lua"]
-	path = .vim/bundle/nvim-colorizer.lua
-	url = https://github.com/norcalli/nvim-colorizer.lua
-	branch = master
 [submodule ".local/modules/picom"]
 	path = .local/modules/picom
 	url = https://github.com/yshui/picom.git
@@ -317,3 +313,6 @@
 [submodule ".vim/bundle_clojure/vim-iced-ncm2"]
 	path = .vim/bundle_clojure/vim-iced-ncm2
 	url = https://github.com/nbardiuk/vim-iced-ncm2.git
+[submodule ".vim/bundle/vim-hexokinase"]
+	path = .vim/bundle/vim-hexokinase
+	url = https://github.com/RRethy/vim-hexokinase.git

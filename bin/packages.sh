@@ -6,15 +6,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
-ppa nilarimogard webupd8 eoan --keyid 531EE72F4C9D234C
-ppa otto-kesselgulasch gimp eoan --keyid 3BDAAC08614C4B38
-ppa rvm smplayer eoan --keyid A7E13D78E4A4F4F4
-ppa mc3man mpv-tests eoan --keyid 90BD7EACED8E640A
+ppa nilarimogard webupd8 focal --keyid 531EE72F4C9D234C
+ppa otto-kesselgulasch gimp focal --keyid 3BDAAC08614C4B38
+ppa rvm smplayer focal --keyid A7E13D78E4A4F4F4
+ppa mc3man mpv-tests focal --keyid 90BD7EACED8E640A
 ppa ansible ansible eoan --keyid 93C4A3FD7BB9C367
 ppa neovim-ppa unstable disco --keyid 55F96FCF8231B6DD
-ppa yubico stable eoan --keyid 43D5C49532CBA1A9
-ppa git-core ppa eoan --keyid A1715D88E1DF1F24
-ppa phoerious keepassxc eoan --keyid 61922AB60068FCD6
+ppa yubico stable focal --keyid 43D5C49532CBA1A9
+ppa git-core ppa focal --keyid A1715D88E1DF1F24
+ppa phoerious keepassxc focal --keyid 61922AB60068FCD6
 ppa deraen random bionic --keyid 8EE3F468
 ppa s.noack ppa bionic --keyid E1285F2F
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
@@ -25,12 +25,12 @@ repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may com
         --keyid 6494C6D6997C215E
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./" \
         --keyid C927EBE00F1B0520
-repo i3 "deb http://debian.sur5r.net/i3/ eoan universe" \
+repo i3 "deb http://debian.sur5r.net/i3/ focal universe" \
         --keyring sur5r-keyring \
         --keyid 941C42E6
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
-repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian eoan non-free contrib" \
+repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal non-free contrib" \
         --keyid A2F683C52980AECF
 repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable" \
         --keyid 0EBFCD88
@@ -44,14 +44,14 @@ repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src ht
         --key-url https://apt.mopidy.com/mopidy.gpg
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        ppa graphics-drivers ppa eoan
-        ppa lutris-team lutris eoan \
+        ppa graphics-drivers ppa focal
+        ppa lutris-team lutris focal \
                 --keyid 37B90EDD4E3EFAE4
 fi
 
 if [[ $(hostname -s) == "juho-laptop" ]]; then
-        ppa linrunner tlp eoan --keyid 2B3F92F902D65EFF
-        ppa oibaf graphics-drivers eoan --keyid 957D2708A03A4626
+        ppa linrunner tlp focal --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers focal --keyid 957D2708A03A4626
         repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main"
 
 fi
@@ -119,7 +119,7 @@ install optipng
 install webp
 install jpegoptim
 install libinput-tools
-install tarsnap
+# install tarsnap
 # apt-get build-dep tarsnap
 # apt-get source --compile tarsnap
 # dpkg -i ...
@@ -161,7 +161,6 @@ install cppcheck
 # Python
 install pep8
 install pylint
-install python-pip
 install python3-pip
 install python3-venv
 install python3.8
@@ -180,8 +179,8 @@ install ubuntu-dev-tools
 install mongodb-org-tools
 install sqlite3
 # install httpie
-install ansible
-install ansible-lint
+# install ansible
+# install ansible-lint
 install vagrant 1:2.1.2 https://releases.hashicorp.com/vagrant/2.1.2/vagrant_2.1.2_x86_64.deb
 install rlwrap
 install cloc

@@ -1,6 +1,6 @@
-{:repl {:plugins [[cider/cider-nrepl "0.24.0"]
+{:repl {:plugins [[cider/cider-nrepl "0.25.2"]
                   [refactor-nrepl "2.5.0"]
-                  [iced-nrepl "1.0.0"]]}
+                  [iced-nrepl "1.0.2"]]}
  :user {:plugins [[lein-ancient "0.6.15"]
                   [lein-pprint "1.3.2"]
                   [lein-licenses "0.2.2"]]
