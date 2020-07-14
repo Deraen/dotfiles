@@ -8,9 +8,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 ppa nilarimogard webupd8 focal --keyid 531EE72F4C9D234C
 ppa otto-kesselgulasch gimp focal --keyid 3BDAAC08614C4B38
-ppa rvm smplayer focal --keyid A7E13D78E4A4F4F4
 ppa mc3man mpv-tests focal --keyid 90BD7EACED8E640A
-ppa ansible ansible eoan --keyid 93C4A3FD7BB9C367
+# ppa ansible ansible focal --keyid 93C4A3FD7BB9C367
 ppa neovim-ppa unstable disco --keyid 55F96FCF8231B6DD
 ppa yubico stable focal --keyid 43D5C49532CBA1A9
 ppa git-core ppa focal --keyid A1715D88E1DF1F24
@@ -45,8 +44,7 @@ repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src ht
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         ppa graphics-drivers ppa focal
-        ppa lutris-team lutris focal \
-                --keyid 37B90EDD4E3EFAE4
+        ppa lutris-team lutris focal --keyid 37B90EDD4E3EFAE4
 fi
 
 if [[ $(hostname -s) == "juho-laptop" ]]; then
@@ -72,6 +70,9 @@ install linux-signed-generic
 install shim-signed
 install grub-efi-amd64-signed
 install nfs-common
+install lvm2
+install cryptsetup
+install smartmontools
 
 # Language stuff
 install "language-pack-gnome-en"
@@ -124,7 +125,6 @@ install libinput-tools
 # apt-get source --compile tarsnap
 # dpkg -i ...
 install sysfsutils
-install command-not-found-data
 
 # Editor
 install neovim
@@ -197,7 +197,6 @@ install sl
 install sassc
 install xmlstarlet
 install wireshark
-install phantomjs
 
 # Dev dependencies
 install autoconf
@@ -247,6 +246,7 @@ install libxinerama-dev
 # Docker
 install docker-ce
 install google-cloud-sdk
+install awscli
 
 # Tessel
 install libusb-1.0-0-dev
@@ -276,7 +276,6 @@ install dunst # Notifications
 install xss-lock
 install rofi # Runner menu
 install sway
-install compton # Compositing, xcompmgr fork
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools
 install "rxvt-unicode-256color"
@@ -284,7 +283,7 @@ install faenza-icon-theme
 # install polybar
 install qt5-style-plugins
 install qt5-gtk-platformtheme
-install alacritty 0.4.1 https://github.com/alacritty/alacritty/releases/download/v0.4.1/Alacritty-v0.4.1-ubuntu_18_04_amd64.deb
+install alacritty 0.4.2 https://github.com/alacritty/alacritty/releases/download/v0.4.2/Alacritty-v0.4.2-ubuntu_18_04_amd64.deb
 
 # GPG stuff
 install gnupg2
@@ -325,7 +324,6 @@ install xsane
 install qgit
 install simplescreenrecorder
 install mpv
-install smplayer
 install playerctl
 install steam-launcher
 install deluge
@@ -341,11 +339,11 @@ install usb-creator-gtk
 install wmctrl
 install xdotool
 
-install mopidy
-install mopidy-spotify
-install mopidy-beets
-install cantata # MPD client
-install sonata
+# install mopidy
+# install mopidy-spotify
+# install mopidy-beets
+# install cantata # MPD client
+# install sonata
 
 install network-manager-openconnect-gnome # Cisco VPN
 install ifupdown
@@ -368,8 +366,8 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install jack-rack # JACK LADSPA effects
         install qjackctl
         install guitarix # Guitar AMP
-        install vnstat # Network usage
-        install rrdtool # Stats
+        # install vnstat # Network usage
+        # install rrdtool # Stats
         install youtube-dl
         install audacity
         install lutris
@@ -378,8 +376,6 @@ fi
 
 # Laptop specific
 if [[ $(hostname -s) == "juho-laptop" ]]; then
-        install lvm2
-        install cryptsetup
         install xbacklight
         # install prey 1.5.1 https://s3.amazonaws.com/prey-releases/node-client/1.5.1/prey_1.5.1_amd64.deb
         # X220
