@@ -234,6 +234,8 @@ install uthash-dev
 install libev-dev
 install libx11-xcb-dev
 install libxcb-glx0-dev
+# vim-clap
+install libssl-dev
 
 install libfontconfig1-dev
 install libxcb-render0-dev
