@@ -21,3 +21,5 @@
 	program = gpg2
 [submodule]
 	fetchJobs = 10
+[pull]
+	ff = only
