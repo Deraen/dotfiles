@@ -137,7 +137,7 @@ function! s:set_up() abort
   command! -buffer RemoveNs call s:RemoveNs()
 endfunction
 
-augroup fireplace_eval_paste
-  autocmd!
-  autocmd FileType clojure call s:set_up()
-augroup END
+" augroup fireplace_eval_paste
+"   autocmd!
+"   autocmd FileType clojure call s:set_up()
+" augroup END

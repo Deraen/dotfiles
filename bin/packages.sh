@@ -7,7 +7,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 . "$DIR/../.local/modules/pmm/init.sh"
 
 ppa nilarimogard webupd8 focal --keyid 531EE72F4C9D234C
-ppa otto-kesselgulasch gimp focal --keyid 3BDAAC08614C4B38
+ppa ubuntuhandbook1 gimp focal
 ppa mc3man mpv-tests focal --keyid 90BD7EACED8E640A
 # ppa ansible ansible focal --keyid 93C4A3FD7BB9C367
 ppa neovim-ppa unstable disco --keyid 55F96FCF8231B6DD

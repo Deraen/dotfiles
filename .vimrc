@@ -5,7 +5,7 @@ endif
 if has('nvim')
   " Disable Python 2
   let g:loaded_python_provider = 1
-  let g:loaded_ruby_provider = 1
+  " let g:loaded_ruby_provider = 1
 
   runtime! plugin/python_setup.vim
 endif
@@ -202,7 +202,7 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.parse = 'ρ'
 
 let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#ctrlp#show_adjacent_modes = 0
+" let g:airline#extensions#ctrlp#show_adjacent_modes = 0
 let g:airline_theme='seoul256'
 let g:airline_exclude_preview = 1
 let g:airline_inactive_collapse = 0
@@ -231,29 +231,27 @@ let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v 
 " let g:airline_section_warning = airline#section#create(['syntastic-warn', 'whitespace'])
 
 " Syntastic
-let g:syntastic_python_checkers = ['pep8']
-let g:syntastic_check_on_open=1
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_java_checkers = ['']
-let g:syntastic_mode_map = {
-      \ 'mode': 'active',
-      \ 'active_filetypes': [],
-      \ 'passive_filetypes': [],
-      \ }
-let g:syntastic_error_symbol='✕'
-let g:syntastic_warning_symbol='✕'
+" let g:syntastic_python_checkers = ['pep8']
+" let g:syntastic_check_on_open=1
+" let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_java_checkers = ['']
+" let g:syntastic_mode_map = {
+"       \ 'mode': 'active',
+"       \ 'active_filetypes': [],
+"       \ 'passive_filetypes': [],
+"       \ }
+" let g:syntastic_error_symbol='✕'
+" let g:syntastic_warning_symbol='✕'
 " let g:syntastic_enable_highlighting = 0
-let g:syntastic_go_checkers = ['golint', 'govet']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }"
+" let g:syntastic_go_checkers = ['golint', 'govet']
+" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }"
+
+let g:loaded_syntastic_plugin = 1
 
 " Ale
 
 " Todo: replace syntastic with Ale?
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-      \ 'clojure': ['clj-kondo'],
-      \ 'scss': ['stylelint']
-      \ }
+let g:ale_linters_explicit = 0
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 
@@ -261,7 +259,7 @@ let g:ale_pattern_options = {
       \ '^iced_': {'ale_linters': [], 'ale_fixers': []},
       \}
 
-" let g:ale_set_quickfix = 1
+let g:ale_set_quickfix = 1
 " let g:ale_open_list = 1
 " Set this if you want to.
 " This can be useful if you are combining ALE with
@@ -276,45 +274,56 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 " CtrlP
-let g:ctrlp_extensions = ['line']
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git', "cd %s && git ls-files . -z --cached --exclude-standard | tr '\\0' '\n'"]
+" let g:ctrlp_extensions = ['line']
+" let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_user_command = ['.git', "cd %s && git ls-files . -z --cached --exclude-standard | tr '\\0' '\n'"]
 " When opening file with CtrlP always open in new buffer even if its already
 " open somewhere
-let g:ctrlp_switch_buffer = '0'
+" let g:ctrlp_switch_buffer = '0'
 " Open first file in current buffer, rest hidden
-let g:ctrlp_open_multiple_files = 'ri'
-let g:ctrlp_open_new_file = 'r'
+" let g:ctrlp_open_multiple_files = 'ri'
+" let g:ctrlp_open_new_file = 'r'
 
-let g:ctrlp_buffer_func = {
-      \ 'enter': 'CtrlPMappings'
-      \ }
+" let g:ctrlp_buffer_func = {
+"       \ 'enter': 'CtrlPMappings'
+"       \ }
 
-function! s:DeleteBuffer()
-  let path = fnamemodify(getline('.')[2:], ':p')
-  let bufn = matchstr(path, '\v\d+\ze\*No Name')
-  exec "silent! bd" bufn ==# "" ? path : bufn
-  exec "silent! norm \<F5>"
-endfunction
+" function! s:DeleteBuffer()
+"   let path = fnamemodify(getline('.')[2:], ':p')
+"   let bufn = matchstr(path, '\v\d+\ze\*No Name')
+"   exec "silent! bd" bufn ==# "" ? path : bufn
+"   exec "silent! norm \<F5>"
+" endfunction
 
-function! CtrlPMappings()
-  " Alt-w in ctrlp buffer view closes the selected buffer
-  nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
-endfunction
+" function! CtrlPMappings()
+"   " Alt-w in ctrlp buffer view closes the selected buffer
+"   nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
+" endfunction
 
 " Clojure options
 autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
-let g:refactor_nrepl_options = {'prefix-rewriting': 'false'}
+" let g:refactor_nrepl_options = {'prefix-rewriting': 'false'}
 
 " ' and ` are used alone in Clojure
 au FileType clojure let b:delimitMate_quotes = "\""
 
-let g:fireplace_default_cljs_repl = ""
+" Fireplace, not used currently
+" let g:fireplace_default_cljs_repl = ""
+
+" Iced
+let g:iced_formatter = 'zprint'
+let g:iced_enable_auto_indent = v:false
+let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
+let g:iced_enable_clj_kondo_analysis = v:true
+let g:iced#buffer#stdout#max_line = 10000
+let g:iced_enable_auto_document = 'normal'
+
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 0
 let g:clojure_maxlines = 200
-let g:leiningen_no_auto_repl = 1
+
+" let g:leiningen_no_auto_repl = 1
 let g:rainbow_active = 1
 let g:rainbow_conf = {
       \ 'ctermfgs': ['204', '179', '146', '72', '225', '113', '69'],
@@ -403,12 +412,6 @@ autocmd User FloatPreviewWinOpen call DisableExtras()
 autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
 
 autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
-
-let g:ledger_bin="hledger"
-
-" #f0f
-
-" lua require'colorizer'.setup()
 
 " Ncm2
 

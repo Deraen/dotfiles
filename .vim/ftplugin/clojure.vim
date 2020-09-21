@@ -29,8 +29,6 @@ autocmd FileType clojure setlocal lispwords+=fdef
 
 " Vim-iced
 
-let g:iced_enable_auto_document = 1
-
 " silent! nmap <buffer> <Leader>' <Plug>(iced_connect)
 " silent! nmap <buffer> <Leader>" <Plug>(iced_jack_in)
 
@@ -120,8 +118,7 @@ silent! nmap <buffer> cjl <Plug>(iced_jump_to_let)
 
 " nnoremap <buffer> <Leader>go :<C-u>IcedEval (user/go)<CR>
 nnoremap <buffer> cpR :<C-u>IcedEval (do (in-ns 'user) (reset))<CR>
-
-let g:iced_formatter = 'zprint'
+command! -buffer CtnClear IcedEval (clojure.tools.namespace.repl/clear)<CR>
 
 " function! s:auto_connect() abort
 "   if expand('%:t') ==# 'project.clj' || expand('%:e') ==# 'edn'
@@ -139,3 +136,5 @@ aug VimIcedAutoOpenQuickfix
   au!
   au QuickFixCmdPost vim-iced cwindow
 aug END
+
+let b:ale_linters = ['clj-kondo']
