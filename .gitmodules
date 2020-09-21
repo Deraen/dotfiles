@@ -228,10 +228,6 @@
 	path = .vim/bundle/vim-grepper
 	url = https://github.com/mhinz/vim-grepper.git
 	branch = master
-[submodule ".vim/bundle_clojure/clj-refactor.nvim"]
-	path = .vim/bundle_clojure/clj-refactor.nvim
-	url = https://github.com/snoe/clj-refactor.nvim.git
-	branch = master
 [submodule ".vim/bundle/vim-dispatch-neovim"]
 	path = .vim/bundle/vim-dispatch-neovim
 	url = https://github.com/radenling/vim-dispatch-neovim.git
@@ -316,3 +312,12 @@
 [submodule ".vim/bundle/vim-hexokinase"]
 	path = .vim/bundle/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase.git
+[submodule ".vim/bundle_clojure/vim-iced-fern-debugger"]
+	path = .vim/bundle_clojure/vim-iced-fern-debugger
+	url = https://github.com/liquidz/vim-iced-fern-debugger.git
+[submodule ".vim/bundle/fern.vim"]
+	path = .vim/bundle/fern.vim
+	url = https://github.com/lambdalisue/fern.vim.git
+[submodule ".vim/bundle/FixCursorHold.nvim"]
+	path = .vim/bundle/FixCursorHold.nvim
+	url = https://github.com/antoinemadec/FixCursorHold.nvim.git
