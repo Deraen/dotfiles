@@ -41,6 +41,7 @@ repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src http://apt.mopidy.com/ buster main contrib non-free" \
         --key-url https://apt.mopidy.com/mopidy.gpg
+repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\nYou may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         ppa graphics-drivers ppa focal
@@ -340,6 +341,7 @@ install flameshot
 install usb-creator-gtk
 install wmctrl
 install xdotool
+install slack-desktop
 
 # install mopidy
 # install mopidy-spotify

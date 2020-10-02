@@ -29,7 +29,7 @@ autocmd FileType clojure setlocal lispwords+=fdef
 
 " Vim-iced
 
-" silent! nmap <buffer> <Leader>' <Plug>(iced_connect)
+silent! nmap <buffer> cic <Plug>(iced_connect)
 " silent! nmap <buffer> <Leader>" <Plug>(iced_jack_in)
 
 "" Evaluating (<Leader>e)

@@ -259,7 +259,7 @@ let g:ale_pattern_options = {
       \ '^iced_': {'ale_linters': [], 'ale_fixers': []},
       \}
 
-let g:ale_set_quickfix = 1
+let g:ale_set_quickfix = 0
 " let g:ale_open_list = 1
 " Set this if you want to.
 " This can be useful if you are combining ALE with
@@ -316,7 +316,7 @@ let g:iced_enable_auto_indent = v:false
 let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
 let g:iced_enable_clj_kondo_analysis = v:true
 let g:iced#buffer#stdout#max_line = 10000
-let g:iced_enable_auto_document = 'normal'
+let g:iced_enable_auto_document = 'insert'
 
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
