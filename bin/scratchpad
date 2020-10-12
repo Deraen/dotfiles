@@ -1,7 +1,0 @@
-#!/bin/bash
-
-EXEC=$1
-INST=$2
-
-i3-window-exists -i "$INST" || exec "$EXEC"
-i3-msg "[instance=$INST] scratchpad show"

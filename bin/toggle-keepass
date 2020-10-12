@@ -1,0 +1,8 @@
+#!/bin/bash
+
+i3-msg -t get_tree | jq -e ".. | select(.instance? == \"keepassxc\" or .app_id == \"org.keepassxc.KeePassXC\")" | exec keepassxc
+if [[ -n $SWAYSOCK ]]; then
+    i3-msg "[app_id=org.keepassxc.KeePassXC] scratchpad show"
+else
+    i3-msg "[instance=keepassxc] scratchpad show"
+fi

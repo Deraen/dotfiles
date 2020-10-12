@@ -8,4 +8,8 @@ else
 fi
 
 # Notify i3blocks to update volume block
-pkill -RTMIN+1 i3blocks
+if [[ -n $SWAYSOCK ]]; then
+    echo
+else
+    pkill -RTMIN+1 i3blocks
+fi

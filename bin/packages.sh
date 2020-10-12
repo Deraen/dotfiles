@@ -41,7 +41,8 @@ repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src http://apt.mopidy.com/ buster main contrib non-free" \
         --key-url https://apt.mopidy.com/mopidy.gpg
-repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\nYou may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n"
+repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
+        --keyid 4C1CBE14852541CB
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         ppa graphics-drivers ppa focal
@@ -67,7 +68,7 @@ install lsb-base
 install linux-generic
 install build-essential
 install libnss-myhostname # Why doesn't systemd-services require this...?
-install linux-signed-generic
+# install linux-signed
 install shim-signed
 install grub-efi-amd64-signed
 install nfs-common
@@ -126,6 +127,7 @@ install libinput-tools
 # apt-get source --compile tarsnap
 # dpkg -i ...
 install sysfsutils
+install ufw
 
 # Editor
 install neovim
@@ -182,7 +184,7 @@ install sqlite3
 # install httpie
 # install ansible
 # install ansible-lint
-install vagrant 1:2.1.2 https://releases.hashicorp.com/vagrant/2.1.2/vagrant_2.1.2_x86_64.deb
+install vagrant
 install rlwrap
 install cloc
 install shellcheck
@@ -278,7 +280,20 @@ install i3blocks
 install dunst # Notifications
 install xss-lock
 install rofi # Runner menu
+install wofi
 install sway
+install swaybg
+install waybar
+install swaylock
+install swayidle
+install wdisplays
+install grim
+install slurp
+install pavucontrol
+install mako-notifier
+install qtwayland5
+install brightnessctl
+install wl-clipboard
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools
 install "rxvt-unicode-256color"
@@ -388,6 +403,8 @@ if [[ $(hostname -s) == "juho-laptop" ]]; then
         fi
         install tlp
         install teams
+        install libgl1:i386
+        install libgl1-mesa-dri:i386
 fi
 
 markauto

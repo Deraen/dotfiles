@@ -1,5 +1,13 @@
 # i3 config file (v4)
 
+input * {
+    xkb_file ".xkb/keymap/default"
+    # xkb_layout "fi"
+    # xkb_options "deraen(keys)+deraen(mods)"
+}
+
+output eDP-1 scale 1 pos 0 0
+
 # Preferences
 set $mod Mod4
 set $bg #121212
@@ -7,11 +15,14 @@ set $active #454B7F
 
 font pango:Ubuntu, Icons 8
 
-# Dmenu
-bindsym $mod+r exec rofi -show drun
+exec mako
+exec_always makoctl reload
+exec_always rndbg.sh
 
-bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py && rndbg.sh
-bindsym $mod+Shift+F11 exec togglecompton.sh
+# Dmenu
+bindsym $mod+r exec wofi --show drun --insensitive
+
+bindsym $mod+Shift+F12 exec rndbg.sh
 
 # class                 border  backgr. text    indicator child_border
 client.focused          $active $active #d0d0d0 #184c73   $active
@@ -89,7 +100,9 @@ assign [instance="crx_egmhfndodgceinhfagoamghnjknkbkkn"] → number 0
 
 bindsym $mod+e exec workspace.sh --rename
 
-for_window [class="^.*"] border pixel 2
+for_window [app_id=".*"] border pixel 2
+for_window [class=".*"] border pixel 2
+
 for_window [class="Simplescreenrecorder"] floating enable
 for_window [class="Gnome-power-statistics"] floating enable
 for_window [class="Yad"] floating enable
@@ -126,16 +139,16 @@ bindsym $mod+F3 exec workspace.sh --go-to 13
 bindsym $mod+F4 exec workspace.sh --go-to 14
 
 bindsym $mod+Shift+section exec workspace.sh --move-to 0
-bindsym $mod+Shift+exclam exec workspace.sh --move-to 1
-bindsym $mod+Shift+quotedbl exec workspace.sh --move-to 2
-bindsym $mod+Shift+numbersign exec workspace.sh --move-to 3
-bindsym $mod+Shift+currency exec workspace.sh --move-to 4
-bindsym $mod+Shift+percent exec workspace.sh --move-to 5
-bindsym $mod+Shift+ampersand exec workspace.sh --move-to 6
-bindsym $mod+Shift+slash exec workspace.sh --move-to 7
-bindsym $mod+Shift+parenleft exec workspace.sh --move-to 8
-bindsym $mod+Shift+parenright exec workspace.sh --move-to 9
-bindsym $mod+Shift+equal exec workspace.sh --move-to 10
+bindsym $mod+Shift+1 exec workspace.sh --move-to 1
+bindsym $mod+Shift+2 exec workspace.sh --move-to 2
+bindsym $mod+Shift+3 exec workspace.sh --move-to 3
+bindsym $mod+Shift+4 exec workspace.sh --move-to 4
+bindsym $mod+Shift+5 exec workspace.sh --move-to 5
+bindsym $mod+Shift+6 exec workspace.sh --move-to 6
+bindsym $mod+Shift+7 exec workspace.sh --move-to 7
+bindsym $mod+Shift+8 exec workspace.sh --move-to 8
+bindsym $mod+Shift+9 exec workspace.sh --move-to 9
+bindsym $mod+Shift+0 exec workspace.sh --move-to 10
 bindsym $mod+Shift+F1 exec workspace.sh --move-to 11
 bindsym $mod+Shift+F2 exec workspace.sh --move-to 12
 bindsym $mod+Shift+F3 exec workspace.sh --move-to 13
@@ -149,12 +162,13 @@ bindsym $mod+Ctrl+x exec i3-switch-all
 
 # Scratchpad
 # Enable scratchpad for keepassx, but show after starting the app
-for_window [class="KeePassXC"] move scratchpad, scratchpad show
+for_window [instance="keepassxc"] move scratchpad, scratchpad show
+for_window [app_id="keepassxc"] move scratchpad, scratchpad show, floating enable
 bindsym $mod+F6 exec toggle-keepass
 
 # I3
 bindsym $mod+Shift+C reload
-bindsym $mod+Shift+R restart
+bindsym $mod+Shift+R reload
 
 # Spotify, pulseaudio
 bindsym Mod1+Delete exec playerctl play-pause
@@ -168,27 +182,16 @@ bindsym Mod1+Insert exec volume.sh toggle
 bindsym XF86AudioMute exec volume.sh toggle
 bindsym XF86AudioMicMute exec volume.sh --source toggle
 
-# Kernel 3.16 by default assumes DE takes care of backlight management
-bindsym XF86MonBrightnessDown exec backlight.sh - 5
-bindsym XF86MonBrightnessUp exec backlight.sh + 5
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 
 # Screenshots
-bindsym Print exec gnome-screenshot
-bindsym Ctrl+Print exec gnome-screenshot -i
-bindsym Mod4+Print exec flameshot gui
-# Color picker
-bindsym Shift+Print exec bash -c 'gpick --no-start -s -o | tee >(xclip -sel clipboard) | tee >(xclip)'
-bindsym Ctrl+Shift+Print exec bash -c 'yad --color | tee >(xclip -sel clipboard) | tee >(xclip)'
+# FIXME:
+# Slurp + Grim
+# bindsym Print exec gnome-screenshot
+# bindsym Mod1+Print exec gnome-screenshot -w
+# bindsym Ctrl+Print exec gnome-screenshot -i
 
 bar {
-  position top
-  status_command i3blocks
-  strip_workspace_numbers no
-  colors {
-    background #121212
-    separator  #121212
-    active_workspace   #304f66 #304f66 #d0d0d0
-    focused_workspace  #304f66 #304f66 #d0d0d0
-    inactive_workspace #121212 #121212 #d0d0d0
-  }
+  swaybar_command waybar
 }
