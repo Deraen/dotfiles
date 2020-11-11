@@ -6,6 +6,10 @@ input * {
     # xkb_options "deraen(keys)+deraen(mods)"
 }
 
+input type:touchpad {
+    events disabled
+}
+
 output eDP-1 scale 1 pos 0 0
 
 # Preferences
@@ -15,9 +19,17 @@ set $active #454B7F
 
 font pango:Ubuntu, Icons 8
 
+# exec "systemctl --user import-environment; systemctl --user start sway-session.target"
+# exec "systemctl --user import-environment"
+# exec systemd-cat --identifier=sway sway
+exec swayidle -w timeout 300 'lock.sh -f' before-sleep 'lock.sh -f'
+exec nm-applet
+exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec mako
+# exec dropbox.py start
 exec_always makoctl reload
 exec_always rndbg.sh
+# exec_always import-gsettings
 
 # Dmenu
 bindsym $mod+r exec wofi --show drun --insensitive
@@ -163,7 +175,7 @@ bindsym $mod+Ctrl+x exec i3-switch-all
 # Scratchpad
 # Enable scratchpad for keepassx, but show after starting the app
 for_window [instance="keepassxc"] move scratchpad, scratchpad show
-for_window [app_id="keepassxc"] move scratchpad, scratchpad show, floating enable
+for_window [app_id="keepassxc" title=".*KeePassXC$"] move scratchpad, scratchpad show, floating enable
 bindsym $mod+F6 exec toggle-keepass
 
 # I3
@@ -188,7 +200,7 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 # Screenshots
 # FIXME:
 # Slurp + Grim
-# bindsym Print exec gnome-screenshot
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
 # bindsym Mod1+Print exec gnome-screenshot -w
 # bindsym Ctrl+Print exec gnome-screenshot -i
 

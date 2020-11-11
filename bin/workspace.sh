@@ -39,7 +39,7 @@ while [[ $# -gt 0 ]]; do
       current_workspace=$(i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name')
       current_number=$(split_number "$current_workspace")
       if [[ -n $SWAYSOCK ]]; then
-        name=$(echo | wofi --dmenu -p "Rename workspace" --height 0)
+        name=$(echo | wofi --exec-search --dmenu -p "Rename workspace" --height 0)
       else
         name=$(echo | rofi -dmenu -p "Rename workspace" -lines 0 -location 0)
       fi

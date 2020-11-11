@@ -16,6 +16,7 @@ ppa git-core ppa focal --keyid A1715D88E1DF1F24
 ppa phoerious keepassxc focal --keyid 61922AB60068FCD6
 ppa deraen random bionic --keyid 8EE3F468
 ppa s.noack ppa bionic --keyid E1285F2F
+ppa nschloe waybar focal --keyid ECD154D280FEB8AC
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
 #         --key-url http://archive.getdeb.net/getdeb-archive.key
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
@@ -97,6 +98,7 @@ install atop # IO top
 install htop
 install iotop
 install jq # JSON processor
+install yamllint
 install launchpad-getkeys
 install ffmpeg
 install mosh
@@ -128,6 +130,7 @@ install libinput-tools
 # dpkg -i ...
 install sysfsutils
 install ufw
+install libimage-exiftool-perl
 
 # Editor
 install neovim
@@ -289,6 +292,7 @@ install swayidle
 install wdisplays
 install grim
 install slurp
+install xsettingsd
 install pavucontrol
 install mako-notifier
 install qtwayland5
@@ -297,7 +301,7 @@ install wl-clipboard
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools
 install "rxvt-unicode-256color"
-install faenza-icon-theme
+install suru-icon-theme
 # install polybar
 install qt5-style-plugins
 install qt5-gtk-platformtheme
@@ -369,6 +373,26 @@ install ifupdown
 install openvpn
 install stoken
 
+# pipewire 0.3 dev / xdg-desktop-portal-wlr dev ?
+install libwayland-dev
+install libspa-0.2-dev
+install libsystemd-dev
+install wayland-protocols
+install libsbc-dev
+install libjack-jackd2-dev
+install libpipewire-0.2-1
+install xmltoman
+install libfuse-dev
+install xdg-desktop-portal-dev
+install libgeoclue-2-dev
+install libgstreamer1.0-dev
+install libudev-dev
+install libgstreamer-plugins-base1.0-dev
+install libbluetooth-dev
+install libpipewire-0.2-dev
+install libasound2-dev
+install libvulkan-dev
+
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         install "nvidia-driver-440"
         install nvidia-settings
@@ -405,6 +429,7 @@ if [[ $(hostname -s) == "juho-laptop" ]]; then
         install teams
         install libgl1:i386
         install libgl1-mesa-dri:i386
+        install logmein-hamachi
 fi
 
 markauto

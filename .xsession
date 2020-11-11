@@ -4,18 +4,10 @@ source "/home/$USER/.profile"
 
 systemctl --user import-environment
 
-xmodmap .Xmodmap
-
 # Disable touchpad
 synclient TouchpadOff=1
 
 gsettings set org.gnome.settings-daemon.plugins.xsettings overrides '@a{sv} {"Gtk/ShellShowsAppMenu": <int32 0>}'
-
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/gnome-settings-daemon/gsd-rfkill &
-
-eval "$(gpg-agent --daemon --sh)" >/dev/null
-export GPG_AGENT_INFO
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
