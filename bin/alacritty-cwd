@@ -1,10 +1,14 @@
 #!/bin/bash
-ACTIVE_WINDOW=$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2)
-PID=$(xprop -id "$ACTIVE_WINDOW" | grep _NET_WM_PID | grep -oP "\d+")
+if [[ $SWAYSOCK ]]; then
+    PID=$(i3-msg -t get_tree | jq -e ".. | select(.focused? == true) | .pid")
+else
+    ACTIVE_WINDOW=$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2)
+    PID=$(xprop -id "$ACTIVE_WINDOW" | grep _NET_WM_PID | grep -oP "\d+")
+fi
 CHILD_PID=$(pgrep -P "$PID" zsh | head -n1)
 CWD=$(readlink -e "/proc/$CHILD_PID/cwd")
 
-if [[ ! -z "$CWD" ]]; then
+if [[ -n "$CWD" ]]; then
     alacritty --working-directory "$CWD"
 else
     alacritty

@@ -42,7 +42,7 @@ if [[ -n $N ]]; then
   done
 else
   if command -v alacritty &> /dev/null; then
-    alacritty "$@" &
+    alacritty-cwd "$@" &
   else
     urxvt.sh "$@" &
   fi
