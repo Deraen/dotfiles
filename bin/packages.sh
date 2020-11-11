@@ -8,14 +8,11 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 ppa nilarimogard webupd8 focal --keyid 531EE72F4C9D234C
 ppa ubuntuhandbook1 gimp focal
-ppa mc3man mpv-tests focal --keyid 90BD7EACED8E640A
 # ppa ansible ansible focal --keyid 93C4A3FD7BB9C367
 ppa neovim-ppa unstable disco --keyid 55F96FCF8231B6DD
-ppa yubico stable focal --keyid 43D5C49532CBA1A9
-ppa git-core ppa focal --keyid A1715D88E1DF1F24
-ppa phoerious keepassxc focal --keyid 61922AB60068FCD6
+# ppa git-core ppa groovy --keyid A1715D88E1DF1F24
+ppa phoerious keepassxc groovy --keyid 61922AB60068FCD6
 ppa deraen random bionic --keyid 8EE3F468
-ppa s.noack ppa bionic --keyid E1285F2F
 ppa nschloe waybar focal --keyid ECD154D280FEB8AC
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
 #         --key-url http://archive.getdeb.net/getdeb-archive.key
@@ -25,9 +22,9 @@ repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may com
         --keyid 6494C6D6997C215E
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./" \
         --keyid C927EBE00F1B0520
-repo i3 "deb http://debian.sur5r.net/i3/ focal universe" \
-        --keyring sur5r-keyring \
-        --keyid 941C42E6
+# repo i3 "deb http://debian.sur5r.net/i3/ focal universe" \
+#         --keyring sur5r-keyring \
+#         --keyid 941C42E6
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
 repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal non-free contrib" \
@@ -40,19 +37,22 @@ repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment ou
 #         --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
-repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src http://apt.mopidy.com/ buster main contrib non-free" \
-        --key-url https://apt.mopidy.com/mopidy.gpg
+# repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src http://apt.mopidy.com/ buster main contrib non-free" \
+#         --key-url https://apt.mopidy.com/mopidy.gpg
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
         --keyid 4C1CBE14852541CB
+repo cinelerra "deb [trusted=yes] https://cinelerra-gg.org/download/pkgs/ub20 groovy main"
+repo github-cli "deb https://cli.github.com/packages groovy main" \
+        --keyid C99B11DEB97541F0
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        ppa graphics-drivers ppa focal
-        ppa lutris-team lutris focal --keyid 37B90EDD4E3EFAE4
+        ppa graphics-drivers ppa groovy
+        ppa lutris-team lutris groovy --keyid 37B90EDD4E3EFAE4
 fi
 
 if [[ $(hostname -s) == "juho-laptop" ]]; then
-        ppa linrunner tlp focal --keyid 2B3F92F902D65EFF
-        ppa oibaf graphics-drivers focal --keyid 957D2708A03A4626
+        ppa linrunner tlp groovy --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers groovy --keyid 957D2708A03A4626
         repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main"
 
 fi
@@ -99,7 +99,6 @@ install htop
 install iotop
 install jq # JSON processor
 install yamllint
-install launchpad-getkeys
 install ffmpeg
 install mosh
 install openssh-client
@@ -177,6 +176,7 @@ install git
 install gitg
 install git-flow
 install qgit
+install gh
 
 # Dev tools
 install heroku-toolbelt
@@ -305,7 +305,6 @@ install suru-icon-theme
 # install polybar
 install qt5-style-plugins
 install qt5-gtk-platformtheme
-install alacritty 0.4.2 https://github.com/alacritty/alacritty/releases/download/v0.4.2/Alacritty-v0.4.2-ubuntu_18_04_amd64.deb
 
 # GPG stuff
 install gnupg2
@@ -415,6 +414,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install audacity
         install lutris
         install autokey-gtk
+        install deluged
 fi
 
 # Laptop specific

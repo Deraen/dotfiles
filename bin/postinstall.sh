@@ -29,7 +29,8 @@ if [[ ! -d ~/.cargo ]]; then
 fi
 
 header "Update Rust"
-rustup update
+rustup override set stable
+rustup update stable
 
 header "Build vimproc"
 make -C "$HOME/.vim/bundle/vimproc" -j
@@ -60,7 +61,7 @@ if [[ $desktop == true ]]; then
     header "Build picom"
     (
     cd "$HOME/.local/modules/picom" || exit
-    meson -Dprefix="$HOME/.local" --buildtype=release . build
+    # meson -Dprefix="$HOME/.local" --buildtype=release . build
     ninja -C build install
     )
 
@@ -76,6 +77,19 @@ if [[ $desktop == true ]]; then
     (
     cd "$HOME/.vim/bundle/vim-clap" || exit
     cargo build --release
+    )
+
+    (
+    cd "$HOME/.local/modules/alacritty" || exit
+    cargo build --release
+    sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+    cp target/release/alacritty "$HOME/.local/bin/alacritty.new"
+    mv "$HOME/.local/bin/alacritty.new" "$HOME/.local/bin/alacritty"
+    mkdir -p "$HOME/.local/share/pixmaps/"
+    cp extra/logo/alacritty-term.svg "$HOME/.local/share/pixmaps/Alacritty.svg"
+    cp extra/linux/Alacritty.desktop "$HOME/.local/share/applications/Alacritty.desktop"
+    sudo mkdir -p /usr/local/share/man/man1
+    gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
     )
 fi
 

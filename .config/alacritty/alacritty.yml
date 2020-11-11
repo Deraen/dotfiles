@@ -15,6 +15,8 @@ window:
     columns: 0
     lines: 0
 
+  dynamic_title: true
+
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
@@ -157,32 +159,6 @@ colors:
   #   cyan:    '0x66cccc'
   #   white:   '0xdddddd'
 
-# Visual Bell
-#
-# Any time the BEL code is received, Alacritty "rings" the visual bell. Once
-# rung, the terminal background will be set to white and transition back to the
-# default background color. You can control the rate of this transition by
-# setting the `duration` property (represented in milliseconds). You can also
-# configure the transition function by setting the `animation` property.
-#
-# Possible values for `animation`
-# `Ease`
-# `EaseOut`
-# `EaseOutSine`
-# `EaseOutQuad`
-# `EaseOutCubic`
-# `EaseOutQuart`
-# `EaseOutQuint`
-# `EaseOutExpo`
-# `EaseOutCirc`
-# `Linear`
-#
-# To completely disable the visual bell, set its duration to 0.
-#
-visual_bell:
-  animation: EaseOutExpo
-  duration: 0
-
 # Background opacity
 background_opacity: 1.0
 
@@ -236,8 +212,6 @@ mouse:
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-
-dynamic_title: true
 
 # Style of the cursor
 #

@@ -29,19 +29,19 @@ done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
 N=
-if [[ ! -z $1 ]]; then
+if [[ -n $1 ]]; then
   if [[ $1 =~ ^[0-9]+$ ]]; then
     N=$1
   fi
 fi
 shift
 
-if [[ ! -z $N ]]; then
+if [[ -n $N ]]; then
   for i in $(seq 1 "$N"); do
     $0 -- "$@" &> /dev/null &
   done
 else
-  if [[ -f /usr/bin/alacritty ]]; then
+  if command -v alacritty &> /dev/null; then
     alacritty "$@" &
   else
     urxvt.sh "$@" &

@@ -321,3 +321,9 @@
 [submodule ".vim/bundle/FixCursorHold.nvim"]
 	path = .vim/bundle/FixCursorHold.nvim
 	url = https://github.com/antoinemadec/FixCursorHold.nvim.git
+[submodule ".vim/bundle/vim-winmanip"]
+	path = .vim/bundle/vim-winmanip
+	url = https://github.com/yaronkh/vim-winmanip.git
+[submodule ".local/modules/alacritty"]
+	path = .local/modules/alacritty
+	url = https://github.com/alacritty/alacritty.git

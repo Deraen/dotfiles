@@ -16,5 +16,5 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 augroup TrailingSpaces
-  nmap <space>dt <Plug>StripTrailingSpaces
+  nmap <leader>dt <Plug>StripTrailingSpaces
 augroup END

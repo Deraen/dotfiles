@@ -101,7 +101,7 @@ endif
 set termguicolors
 
 " Mappings
-let mapleader = 'å'
+let mapleader = ' '
 let maplocalleader = 'ö'
 
 nnoremap ' `
@@ -376,7 +376,7 @@ autocmd VimResized  *    exe "normal! \<c-w>="
 let g:lua_complete_omni = 1
 
 let g:vcoolor_disable_mappings = 1
-nnoremap <silent><space>c  :VCoolor<CR>
+nnoremap <silent><leader>c  :VCoolor<CR>
 
 augroup markdown
   autocmd!
@@ -388,8 +388,8 @@ augroup END
 
 let g:magit_show_help=0
 
-nnoremap <space>g :Grepper -tool git<cr>
-nnoremap <space>a :Grepper -tool ag<cr>
+nnoremap <leader>g :Grepper -tool git<cr>
+nnoremap <leader>a :Grepper -tool ag<cr>
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
@@ -431,3 +431,31 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Clap
 
 let g:clap_disable_run_rooter = 0
+
+nmap <silent> <M-1>l <Plug>(JumpRight)
+nmap <M-1>h <Plug>(JumpLeft)
+nmap <M-1>j <Plug>(JumpDown)
+nmap <M-1>k <Plug>(JumpUp)
+nmap <M-2>l <Plug>(MoveBufRight)
+nmap <M-2>h <Plug>(MoveBufLeft)
+nmap <M-2>j <Plug>(MoveBufDown)
+nmap <M-2>k <Plug>(MoveBufUp)
+nmap <M-3>l <Plug>(MoveJumpBufRight)
+nmap <M-3>h <Plug>(MoveJumpBufLeft)
+nmap <M-3>j <Plug>(MoveJumpBufDown)
+nmap <M-3>k <Plug>(MoveJumpBufUp)
+nmap <M-4>l <Plug>(MoveWinToNextTab)
+nmap <M-4>h <Plug>(MoveWinToPrevTab)
+nmap <M-5>l <Plug>(CopyBufRight)
+nmap <M-5>h <Plug>(CopyBufLeft)
+nmap <M-5>j <Plug>(CopyBufDown)
+nmap <M-5>k <Plug>(CopyBufUp)
+nmap <M-6>l <Plug>(CopyJumpBufRight)
+nmap <M-6>h <Plug>(CopyJumpBufLeft)
+nmap <M-6>j <Plug>(CopyJumpBufDown)
+nmap <M-6>k <Plug>(CopyJumpBufUp)
+
+" nmap <Leader>z <Plug>(MaximizeWin)
+
+" nmap <silent> <Leader>B <Plug>(ClearAllWindows)
+" nmap <silent> <Leader>b <Plug>(ClearBufferList)
