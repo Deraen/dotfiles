@@ -18,6 +18,8 @@ header "NPM Utils"
 cd "$HOME/.local" || exit
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+nvm install stable
+
 npm prune
 npm install
 npm update

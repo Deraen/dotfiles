@@ -194,7 +194,7 @@ install shellcheck
 install golang-go
 install golang-doc
 install golang-src
-install golang-1.13
+install golang-1.15
 install android-tools-adb
 install diffpdf
 install gdal-bin
