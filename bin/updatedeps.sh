@@ -7,7 +7,13 @@ git submodule update --remote
 get_lastest_tag() {
     (
     cd "$1" || exit
-    tag=$(git describe --abbrev=0 --tags --match "v[0-9]*" origin)
+    if [[ -n "$2" ]]; then
+        V="$2"
+    else
+        V="v[0-9]*"
+    fi
+
+    tag=$(git describe --abbrev=0 --tags --match "${V}" origin)
     echo "$(basename "$1") checkout $tag"
     git checkout "$tag"
     )
@@ -17,7 +23,7 @@ get_lastest_tag "$NVM_DIR"
 get_lastest_tag "$HOME/.local/modules/picom"
 get_lastest_tag "$HOME/.vim/bundle/vim-go"
 get_lastest_tag "$HOME/.vim/bundle/vim-clap"
-get_lastest_tag "$HOME/.vim/bundle_clojure/vim-iced"
+get_lastest_tag "$HOME/.vim/bundle_clojure/vim-iced" "[0-9]*"
 
 git add -A "$HOME/.local/modules" "$HOME/.vim/bundle*" "$HOME/.fzf" "$HOME/.nvm"
 
