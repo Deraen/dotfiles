@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "@mermaid-js/mermaid-cli": "^8.8.2-beta.8",
     "cloc": "2.7.0",
     "externs-generator": "0.3.4",
     "gulp": "4.0.2",
@@ -14,7 +15,6 @@
     "lumo-cljs": "1.10.1",
     "neovim": "4.9.0",
     "npm-check-updates": "10.0.0",
-    "phantomjs-prebuilt": "2.1.16",
     "pretty-bytes-cli": "2.0.0",
     "re-natal": "0.11.1",
     "react-devtools": "4.9.0",
