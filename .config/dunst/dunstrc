@@ -25,7 +25,7 @@
 
     geometry = "0x3-30+20"
 
-    idle_threshold = 120
+    idle_threshold = 0
     transparency=30
     separator_color=frame
 

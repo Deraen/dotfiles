@@ -49,6 +49,9 @@ if [[ ! -f $clojure_bin ]] || ! grep -q "# Version = $clojure_tool_version" "$cl
     rm /tmp/clojure-installer.sh
 fi
 
+header "Update FZF"
+./.fzf/install --update-rc --completion --key-bindings
+
 # Rebuild zsh completion
 # rm -f ~/.zcompdump; compinit
 
