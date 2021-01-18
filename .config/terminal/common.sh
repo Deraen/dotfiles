@@ -88,7 +88,7 @@ choose_jdk() {
   JAVA_HOME=/usr/lib/jvm/java-${VERSION}-openjdk-amd64
   if [[ ! -d $JAVA_HOME ]]; then
     echo "Bad java path $JAVA_HOME"
-    exit 1
+    return 1
   fi
   export JAVA_HOME
   addPath "$JAVA_HOME/jre/bin"

@@ -4,7 +4,7 @@
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
     // backlight
-    "modules-right": ["pulseaudio", "network", "battery", "clock", "tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "battery", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,

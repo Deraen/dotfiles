@@ -1,4 +1,7 @@
 #!/bin/bash
-lock.sh
+
+if [[ -z $SWAYSOCK ]]; then
+    lock.sh
+fi
 
 systemctl suspend

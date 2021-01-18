@@ -327,3 +327,6 @@
 [submodule ".local/modules/alacritty"]
 	path = .local/modules/alacritty
 	url = https://github.com/alacritty/alacritty.git
+[submodule ".vim/bundle_clojure/clojure.vim"]
+	path = .vim/bundle_clojure/clojure.vim
+	url = git@github.com:clojure-vim/clojure.vim.git

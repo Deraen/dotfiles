@@ -44,6 +44,7 @@ repo github-cli "deb https://cli.github.com/packages groovy main" \
         --keyid C99B11DEB97541F0
 repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_20.10/ /" \
         --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_20.10/Release.key"
+repo screen "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/screen/screen/debian/ buster main"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         ppa graphics-drivers ppa groovy
@@ -143,7 +144,9 @@ install xclip
 
 # Java
 install openjdk-8-jdk
+install openjdk-8-dbg
 install openjdk-11-jdk
+install openjdk-15-jdk
 install maven
 install ant
 
@@ -176,6 +179,7 @@ install python3.8-venv
 install git
 install gitg
 install git-flow
+install git-lfs
 install qgit
 install gh
 
@@ -366,6 +370,7 @@ install wmctrl
 install xdotool
 install slack-desktop
 install zoom
+install screen-desktop
 
 # install mopidy
 # install mopidy-spotify
@@ -381,25 +386,7 @@ install stoken
 install iriunwebcam
 install v4l2loopback-dkms
 
-# pipewire 0.3 dev / xdg-desktop-portal-wlr dev ?
-install libwayland-dev
-install libspa-0.2-dev
-install libsystemd-dev
-install wayland-protocols
-install libsbc-dev
-install libjack-jackd2-dev
-install libpipewire-0.2-1
-install xmltoman
-install libfuse-dev
-install xdg-desktop-portal-dev
-install libgeoclue-2-dev
-install libgstreamer1.0-dev
-install libudev-dev
-install libgstreamer-plugins-base1.0-dev
-install libbluetooth-dev
-install libpipewire-0.2-dev
-install libasound2-dev
-install libvulkan-dev
+install libpipewire-0.3-0
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         install "nvidia-driver-455"

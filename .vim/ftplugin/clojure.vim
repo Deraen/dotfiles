@@ -61,7 +61,7 @@ silent! nmap <buffer> cta <Plug>(iced_test_all)
 silent! nmap <buffer> ctr <Plug>(iced_test_redo)
 
 "" Stdout buffer (<Leader>s)
-silent! nmap <buffer> cbb <Plug>(iced_stdout_buffer_open)
+silent! nmap <buffer> cbb <Plug>(iced_stdout_buffer_toggle)
 silent! nmap <buffer> cbc <Plug>(iced_stdout_buffer_clear)
 silent! nmap <buffer> cbt <Plug>(iced_test_buffer_open)
 " silent! nmap <buffer> <Leader>sq <Plug>(iced_stdout_buffer_close)
