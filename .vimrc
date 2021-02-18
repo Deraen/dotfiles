@@ -430,6 +430,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Clap
 
+let g:clap_layout = { 'relative': 'editor' }
 let g:clap_disable_run_rooter = 0
 " let g:clap_open_preview = 'never'
 let g:clap_preview_direction = 'UD'
