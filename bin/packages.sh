@@ -142,6 +142,16 @@ install luarocks
 install libmsgpack-dev
 install xclip
 
+# xdg-desktop-portal (Ubuntu package not built with screenshare support?)
+# ./configure --disable-geoclue --enable-pipewire
+install libfuse-dev
+
+# xdg-desktop-portal-wlr
+install libpipewire-0.3-dev
+install libsystemd-dev
+install libwayland-dev
+install wayland-protocols
+
 # Java
 install openjdk-8-jdk
 install openjdk-8-dbg
@@ -182,6 +192,7 @@ install git-flow
 install git-lfs
 install qgit
 install gh
+install gitlab-runner
 
 # Dev tools
 install heroku-toolbelt

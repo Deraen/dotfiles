@@ -12,3 +12,5 @@ doc/tags
 .cpcache/
 .lsp/sqlite.1.db
 nashorn_code_cache/
+
+.nvimlog
