@@ -431,6 +431,23 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Clap
 
 let g:clap_disable_run_rooter = 0
+" let g:clap_open_preview = 'never'
+let g:clap_preview_direction = 'UD'
+" Close clap window using esc, instead of changing to normal mode.
+let g:clap_insert_mode_only = v:true
+
+" - Disable close window and delete buffer binds on clap input
+" - Disable change window binds
+" These would break clap floating window.
+" Even though M-w and move are only bound on normal mode, they still affect
+" clap input?
+" TODO: Move these to ftplugin after file?
+autocmd FileType clap_input inoremap <silent> <buffer> <M-q> <Esc>:<c-u>call clap#handler#exit()<CR>
+autocmd FileType clap_input inoremap <silent> <buffer> <M-w> <Esc>:<c-u>call clap#handler#exit()<CR>
+autocmd FileType clap_input inoremap <silent> <buffer> <M-h> <nop>
+autocmd FileType clap_input inoremap <silent> <buffer> <M-j> <nop>
+autocmd FileType clap_input inoremap <silent> <buffer> <M-k> <nop>
+autocmd FileType clap_input inoremap <silent> <buffer> <M-l> <nop>
 
 nmap <silent> <M-1>l <Plug>(JumpRight)
 nmap <M-1>h <Plug>(JumpLeft)
