@@ -132,7 +132,7 @@ inoremap <M-q> <Esc><C-w>c:echo ""<cr>
 nnoremap <M-n> <C-w>v
 nnoremap <M-m> <C-w>s
 " Close buffer
-nnoremap <M-w> :BD<cr>
+nnoremap <silent> <M-w> <ESC>:Bdelete<CR>
 
 " NOTE: To make windows equal size, <C-w>=
 " Resize - Ctrl + jk
@@ -435,6 +435,7 @@ let g:clap_disable_run_rooter = 0
 let g:clap_preview_direction = 'UD'
 " Close clap window using esc, instead of changing to normal mode.
 let g:clap_insert_mode_only = v:true
+let g:clap_multi_selection_warning_silent = 1
 
 " - Disable close window and delete buffer binds on clap input
 " - Disable change window binds
@@ -448,6 +449,11 @@ autocmd FileType clap_input inoremap <silent> <buffer> <M-h> <nop>
 autocmd FileType clap_input inoremap <silent> <buffer> <M-j> <nop>
 autocmd FileType clap_input inoremap <silent> <buffer> <M-k> <nop>
 autocmd FileType clap_input inoremap <silent> <buffer> <M-l> <nop>
+" By default only on normal mode
+" Goes to normal, invoke action, back to insert
+autocmd FileType clap_input inoremap <silent> <buffer> <S-Tab> <Esc>:<c-u>call clap#action#invoke()<CR>i
+" Note: If stuck with unfocused Clap floating window, run :Clap to return the
+" focus and close normally.
 
 nmap <silent> <M-1>l <Plug>(JumpRight)
 nmap <M-1>h <Plug>(JumpLeft)

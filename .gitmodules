@@ -330,3 +330,6 @@
 [submodule ".vim/bundle_clojure/clojure.vim"]
 	path = .vim/bundle_clojure/clojure.vim
 	url = git@github.com:clojure-vim/clojure.vim.git
+[submodule ".vim/bundle/vim-bbye"]
+	path = .vim/bundle/vim-bbye
+	url = https://github.com/moll/vim-bbye.git
