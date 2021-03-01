@@ -264,9 +264,6 @@ install libfontconfig1-dev
 install libxcb-render0-dev
 install libxcb-shape0-dev
 install libxcb-xfixes0-dev
-# srandrd
-install libxrandr-dev
-install libxinerama-dev
 
 # Docker
 install docker-ce

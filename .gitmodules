@@ -132,10 +132,6 @@
 	path = .vim/bundle/vim-obsession
 	url = https://github.com/tpope/vim-obsession.git
 	branch = master
-[submodule ".local/modules/tpm-filemanagement"]
-	path = .local/modules/tpm-filemanagement
-	url = https://github.com/baabelfish/tpm-filemanagement.git
-	branch = master
 [submodule ".local/modules/pmm"]
 	path = .local/modules/pmm
 	url = git@github.com:Deraen/pmm.git
@@ -206,7 +202,7 @@
 	branch = master
 [submodule ".local/modules/screenkey"]
 	path = .local/modules/screenkey
-	url = git@github.com:wavexx/screenkey.git
+	url = https://gitlab.com/screenkey/screenkey.git
 	branch = master
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
@@ -273,10 +269,6 @@
 [submodule ".vim/bundle_clojure/vim-iced"]
 	path = .vim/bundle_clojure/vim-iced
 	url = https://github.com/liquidz/vim-iced.git
-[submodule ".local/modules/sdrandrd"]
-	path = .local/modules/srandrd
-	url = https://github.com/jceb/srandrd.git
-	branch = master
 [submodule ".vim/bundle/ale"]
 	path = .vim/bundle/ale
 	url = https://github.com/dense-analysis/ale.git
