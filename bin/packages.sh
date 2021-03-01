@@ -7,6 +7,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 . "$DIR/../.local/modules/pmm/init.sh"
 
 ppa ubuntuhandbook1 gimp groovy
+ppa ubuntuhandbook1 apps groovy
 # ppa ansible ansible focal --keyid 93C4A3FD7BB9C367
 ppa neovim-ppa unstable groovy --keyid 55F96FCF8231B6DD
 # ppa git-core ppa groovy --keyid A1715D88E1DF1F24
@@ -32,8 +33,8 @@ repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco sta
         --keyid 0EBFCD88
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
-# repo tarsnap "deb-src http://pkg.tarsnap.com/deb-src/ ./" \
-#         --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
+repo tarsnap "deb http://pkg.tarsnap.com/deb/$(lsb_release -s -c) ./" \
+        --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
 # repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src http://apt.mopidy.com/ buster main contrib non-free" \
@@ -45,6 +46,8 @@ repo github-cli "deb https://cli.github.com/packages groovy main" \
 repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_20.10/ /" \
         --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_20.10/Release.key"
 repo screen "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/screen/screen/debian/ buster main"
+repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main" \
+        --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         ppa graphics-drivers ppa groovy
@@ -124,10 +127,7 @@ install optipng
 install webp
 install jpegoptim
 install libinput-tools
-# install tarsnap
-# apt-get build-dep tarsnap
-# apt-get source --compile tarsnap
-# dpkg -i ...
+install tarsnap
 install sysfsutils
 install ufw
 install libimage-exiftool-perl
@@ -397,7 +397,8 @@ install v4l2loopback-dkms
 install libpipewire-0.3-0
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        install "nvidia-driver-455"
+        install "nvidia-driver-460"
+        install "libnvidia-gl-460:i386"
         install nvidia-settings
         install nvidia-cuda-toolkit
         install nvidia-opencl-dev
@@ -416,6 +417,8 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install guitarix # Guitar AMP
         # install vnstat # Network usage
         # install rrdtool # Stats
+        install smokeping
+        install echoping
         install youtube-dl
         install audacity
         install lutris
