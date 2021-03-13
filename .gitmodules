@@ -325,3 +325,6 @@
 [submodule ".vim/bundle/vim-bbye"]
 	path = .vim/bundle/vim-bbye
 	url = https://github.com/moll/vim-bbye.git
+[submodule ".vim/bundle_clojure/vim-iced-multi-session"]
+	path = .vim/bundle_clojure/vim-iced-multi-session
+	url = https://github.com/liquidz/vim-iced-multi-session.git
