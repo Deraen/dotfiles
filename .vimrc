@@ -317,6 +317,7 @@ let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
 let g:iced_enable_clj_kondo_analysis = v:true
 let g:iced#buffer#stdout#max_line = 10000
 let g:iced_enable_auto_document = ''
+let g:iced#selector#search_order = ['clap']
 
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
