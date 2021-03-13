@@ -159,8 +159,12 @@ nmap >a <Plug>Argumentative_MoveRight
 " ctrl-b and space-b change buffer
 " nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
 nnoremap <silent> <C-b>    :<C-u>Clap buffers<cr>
+" Project git files
 nnoremap <silent> <C-p>    :<C-u>Clap gfiles<cr>
-nnoremap <silent> <C-P>    :<C-u>Clap files<cr>
+" Any files in current working directory (usually project folder)
+nnoremap <silent> <C-P>    :<C-u>Clap files ++finder=rg --files <cr>
+" Any files in cwd parent directory
+nnoremap <silent> <M-p>    :<C-u>Clap files ++finder=rg --files ..<cr>
 
 " Quick macro stuff
 nnoremap § qqqqq
@@ -315,6 +319,7 @@ let g:iced_formatter = 'zprint'
 let g:iced_enable_auto_indent = v:false
 let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
 let g:iced_enable_clj_kondo_analysis = v:true
+let g:iced_enable_clj_kondo_local_analysis = v:true
 let g:iced#buffer#stdout#max_line = 10000
 let g:iced_enable_auto_document = ''
 let g:iced#selector#search_order = ['clap']
@@ -331,6 +336,7 @@ let g:rainbow_conf = {
       \ 'separately': {
       \   'markdown': 0,
       \   'html': 0,
+      \   'fzf': 0,
       \ }
       \ }
 
