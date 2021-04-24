@@ -269,6 +269,7 @@
 [submodule ".vim/bundle_clojure/vim-iced"]
 	path = .vim/bundle_clojure/vim-iced
 	url = https://github.com/liquidz/vim-iced.git
+	branch = main
 [submodule ".vim/bundle/ale"]
 	path = .vim/bundle/ale
 	url = https://github.com/dense-analysis/ale.git
