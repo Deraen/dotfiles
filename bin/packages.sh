@@ -110,6 +110,7 @@ install p7zip
 install powertop
 install ppa-purge
 install silversearcher-ag # Fast file searches
+install ripgrep
 install sshfs
 install tmispell-voikko
 install tmux
@@ -213,6 +214,7 @@ install golang-src
 install golang-1.15
 install android-tools-adb
 install diffpdf
+install pdfarranger
 install gdal-bin
 install cmatrix
 install sl
@@ -269,6 +271,7 @@ install libxcb-xfixes0-dev
 install docker-ce
 install google-cloud-sdk
 install awscli
+install sops
 
 # Tessel
 install libusb-1.0-0-dev
@@ -439,6 +442,10 @@ if [[ $(hostname -s) == "juho-laptop" ]]; then
         install libgl1:i386
         install libgl1-mesa-dri:i386
         install logmein-hamachi
+        install clamdscan
+        install clamtk-gnome
+        install qgis
+        install librecad
 fi
 
 markauto
