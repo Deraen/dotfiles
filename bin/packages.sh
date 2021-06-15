@@ -6,14 +6,14 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
-ppa ubuntuhandbook1 gimp groovy
-ppa ubuntuhandbook1 apps groovy
+ppa ubuntuhandbook1 gimp hirsute
+ppa ubuntuhandbook1 apps hirsute
 # ppa ansible ansible focal --keyid 93C4A3FD7BB9C367
-ppa neovim-ppa unstable groovy --keyid 55F96FCF8231B6DD
-# ppa git-core ppa groovy --keyid A1715D88E1DF1F24
-ppa phoerious keepassxc groovy --keyid 61922AB60068FCD6
+ppa neovim-ppa unstable hirsute --keyid 55F96FCF8231B6DD
+# ppa git-core ppa hirsute --keyid A1715D88E1DF1F24
+ppa phoerious keepassxc hirsute --keyid 61922AB60068FCD6
 ppa deraen random bionic --keyid 8EE3F468
-ppa nschloe waybar groovy --keyid ECD154D280FEB8AC
+ppa nschloe waybar hirsute --keyid ECD154D280FEB8AC
 # repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
 #         --key-url http://archive.getdeb.net/getdeb-archive.key
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
@@ -36,27 +36,26 @@ repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment ou
 repo tarsnap "deb http://pkg.tarsnap.com/deb/$(lsb_release -s -c) ./" \
         --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
-        --key-url "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+        --keyid 8B57C5C2836F4BEB
 # repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src http://apt.mopidy.com/ buster main contrib non-free" \
 #         --key-url https://apt.mopidy.com/mopidy.gpg
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
         --keyid 4C1CBE14852541CB
-repo github-cli "deb https://cli.github.com/packages groovy main" \
+repo github-cli "deb https://cli.github.com/packages hirsute main" \
         --keyid C99B11DEB97541F0
 repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_20.10/ /" \
         --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_20.10/Release.key"
-repo screen "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/screen/screen/debian/ buster main"
-repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ groovy main" \
+repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ hirsute main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        ppa graphics-drivers ppa groovy
-        ppa lutris-team lutris groovy --keyid 37B90EDD4E3EFAE4
+        ppa graphics-drivers ppa hirsute
+        ppa lutris-team lutris hirsute --keyid 37B90EDD4E3EFAE4
 fi
 
 if [[ $(hostname -s) == "juho-laptop" ]]; then
-        ppa linrunner tlp groovy --keyid 2B3F92F902D65EFF
-        ppa oibaf graphics-drivers groovy --keyid 957D2708A03A4626
+        ppa linrunner tlp hirsute --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers hirsute --keyid 957D2708A03A4626
         repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main"
 
 fi
@@ -152,6 +151,7 @@ install libpipewire-0.3-dev
 install libsystemd-dev
 install libwayland-dev
 install wayland-protocols
+install xdg-desktop-portal-dev
 
 # Java
 install openjdk-8-jdk
@@ -381,7 +381,6 @@ install wmctrl
 install xdotool
 install slack-desktop
 install zoom
-install screen-desktop
 
 # install mopidy
 # install mopidy-spotify
