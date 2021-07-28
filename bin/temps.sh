@@ -23,7 +23,9 @@ for i in range $(seq 2 "$(( cpu_cores + 1 ))"); do
 done
 cpu_average=$(( cpu_average / cpu_cores ))
 
-show "$cpu_name package" "${temps[coretemp_temp1]}"
+if [[ -n ${temps[coretemp_temp1]} ]]; then
+    show "$cpu_name package" "${temps[coretemp_temp1]}"
+fi
 show "$cpu_name core average" "$cpu_average"
 
 if command -v nvidia-smi &> /dev/null; then
@@ -44,5 +46,7 @@ done
 for sd in /dev/sd?; do
     temp=$(sudo smartctl -A "$sd" | grep -E "^(190|194)" | awk '{print $10}')
     name=$(sudo smartctl -a "$sd" | grep "^Device Model" | cut -d":" -f2 | xargs)
-    show "$name ($(basename "$sd"))" "$temp"
+    if [[ -n $temp ]]; then
+        show "$name ($(basename "$sd"))" "$temp"
+    fi
 done
