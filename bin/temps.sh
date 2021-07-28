@@ -1,7 +1,7 @@
 #!/bin/bash
 
 show() {
-    printf "%-30s %d°C\n" "$1:" "$2"
+    printf "%-40s %d°C\n" "$1:" "$2"
 }
 
 declare -A temps
@@ -32,17 +32,17 @@ if command -v nvidia-smi &> /dev/null; then
     show "$gpu_model" "$gpu"
 fi
 
-if ${temps[radeon_temp1]}; then
+if [[ -n ${temps[radeon_temp1]} ]]; then
     show "Radeon" "${temps[radeon_temp1]}"
 fi
 
 for nvme in /dev/nvme?; do
     name=$(sudo smartctl -a "$nvme" | grep "^Model Number" | cut -d":" -f2 | xargs)
-    show "$name" "${temps[nvme_temp1]}"
+    show "$name ($(basename "$nvme"))" "${temps[nvme_temp1]}"
 done
 
 for sd in /dev/sd?; do
     temp=$(sudo smartctl -A "$sd" | grep -E "^(190|194)" | awk '{print $10}')
     name=$(sudo smartctl -a "$sd" | grep "^Device Model" | cut -d":" -f2 | xargs)
-    show "$name" "$temp"
+    show "$name ($(basename "$sd"))" "$temp"
 done
