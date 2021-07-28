@@ -1,5 +1,7 @@
 #!/bin/bash
 
+shopt -s nullglob
+
 show() {
     printf "%-40s %d°C\n" "$1:" "$2"
 }
