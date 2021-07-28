@@ -26,9 +26,15 @@ cpu_average=$(( cpu_average / cpu_cores ))
 show "$cpu_name package" "${temps[coretemp_temp1]}"
 show "$cpu_name core average" "$cpu_average"
 
-gpu_model=$(nvidia-smi --query-gpu=gpu_name --format=csv,noheader)
-gpu=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader)
-show "$gpu_model" "$gpu"
+if command -v nvidia-smi &> /dev/null; then
+    gpu_model=$(nvidia-smi --query-gpu=gpu_name --format=csv,noheader)
+    gpu=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader)
+    show "$gpu_model" "$gpu"
+fi
+
+if ${temps[radeon_temp1]}; then
+    show "Radeon" "${temps[radeon_temp1]}"
+fi
 
 for nvme in /dev/nvme?; do
     name=$(sudo smartctl -a "$nvme" | grep "^Model Number" | cut -d":" -f2 | xargs)
@@ -36,7 +42,7 @@ for nvme in /dev/nvme?; do
 done
 
 for sd in /dev/sd?; do
-    temp=$(sudo smartctl -A "$sd" | grep "^190" | awk '{print $10}')
+    temp=$(sudo smartctl -A "$sd" | grep -E "^(190|194)" | awk '{print $10}')
     name=$(sudo smartctl -a "$sd" | grep "^Device Model" | cut -d":" -f2 | xargs)
     show "$name" "$temp"
 done
