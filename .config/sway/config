@@ -20,7 +20,7 @@ set $active #454B7F
 font pango:Ubuntu, Icons 8
 
 # exec "systemctl --user import-environment; systemctl --user start sway-session.target"
-# exec "systemctl --user import-environment"
+exec "systemctl --user import-environment"
 # exec systemd-cat --identifier=sway sway
 exec swayidle -w timeout 300 'lock.sh -f' before-sleep 'lock.sh -f'
 exec nm-applet
