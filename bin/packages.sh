@@ -34,7 +34,7 @@ repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco sta
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
 repo tarsnap "deb http://pkg.tarsnap.com/deb/$(lsb_release -s -c) ./" \
-        --key-url https://pkg.tarsnap.com/tarsnap-deb-packaging-key.asc
+        --keyid BF75EEAB040E447C
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --keyid 8B57C5C2836F4BEB
 # repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src http://apt.mopidy.com/ buster main contrib non-free" \

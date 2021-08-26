@@ -33,12 +33,12 @@ install "/usr/share/applications/i3-launch.desktop"
 install "/usr/bin/gnome-i3"
 install "/usr/bin/gnome-session-i3"
 
-if [[ $DESKTOP == "true" ]]; then
+if [[ $(hostname -s) == "juho-desktop" ]]; then
     install "/etc/X11/xorg.conf.d/metamodes.conf"
     install "/etc/udev/rules.d/99-pulseaudio.rules"
 fi
 
-if [[ $LAPTOP == "true" ]]; then
+if [[ $(hostname -s) == "juho-laptop" ]]; then
     # X220
     if grep -q i7-2640 /proc/cpuinfo; then
         install "/etc/thinkfan.conf"
