@@ -332,7 +332,14 @@ let g:clojure_maxlines = 200
 " let g:leiningen_no_auto_repl = 1
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-      \ 'ctermfgs': ['204', '179', '146', '72', '225', '113', '69'],
+      \ 'ctermfgs': ['204', '179', '146', '72', '225', '113', '75'],
+      \ 'guifgs': [
+      \     '#d7875f',
+      \     '#d75f87',
+      \     '#d7d700',
+      \     '#5fafff',
+      \     '#87d75f'
+      \ ],
       \ 'separately': {
       \   'markdown': 0,
       \   'html': 0,
