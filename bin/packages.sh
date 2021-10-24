@@ -47,6 +47,7 @@ repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktabl
         --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_20.10/Release.key"
 repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ hirsute main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
+ppa libtorrent.org 1.2-daily hirsute --keyid 32309D6B9E009EDB
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         ppa graphics-drivers ppa hirsute
@@ -425,7 +426,6 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install audacity
         install lutris
         install autokey-gtk
-        install deluged
 fi
 
 # Laptop specific
