@@ -400,10 +400,10 @@ install v4l2loopback-dkms
 install libpipewire-0.3-0
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        install "nvidia-driver-460"
-        install "libnvidia-gl-460:i386"
+        install "nvidia-driver-470"
+        install "libnvidia-gl-470:i386"
         install nvidia-settings
-        install nvidia-cuda-toolkit
+        # install nvidia-cuda-toolkit
         install nvidia-opencl-dev
         install fail2ban
         # HP Touchpad
@@ -420,12 +420,11 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install guitarix # Guitar AMP
         # install vnstat # Network usage
         # install rrdtool # Stats
-        install smokeping
-        install echoping
         install youtube-dl
         install audacity
         install lutris
         install autokey-gtk
+        install siril
 fi
 
 # Laptop specific
