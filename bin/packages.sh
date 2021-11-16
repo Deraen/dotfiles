@@ -54,7 +54,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         ppa lutris-team lutris hirsute --keyid 37B90EDD4E3EFAE4
 fi
 
-if [[ $(hostname -s) == "juho-laptop" ]]; then
+if [[ $(hostname -s) =~ juho-laptop ]]; then
         ppa linrunner tlp hirsute --keyid 2B3F92F902D65EFF
         ppa oibaf graphics-drivers hirsute --keyid 957D2708A03A4626
         repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main"
@@ -267,6 +267,7 @@ install libfontconfig1-dev
 install libxcb-render0-dev
 install libxcb-shape0-dev
 install libxcb-xfixes0-dev
+install libxkbcommon-dev
 
 # Docker
 install docker-ce
@@ -428,7 +429,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
 fi
 
 # Laptop specific
-if [[ $(hostname -s) == "juho-laptop" ]]; then
+if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install xbacklight
         # install prey 1.5.1 https://s3.amazonaws.com/prey-releases/node-client/1.5.1/prey_1.5.1_amd64.deb
         # X220

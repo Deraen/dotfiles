@@ -3,7 +3,8 @@
 . "$HOME/.local/lib/functions.sh"
 
 desktop=false
-if [[ $(hostname -s) == "juho-desktop" ]] || [[ $(hostname -s) == "juho-laptop" ]]; then
+if [[ $(hostname -s) =~ juho-(desktop|laptop) ]]; then
+    echo Using desktop setup
     desktop=true
 fi
 

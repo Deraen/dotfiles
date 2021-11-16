@@ -224,15 +224,18 @@ let g:airline_mode_map = {
     \ '^S' : 'S',
     \ }
 
-let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'iminsert'])
-" hunks disabled because it's empty for non-active buffers
-let g:airline_section_b = airline#section#create(['branch'])
-let g:airline_section_c = airline#section#create(['%<', 'file', 'readonly'])
-let g:airline_section_gutter = airline#section#create(['%='])
-let g:airline_section_x = airline#section#create_right(['tagbar'])
-let g:airline_section_y = airline#section#create_right([])
-let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v '])
-" let g:airline_section_warning = airline#section#create(['syntastic-warn', 'whitespace'])
+function! AirlineInit()
+  let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'iminsert'])
+  " hunks disabled because it's empty for non-active buffers
+  let g:airline_section_b = airline#section#create(['branch'])
+  let g:airline_section_c = airline#section#create(['%<', 'file', 'readonly'])
+  let g:airline_section_gutter = airline#section#create(['%='])
+  let g:airline_section_x = airline#section#create_right(['tagbar'])
+  let g:airline_section_y = airline#section#create_right([])
+  let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v '])
+  " let g:airline_section_warning = airline#section#create(['syntastic-warn', 'whitespace'])
+endfunction
+autocmd VimEnter * call AirlineInit()
 
 " Syntastic
 " let g:syntastic_python_checkers = ['pep8']

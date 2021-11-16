@@ -38,7 +38,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
     install "/etc/udev/rules.d/99-pulseaudio.rules"
 fi
 
-if [[ $(hostname -s) == "juho-laptop" ]]; then
+if [[ $(hostname -s) =~ juho-laptop ]]; then
     # X220
     if grep -q i7-2640 /proc/cpuinfo; then
         install "/etc/thinkfan.conf"

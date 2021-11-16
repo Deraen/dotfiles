@@ -200,10 +200,6 @@
 	path = .vim/bundle/targets.vim
 	url = git@github.com:wellle/targets.vim.git
 	branch = master
-[submodule ".local/modules/screenkey"]
-	path = .local/modules/screenkey
-	url = https://gitlab.com/screenkey/screenkey.git
-	branch = master
 [submodule ".vim/bundle/vim-gitgutter"]
 	path = .vim/bundle/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
