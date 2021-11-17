@@ -3,12 +3,18 @@
 . "$HOME/.local/lib/functions.sh"
 
 install() {
-    if sudo diff "$1" "$HOME/.systemfiles$1" >/dev/null; then
+    if [[ -f "$1" ]] && sudo diff "$1" "$HOME/.systemfiles$1" >/dev/null; then
         echo "$1: Ok"
     else
-        sudo diff -u "$1" "$HOME/.systemfiles$1"
-        if confirm "$1: replace?"; then
-            mkdir -p "$(dirname "$1")"
+        if [[ -f "$1" ]]; then
+            sudo diff -u "$1" "$HOME/.systemfiles$1"
+            if confirm "$1: replace?"; then
+                sudo mkdir -p "$(dirname "$1")"
+                sudo cp "$HOME/.systemfiles$1" "$1"
+            fi
+        else
+            echo "$1 missing, copying..."
+            sudo mkdir -p "$(dirname "$1")"
             sudo cp "$HOME/.systemfiles$1" "$1"
         fi
     fi
@@ -26,12 +32,8 @@ install "/etc/udev/rules.d/47-altera.rules"
 install "/etc/udev/rules.d/60-vboxdrv.rules"
 install "/etc/udev/rules.d/85-tessel.rules"
 install "/etc/udev/rules.d/backlight.rules"
+install "/etc/modprobe.d/thinkpad_acpi.conf"
 install "/usr/share/xsessions/custom.desktop"
-install "/usr/share/xsessions/gnome-i3.desktop"
-install "/usr/share/gnome-session/sessions/gnome-i3.session"
-install "/usr/share/applications/i3-launch.desktop"
-install "/usr/bin/gnome-i3"
-install "/usr/bin/gnome-session-i3"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
     install "/etc/X11/xorg.conf.d/metamodes.conf"
@@ -43,8 +45,15 @@ if [[ $(hostname -s) =~ juho-laptop ]]; then
     if grep -q i7-2640 /proc/cpuinfo; then
         install "/etc/thinkfan.conf"
     fi
+
+    # P1 G3
+    if grep -q i9-10885H /proc/cpuinfo; then
+        install "/etc/thinkfan.yaml"
+    fi
+
     install "/etc/NetworkManager/dispatcher.d/99nfs"
     install "/etc/systemd/logind.conf"
+    install "/etc/systemd/system/thinkfan.service.d/override.conf"
     remove "/etc/udev/hwdb.d/99-trackpoint.hwdb"
     install "/etc/libinput/local-overrides.quirks"
 fi

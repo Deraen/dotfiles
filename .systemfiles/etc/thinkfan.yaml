@@ -1,0 +1,16 @@
+---
+sensors:
+  - hwmon: /sys/class/hwmon
+    name: thinkpad
+    indices: [1]
+
+fans:
+  - tpacpi: /proc/acpi/ibm/fan
+
+levels:
+  - [0, 0, 50]
+  - [35, 45, 60]
+  - [75, 55, 65]
+  - [125, 60, 75]
+  - ["level auto", 70, 100]
+  - ["level disengaged", 95, 255]
