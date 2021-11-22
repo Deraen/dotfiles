@@ -67,7 +67,9 @@ if [[ $desktop == true ]]; then
     header "Build picom"
     (
     cd "$HOME/.local/modules/picom" || exit
-    # meson -Dprefix="$HOME/.local" --buildtype=release . build
+    if [[ ! -d build ]]; then
+        meson -Dprefix="$HOME/.local" --buildtype=release . build
+    fi
     ninja -C build install
     )
 
@@ -99,6 +101,8 @@ if [[ $desktop == true ]]; then
     )
 
     go get -u go.mozilla.org/sops/v3/cmd/sops
+
+    sudo aa-disable /etc/apparmor.d/fr.emersion.Mako
 fi
 
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then

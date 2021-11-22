@@ -6,5 +6,6 @@ WantedBy=default.target
 
 [Service]
 Restart=on-failure
-Type=simple
-ExecStart=/home/juho/bin/dropbox.sh
+Type=forking
+ExecStart=/usr/bin/dropbox start
+ExecStop=/usr/bin/dropbox stop

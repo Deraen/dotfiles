@@ -76,7 +76,6 @@ install grub-efi-amd64-signed
 install nfs-common
 install lvm2
 install cryptsetup
-install smartmontools
 
 # Language stuff
 install "language-pack-gnome-en"
@@ -129,6 +128,7 @@ install tarsnap
 install sysfsutils
 install ufw
 install libimage-exiftool-perl
+install apparmor-utils
 
 # Editor
 install neovim

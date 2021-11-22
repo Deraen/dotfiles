@@ -1,3 +1,15 @@
 default-timeout=5000
+border-color=#285577AA
+progress-color=#84BBE5FF
 background-color=#285577AA
 font=Ubuntu 12
+
+[category=volume]
+anchor=center
+width=600
+padding=20
+
+[category=backlight]
+anchor=center
+width=600
+padding=20

@@ -23,6 +23,7 @@ font pango:Ubuntu, Icons 8
 
 # exec "systemctl --user import-environment; systemctl --user start sway-session.target"
 # exec systemd-cat --identifier=sway sway
+exec systemctl --user import-environment PATH
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec swayidle -w timeout 300 'lock.sh -f' before-sleep 'lock.sh -f'
 exec nm-applet
