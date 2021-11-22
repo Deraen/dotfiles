@@ -22,14 +22,11 @@ repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may com
         --keyid 6494C6D6997C215E
 repo heroku "deb http://toolbelt.heroku.com/ubuntu ./" \
         --keyid C927EBE00F1B0520
-# repo i3 "deb http://debian.sur5r.net/i3/ focal universe" \
-#         --keyring sur5r-keyring \
-#         --keyid 941C42E6
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
 repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal non-free contrib" \
         --keyid A2F683C52980AECF
-repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable" \
+repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu impish stable" \
         --keyid 0EBFCD88
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
@@ -143,28 +140,17 @@ install luarocks
 install libmsgpack-dev
 install xclip
 
-# xdg-desktop-portal (Ubuntu package not built with screenshare support?)
-# ./configure --disable-geoclue --enable-pipewire
-install libfuse-dev
-
-# xdg-desktop-portal-wlr
-install libpipewire-0.3-dev
-install libsystemd-dev
-install libwayland-dev
-install wayland-protocols
-install xdg-desktop-portal-dev
-
 # Java
 install openjdk-8-jdk
 install openjdk-8-dbg
-install openjdk-11-jdk
-install openjdk-15-jdk
+install openjdk-11-jdk # LTS
+install openjdk-17-jdk # LTS
+# 21 is the next LTS
 install maven
 install ant
 
 # Node
 install nodejs
-install yarn
 
 # Embedded
 # install gcc-msp430 # TI Launchpad
@@ -181,11 +167,10 @@ install cppcheck
 # Python
 install pep8
 install pylint
-install python3-pip
 install pipenv
+install python3
+install python3-pip
 install python3-venv
-install python3.8
-install python3.8-venv
 
 # Version control
 install git
@@ -194,18 +179,14 @@ install git-flow
 install git-lfs
 install qgit
 install gh
-install gitlab-runner
 
 # Dev tools
 install heroku-toolbelt
 install devscripts
 install ubuntu-dev-tools
-install mongodb-org-tools
 install sqlite3
 # install httpie
-# install ansible
-# install ansible-lint
-install vagrant
+install ansible
 install rlwrap
 install cloc
 install shellcheck
@@ -213,7 +194,7 @@ install golang-go
 install golang-doc
 install golang-src
 install golang-1.15
-install android-tools-adb
+install adb
 install diffpdf
 install pdfarranger
 install gdal-bin
@@ -295,7 +276,6 @@ install biber
 install gnuplot-nox
 
 # Desktop env
-install sur5r-keyring
 install i3 # Tiling WM
 install i3lock
 install i3blocks
@@ -325,6 +305,8 @@ install suru-icon-theme
 install qt5-style-plugins
 install qt5-gtk-platformtheme
 
+install xdg-desktop-portal-wlr "0.5.0-1" http://ftp.fi.debian.org/debian/pool/main/x/xdg-desktop-portal-wlr/xdg-desktop-portal-wlr_0.5.0-1_amd64.deb
+
 # GPG stuff
 install gnupg2
 install scdaemon
@@ -343,7 +325,6 @@ install synaptic
 install dconf-editor # Edit Dconf settings (mostly Gnome stuff)
 install dropbox
 install feh
-install flashplugin-installer
 install ghex # Hex editor
 install gimp
 install gimp-plugin-registry
@@ -356,8 +337,6 @@ install gparted
 install inkscape
 install keepassxc # Password manager
 install pass
-install mumble
-install pgadmin3 # PostgreSQL admin
 install pgtop
 install stress
 install libpq-dev
@@ -381,28 +360,18 @@ install flameshot
 install usb-creator-gtk
 install wmctrl
 install xdotool
-install slack-desktop
-install zoom
-
-# install mopidy
-# install mopidy-spotify
-# install mopidy-beets
-# install cantata # MPD client
-# install sonata
 
 install network-manager-openconnect-gnome # Cisco VPN
 install ifupdown
 install openvpn
 install stoken
 
-install iriunwebcam
+install iriunwebcam "2.6.0" https://iriun.gitlab.io/iriunwebcam-2.6.deb
 install v4l2loopback-dkms
 
-install libpipewire-0.3-0
-
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        install "nvidia-driver-470"
-        install "libnvidia-gl-470:i386"
+        install "nvidia-driver-495"
+        install "libnvidia-gl-495:i386"
         install nvidia-settings
         # install nvidia-cuda-toolkit
         install nvidia-opencl-dev
@@ -436,11 +405,13 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         if grep -q i7-2640 /proc/cpuinfo; then
                 install thinkfan
         fi
+        if grep -q i9-10885H /proc/cpuinfo; then
+                install thinkfan
+        fi
         install tlp
         install teams
         install libgl1:i386
         install libgl1-mesa-dri:i386
-        install logmein-hamachi
         install clamdscan
         install clamtk-gnome
         install qgis

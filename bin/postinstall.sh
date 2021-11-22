@@ -97,6 +97,8 @@ if [[ $desktop == true ]]; then
     sudo mkdir -p /usr/local/share/man/man1
     gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
     )
+
+    go get -u go.mozilla.org/sops/v3/cmd/sops
 fi
 
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then

@@ -37,5 +37,6 @@ fi
 
 bash <(curl -s https://raw.githubusercontent.com/borkdude/jet/master/install) /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo) --dir /home/juho/bin
+bash <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install) --dir /home/juho/bin
 
 postinstall.sh

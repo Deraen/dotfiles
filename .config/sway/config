@@ -12,6 +12,8 @@ input type:touchpad {
 
 output eDP-1 scale 1 pos 0 0
 
+# Add https://git.sr.ht/~emersion/kanshi if need more configuration
+
 # Preferences
 set $mod Mod4
 set $bg #121212
@@ -20,11 +22,11 @@ set $active #454B7F
 font pango:Ubuntu, Icons 8
 
 # exec "systemctl --user import-environment; systemctl --user start sway-session.target"
-exec "systemctl --user import-environment"
 # exec systemd-cat --identifier=sway sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec swayidle -w timeout 300 'lock.sh -f' before-sleep 'lock.sh -f'
 exec nm-applet
-exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+exec gnome-keyring-daemon --start --components=pkcs11,ssh
 exec mako
 # exec dropbox.py start
 exec_always makoctl reload
@@ -200,9 +202,11 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 # Screenshots
 # FIXME:
 # Slurp + Grim
-bindsym Print exec grim -g "$(slurp)" - | wl-copy
 # bindsym Mod1+Print exec gnome-screenshot -w
 # bindsym Ctrl+Print exec gnome-screenshot -i
+
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+Print exec flameshot gui
 
 bar {
   swaybar_command waybar

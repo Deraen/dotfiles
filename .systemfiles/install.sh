@@ -25,6 +25,7 @@ remove() {
 }
 
 install "/etc/default/keyboard"
+install "/etc/pam.d/swaylock"
 remove "/etc/udev/rules.d/11-android.rules"
 install "/etc/udev/rules.d/51-android.rules"
 install "/etc/udev/rules.d/46-TI_launchpad.rules"
