@@ -19,20 +19,21 @@ set $mod Mod4
 set $bg #121212
 set $active #454B7F
 
-font pango:Ubuntu, Icons 8
+font pango:Ubuntu 8
 
-# exec "systemctl --user import-environment; systemctl --user start sway-session.target"
-# exec systemd-cat --identifier=sway sway
-exec systemctl --user import-environment PATH
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec swayidle -w timeout 300 'lock.sh -f' before-sleep 'lock.sh -f'
-exec nm-applet
+exec nm-applet --indicator
 exec gnome-keyring-daemon --start --components=pkcs11,ssh
 exec mako
-# exec dropbox.py start
+exec import-gsettings
+
+# Reload mako settings on Sway reload
 exec_always makoctl reload
+# Bg needs to be set after reload
 exec_always rndbg.sh
-# exec_always import-gsettings
 
 # Dmenu
 bindsym $mod+r exec wofi --show drun --insensitive
@@ -110,8 +111,6 @@ assign [class="Smplayer"] → number 12
 assign [class="Steam"] → number 13
 assign [class="Spotify"] → number 11
 assign [class="Slack"] → number 0
-# Mattermost
-assign [instance="crx_egmhfndodgceinhfagoamghnjknkbkkn"] → number 0
 
 bindsym $mod+e exec workspace.sh --rename
 

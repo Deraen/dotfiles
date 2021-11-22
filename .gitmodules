@@ -325,3 +325,7 @@
 [submodule ".vim/bundle_clojure/vim-iced-multi-session"]
 	path = .vim/bundle_clojure/vim-iced-multi-session
 	url = https://github.com/liquidz/vim-iced-multi-session.git
+[submodule ".local/modules/Font-Awesome"]
+	path = .local/modules/Font-Awesome
+	url = https://github.com/FortAwesome/Font-Awesome.git
+	shallow = true
