@@ -200,13 +200,19 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 
 # Screenshots
-# FIXME:
-# Slurp + Grim
 # bindsym Mod1+Print exec gnome-screenshot -w
 # bindsym Ctrl+Print exec gnome-screenshot -i
 
-bindsym Print exec grim -g "$(slurp)" - | wl-copy
-bindsym $mod+Print exec flameshot gui
+# Desktop -> save
+bindsym Print exec screenshot.sh --save
+bindsym Ctrl+Print exec screenshot.sh --active-window --save
+# Super => select -> clipboard
+bindsym $mod+Print exec screenshot.sh --select
+
+# bindsym $mod+Print exec flameshot gui
+
+# pick color:
+# grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-
 
 bar {
   swaybar_command waybar
