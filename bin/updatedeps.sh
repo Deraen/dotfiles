@@ -29,14 +29,13 @@ if confirm -i "Update Node utils?"; then
     )
 fi
 
-if confirm -i "Update Docker-compose?"; then
-    version=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r ".name")
-    curl -s -L --fail "https://github.com/docker/compose/releases/download/$version/run.sh" > "$HOME/bin/docker-compose"
-    chmod +x "$HOME/bin/docker-compose"
-fi
+# TODO: Docker-compose 2?
+curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64" -o /home/juho/bin/docker-compose
+chmod +x /home/juho/bin/docker-compose
 
 bash <(curl -s https://raw.githubusercontent.com/borkdude/jet/master/install) /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo) --dir /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install) --dir /home/juho/bin
+bash <(curl -s https://raw.githubusercontent.com/greglook/cljstyle/main/script/install-cljstyle) --dir /home/juho/bin
 
 postinstall.sh

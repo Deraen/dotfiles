@@ -27,6 +27,7 @@ remove() {
     fi
 }
 
+install "/etc/sysctl.d/90-local.conf"
 install "/etc/default/keyboard"
 install "/etc/pam.d/swaylock"
 remove "/etc/udev/rules.d/11-android.rules"
@@ -57,7 +58,7 @@ if [[ $(hostname -s) =~ juho-laptop ]]; then
         install "/etc/tlp.d/100-nvme.conf"
     fi
 
-    install "/etc/NetworkManager/dispatcher.d/99nfs"
+    remove "/etc/NetworkManager/dispatcher.d/99nfs"
     install "/etc/systemd/logind.conf"
     install "/etc/systemd/system/thinkfan.service.d/override.conf"
     remove "/etc/udev/hwdb.d/99-trackpoint.hwdb"

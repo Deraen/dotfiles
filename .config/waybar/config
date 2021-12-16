@@ -86,7 +86,7 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "tooltip": false,
-        "on-click": "nm-connection-editor"
+        "on-click": "gnome-control-center network"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -108,7 +108,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol",
+        "on-click": "gnome-control-center sound",
         "tooltip": false
     }
 }

@@ -24,6 +24,14 @@ done
 
 if [[ -n $output ]]; then
     grim -g "$geometry" "$output"
+
+    # TODO:
+    # gdbus call --session \
+    #   --dest=org.freedesktop.Notifications \
+    #   --object-path=/org/freedesktop/Notifications \
+    #   --method=org.freedesktop.Notifications.Notify \
+    #   "" 0 "" 'Screenshot taken' 'Open screenshot' \
+    #   "[\"default\", \"eog $output\"]" '{"urgency": <1>}' 7000
 else
     grim -g "$geometry" - | wl-copy
 fi

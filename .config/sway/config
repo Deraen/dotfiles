@@ -1,5 +1,3 @@
-# i3 config file (v4)
-
 input * {
     xkb_file ".xkb/keymap/default"
     # xkb_layout "fi"
@@ -105,36 +103,18 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Defaults
-# $ xprop
-assign [class="Deluge"] → number 14
-assign [class="Smplayer"] → number 12
-assign [class="Steam"] → number 13
-assign [class="Spotify"] → number 11
-assign [class="Slack"] → number 0
+# sleep 2 && swaymsg -t get_tree | jq -r '..|try select(.focused == true)'
 
 bindsym $mod+e exec workspace.sh --rename
 
 for_window [app_id=".*"] border pixel 2
 for_window [class=".*"] border pixel 2
 
-for_window [class="Simplescreenrecorder"] floating enable
-for_window [class="Gnome-power-statistics"] floating enable
-for_window [class="Yad"] floating enable
-# Incanter windows
-for_window [title="^Incanter (Matrix|Dataset)"] floating enable
-# Google hangouts
-for_window [title="^Google\+ Hangouts is sharing.*$"] floating enable
-# Mplayer webcam for screencasts
-for_window [instance="webcam"] floating enable, border pixel 0
-for_window [class="Pinentry-gtk-2"] floating enable
+for_window [app_id="gnome-power-statistics"] floating enable
+for_window [app_id="gnome-control-center"] floating enable
+for_window [app_id="Yad"] floating enable
 
-for_window [class="^([gG]oogle-chrome|[gG]oogle-chrome-(stable|beta|unstable)|X-www-browser)$"] border pixel 2
-for_window [class="^(quassel|Spotify)$"] border pixel 2
-for_window [class="^(Eclipse|GVim)$"] border pixel 2
-for_window [instance="jetbrains-idea-ce"] border pixel 2
-for_window [class="^(URxvt|Termite|st-256color)$"] border pixel 2
-for_window [class="Steam" title="^(Steam - .*|Friends)$"] floating enable
-for_window [class="Gnome-screenshot"] floating enable
+# TODO: some class rules might be obsolete
 
 bindsym $mod+section exec workspace.sh --go-to 0
 bindsym $mod+1 exec workspace.sh --go-to 1
@@ -176,12 +156,11 @@ bindsym $mod+Ctrl+x exec i3-switch-all
 
 # Scratchpad
 # Enable scratchpad for keepassx, but show after starting the app
-for_window [instance="keepassxc"] move scratchpad, scratchpad show
-for_window [app_id="keepassxc" title=".*KeePassXC$"] move scratchpad, scratchpad show, floating enable
+# Match also title to avoid matching generate password window
+for_window [app_id="org.keepassxc.KeePassXC" title=".*KeePassXC$"] move scratchpad, scratchpad show, floating enable
 bindsym $mod+F6 exec toggle-keepass
 
-# I3
-bindsym $mod+Shift+C reload
+# Reload sway (and waybar etc.) config
 bindsym $mod+Shift+R reload
 
 # Spotify, pulseaudio
@@ -199,17 +178,12 @@ bindsym XF86AudioMicMute exec volume.sh --source toggle
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 
-# Screenshots
-# bindsym Mod1+Print exec gnome-screenshot -w
-# bindsym Ctrl+Print exec gnome-screenshot -i
-
 # Desktop -> save
 bindsym Print exec screenshot.sh --save
+# Active window -> save
 bindsym Ctrl+Print exec screenshot.sh --active-window --save
 # Super => select -> clipboard
 bindsym $mod+Print exec screenshot.sh --select
-
-# bindsym $mod+Print exec flameshot gui
 
 # pick color:
 # grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-
