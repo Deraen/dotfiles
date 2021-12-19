@@ -40,15 +40,15 @@ if [[ -n ${temps[radeon_temp1]} ]]; then
     show "Radeon" "${temps[radeon_temp1]}"
 fi
 
-for nvme in /dev/nvme?; do
-    name=$(sudo smartctl -a "$nvme" | grep "^Model Number" | cut -d":" -f2 | xargs)
+for nvme in /sys/class/nvme/*; do
+    name=$(cat "$nvme/model")
     show "$name ($(basename "$nvme"))" "${temps[nvme_temp1]}"
 done
 
-for sd in /dev/sd?; do
-    temp=$(sudo smartctl -A "$sd" | grep -E "^(190|194)" | awk '{print $10}')
-    name=$(sudo smartctl -a "$sd" | grep "^Device Model" | cut -d":" -f2 | xargs)
-    if [[ -n $temp ]]; then
-        show "$name ($(basename "$sd"))" "$temp"
-    fi
-done
+# for sd in /dev/sd?; do
+#     temp=$(sudo smartctl -A "$sd" | grep -E "^(190|194)" | awk '{print $10}')
+#     name=$(sudo smartctl -a "$sd" | grep "^Device Model" | cut -d":" -f2 | xargs)
+#     if [[ -n $temp ]]; then
+#         show "$name ($(basename "$sd"))" "$temp"
+#     fi
+# done

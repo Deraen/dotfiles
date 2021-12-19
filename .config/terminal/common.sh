@@ -37,7 +37,8 @@ addPath /usr/lib/go-1.13/bin/
 addPath "$ANDROID_HOME/platform-tools"
 addPath "$ANDROID_HOME/tools"
 addPath /usr/local/cuda-5.5/bin
-addPath /opt/PebbleSDK-3.0/bin
+# Python Poetry
+addPath "$HOME/.poetry/bin"
 
 # Enable viewing gziped text files directly
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

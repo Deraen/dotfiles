@@ -6,16 +6,11 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
-ppa ubuntuhandbook1 gimp hirsute
-ppa ubuntuhandbook1 apps hirsute
-# ppa ansible ansible focal --keyid 93C4A3FD7BB9C367
-ppa neovim-ppa unstable hirsute --keyid 55F96FCF8231B6DD
-# ppa git-core ppa hirsute --keyid A1715D88E1DF1F24
-ppa phoerious keepassxc hirsute --keyid 61922AB60068FCD6
+ppa ubuntuhandbook1 gimp impish
+ppa ubuntuhandbook1 apps impish
+ppa neovim-ppa unstable impish --keyid 55F96FCF8231B6DD
 ppa deraen random bionic --keyid 8EE3F468
-ppa nschloe waybar hirsute --keyid ECD154D280FEB8AC
-# repo getdeb "deb http://archive.getdeb.net/ubuntu xenial-getdeb apps" \
-#         --key-url http://archive.getdeb.net/getdeb-archive.key
+ppa nschloe waybar impish --keyid ECD154D280FEB8AC
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
@@ -30,30 +25,26 @@ repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu impish st
         --keyid 0EBFCD88
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
-repo tarsnap "deb http://pkg.tarsnap.com/deb/$(lsb_release -s -c) ./" \
-        --keyid BF75EEAB040E447C
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --keyid 8B57C5C2836F4BEB
-# repo mopidy "deb http://apt.mopidy.com/ buster main contrib non-free\ndeb-src http://apt.mopidy.com/ buster main contrib non-free" \
-#         --key-url https://apt.mopidy.com/mopidy.gpg
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
         --keyid 4C1CBE14852541CB
-repo github-cli "deb https://cli.github.com/packages hirsute main" \
+repo github-cli "deb https://cli.github.com/packages impish main" \
         --keyid C99B11DEB97541F0
 repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_20.10/ /" \
         --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_20.10/Release.key"
-repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ hirsute main" \
+repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ impish main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
-ppa libtorrent.org 1.2-daily hirsute --keyid 32309D6B9E009EDB
+ppa libtorrent.org 1.2-daily impish --keyid 32309D6B9E009EDB
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        ppa graphics-drivers ppa hirsute
-        ppa lutris-team lutris hirsute --keyid 37B90EDD4E3EFAE4
+        ppa graphics-drivers ppa impish
+        ppa lutris-team lutris impish --keyid 37B90EDD4E3EFAE4
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
-        ppa linrunner tlp hirsute --keyid 2B3F92F902D65EFF
-        ppa oibaf graphics-drivers hirsute --keyid 957D2708A03A4626
+        ppa linrunner tlp impish --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers impish --keyid 957D2708A03A4626
         repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main"
 
 fi
@@ -124,7 +115,6 @@ install optipng
 install webp
 install jpegoptim
 install libinput-tools
-install tarsnap
 install sysfsutils
 install ufw
 install libimage-exiftool-perl
@@ -254,7 +244,7 @@ install libxkbcommon-dev
 install docker-ce
 install google-cloud-sdk
 install awscli
-install sops
+# install sops
 
 # Tessel
 install libusb-1.0-0-dev
@@ -416,6 +406,7 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install clamtk-gnome
         install qgis
         install librecad
+        install gitlab-runner
 fi
 
 markauto
