@@ -329,3 +329,9 @@
 	path = .local/modules/Font-Awesome
 	url = https://github.com/FortAwesome/Font-Awesome.git
 	shallow = true
+[submodule ".vim/bundle/nvim-lspconfig"]
+	path = .vim/bundle/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule ".vim/bundle/vim-devicons"]
+	path = .vim/bundle/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons.git
