@@ -336,7 +336,7 @@ let g:clojure_align_multiline_strings = 0
 let g:clojure_maxlines = 200
 
 " let g:leiningen_no_auto_repl = 1
-let g:rainbow_active = 1
+let g:rainbow_active = 0
 let g:rainbow_conf = {
       \ 'ctermfgs': ['204', '179', '146', '72', '225', '113', '75'],
       \ 'guifgs': [
@@ -593,6 +593,13 @@ lua << EOF
   -- Clojure doesn't support this?
   indent = {
     enable = true,
+  },
+  rainbow = {
+    enable = { "clojure" },
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
   }
 }
 EOF

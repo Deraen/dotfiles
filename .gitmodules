@@ -338,3 +338,6 @@
 [submodule ".vim/bundle/nvim-treesitter"]
 	path = .vim/bundle/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+[submodule ".vim/bundle/nvim-ts-rainbow"]
+	path = .vim/bundle/nvim-ts-rainbow
+	url = https://github.com/p00f/nvim-ts-rainbow.git
