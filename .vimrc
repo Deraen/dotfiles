@@ -598,8 +598,16 @@ lua << EOF
     enable = { "clojure" },
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
+    colors = {
+      '#d7875f',
+      '#d75f87',
+      '#d7d700',
+      '#5fafff',
+      '#87d75f'
+    },
+    termcolors = {
+      '204', '179', '146', '72', '225', '113', '75'
+    }
   }
 }
 EOF
