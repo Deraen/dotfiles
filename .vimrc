@@ -15,9 +15,7 @@ set rtp+=~/.fzf
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect(
       \ 'bundle/{}',
-      \ 'bundle_clojure/{}',
-      \ 'bundle_haskell/{}',
-      \ 'bundle_lua/{}')
+      \ 'bundle_clojure/{}')
 
 " Uses tpope's vim-sensible defaults
 
@@ -148,16 +146,6 @@ vmap <Enter> <Plug>(EasyAlign)
 " Vim-switch
 let g:switch_mapping = "<C-s>"
 
-" Move parameters around
-nmap <a <Plug>Argumentative_MoveLeft
-nmap >a <Plug>Argumentative_MoveRight
-
-" ctrl-p and space-p change file
-" nmap <space>p :<C-u>GFiles<cr>
-" nmap <space>p <Plug>(ctrlp)
-" nnoremap <silent> <space>p :<C-u>CtrlPCurWD<cr>
-" ctrl-b and space-b change buffer
-" nnoremap <silent> <space>b :<C-u>CtrlPBuffer<cr>
 nnoremap <silent> <C-b>    :<C-u>Clap buffers<cr>
 " Project git files
 nnoremap <silent> <C-p>    :<C-u>Clap gfiles<cr>
@@ -233,34 +221,14 @@ function! AirlineInit()
   let g:airline_section_x = airline#section#create_right(['tagbar'])
   let g:airline_section_y = airline#section#create_right([])
   let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v '])
-  " let g:airline_section_warning = airline#section#create(['syntastic-warn', 'whitespace'])
 endfunction
 autocmd VimEnter * call AirlineInit()
 
-" Syntastic
-" let g:syntastic_python_checkers = ['pep8']
-" let g:syntastic_check_on_open=1
-" let g:syntastic_javascript_checkers = ['jshint']
-" let g:syntastic_java_checkers = ['']
-" let g:syntastic_mode_map = {
-"       \ 'mode': 'active',
-"       \ 'active_filetypes': [],
-"       \ 'passive_filetypes': [],
-"       \ }
-" let g:syntastic_error_symbol='✕'
-" let g:syntastic_warning_symbol='✕'
-" let g:syntastic_enable_highlighting = 0
-" let g:syntastic_go_checkers = ['golint', 'govet']
-" let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }"
-
-let g:loaded_syntastic_plugin = 1
-
 " Ale
 
-" Disable ALE
+" Disable ALE - LSP used instead
 let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
 
-" Todo: replace syntastic with Ale?
 let g:ale_linters_explicit = 0
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
@@ -283,42 +251,11 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-" CtrlP
-" let g:ctrlp_extensions = ['line']
-" let g:ctrlp_working_path_mode = 'ra'
-" let g:ctrlp_user_command = ['.git', "cd %s && git ls-files . -z --cached --exclude-standard | tr '\\0' '\n'"]
-" When opening file with CtrlP always open in new buffer even if its already
-" open somewhere
-" let g:ctrlp_switch_buffer = '0'
-" Open first file in current buffer, rest hidden
-" let g:ctrlp_open_multiple_files = 'ri'
-" let g:ctrlp_open_new_file = 'r'
-
-" let g:ctrlp_buffer_func = {
-"       \ 'enter': 'CtrlPMappings'
-"       \ }
-
-" function! s:DeleteBuffer()
-"   let path = fnamemodify(getline('.')[2:], ':p')
-"   let bufn = matchstr(path, '\v\d+\ze\*No Name')
-"   exec "silent! bd" bufn ==# "" ? path : bufn
-"   exec "silent! norm \<F5>"
-" endfunction
-
-" function! CtrlPMappings()
-"   " Alt-w in ctrlp buffer view closes the selected buffer
-"   nnoremap <buffer> <silent> <M-w> :call <sid>DeleteBuffer()<cr>
-" endfunction
-
 " Clojure options
 autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
-" let g:refactor_nrepl_options = {'prefix-rewriting': 'false'}
 
 " ' and ` are used alone in Clojure
 au FileType clojure let b:delimitMate_quotes = "\""
-
-" Fireplace, not used currently
-" let g:fireplace_default_cljs_repl = ""
 
 " Iced
 let g:iced_formatter = 'zprint'
@@ -382,8 +319,6 @@ endfunc
 let g:vim_json_syntax_conceal = 0
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
-
-" let g:LanguageClient_settingsPath=".lsp/settings.json"
 
 " R
 let vimrplugin_term="urxvt"
@@ -475,29 +410,6 @@ autocmd FileType clap_input inoremap <silent> <buffer> <M-l> <nop>
 autocmd FileType clap_input inoremap <silent> <buffer> <S-Tab> <Esc>:<c-u>call clap#action#invoke()<CR>i
 " Note: If stuck with unfocused Clap floating window, run :Clap to return the
 " focus and close normally.
-
-nmap <silent> <M-1>l <Plug>(JumpRight)
-nmap <M-1>h <Plug>(JumpLeft)
-nmap <M-1>j <Plug>(JumpDown)
-nmap <M-1>k <Plug>(JumpUp)
-nmap <M-2>l <Plug>(MoveBufRight)
-nmap <M-2>h <Plug>(MoveBufLeft)
-nmap <M-2>j <Plug>(MoveBufDown)
-nmap <M-2>k <Plug>(MoveBufUp)
-nmap <M-3>l <Plug>(MoveJumpBufRight)
-nmap <M-3>h <Plug>(MoveJumpBufLeft)
-nmap <M-3>j <Plug>(MoveJumpBufDown)
-nmap <M-3>k <Plug>(MoveJumpBufUp)
-nmap <M-4>l <Plug>(MoveWinToNextTab)
-nmap <M-4>h <Plug>(MoveWinToPrevTab)
-nmap <M-5>l <Plug>(CopyBufRight)
-nmap <M-5>h <Plug>(CopyBufLeft)
-nmap <M-5>j <Plug>(CopyBufDown)
-nmap <M-5>k <Plug>(CopyBufUp)
-nmap <M-6>l <Plug>(CopyJumpBufRight)
-nmap <M-6>h <Plug>(CopyJumpBufLeft)
-nmap <M-6>j <Plug>(CopyJumpBufDown)
-nmap <M-6>k <Plug>(CopyJumpBufUp)
 
 " nmap <Leader>z <Plug>(MaximizeWin)
 

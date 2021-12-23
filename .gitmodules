@@ -38,22 +38,9 @@
 	url = https://github.com/kurkale6ka/vim-pairs.git
 	branch = master
 	ignore = dirty
-[submodule ".vim/bundle/vim-argumentative"]
-	path = .vim/bundle/vim-argumentative
-	url = https://github.com/PeterRincker/vim-argumentative.git
-	branch = master
-	ignore = dirty
 [submodule ".vim/bundle/delimitMate"]
 	path = .vim/bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
-	branch = master
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-	branch = master
-[submodule ".vim/bundle/vimproc"]
-	path = .vim/bundle/vimproc
-	url = https://github.com/Shougo/vimproc.git
 	branch = master
 [submodule ".vim/bundle/vim-abolish"]
 	path = .vim/bundle/vim-abolish
@@ -156,18 +143,6 @@
 	path = .vim/bundle/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
 	branch = master
-[submodule ".vim/bundle/vim-toplevel"]
-	path = .vim/bundle/vim-toplevel
-	url = https://github.com/vim-scripts/vim-toplevel.git
-	branch = master
-[submodule ".vim/bundle/ghcmod-vim"]
-	path = .vim/bundle_haskell/ghcmod-vim
-	url = https://github.com/eagletmt/ghcmod-vim.git
-	branch = master
-[submodule ".vim/bundle/neco-ghc"]
-	path = .vim/bundle_haskell/neco-ghc
-	url = https://github.com/eagletmt/neco-ghc.git
-	branch = master
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
@@ -208,14 +183,6 @@
 	path = .vim/bundle/vimagit
 	url = git@github.com:jreybert/vimagit.git
 	branch = master
-[submodule ".vim/bundle/vim-bufkill"]
-	path = .vim/bundle/vim-bufkill
-	url = https://github.com/qpkorr/vim-bufkill.git
-	branch = master
-[submodule ".vim/bundle/vim-gnupg"]
-	path = .vim/bundle/vim-gnupg
-	url = https://github.com/jamessan/vim-gnupg.git
-	branch = master
 [submodule ".vim/bundle/vim-grepper"]
 	path = .vim/bundle/vim-grepper
 	url = https://github.com/mhinz/vim-grepper.git
@@ -227,10 +194,6 @@
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
-	branch = master
-[submodule ".vim/bundle/FastFold"]
-	path = .vim/bundle/FastFold
-	url = https://github.com/Konfekt/FastFold.git
 	branch = master
 [submodule ".vim/bundle/ReplaceWithRegister"]
 	path = .vim/bundle/ReplaceWithRegister
@@ -247,9 +210,6 @@
 [submodule ".nvm"]
 	path = .nvm
 	url = https://github.com/creationix/nvm.git
-[submodule ".vim/bundle/vim-go"]
-	path = .vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
 [submodule ".local/modules/oh-my-zsh"]
 	path = .local/modules/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
@@ -310,9 +270,6 @@
 [submodule ".vim/bundle/FixCursorHold.nvim"]
 	path = .vim/bundle/FixCursorHold.nvim
 	url = https://github.com/antoinemadec/FixCursorHold.nvim.git
-[submodule ".vim/bundle/vim-winmanip"]
-	path = .vim/bundle/vim-winmanip
-	url = https://github.com/yaronkh/vim-winmanip.git
 [submodule ".local/modules/alacritty"]
 	path = .local/modules/alacritty
 	url = https://github.com/alacritty/alacritty.git
