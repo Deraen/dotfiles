@@ -294,6 +294,6 @@
 [submodule ".vim/bundle/trouble.nvim"]
 	path = .vim/bundle/trouble.nvim
 	url = https://github.com/folke/trouble.nvim.git
-[submodule "/home/juho/.vim/bundle/plenary.nvim"]
-	path = /home/juho/.vim/bundle/plenary.nvim
+[submodule ".vim/bundle/plenary.nvim"]
+	path = .vim/bundle/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git

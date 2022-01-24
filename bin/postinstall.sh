@@ -59,23 +59,21 @@ header "Update FZF"
 if [[ $desktop == true ]]; then
     header "Build Ponymix"
     make -C "$HOME/.local/modules/ponymix" -j
+
     header "Build frakkin-xkb"
     make -C "$HOME/.local/modules/frakkin-xkb" -j
+
     header "Build i3-utils"
     make -C "$HOME/.local/modules/i3-utils" -j
 
-    header "Build picom"
     (
     cd "$HOME/.local/modules/picom" || exit
+    header "Build picom"
     if [[ ! -d build ]]; then
         meson -Dprefix="$HOME/.local" --buildtype=release . build
     fi
     ninja -C build install
     )
-
-    header "Settings"
-    gsettings set org.gnome.desktop.background show-desktop-icons false
-    crudini --set "$HOME/.config/Trolltech.conf" Qt style GTK+
 
     (
     # Home git repo, don't show untracked files on status
@@ -84,11 +82,13 @@ if [[ $desktop == true ]]; then
 
     (
     cd "$HOME/.vim/bundle/vim-clap" || exit
+    header "Vim-clap"
     cargo build --release
     )
 
     (
     cd "$HOME/.local/modules/alacritty" || exit
+    header "Alacritty"
     cargo build --release
     sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
     cp target/release/alacritty "$HOME/.local/bin/alacritty.new"
@@ -100,9 +100,13 @@ if [[ $desktop == true ]]; then
     gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
     )
 
-    go get -u go.mozilla.org/sops/v3/cmd/sops
+    go install go.mozilla.org/sops/v3/cmd/sops@latest
 
-    sudo aa-disable /etc/apparmor.d/fr.emersion.Mako
+    header "Settings"
+    gsettings set org.gnome.desktop.background show-desktop-icons false
+    crudini --set "$HOME/.config/Trolltech.conf" Qt style GTK+
+
+    # sudo aa-disable /etc/apparmor.d/fr.emersion.Mako
 fi
 
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then
