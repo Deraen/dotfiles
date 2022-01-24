@@ -226,10 +226,6 @@
 	path = .vim/bundle_clojure/vim-iced
 	url = https://github.com/liquidz/vim-iced.git
 	branch = main
-[submodule ".vim/bundle/ale"]
-	path = .vim/bundle/ale
-	url = https://github.com/dense-analysis/ale.git
-	branch = master
 [submodule ".local/modules/picom"]
 	path = .local/modules/picom
 	url = https://github.com/yshui/picom.git
@@ -289,12 +285,15 @@
 [submodule ".vim/bundle/nvim-lspconfig"]
 	path = .vim/bundle/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
-[submodule ".vim/bundle/vim-devicons"]
-	path = .vim/bundle/vim-devicons
-	url = https://github.com/ryanoasis/vim-devicons.git
 [submodule ".vim/bundle/nvim-treesitter"]
 	path = .vim/bundle/nvim-treesitter
 	url = https://github.com/nvim-treesitter/nvim-treesitter.git
 [submodule ".vim/bundle/nvim-ts-rainbow"]
 	path = .vim/bundle/nvim-ts-rainbow
 	url = https://github.com/p00f/nvim-ts-rainbow.git
+[submodule ".vim/bundle/trouble.nvim"]
+	path = .vim/bundle/trouble.nvim
+	url = https://github.com/folke/trouble.nvim.git
+[submodule "/home/juho/.vim/bundle/plenary.nvim"]
+	path = /home/juho/.vim/bundle/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
