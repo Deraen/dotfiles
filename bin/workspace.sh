@@ -25,13 +25,13 @@ while [[ $# -gt 0 ]]; do
   case $key in
     --move-to)
       name=$(get_name "$2")
-      i3-msg "move container to workspace $name"
+      i3-msg -q "move container to workspace $name"
       shift
       shift
       ;;
     --go-to)
       name=$(get_name "$2")
-      i3-msg "workspace \"$name\""
+      i3-msg -q "workspace \"$name\""
       shift
       shift
       ;;
@@ -49,7 +49,7 @@ while [[ $# -gt 0 ]]; do
       else
         new_name="$current_number: $name"
       fi
-      i3-msg "rename workspace \"$current_workspace\" to \"$new_name\""
+      i3-msg -q "rename workspace \"$current_workspace\" to \"$new_name\""
       shift
       shift
       ;;
@@ -59,7 +59,7 @@ while [[ $# -gt 0 ]]; do
       for name in $(jq -r 'to_entries | map(.key + if .value == "" then "" else ": " end + .value) | .[]' "$CONFIG_FILE"); do
         target_number=$(split_number "$name")
         current_name=$(i3-msg -t 'get_workspaces' | jq -r ".[] | select(.num == $target_number).name")
-        i3-msg "rename workspace \"$current_name\" to \"$name\""
+        i3-msg -q "rename workspace \"$current_name\" to \"$name\""
       done
       IFS=$OFS
       shift

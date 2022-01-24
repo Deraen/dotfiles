@@ -60,13 +60,15 @@ if !has('nvim')
 endif
 " set sidescroll=1
 " Pretty character for vsplit separator
-set fillchars+=vert:│
+" set fillchars+=vert:│
+
 " Save vim undo history to file, so history persists through sessions
 set undofile
 set undodir=~/.vim/undo
 " set completeopt-=preview
 set completeopt=noinsert,menuone,noselect
-set signcolumn=yes
+" set signcolumn=yes
+set signcolumn=number
 
 if has("gui_gtk2")
   set guioptions=ca
@@ -82,6 +84,8 @@ endif
 if $PRESENTATION_MODE == '1'
   let g:seoul256_transparent=1
 endif
+
+let g:seoul256_srgb = 1
 
 let g:thematic#themes = {
       \ 'seoul256': {'background': 'dark'},
@@ -193,8 +197,6 @@ let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = ''
 let g:airline_symbols.parse = 'ρ'
 
-let g:airline#extensions#ale#enabled = 0
-" let g:airline#extensions#ctrlp#show_adjacent_modes = 0
 let g:airline_theme='seoul256'
 let g:airline_exclude_preview = 1
 let g:airline_inactive_collapse = 0
@@ -212,6 +214,8 @@ let g:airline_mode_map = {
     \ '^S' : 'S',
     \ }
 
+" let g:airline_stl_path_style = 'short'
+
 function! AirlineInit()
   let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'iminsert'])
   " hunks disabled because it's empty for non-active buffers
@@ -224,25 +228,8 @@ function! AirlineInit()
 endfunction
 autocmd VimEnter * call AirlineInit()
 
-" Ale
-
-" Disable ALE - LSP used instead
-let g:loaded_ale_dont_use_this_in_other_plugins_please = 1
-
-let g:ale_linters_explicit = 0
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-
-let g:ale_pattern_options = {
-      \ '^iced_': {'ale_linters': [], 'ale_fixers': []},
-      \}
-
-let g:ale_set_quickfix = 0
-" let g:ale_open_list = 1
-" Set this if you want to.
-" This can be useful if you are combining ALE with
-" some other plugin which sets quickfix errors, etc.
-" let g:ale_keep_list_window_open = 1
+" vim.diagnostic default is 10?
+let g:gitgutter_sign_priority=5
 
 " FZF
 
@@ -261,8 +248,8 @@ au FileType clojure let b:delimitMate_quotes = "\""
 let g:iced_formatter = 'zprint'
 let g:iced_enable_auto_indent = v:false
 let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
-let g:iced_enable_clj_kondo_analysis = v:true
-let g:iced_enable_clj_kondo_local_analysis = v:true
+" let g:iced_enable_clj_kondo_analysis = v:true
+" let g:iced_enable_clj_kondo_local_analysis = v:true
 let g:iced#buffer#stdout#max_line = 10000
 let g:iced_enable_auto_document = ''
 let g:iced#selector#search_order = ['clap']
@@ -432,19 +419,20 @@ lua << EOF
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     -- FIXME: Not used with clojure-lsp?
-    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-    buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    --buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+    --buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+    buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     -- FIXME: Conflict with split line
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
     -- FIXME: Not used with clojure-lsp?
-    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+    -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
     -- FIXME: Conflict with resize
     buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
     -- FIXME: Not used with clojure-lsp?
-    buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+    -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     -- Works with e.g. let binding name, not defn?
     buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
@@ -457,14 +445,38 @@ lua << EOF
 
   end
 
+  -- Confiure clojure-lsp setup to return parent project folder
+  -- for multimodule projects, like Reitit.
+  local lspconfig_util = require 'lspconfig/util'
+  local root_pattern = function(...)
+    local patterns = vim.tbl_flatten { ... }
+    local function matcher(path)
+      for _, pattern in ipairs(patterns) do
+        for _, p in ipairs(vim.fn.glob(lspconfig_util.path.join(path, pattern), true, true)) do
+          if lspconfig_util.path.exists(p) then
+            -- Unix paths only.
+            -- Ignore the deps file if path is e.g. modules/reitit-core/project.clj
+            if not p:match("modules/[^/]+/[^/]+$") then
+              return path
+            end
+          end
+        end
+      end
+    end
+    return function(startpath)
+      return lspconfig_util.search_ancestors(startpath, matcher)
+    end
+  end
+
   lspconfig.clojure_lsp.setup {
     on_attach = on_attach,
     flags = {
         debounce_text_change = 150,
-    }
+    },
+    root_dir = root_pattern('project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn', '.git'),
   }
 
-  local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+  local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " }
   for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
@@ -482,7 +494,7 @@ lua << EOF
 
   highlight = {
     -- `false` will disable the whole extension
-    enable = true,
+    enable = false,
 
     -- list of language that will be disabled
     disable = {},
@@ -494,7 +506,7 @@ lua << EOF
     additional_vim_regex_highlighting = false,
   },
   incremental_selection = {
-    enable = true,
+    enable = false,
     keymaps = {
       init_selection = "gnn",
       node_incremental = "grn",

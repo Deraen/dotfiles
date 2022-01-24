@@ -21,7 +21,7 @@
 	branch = master
 [submodule ".vim/bundle/seoul256.vim"]
 	path = .vim/bundle/seoul256.vim
-	url = https://github.com/Deraen/seoul256.vim.git
+	url = git@github.com:Deraen/seoul256.vim.git
 	branch = master
 [submodule ".vim/bundle/vim-sexp"]
 	path = .vim/bundle_clojure/vim-sexp
