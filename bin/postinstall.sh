@@ -87,6 +87,11 @@ if [[ $desktop == true ]]; then
     )
 
     (
+    header "Just"
+    cargo install just
+    )
+
+    (
     cd "$HOME/.local/modules/alacritty" || exit
     header "Alacritty"
     cargo build --release

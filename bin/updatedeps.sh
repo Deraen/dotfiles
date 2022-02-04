@@ -16,7 +16,6 @@ get_lastest_tag() {
 get_lastest_tag "$NVM_DIR"
 get_lastest_tag "$HOME/.fzf"
 get_lastest_tag "$HOME/.local/modules/picom"
-get_lastest_tag "$HOME/.vim/bundle/vim-go"
 get_lastest_tag "$HOME/.vim/bundle/vim-clap"
 
 git add -A "$HOME/.local/modules" "$HOME/.vim/bundle*" "$HOME/.fzf" "$HOME/.nvm"
