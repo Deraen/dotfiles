@@ -23,9 +23,8 @@ SAVEHIST=10000
 exportIfExists ANDROID_HOME "/opt/android-sdk"
 exportIfExists ANDROID_HOME "/home/juho/Android/Sdk"
 
-addPath "$HOME/bin"
-addPath "$HOME/.local/bin"
 addPath "$HOME/.local/node_modules/.bin"
+
 addPath "$HOME/.cabal/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.8.4/bin"
 addPath "$HOME/.stack/programs/x86_64-linux/ghc-7.10.1/bin"
@@ -39,6 +38,9 @@ addPath "$ANDROID_HOME/tools"
 addPath /usr/local/cuda-5.5/bin
 # Python Poetry
 addPath "$HOME/.poetry/bin"
+
+addPath "$HOME/bin"
+addPath "$HOME/.local/bin"
 
 # Enable viewing gziped text files directly
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
