@@ -54,6 +54,7 @@ alias apt-add-key='apt-key adv --keyserver keyserver.ubuntu.com --recv-keys '
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias iced='shdotenv iced'
 
 # 4k smartcard requires gpg2
 export LEIN_GPG=gpg2
