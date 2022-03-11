@@ -90,7 +90,7 @@
 [submodule ".local/modules/pure"]
 	path = .local/modules/pure
 	url = https://github.com/sindresorhus/pure.git
-	branch = master
+	branch = main
 [submodule ".local/modules/zsh-syntax-highlighting"]
 	path = .local/modules/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
