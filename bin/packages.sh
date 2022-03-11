@@ -28,13 +28,17 @@ repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment ou
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --keyid 8B57C5C2836F4BEB
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
-        --keyid 4C1CBE14852541CB
+        --keyid C6ABDCF64DB9A0B2
 repo github-cli "deb https://cli.github.com/packages impish main" \
         --keyid C99B11DEB97541F0
-repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_20.10/ /" \
-        --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_20.10/Release.key"
+repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_21.10/ /" \
+        --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_21.10/Release.key"
 repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ impish main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
+repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main" \
+        --key-url "https://downloads.1password.com/linux/keys/1password.asc"
+repo gitlab "deb https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ focal main\ndeb-src https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ focal main" \
+        --key-url "https://packages.gitlab.com/runner/gitlab-runner/gpgkey"
 ppa libtorrent.org 1.2-daily impish --keyid 32309D6B9E009EDB
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
@@ -294,6 +298,7 @@ install suru-icon-theme
 # install polybar
 install qt5-style-plugins
 install qt5-gtk-platformtheme
+install 1password
 
 install xdg-desktop-portal-wlr "0.5.0-1" http://ftp.fi.debian.org/debian/pool/main/x/xdg-desktop-portal-wlr/xdg-desktop-portal-wlr_0.5.0-1_amd64.deb
 

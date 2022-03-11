@@ -240,6 +240,7 @@ let g:fzf_action = {
 
 " Clojure options
 autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
+autocmd BufNewFile,BufReadPost *.bb setfiletype clojure
 
 " ' and ` are used alone in Clojure
 au FileType clojure let b:delimitMate_quotes = "\""
