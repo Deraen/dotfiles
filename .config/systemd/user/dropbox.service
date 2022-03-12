@@ -1,11 +1,19 @@
 [Unit]
-Description=Dropbox
+Description=Dropbox as a user service
+After=local-fs.target network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/env dropbox start
+ExecStop=/usr/bin/env dropbox stop
+PIDFile=%h/.dropbox/dropbox.pid
+Restart=on-failure
+RestartSec=5
+# Note: don't set these in user mode- they're already set, and
+# systemd won't have permission to set them- killing your service before
+# it starts
+# User=%U
+# Group=%U
 
 [Install]
 WantedBy=default.target
-
-[Service]
-Restart=on-failure
-Type=forking
-ExecStart=/usr/bin/dropbox start
-ExecStop=/usr/bin/dropbox stop

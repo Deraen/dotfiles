@@ -187,7 +187,7 @@ install shellcheck
 install golang-go
 install golang-doc
 install golang-src
-install golang-1.15
+install golang-1.16
 install adb
 install diffpdf
 install pdfarranger
@@ -355,6 +355,7 @@ install flameshot
 install usb-creator-gtk
 install wmctrl
 install xdotool
+install slack-desktop
 
 install network-manager-openconnect-gnome # Cisco VPN
 install ifupdown
@@ -365,8 +366,8 @@ install iriunwebcam "2.6.0" https://iriun.gitlab.io/iriunwebcam-2.6.deb
 install v4l2loopback-dkms
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        install "nvidia-driver-495"
-        install "libnvidia-gl-495:i386"
+        install "nvidia-driver-510"
+        install "libnvidia-gl-510:i386"
         install nvidia-settings
         # install nvidia-cuda-toolkit
         install nvidia-opencl-dev
