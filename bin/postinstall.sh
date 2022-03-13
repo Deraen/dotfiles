@@ -63,12 +63,24 @@ if [[ $desktop == true ]]; then
     header "Build i3-utils"
     make -C "$HOME/.local/modules/i3-utils" -j
 
+    # (
+    # cd "$HOME/.local/modules/picom" || exit
+    # header "Build picom"
+    # if [[ ! -d build ]]; then
+    #     meson -Dprefix="$HOME/.local" --buildtype=release . build
+    # fi
+    # ninja -C build install
+    # )
+
     (
-    cd "$HOME/.local/modules/picom" || exit
-    header "Build picom"
-    if [[ ! -d build ]]; then
-        meson -Dprefix="$HOME/.local" --buildtype=release . build
-    fi
+    cd "$HOME/.local/modules/wlroots" || exit
+    meson --prefix="$HOME/.local" build
+    ninja -C build install
+    )
+
+    (
+    cd "$HOME/.local/modules/sway" || exit
+    meson --prefix="$HOME/.local" build
     ninja -C build install
     )
 

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [[ $(hostname -s) == "juho-desktop" ]]; then
+  export WLR_NO_HARDWARE_CURSORS=1
+fi
+
+export QT_QPA_PLATFORM=wayland
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+
+systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP QT_QPA_PLATFORM
+hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
+
+exec sway --unsupported-gpu "$@"

@@ -297,3 +297,12 @@
 [submodule ".vim/bundle/plenary.nvim"]
 	path = .vim/bundle/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule ".local/modules/sway"]
+	path = .local/modules/sway
+	url = https://github.com/swaywm/sway.git
+[submodule ".local/modules/wlroots"]
+	path = .local/modules/wlroots
+	url = https://gitlab.freedesktop.org/wlroots/wlroots.git
+[submodule ".local/modules/swaylock"]
+	path = .local/modules/swaylock
+	url = https://github.com/swaywm/swaylock.git

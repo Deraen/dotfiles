@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Sway-session
+Comment=An i3-compatible Wayland compositor
+Exec=/home/juho/bin/sway-session
+Type=Application

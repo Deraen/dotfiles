@@ -8,7 +8,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 ppa ubuntuhandbook1 gimp impish
 ppa ubuntuhandbook1 apps impish
-ppa neovim-ppa unstable impish --keyid 55F96FCF8231B6DD
+ppa neovim-ppa unstable jammy --keyid 55F96FCF8231B6DD
 ppa deraen random bionic --keyid 8EE3F468
 ppa nschloe waybar impish --keyid ECD154D280FEB8AC
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
@@ -21,7 +21,7 @@ repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise st
         --keyid B05498B7
 repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal non-free contrib" \
         --keyid A2F683C52980AECF
-repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu impish stable" \
+repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable" \
         --keyid 0EBFCD88
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
@@ -35,20 +35,28 @@ repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktabl
         --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_21.10/Release.key"
 repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ impish main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
-repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main" \
-        --key-url "https://downloads.1password.com/linux/keys/1password.asc"
+
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+
+curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+
+repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
 repo gitlab "deb https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ focal main\ndeb-src https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ focal main" \
         --key-url "https://packages.gitlab.com/runner/gitlab-runner/gpgkey"
-ppa libtorrent.org 1.2-daily impish --keyid 32309D6B9E009EDB
+ppa libtorrent.org 1.2-daily jammy --keyid 32309D6B9E009EDB
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        ppa graphics-drivers ppa impish
+        ppa graphics-drivers ppa jammy
         ppa lutris-team lutris impish --keyid 37B90EDD4E3EFAE4
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
-        ppa linrunner tlp impish --keyid 2B3F92F902D65EFF
-        ppa oibaf graphics-drivers impish --keyid 957D2708A03A4626
+        ppa linrunner tlp jammy --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers jammy --keyid 957D2708A03A4626
         repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main"
 
 fi
@@ -187,7 +195,7 @@ install shellcheck
 install golang-go
 install golang-doc
 install golang-src
-install golang-1.16
+install golang-1.18
 install adb
 install diffpdf
 install pdfarranger
@@ -237,6 +245,46 @@ install libx11-xcb-dev
 install libxcb-glx0-dev
 # vim-clap
 install libssl-dev
+
+# wlroots
+install wayland-protocols
+install libwayland-dev
+install libegl1-mesa-dev
+install libgles2-mesa-dev
+install libdrm-dev
+install libgbm-dev
+install libinput-dev
+install libxkbcommon-dev
+install libgudev-1.0-dev
+install libpixman-1-dev
+install libsystemd-dev
+install libpng-dev
+install libavutil-dev
+install libavcodec-dev
+install libavformat-dev
+install libxcb-composite0-dev
+install libxcb-icccm4-dev
+install libxcb-image0-dev
+install libxcb-render0-dev
+install libxcb-xfixes0-dev
+install libxkbcommon-dev
+install libxcb-xinput-dev
+install libx11-xcb-dev
+install libxcb-dri3-dev
+install libxcb-res0-dev
+install libvulkan-dev
+install libseat-dev
+install glslang-dev
+
+# sway
+install libjson-c-dev
+install libpango1.0-dev
+install libcairo2-dev
+install libgdk-pixbuf2.0-dev
+install scdoc
+
+# swaylock
+install libpam0g-dev
 
 install libfontconfig1-dev
 install libxcb-render0-dev
