@@ -292,6 +292,16 @@ install libxcb-shape0-dev
 install libxcb-xfixes0-dev
 install libxkbcommon-dev
 
+# dunst
+install libxinerama-dev
+install libxrandr-dev
+install libxss-dev
+install libnotify-dev
+
+# SwayNotificationCenter
+# install libhandy-1-dev
+# install libgtk-layer-shell-dev
+
 # Docker
 install docker-ce
 install google-cloud-sdk
@@ -321,11 +331,11 @@ install gnuplot-nox
 install i3 # Tiling WM
 install i3lock
 install i3blocks
-install dunst # Notifications
+# install dunst # Notifications
 install xss-lock
 install rofi # Runner menu
 install wofi
-install sway
+# install sway
 install swaybg
 install waybar
 install swaylock
@@ -335,7 +345,7 @@ install grim
 install slurp
 install xsettingsd
 install pavucontrol
-install mako-notifier
+# install mako-notifier
 install qtwayland5
 install brightnessctl
 install wl-clipboard

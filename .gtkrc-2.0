@@ -1,5 +1,5 @@
 gtk-theme-name = "Ambiance"
-gtk-icon-theme-name = "Faenza-Ambiance"
+gtk-icon-theme-name = "Yaru"
 
 style "foofonts"
 {

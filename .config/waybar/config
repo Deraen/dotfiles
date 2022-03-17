@@ -25,7 +25,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "{icon} {status}",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -82,7 +82,7 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         // {signalStrength}
         "format-wifi": "{essid} ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "tooltip": false,

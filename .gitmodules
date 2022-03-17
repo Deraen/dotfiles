@@ -306,3 +306,6 @@
 [submodule ".local/modules/swaylock"]
 	path = .local/modules/swaylock
 	url = https://github.com/swaywm/swaylock.git
+[submodule ".local/modules/dunst"]
+	path = .local/modules/dunst
+	url = https://github.com/dunst-project/dunst.git

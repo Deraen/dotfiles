@@ -19,11 +19,10 @@
     indicate_hidden = yes
 
     # available modifiers are 'ctrl', 'mod1' (the alt-key), 'mod2', 'mod3' and 'mod4' (windows-key)
-    modifier = mod1
-    key = f1
-    history_key = f2
-
-    geometry = "0x3-30+20"
+    # modifier = mod1
+    # key = f1
+    # history_key = f2
+    # geometry = "0x3-30+20"
 
     idle_threshold = 0
     transparency=30
@@ -35,9 +34,9 @@
     timeout = 10
 
 [urgency_normal]
-    background = "#1793D1"
+    background = "#285577AA"
     foreground = "#DDDDDD"
-    timeout = 10
+    timeout = 5
 
 [urgency_critical]
     background = "#ffaaaa"
@@ -52,3 +51,13 @@
     appname=Spotify
     background = "#648F00"
     foreground = "#ffffff"
+
+[category=volume]
+    origin=center
+    width=600
+    padding=20
+
+[category=backlight]
+    origin=center
+    width=600
+    padding=20
