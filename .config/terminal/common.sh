@@ -62,34 +62,11 @@ alias iced='shdotenv iced'
 export LEIN_GPG=gpg2
 export BOOT_GPG_COMMAND=gpg2
 
-export NVM_DIR="/home/juho/.nvm"
-
-# Init nvm when first called
-nvm() {
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
-  nvm "$@"
-}
-
-# Use default nvm version when node/npm called the first time
-# and no nvm enabled.
-init_nvm() {
-  unalias npm
-  unalias node
-  if [[ -z $NVM_BIN ]]; then
-    nvm use default
-  fi
-  "$@"
-}
-
-alias npm='init_nvm npm'
-alias node='init_nvm node'
-
 export GOPATH="/home/juho/Source/go"
 
 choose_jdk() {
-  VERSION=$1
   PREV=$JAVA_HOME
-  JAVA_HOME=/usr/lib/jvm/java-${VERSION}-openjdk-amd64
+  JAVA_HOME=$1
   if [[ ! -d $JAVA_HOME ]]; then
     echo "Bad java path $JAVA_HOME"
     return 1
@@ -100,7 +77,17 @@ choose_jdk() {
   removePath "$PREV/bin"
   removePath "$PREV/jre/bin"
   removePath "$PREV/db/bin"
+
+  java -version
 }
+
+_choose_jdk_completions() {
+  for i in /usr/lib/jvm/*; do
+    COMPREPLY+=("$i")
+  done
+}
+
+complete -F _choose_jdk_completions choose_jdk
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 addPath "$HOME/.rvm/bin"
