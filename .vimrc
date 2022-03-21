@@ -355,21 +355,6 @@ autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <
 
 autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
 
-" Ncm2
-
-let g:ncm2#complete_delay = 400
-
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" When the <Enter> key is pressed while the popup menu is visible, it only
-" hides the menu. Use this mapping to close the menu and also start a new
-" line.
-inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 " Clap
 
 let g:clap_layout = { 'relative': 'editor' }
@@ -518,6 +503,21 @@ lua << EOF
     }
   }
 
+  --Enable (broadcasting) snippet capability for completion
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+  local luasnip = require 'luasnip'
+
+  lspconfig.cssls.setup {
+    capabilities = capabilities,
+  }
+
+  lspconfig.jsonls.setup {
+    capabilities = capabilities,
+    filetypes = { "json", "javascript", "javascriptreact" }
+  }
+
   local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " }
   for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
@@ -578,4 +578,49 @@ lua << EOF
     }
   }
 }
+
+  -- nvim-cmp setup
+  local cmp = require 'cmp'
+  cmp.setup {
+    snippet = {
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body)
+      end,
+    },
+    mapping = {
+      ['<C-p>'] = cmp.mapping.select_prev_item(),
+      ['<C-n>'] = cmp.mapping.select_next_item(),
+      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.close(),
+      ['<CR>'] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
+      },
+      ['<Tab>'] = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        elseif luasnip.expand_or_jumpable() then
+          vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+        else
+          fallback()
+        end
+      end,
+      ['<S-Tab>'] = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+        else
+          fallback()
+        end
+      end,
+    },
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' },
+    },
+  }
+
 EOF

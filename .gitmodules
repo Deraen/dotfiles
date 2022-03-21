@@ -248,12 +248,6 @@
 [submodule ".vim/bundle/vim-clap"]
 	path = .vim/bundle/vim-clap
 	url = https://github.com/liuchengxu/vim-clap.git
-[submodule ".vim/bundle/ncm2"]
-	path = .vim/bundle/ncm2
-	url = https://github.com/ncm2/ncm2.git
-[submodule ".vim/bundle_clojure/vim-iced-ncm2"]
-	path = .vim/bundle_clojure/vim-iced-ncm2
-	url = https://github.com/nbardiuk/vim-iced-ncm2.git
 [submodule ".vim/bundle/vim-hexokinase"]
 	path = .vim/bundle/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase.git
@@ -312,3 +306,15 @@
 [submodule ".local/modules/helvum"]
 	path = .local/modules/helvum
 	url = https://gitlab.freedesktop.org/pipewire/helvum.git
+[submodule ".vim/bundle/LuaSnip"]
+	path = .vim/bundle/LuaSnip
+	url = https://github.com/L3MON4D3/LuaSnip.git
+[submodule ".vim/bundle/nvim-cmp"]
+	path = .vim/bundle/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp.git
+[submodule ".vim/bundle/cmp-nvim-lsp"]
+	path = .vim/bundle/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule ".vim/bundle/cmp_luansip"]
+	path = .vim/bundle/cmp_luansip
+	url = https://github.com/saadparwaiz1/cmp_luasnip.git
