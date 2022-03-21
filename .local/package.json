@@ -5,6 +5,7 @@
   "description": "",
   "dependencies": {
     "@mermaid-js/mermaid-cli": "8.14.0",
+    "@tailwindcss/language-server": "^0.0.7",
     "cloc": "2.9.0",
     "externs-generator": "0.3.4",
     "gulp": "4.0.2",

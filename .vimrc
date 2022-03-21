@@ -408,6 +408,9 @@ autocmd FileType clap_input inoremap <silent> <buffer> <S-Tab> <Esc>:<c-u>call c
 lua << EOF
   local lspconfig = require 'lspconfig'
 
+  -- vim.lsp.set_log_level("debug")
+  -- :lua vim.cmd('e'..vim.lsp.get_log_path())
+
   local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -475,6 +478,45 @@ lua << EOF
         debounce_text_change = 150,
     },
     root_dir = root_pattern('project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn', '.git'),
+  }
+
+  lspconfig.tailwindcss.setup {
+    -- Only enable if config found in the project, not for every clojure project
+    root_dir = lspconfig_util.root_pattern('tailwind.config.js'),
+    on_attach = on_attach,
+    flags = {
+        debounce_text_change = 150,
+    },
+    filetypes = { "clojure", "javascript", "javascriptreact", "html" },
+    settings = {
+      tailwindCSS = {
+        validate = true,
+        classAttributes = { "class", "className", "classList", "ngClass" },
+        emmetCompletions = true,
+        lint = {
+          cssConflict = "warning",
+          invalidApply = "error",
+          invalidConfigPath = "error",
+          invalidScreen = "error",
+          invalidTailwindDirective = "error",
+          invalidVariant = "error",
+          recommendedVariantOrder = "warning"
+        },
+        includeLanguages = {
+          clojure = "html"
+        },
+        experimental = {
+          classRegex = {
+            -- Try enabling emmetCompletions for Hiccup style keys
+            -- ":div.([^ ]+)",
+            -- Clojure :class "my-2"
+            ":class \"([^\"]*)\"",
+            -- Clojure #tw reader tag
+            "#tw \"([^\"]*)\""
+          }
+        }
+      }
+    }
   }
 
   local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " }
