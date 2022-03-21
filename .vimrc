@@ -162,7 +162,6 @@ nnoremap <silent> <M-p>    :<C-u>Clap files ++finder=rg --files ..<cr>
 nnoremap § qqqqq
 nnoremap ½ @q
 vnoremap ½ @q
-vnoremap ¤ :g/.*/norm!
 
 " One more way to exit insert mode
 inoremap <C-c> <ESC>

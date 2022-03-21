@@ -61,6 +61,9 @@ source $HOME/.local/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+eval "$(direnv hook zsh)"
+
+# Automatically enable node version from .zshrc file when entering a directory
 load-nvmrc() {
     # nvm version read is only inside if and elif branches,
     # so if nvnrc doesn't exist and nvm wasn't enabled nvm version isn't run.
