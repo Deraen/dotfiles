@@ -254,7 +254,6 @@ let g:iced#buffer#stdout#max_line = 10000
 let g:iced_enable_auto_document = ''
 let g:iced#selector#search_order = ['clap']
 
-
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 0
 let g:clojure_maxlines = 200
@@ -304,11 +303,6 @@ function! SynStack()
 endfunc
 
 let g:vim_json_syntax_conceal = 0
-
-" autocmd FileType json syntax match Comment +\/\/.\+$+
-
-" R
-let vimrplugin_term="urxvt"
 
 let g:sql_type_default = 'pgsql'
 let g:ftplugin_sql_omni_key = '<C-j>'
@@ -509,6 +503,7 @@ lua << EOF
 
   local luasnip = require 'luasnip'
 
+  --[[
   lspconfig.cssls.setup {
     capabilities = capabilities,
   }
@@ -517,6 +512,7 @@ lua << EOF
     capabilities = capabilities,
     filetypes = { "json", "javascript", "javascriptreact" }
   }
+  --]]
 
   local signs = { Error = "E ", Warn = "W ", Hint = "H ", Info = "I " }
   for type, icon in pairs(signs) do

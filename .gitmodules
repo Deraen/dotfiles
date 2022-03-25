@@ -318,3 +318,6 @@
 [submodule ".vim/bundle/cmp_luansip"]
 	path = .vim/bundle/cmp_luansip
 	url = https://github.com/saadparwaiz1/cmp_luasnip.git
+[submodule ".vim/bundle/vim-rhubarb"]
+	path = .vim/bundle/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
