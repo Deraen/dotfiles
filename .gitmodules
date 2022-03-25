@@ -309,3 +309,6 @@
 [submodule ".local/modules/dunst"]
 	path = .local/modules/dunst
 	url = https://github.com/dunst-project/dunst.git
+[submodule ".local/modules/helvum"]
+	path = .local/modules/helvum
+	url = https://gitlab.freedesktop.org/pipewire/helvum.git

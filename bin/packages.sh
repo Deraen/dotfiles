@@ -11,6 +11,9 @@ ppa ubuntuhandbook1 apps impish
 ppa neovim-ppa unstable jammy --keyid 55F96FCF8231B6DD
 ppa deraen random bionic --keyid 8EE3F468
 ppa nschloe waybar impish --keyid ECD154D280FEB8AC
+ppa pipewire-debian pipewire-upstream jammy --keyid 25088A0359807596
+ppa pipewire-debian wireplumber-upstream jammy --keyid 25088A0359807596
+ppa papirus papirus impish
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
@@ -36,13 +39,19 @@ repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktabl
 repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ impish main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 
-curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+if [[ ! -f /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
+        curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+fi
 
-curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
-sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+if [[ ! -f /etc/debsig/policies/AC2D62742012EA22/1password.pol ]]; then
+        sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+        curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+fi
 
-curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+if [[ ! -f /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg ]]; then
+        sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+        curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+fi
 
 repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
 repo gitlab "deb https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ focal main\ndeb-src https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ focal main" \
@@ -207,6 +216,13 @@ install xmlstarlet
 install wireshark
 install clinfo
 
+install pipewire
+install pipewire-audio-client-libraries
+install libspa-0.2-bluetooth
+install libspa-0.2-jack
+install libpipewire-0.3-common
+install wireplumber
+
 # Dev dependencies
 install autoconf
 install automake
@@ -302,6 +318,10 @@ install libnotify-dev
 # install libhandy-1-dev
 # install libgtk-layer-shell-dev
 
+# Helvum
+install libgtk-4-dev
+instlal livepipewire-0.3-dev
+
 # Docker
 install docker-ce
 install google-cloud-sdk
@@ -352,13 +372,13 @@ install wl-clipboard
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools
 install "rxvt-unicode-256color"
-install suru-icon-theme
+install papirus-icon-theme
 # install polybar
 install qt5-style-plugins
 install qt5-gtk-platformtheme
 install 1password
 
-install xdg-desktop-portal-wlr "0.5.0-1" http://ftp.fi.debian.org/debian/pool/main/x/xdg-desktop-portal-wlr/xdg-desktop-portal-wlr_0.5.0-1_amd64.deb
+install xdg-desktop-portal-wlr
 
 # GPG stuff
 install gnupg2
@@ -438,7 +458,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install mp3splt-gtk
         # install luminance-hdr # HDR images
         install vdpau-va-driver # Use vdpau from VA api? For VLC?
-        install hugin # Panorama stitcher
+        # install hugin # Panorama stitcher
         install jack-rack # JACK LADSPA effects
         install qjackctl
         install guitarix # Guitar AMP

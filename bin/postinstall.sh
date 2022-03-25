@@ -114,6 +114,14 @@ if [[ $desktop == true ]]; then
     gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
     )
 
+    (
+    cd $HOME/.local/modules/helvum || exit
+    meson setup build --prefix=$HOME/.local
+    cd build || exit
+    meson compile
+    meson install
+    )
+
     go install go.mozilla.org/sops/v3/cmd/sops@latest
 
     header "Settings"
