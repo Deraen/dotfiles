@@ -36,7 +36,7 @@ rustup override set stable
 rustup update stable
 
 header "Install clojure"
-clojure_tool_version=1.10.3.1087
+clojure_tool_version=1.11.0.1100
 clojure_bin=$HOME/.local/bin/clojure
 
 if [[ ! -f $clojure_bin ]] || ! grep -q "# Version = $clojure_tool_version" "$clojure_bin"; then
@@ -81,6 +81,10 @@ if [[ $desktop == true ]]; then
     (
     cd "$HOME/.local/modules/sway" || exit
     meson --prefix="$HOME/.local" build
+    if [[ ! -f subprojects/wlroots ]]; then
+        mkdir -p subprojects
+        ln -s $HOME/.local/modules/wlroots subprojects
+    fi
     ninja -C build install
     )
 

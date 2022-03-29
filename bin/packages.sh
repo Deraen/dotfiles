@@ -13,7 +13,7 @@ ppa deraen random bionic --keyid 8EE3F468
 ppa nschloe waybar impish --keyid ECD154D280FEB8AC
 ppa pipewire-debian pipewire-upstream jammy --keyid 25088A0359807596
 ppa pipewire-debian wireplumber-upstream jammy --keyid 25088A0359807596
-ppa papirus papirus impish
+ppa papirus papirus impish --keyid E58A9D36647CAE7F
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
@@ -124,6 +124,7 @@ install tmispell-voikko
 install tmux
 install tree
 install zsh
+install direnv
 install dos2unix
 install rename
 install exuberant-ctags
@@ -140,6 +141,7 @@ install sysfsutils
 install ufw
 install libimage-exiftool-perl
 install apparmor-utils
+install flatpak
 
 # Editor
 install neovim
@@ -320,7 +322,7 @@ install libnotify-dev
 
 # Helvum
 install libgtk-4-dev
-instlal livepipewire-0.3-dev
+install libpipewire-0.3-dev
 
 # Docker
 install docker-ce
@@ -360,6 +362,7 @@ install swaybg
 install waybar
 install swaylock
 install swayidle
+install wf-recorder
 install wdisplays
 install grim
 install slurp
