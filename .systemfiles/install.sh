@@ -27,6 +27,8 @@ remove() {
     fi
 }
 
+cp -r /usr/share/pipewire/ /etc/pipewire/
+
 install "/etc/sysctl.d/90-local.conf"
 install "/etc/default/keyboard"
 install "/etc/pam.d/swaylock"

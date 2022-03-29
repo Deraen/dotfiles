@@ -22,11 +22,8 @@ font pango:Ubuntu 8
 exec lock.sh --start
 exec nm-applet --indicator
 exec gnome-keyring-daemon --start --components=pkcs11,ssh
-exec dunst
 exec import-gsettings
 
-# Reload mako settings on Sway reload
-exec_always makoctl reload
 # Bg needs to be set after reload
 exec_always rndbg.sh
 

@@ -133,6 +133,10 @@ if [[ $desktop == true ]]; then
     crudini --set "$HOME/.config/Trolltech.conf" Qt style GTK+
 
     # sudo aa-disable /etc/apparmor.d/fr.emersion.Mako
+
+    systemctl --user --now disable pulseaudio.service pulseaudio.socket
+    systemctl --user --now enable pipewire pipewire-pulse
+    systemctl --user --now enable wireplumber
 fi
 
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then

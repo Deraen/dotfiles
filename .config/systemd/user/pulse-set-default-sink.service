@@ -1,9 +1,0 @@
-[Unit]
-Description=Pulseaudio set default sink
-
-[Service]
-Type=simple
-ExecStart=/home/juho/bin/pulse-set-default-sink.py alsa_output.usb-Audinst__Inc._Audinst_HUD-mx1-01.analog-stereo
-
-[Install]
-WantedBy=default.target

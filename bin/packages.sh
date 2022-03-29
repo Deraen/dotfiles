@@ -317,8 +317,10 @@ install libxss-dev
 install libnotify-dev
 
 # SwayNotificationCenter
-# install libhandy-1-dev
-# install libgtk-layer-shell-dev
+install libgtk-3-dev
+install valac
+install libhandy-1-dev
+install libgtk-layer-shell-dev
 
 # Helvum
 install libgtk-4-dev
@@ -380,6 +382,7 @@ install papirus-icon-theme
 install qt5-style-plugins
 install qt5-gtk-platformtheme
 install 1password
+install policykit-1-gnome
 
 install xdg-desktop-portal-wlr
 

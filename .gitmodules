@@ -321,3 +321,6 @@
 [submodule ".vim/bundle/vim-rhubarb"]
 	path = .vim/bundle/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
+[submodule ".local/modules/SwayNotificationCenter"]
+	path = .local/modules/SwayNotificationCenter
+	url = https://github.com/ErikReider/SwayNotificationCenter.git
