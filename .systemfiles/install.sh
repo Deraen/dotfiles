@@ -43,6 +43,7 @@ install "/etc/udev/rules.d/90-backlight.rules"
 remove "/etc/udev/rules.d/91-pulseaudio.rules"
 install "/etc/modprobe.d/thinkpad_acpi.conf"
 install "/usr/share/xsessions/custom.desktop"
+install "/usr/local/share/wayland-sessions/sway-session.desktop"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
     install "/etc/X11/xorg.conf.d/metamodes.conf"
