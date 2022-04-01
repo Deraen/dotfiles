@@ -4,12 +4,12 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "@emacs-grammarly/unofficial-grammarly-language-server": "^0.2.2",
-    "@mermaid-js/mermaid-cli": "8.14.0",
+    "@emacs-grammarly/unofficial-grammarly-language-server": "0.2.2",
+    "@mermaid-js/mermaid-cli": "^8.8.4",
     "@tailwindcss/language-server": "^0.0.7",
     "cloc": "2.9.0",
     "externs-generator": "0.3.4",
-    "gulp": "4.0.2",
+    "gulp": "^3.9.1",
     "gzip-size-cli": "5.1.0",
     "jshint": "2.13.4",
     "less": "4.1.2",
@@ -18,14 +18,14 @@
     "npm-check-updates": "12.5.4",
     "pretty-bytes-cli": "3.0.0",
     "re-natal": "0.11.1",
-    "react-devtools": "4.24.2",
+    "react-devtools": "4.24.3",
     "react-native-cli": "2.0.1",
-    "sass": "1.49.9",
+    "sass": "1.49.10",
     "shadow-cljs": "2.17.8",
     "source-map-explorer": "2.5.2",
     "stylelint": "14.6.1",
     "svgo": "2.8.0",
     "uglify-js": "3.15.3",
-    "vscode-langservers-extracted": "^4.1.0"
+    "vscode-langservers-extracted": "4.1.0"
   }
 }

@@ -21,9 +21,8 @@ cd "$HOME/.local" || exit
 
 nvm install stable
 
-npm prune
-npm install
-npm update
+npm prune --no-fund --no-audit
+npm install --no-fund
 )
 
 if [[ ! -d ~/.cargo ]]; then
@@ -74,12 +73,14 @@ if [[ $desktop == true ]]; then
 
     (
     cd "$HOME/.local/modules/wlroots" || exit
+    header "Wlroots"
     meson build
     sudo ninja -C build install
     )
 
     (
     cd "$HOME/.local/modules/sway" || exit
+    header "Sway"
     meson build
     if [[ ! -f subprojects/wlroots ]]; then
         mkdir -p subprojects
@@ -120,6 +121,7 @@ if [[ $desktop == true ]]; then
 
     (
     cd $HOME/.local/modules/helvum || exit
+    header "Helvum"
     meson setup build --prefix=$HOME/.local
     cd build || exit
     meson compile
