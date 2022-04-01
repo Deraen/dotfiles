@@ -27,7 +27,7 @@ remove() {
     fi
 }
 
-sudo cp -r /usr/share/pipewire/ /etc/pipewire/
+sudo cp -vRa /usr/share/pipewire /etc/
 
 install "/etc/sysctl.d/90-local.conf"
 install "/etc/default/keyboard"

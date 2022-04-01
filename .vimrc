@@ -450,7 +450,12 @@ lua << EOF
     end
   end
 
+  --Enable (broadcasting) snippet capability for completion
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
   lspconfig.clojure_lsp.setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     flags = {
         debounce_text_change = 150,
@@ -461,6 +466,7 @@ lua << EOF
   lspconfig.tailwindcss.setup {
     -- Only enable if config found in the project, not for every clojure project
     root_dir = lspconfig_util.root_pattern('tailwind.config.js'),
+    capabilities = capabilities,
     on_attach = on_attach,
     flags = {
         debounce_text_change = 150,
@@ -496,10 +502,6 @@ lua << EOF
       }
     }
   }
-
-  --Enable (broadcasting) snippet capability for completion
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
   local luasnip = require 'luasnip'
 

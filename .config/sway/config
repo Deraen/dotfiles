@@ -24,6 +24,9 @@ exec nm-applet --indicator
 exec gnome-keyring-daemon --start --components=pkcs11,ssh
 exec import-gsettings
 
+# These are set by sway, so not available on sway-session script?
+exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"
+
 # Bg needs to be set after reload
 exec_always rndbg.sh
 

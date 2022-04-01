@@ -2,14 +2,19 @@
 
 . "$HOME/.local/lib/functions.sh"
 
-git submodule update --remote
+declare -A old_version
 
 get_lastest_tag() {
+    old_version[$1]=1
     (
     cd "$1" || exit
-    tag=$(git describe --abbrev=0 --tags --match "[v0-9]*" origin)
-    echo "$(basename "$1") checkout $tag"
+
+    git fetch --tags
+    latest_tag_sha=$(git rev-list --tags --max-count=1)
+    tag=$(git describe --abbrev=0 --tags "$latest_tag_sha")
+    echo "# $(basename "$1") checkout $tag"
     git checkout "$tag"
+    echo
     )
 }
 
@@ -17,6 +22,39 @@ get_lastest_tag "$NVM_DIR"
 get_lastest_tag "$HOME/.fzf"
 get_lastest_tag "$HOME/.local/modules/picom"
 get_lastest_tag "$HOME/.vim/bundle/vim-clap"
+get_lastest_tag "$HOME/.vim/bundle_clojure/vim-iced"
+get_lastest_tag "$HOME/.local/modules/wlroots"
+get_lastest_tag "$HOME/.local/modules/sway"
+get_lastest_tag "$HOME/.local/modules/alacritty"
+
+declare -a paths
+
+OFS=$IFS
+IFS=$'\n'
+for status in $(git submodule status); do
+    repo=$HOME/$(echo $status | cut -d' ' -f3)
+    version=$(echo $status | cut -d' ' -f4)
+    # Skip updating those that already have latest tag
+    if [[ ${old_version[$repo]+_} ]]; then
+        old_version[$repo]=$version
+        continue
+    fi
+
+    old_version[$repo]=$version
+    paths+=( $repo )
+done
+
+git submodule update --remote ${paths[@]}
+
+for status in $(git submodule status); do
+    repo=$HOME/$(echo $status | cut -d' ' -f3)
+    new_version=$(echo $status | cut -d' ' -f4)
+    o=${old_version[$repo]}
+    if [[ "$o" != "$new_version" ]]; then
+        echo "Updated $repo from $o to $new_version"
+    fi
+done
+
 
 git add -A "$HOME/.local/modules" "$HOME/.vim/bundle*" "$HOME/.fzf" "$HOME/.nvm"
 

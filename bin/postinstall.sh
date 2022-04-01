@@ -74,18 +74,18 @@ if [[ $desktop == true ]]; then
 
     (
     cd "$HOME/.local/modules/wlroots" || exit
-    meson --prefix="$HOME/.local" build
-    ninja -C build install
+    meson build
+    sudo ninja -C build install
     )
 
     (
     cd "$HOME/.local/modules/sway" || exit
-    meson --prefix="$HOME/.local" build
+    meson build
     if [[ ! -f subprojects/wlroots ]]; then
         mkdir -p subprojects
         ln -s $HOME/.local/modules/wlroots subprojects
     fi
-    ninja -C build install
+    sudo ninja -C build install
     )
 
     (
