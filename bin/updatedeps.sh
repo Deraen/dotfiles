@@ -26,14 +26,16 @@ get_lastest_tag "$HOME/.vim/bundle_clojure/vim-iced"
 get_lastest_tag "$HOME/.local/modules/wlroots"
 get_lastest_tag "$HOME/.local/modules/sway"
 get_lastest_tag "$HOME/.local/modules/alacritty"
+get_lastest_tag "$HOME/.local/modules/SwayNotificationCenter"
 
 declare -a paths
 
 OFS=$IFS
 IFS=$'\n'
 for status in $(git submodule status); do
-    repo=$HOME/$(echo $status | cut -d' ' -f3)
-    version=$(echo $status | cut -d' ' -f4)
+    repo=$HOME/$(echo $status | cut -c 2- | cut -d' ' -f2)
+    version=$(echo $status | cut -c 2- | cut -d' ' -f3)
+
     # Skip updating those that already have latest tag
     if [[ ${old_version[$repo]+_} ]]; then
         old_version[$repo]=$version
@@ -47,8 +49,8 @@ done
 git submodule update --remote ${paths[@]}
 
 for status in $(git submodule status); do
-    repo=$HOME/$(echo $status | cut -d' ' -f3)
-    new_version=$(echo $status | cut -d' ' -f4)
+    repo=$HOME/$(echo $status | cut -c 2- | cut -d' ' -f2)
+    new_version=$(echo $status | cut -c 2- | cut -d' ' -f3)
     o=${old_version[$repo]}
     if [[ "$o" != "$new_version" ]]; then
         echo "Updated $repo from $o to $new_version"
