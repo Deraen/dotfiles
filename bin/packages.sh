@@ -38,6 +38,9 @@ repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktabl
         --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_21.10/Release.key"
 repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ impish main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
+repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
+        --key-url "https://deb.beekeeperstudio.io/beekeeper.key"
+repo microsoft-edge-beta "### THIS FILE IS AUTOMATICALLY CONFIGURED\n### You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/edge/ stable main"
 
 if [[ ! -f /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
         curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -497,6 +500,8 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install qgis
         install librecad
         install gitlab-runner
+        install beekeeper-studio
+        install microsoft-edge-beta
 fi
 
 markauto

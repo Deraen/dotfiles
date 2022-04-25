@@ -62,7 +62,7 @@ if [[ $(hostname -s) =~ juho-laptop ]]; then
     fi
 
     remove "/etc/NetworkManager/dispatcher.d/99nfs"
-    install "/etc/systemd/logind.conf"
+    install "/etc/systemd/logind.conf.d/lid-and-suspend.conf"
     install "/etc/systemd/system/thinkfan.service.d/override.conf"
     remove "/etc/udev/hwdb.d/99-trackpoint.hwdb"
     install "/etc/libinput/local-overrides.quirks"

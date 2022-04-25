@@ -1,6 +1,7 @@
 # zmodload zsh/zprof
 
 NVM_LAZY=1
+NVM_LAZY_CMD=( "npx" )
 
 fpath=( \
     "$HOME/.config/terminal/zfunctions" \

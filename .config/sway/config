@@ -23,6 +23,7 @@ exec lock.sh --start
 exec nm-applet --indicator
 exec gnome-keyring-daemon --start --components=pkcs11,ssh
 exec import-gsettings
+exec "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
 
 # These are set by sway, so not available on sway-session script?
 exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"
