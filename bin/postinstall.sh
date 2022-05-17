@@ -90,6 +90,13 @@ if [[ $desktop == true ]]; then
     )
 
     (
+    cd "$HOME/.local/modules/SwayNotificationCenter" || exit
+    header "SwayNC"
+    ninja -C build
+    sudo meson install -C build
+    )
+
+    (
     # Home git repo, don't show untracked files on status
     cd "$HOME" && git config status.showUntrackedFiles no
     )
