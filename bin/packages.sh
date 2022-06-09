@@ -379,13 +379,13 @@ install brightnessctl
 install wl-clipboard
 install gnome-control-center # Includes gnome-sound-applet
 install suckless-tools
-install "rxvt-unicode-256color"
 install papirus-icon-theme
 # install polybar
 install qt5-style-plugins
 install qt5-gtk-platformtheme
 install 1password
 install policykit-1-gnome
+install fonts-roboto
 
 install xdg-desktop-portal-wlr
 
