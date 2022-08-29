@@ -257,6 +257,7 @@
 [submodule ".vim/bundle/fern.vim"]
 	path = .vim/bundle/fern.vim
 	url = https://github.com/lambdalisue/fern.vim.git
+	branch = main
 [submodule ".vim/bundle/FixCursorHold.nvim"]
 	path = .vim/bundle/FixCursorHold.nvim
 	url = https://github.com/antoinemadec/FixCursorHold.nvim.git

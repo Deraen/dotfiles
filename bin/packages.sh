@@ -8,7 +8,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 ppa ubuntuhandbook1 gimp impish
 ppa ubuntuhandbook1 apps impish
-ppa neovim-ppa unstable jammy --keyid 55F96FCF8231B6DD
+ppa neovim-ppa stable jammy --keyid 55F96FCF8231B6DD
 ppa deraen random bionic --keyid 8EE3F468
 ppa nschloe waybar impish --keyid ECD154D280FEB8AC
 ppa pipewire-debian pipewire-upstream jammy --keyid 25088A0359807596
@@ -34,8 +34,8 @@ repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out 
         --keyid C6ABDCF64DB9A0B2
 repo github-cli "deb https://cli.github.com/packages impish main" \
         --keyid C99B11DEB97541F0
-repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_21.10/ /" \
-        --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_21.10/Release.key"
+repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_22.04/ /" \
+        --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_22.04/Release.key"
 repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ impish main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
@@ -193,6 +193,7 @@ install git
 install gitg
 install git-flow
 install git-lfs
+install git-revise
 install qgit
 install gh
 

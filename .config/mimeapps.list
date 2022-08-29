@@ -17,7 +17,7 @@ x-scheme-handler/msteams=teams.desktop
 image/x-olympus-orf=darktable.desktop
 
 [Added Associations]
-video/quicktime=mpv.desktop;
+video/quicktime=vlc.desktop;mpv.desktop;
 text/html=google-chrome.desktop;
 text/xml=google-chrome.desktop;
 application/xhtml_xml=google-chrome.desktop;
