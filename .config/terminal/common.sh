@@ -38,6 +38,7 @@ addPath "$ANDROID_HOME/tools"
 addPath /usr/local/cuda-5.5/bin
 # Python Poetry
 addPath "$HOME/.poetry/bin"
+addPath "$HOME/.platformio/penv/bin"
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
