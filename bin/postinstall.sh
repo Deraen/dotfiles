@@ -94,6 +94,7 @@ if [[ $desktop == true ]]; then
     header "SwayNC"
     ninja -C build
     sudo meson install -C build
+    sudo cp -r /usr/local/etc/xdg/swaync /etc/xdg/
     )
 
     (
