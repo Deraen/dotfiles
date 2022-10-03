@@ -27,6 +27,7 @@
     "stylelint": "14.11.0",
     "svgo": "2.8.0",
     "uglify-js": "3.17.0",
-    "vscode-langservers-extracted": "4.4.0"
+    "vscode-langservers-extracted": "4.4.0",
+    "yarn": "^1.22.19"
   }
 }
