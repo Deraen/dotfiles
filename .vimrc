@@ -70,6 +70,9 @@ set completeopt=noinsert,menuone,noselect
 " set signcolumn=yes
 set signcolumn=number
 
+" Terminal
+set scrollback=50000
+
 if has("gui_gtk2")
   set guioptions=ca
   set guifont=Consolas\ 10
@@ -253,6 +256,7 @@ let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
 let g:iced#buffer#stdout#max_line = 10000
 let g:iced_enable_auto_document = ''
 let g:iced#selector#search_order = ['clap']
+let g:iced#source_root = '/home/juho/.vim/bundle_clojure/vim-iced'
 
 " Lispwords settings on ~/.vim/after/ftplugin/clojure.vim
 let g:clojure_align_multiline_strings = 0
