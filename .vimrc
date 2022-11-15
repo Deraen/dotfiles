@@ -251,6 +251,7 @@ au FileType clojure let b:delimitMate_quotes = "\""
 let g:iced_formatter = 'zprint'
 let g:iced_enable_auto_indent = v:false
 let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
+let g:iced#nrepl#enable_sideloader = v:true
 " let g:iced_enable_clj_kondo_analysis = v:true
 " let g:iced_enable_clj_kondo_local_analysis = v:true
 let g:iced#buffer#stdout#max_line = 10000
@@ -456,7 +457,7 @@ lua << EOF
 
   --Enable (broadcasting) snippet capability for completion
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  capabilities = require('cmp_nvim_lsp').default_capabilities()
 
   lspconfig.clojure_lsp.setup {
     capabilities = capabilities,
