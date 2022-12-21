@@ -24,7 +24,6 @@ exec nm-applet --indicator
 exec gnome-keyring-daemon --start --components=pkcs11,ssh
 exec import-gsettings
 exec "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
-exec swaync
 
 # These are set by sway, so not available on sway-session script?
 exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"
@@ -33,7 +32,8 @@ exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"
 exec_always rndbg.sh
 
 # Dmenu
-bindsym $mod+r exec wofi --show drun --insensitive
+# bindsym $mod+r exec wofi --show drun --insensitive
+bindsym $mod+r exec rofi -show drun
 
 bindsym $mod+Shift+F12 exec rndbg.sh
 

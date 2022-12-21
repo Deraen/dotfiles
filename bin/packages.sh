@@ -6,8 +6,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
-ppa ubuntuhandbook1 gimp impish
-ppa ubuntuhandbook1 apps impish
+ppa ubuntuhandbook1 gimp impish --keyid 4C1CBE14852541CB
+ppa ubuntuhandbook1 apps impish --keyid 4C1CBE14852541CB
 ppa neovim-ppa stable jammy --keyid 55F96FCF8231B6DD
 ppa deraen random bionic --keyid 8EE3F468
 ppa nschloe waybar impish --keyid ECD154D280FEB8AC
@@ -18,8 +18,6 @@ repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" 
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
         --keyid 6494C6D6997C215E
-repo heroku "deb http://toolbelt.heroku.com/ubuntu ./" \
-        --keyid C927EBE00F1B0520
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
 repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal non-free contrib" \
@@ -29,18 +27,19 @@ repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy sta
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
-        --keyid 8B57C5C2836F4BEB
+        --keyid B53DC80D13EDEF05
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
         --keyid C6ABDCF64DB9A0B2
 repo github-cli "deb https://cli.github.com/packages impish main" \
-        --keyid C99B11DEB97541F0
+        --keyid 23F3D4EA75716059
 repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_22.04/ /" \
         --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_22.04/Release.key"
 repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ impish main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
         --key-url "https://deb.beekeeperstudio.io/beekeeper.key"
-repo microsoft-edge-beta "### THIS FILE IS AUTOMATICALLY CONFIGURED\n### You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/edge/ stable main"
+repo microsoft-edge-beta "### THIS FILE IS AUTOMATICALLY CONFIGURED\n### You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/edge/ stable main" \
+        --keyid EB3E94ADBE1229CF
 
 if [[ ! -f /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
         curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -69,7 +68,8 @@ fi
 if [[ $(hostname -s) =~ juho-laptop ]]; then
         ppa linrunner tlp jammy --keyid 2B3F92F902D65EFF
         ppa oibaf graphics-drivers jammy --keyid 957D2708A03A4626
-        repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main"
+        repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" \
+                --keyid EB3E94ADBE1229CF
 
 fi
 
@@ -198,7 +198,6 @@ install qgit
 install gh
 
 # Dev tools
-install heroku-toolbelt
 install devscripts
 install ubuntu-dev-tools
 install sqlite3

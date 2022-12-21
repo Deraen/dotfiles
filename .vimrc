@@ -443,7 +443,9 @@ lua << EOF
           if lspconfig_util.path.exists(p) then
             -- Unix paths only.
             -- Ignore the deps file if path is e.g. modules/reitit-core/project.clj
-            if not p:match("modules/[^/]+/[^/]+$") then
+            if not p:match("modules/[^/]+/[^/]+$")
+              and not p:match("polylith/[^/]+/[^/]+/[^/]+$")
+              and not lspconfig_util.path.exists(lspconfig_util.path.join(lspconfig_util.path.dirname(p), '.vim-lsp-ignore')) then
               return path
             end
           end
