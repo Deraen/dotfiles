@@ -11,7 +11,6 @@ font pango:Ubuntu, Icons 8
 bindsym $mod+r exec rofi -show drun
 
 bindsym $mod+Shift+F12 exec --no-startup-id dspmgr.py && rndbg.sh
-bindsym $mod+Shift+F11 exec togglecompton.sh
 
 # class                 border  backgr. text    indicator child_border
 client.focused          $active $active #d0d0d0 #184c73   $active

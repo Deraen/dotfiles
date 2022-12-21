@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [[ ! -f ~/.config/chrome-profiles.json ]]; then
+  /usr/bin/google-chrome-stable $@
+else
+  proto="$(echo $1 | grep :// | sed -e's,^\(.*://\).*,\1,g')"
+  url="$(echo ${1/$proto/})"
+  user="$(echo $url | grep @ | cut -d@ -f1)"
+  hostport="$(echo ${url/$user@/} | cut -d/ -f1)"
+  host="$(echo $hostport | sed -e 's,:.*,,g')"
+
+  PROFILE_NAME=$(jq -r 'keys | .[]' ~/.config/chrome-profiles.json | rofi -monitor -3 -theme-str 'window {width: 250px; height: 150px;}' -dmenu -p "Choose profile for $host")
+  PROFILE=$(jq -r ".[\"$PROFILE_NAME\"]" ~/.config/chrome-profiles.json)
+
+  if [[ $PROFILE == "null" ]]; then
+    PROFILE="Default"
+  fi
+
+  echo $PROFILE
+
+  /usr/bin/google-chrome-stable --profile-directory="$PROFILE" $@
+fi
