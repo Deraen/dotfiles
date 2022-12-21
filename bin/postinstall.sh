@@ -62,15 +62,6 @@ if [[ $desktop == true ]]; then
     header "Build i3-utils"
     make -C "$HOME/.local/modules/i3-utils" -j
 
-    # (
-    # cd "$HOME/.local/modules/picom" || exit
-    # header "Build picom"
-    # if [[ ! -d build ]]; then
-    #     meson -Dprefix="$HOME/.local" --buildtype=release . build
-    # fi
-    # ninja -C build install
-    # )
-
     (
     cd "$HOME/.local/modules/wlroots" || exit
     header "Wlroots"
@@ -141,8 +132,6 @@ if [[ $desktop == true ]]; then
     header "Settings"
     gsettings set org.gnome.desktop.background show-desktop-icons false
     crudini --set "$HOME/.config/Trolltech.conf" Qt style GTK+
-
-    # sudo aa-disable /etc/apparmor.d/fr.emersion.Mako
 
     systemctl --user --now disable pulseaudio.service pulseaudio.socket
     systemctl --user --now enable pipewire pipewire-pulse

@@ -2,10 +2,6 @@
 	path = .local/modules/dspmgr
 	url = git@github.com:Deraen/dspmgr.git
 	branch = master
-[submodule ".local/modules/urxvt-font-size"]
-	path = .local/modules/urxvt-font-size
-	url = https://github.com/majutsushi/urxvt-font-size.git
-	branch = master
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
@@ -226,9 +222,6 @@
 	path = .vim/bundle_clojure/vim-iced
 	url = https://github.com/liquidz/vim-iced.git
 	branch = main
-[submodule ".local/modules/picom"]
-	path = .local/modules/picom
-	url = https://github.com/yshui/picom.git
 [submodule ".vim/bundle/nvim-yarp"]
 	path = .vim/bundle/nvim-yarp
 	url = https://github.com/roxma/nvim-yarp.git
@@ -301,9 +294,6 @@
 [submodule ".local/modules/swaylock"]
 	path = .local/modules/swaylock
 	url = https://github.com/swaywm/swaylock.git
-[submodule ".local/modules/dunst"]
-	path = .local/modules/dunst
-	url = https://github.com/dunst-project/dunst.git
 [submodule ".local/modules/helvum"]
 	path = .local/modules/helvum
 	url = https://gitlab.freedesktop.org/pipewire/helvum.git

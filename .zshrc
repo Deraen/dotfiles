@@ -1,7 +1,7 @@
 # zmodload zsh/zprof
 
-NVM_LAZY=1
-NVM_LAZY_CMD=( "npx" )
+zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':omz:plugins:nvm' lazy-cmd npx
 
 fpath=( \
     "$HOME/.config/terminal/zfunctions" \
