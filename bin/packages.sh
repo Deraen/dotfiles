@@ -6,23 +6,32 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
-ppa ubuntuhandbook1 gimp impish --keyid 4C1CBE14852541CB
-ppa ubuntuhandbook1 apps impish --keyid 4C1CBE14852541CB
-ppa neovim-ppa stable jammy --keyid 55F96FCF8231B6DD
-ppa deraen random bionic --keyid 8EE3F468
-ppa nschloe waybar impish --keyid ECD154D280FEB8AC
-ppa pipewire-debian pipewire-upstream jammy --keyid 25088A0359807596
-ppa pipewire-debian wireplumber-upstream jammy --keyid 25088A0359807596
-ppa papirus papirus impish --keyid E58A9D36647CAE7F
+# kinetic 22.10
+# jammy 22.04 lts
+# focal 20.04 lts
+# disco 19.04
+# precise 12.04 lts
+
+# check local packages (not from repo):
+# apt list --installed | grep installed,local
+
+# ppa ubuntuhandbook1 gimp jammy --keyid 4C1CBE14852541CB
+# ppa ubuntuhandbook1 apps jammy --keyid 4C1CBE14852541CB
+# ppa ubuntuhandbook1 darktable kinetic --keyid 4C1CBE14852541CB
+# ppa neovim-ppa stable kinetic --keyid 55F96FCF8231B6DD
+# ppa deraen random bionic --keyid 8EE3F468
+# ppa pipewire-debian pipewire-upstream kinetic --keyid 25088A0359807596
+# ppa pipewire-debian wireplumber-upstream kinetic --keyid 25088A0359807596
+ppa papirus papirus kinetic --keyid E58A9D36647CAE7F
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
         --keyid 6494C6D6997C215E
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
-repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian focal non-free contrib" \
+repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian jammy non-free contrib" \
         --keyid A2F683C52980AECF
-repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable" \
+repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu kinetic stable" \
         --keyid 0EBFCD88
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
@@ -30,16 +39,15 @@ repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --keyid B53DC80D13EDEF05
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
         --keyid C6ABDCF64DB9A0B2
-repo github-cli "deb https://cli.github.com/packages impish main" \
-        --keyid 23F3D4EA75716059
-repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_22.04/ /" \
-        --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_22.04/Release.key"
-repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ impish main" \
+repo github-cli "deb https://cli.github.com/packages stable main" \
+        --key-url https://cli.github.com/packages/githubcli-archive-keyring.gpg
+repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_22.10/ /" \
+        --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_22.10/Release.key"
+repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ kinetic main" \
         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
         --key-url "https://deb.beekeeperstudio.io/beekeeper.key"
-repo microsoft-edge-beta "### THIS FILE IS AUTOMATICALLY CONFIGURED\n### You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/edge/ stable main" \
-        --keyid EB3E94ADBE1229CF
+repo tailscale "# Tailscale packages for ubuntu kinetic\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu kinetic main\n\n"
 
 if [[ ! -f /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
         curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -56,20 +64,16 @@ if [[ ! -f /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg ]]; then
 fi
 
 repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
-repo gitlab "deb https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ focal main\ndeb-src https://packages.gitlab.com/runner/gitlab-runner/ubuntu/ focal main" \
-        --key-url "https://packages.gitlab.com/runner/gitlab-runner/gpgkey"
 ppa libtorrent.org 1.2-daily jammy --keyid 32309D6B9E009EDB
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        ppa graphics-drivers ppa jammy
-        ppa lutris-team lutris impish --keyid 37B90EDD4E3EFAE4
+        ppa graphics-drivers ppa kinetic
+        ppa lutris-team lutris kinetic --keyid 37B90EDD4E3EFAE4
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
-        ppa linrunner tlp jammy --keyid 2B3F92F902D65EFF
-        ppa oibaf graphics-drivers jammy --keyid 957D2708A03A4626
-        repo teams "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" \
-                --keyid EB3E94ADBE1229CF
+        ppa linrunner tlp kinetic --keyid 2B3F92F902D65EFF
+        ppa oibaf graphics-drivers kinetic --keyid 957D2708A03A4626
 
 fi
 
@@ -103,26 +107,24 @@ install "libreoffice-l10n-en-gb"
 install "firefox-locale-en"
 
 # Devices?
-install usb-modeswitch # for 3G usb modems
+# install usb-modeswitch # for 3G usb modems
 
 # Tools
 install curl
 install acpi # View ACPI info, e.g. CPU temp (on laptop)
-install apache2-utils # htpasswd
+# install apache2-utils # htpasswd
 install atop # IO top
 install htop
 install iotop
 install jq # JSON processor
 install yamllint
 install ffmpeg
-install mosh
 install openssh-client
 install p7zip
 install powertop
 install ppa-purge
 install silversearcher-ag # Fast file searches
 install ripgrep
-install sshfs
 install tmispell-voikko
 install tmux
 install tree
@@ -209,14 +211,12 @@ install shellcheck
 install golang-go
 install golang-doc
 install golang-src
-install golang-1.18
+install golang-1.19
 install adb
 install diffpdf
 install pdfarranger
 install gdal-bin
 install cmatrix
-install sl
-install sassc
 install xmlstarlet
 install wireshark
 install clinfo
@@ -239,31 +239,6 @@ install virtualenv
 install libxi-dev
 # i3-utils
 install libjson-glib-dev
-# picom
-install meson
-install libxext-dev
-install libxcb1-dev
-install libxcb-damage0-dev
-install libxcb-xfixes0-dev
-install libxcb-shape0-dev
-install libxcb-render-util0-dev
-install libxcb-render0-dev
-install libxcb-randr0-dev
-install libxcb-composite0-dev
-install libxcb-image0-dev
-install libxcb-present-dev
-install libxcb-xinerama0-dev
-install libpixman-1-dev
-install libdbus-1-dev
-install libconfig-dev
-install libxdg-basedir-dev
-install libgl1-mesa-dev
-install libpcre2-dev
-install libevdev-dev
-install uthash-dev
-install libev-dev
-install libx11-xcb-dev
-install libxcb-glx0-dev
 # vim-clap
 install libssl-dev
 
@@ -331,6 +306,7 @@ install libpipewire-0.3-dev
 
 # Docker
 install docker-ce
+install docker-compose-plugin
 install google-cloud-sdk
 install awscli
 # install sops
@@ -394,8 +370,6 @@ install gnupg2
 install scdaemon
 install keybase
 install libu2f-host0
-install yubikey-personalization
-install yubikey-personalization-gui
 install pinentry-gtk2
 install pcscd
 
@@ -403,7 +377,6 @@ install pcscd
 install blender
 install calibre # Ebook library / reader
 install d-feet # Browse DBus
-install synaptic
 install dconf-editor # Edit Dconf settings (mostly Gnome stuff)
 install dropbox
 install feh
@@ -414,15 +387,13 @@ install gimp-gmic
 install darktable
 install google-chrome-stable
 install google-chrome-beta
-install meld
+# install meld
 install gparted
 install inkscape
 install keepassxc # Password manager
-install pass
-install pgtop
+# install pass
 install stress
-install libpq-dev
-install pitivi # Video editor
+# install pitivi # Video editor
 install xsane
 install qgit
 install simplescreenrecorder
@@ -431,7 +402,7 @@ install smplayer
 install playerctl
 install steam-launcher
 install deluge
-install virtualbox-6.1
+install virtualbox-7.0
 install typecatcher # Install Google webfonts
 install cheese # Webcam
 install yad # Zenity alternative with proper color picker
@@ -440,49 +411,32 @@ install mesa-utils
 install nemo
 install flameshot
 install usb-creator-gtk
-install wmctrl
 install xdotool
 install slack-desktop
 
 install network-manager-openconnect-gnome # Cisco VPN
-install ifupdown
 install openvpn
 install stoken
+install tailscale
 
-install iriunwebcam "2.6.0" https://iriun.gitlab.io/iriunwebcam-2.6.deb
+install iriunwebcam "2.7" https://iriun.gitlab.io/iriunwebcam-2.7.deb
 install v4l2loopback-dkms
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        install "nvidia-driver-510"
-        install "libnvidia-gl-510:i386"
-        install nvidia-settings
-        # install nvidia-cuda-toolkit
-        install nvidia-opencl-dev
-        install fail2ban
-        # HP Touchpad
-        # install palm-novacom 1.0.64 ~/Dropbox/Packages/palm-novacom_1.0.64_amd64.deb
         install picard # MusicBrainz audio tagger
-        install puddletag # MP3 tagger
-        install mp3splt
-        install mp3splt-gtk
         # install luminance-hdr # HDR images
-        install vdpau-va-driver # Use vdpau from VA api? For VLC?
         # install hugin # Panorama stitcher
-        install jack-rack # JACK LADSPA effects
+        install jack-rack
         install qjackctl
-        install guitarix # Guitar AMP
-        # install vnstat # Network usage
-        # install rrdtool # Stats
+        install guitarix
         install youtube-dl
         install audacity
         install lutris
-        install autokey-gtk
         install siril
 fi
 
 # Laptop specific
 if [[ $(hostname -s) =~ "juho-laptop" ]]; then
-        install xbacklight
         # install prey 1.5.1 https://s3.amazonaws.com/prey-releases/node-client/1.5.1/prey_1.5.1_amd64.deb
         # X220
         if grep -q i7-2640 /proc/cpuinfo; then
@@ -492,16 +446,12 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
                 install thinkfan
         fi
         install tlp
-        install teams
+        install acpid
         install libgl1:i386
         install libgl1-mesa-dri:i386
         install clamdscan
         install clamtk-gnome
-        install qgis
-        install librecad
-        install gitlab-runner
         install beekeeper-studio
-        install microsoft-edge-beta
 fi
 
 markauto
