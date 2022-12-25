@@ -1,0 +1,2 @@
+#!/bin/bash
+PATH=$HOME/.local/bin:$PATH exec $HOME/.local/bin/idlehack

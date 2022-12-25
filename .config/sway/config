@@ -23,7 +23,10 @@ exec lock.sh --start
 exec nm-applet --indicator
 exec gnome-keyring-daemon --start --components=pkcs11,ssh
 exec import-gsettings
+# For cases where gnome apps need to auth (sudo)
 exec "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
+# For gnome bluetooth control panel
+exec "/usr/libexec/gsd-rfkill"
 
 # These are set by sway, so not available on sway-session script?
 exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"

@@ -5,9 +5,10 @@ if [[ -f $HOME/.profile ]]; then
   source $HOME/.profile
 fi
 
-if [[ $(hostname -s) == "juho-desktop" ]]; then
-  export WLR_NO_HARDWARE_CURSORS=1
-fi
+# Nvidia hack:
+# if [[ $(hostname -s) == "juho-desktop" ]]; then
+#   export WLR_NO_HARDWARE_CURSORS=1
+# fi
 
 export QT_QPA_PLATFORM=wayland
 export GDK_BACKEND=wayland

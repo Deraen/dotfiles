@@ -315,3 +315,6 @@
 [submodule ".local/modules/SwayNotificationCenter"]
 	path = .local/modules/SwayNotificationCenter
 	url = https://github.com/ErikReider/SwayNotificationCenter.git
+[submodule ".local/modules/idlehack"]
+	path = .local/modules/idlehack
+	url = git@github.com:loops/idlehack.git

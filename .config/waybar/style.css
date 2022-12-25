@@ -1,3 +1,9 @@
+@define-color bg #121212;
+@define-color text #fff;
+@define-color text-disabled #31383A;
+@define-color text-danger #f53c3c;
+@define-color text-warning #f0932b;
+
 * {
     border: none;
     border-radius: 0;
@@ -8,9 +14,9 @@
 }
 
 window#waybar {
-    background-color: #121212;
+    background-color: @bg;
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-    color: #ffffff;
+    color: @text;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -27,15 +33,6 @@ window#waybar.solo {
     background-color: #FFFFFF;
 }
 */
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
 
 #workspaces button {
     padding: 6px 5px 3px 5px;
@@ -77,10 +74,11 @@ window#waybar.chromium {
 #tray,
 #mode,
 #idle_inhibitor,
+#bluetooth,
 #mpd {
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 0 4px;
-    color: #ffffff;
+    color: @text;
 }
 
 #clock {
@@ -105,8 +103,8 @@ window#waybar.chromium {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: @text-danger;
+    color: @text;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -176,11 +174,13 @@ label:focus {
 }
 
 #idle_inhibitor {
-    /* background-color: #2d3436; */
-    color: #2d3436;
+    color: @text-disabled;
 }
 
 #idle_inhibitor.activated {
-    /* background-color: #ecf0f1; */
-    color: #fff;
+    color: @text-warning;
+}
+
+#bluetooth.disabled {
+    color: @text-disabled;
 }

@@ -127,6 +127,12 @@ if [[ $desktop == true ]]; then
     meson install
     )
 
+    (
+    cd $HOME/.local/modules/idlehack || exit
+    header "Idlehack"
+    make
+    )
+
     go install go.mozilla.org/sops/v3/cmd/sops@latest
 
     header "Settings"
@@ -136,6 +142,24 @@ if [[ $desktop == true ]]; then
     systemctl --user --now disable pulseaudio.service pulseaudio.socket
     systemctl --user --now enable pipewire pipewire-pulse
     systemctl --user --now enable wireplumber
+
+    # Will run sway inhibit when chrome/firefox reports video etc. use to freedesktop
+    # screensaver dbus API.
+    systemctl --user --now enable idlehack
+
+    # Hide gnome control panels that don't work with sway
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-color-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-multitasking-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-search-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-notifications-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-online-accounts-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-sharing-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-screen-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-background-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-display-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-mouse-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-keyboard-panel.desktop
+    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-region-panel.desktop
 fi
 
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then

@@ -14,6 +14,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 # check local packages (not from repo):
 # apt list --installed | grep installed,local
+# check transitional packages:
+# dpkg -l | grep transitional
 
 # ppa ubuntuhandbook1 gimp jammy --keyid 4C1CBE14852541CB
 # ppa ubuntuhandbook1 apps jammy --keyid 4C1CBE14852541CB
@@ -43,8 +45,8 @@ repo github-cli "deb https://cli.github.com/packages stable main" \
         --key-url https://cli.github.com/packages/githubcli-archive-keyring.gpg
 repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_22.10/ /" \
         --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_22.10/Release.key"
-repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ kinetic main" \
-        --key-url "https://dl.winehq.org/wine-builds/winehq.key"
+# repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ kinetic main" \
+#         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
         --key-url "https://deb.beekeeperstudio.io/beekeeper.key"
 repo tailscale "# Tailscale packages for ubuntu kinetic\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu kinetic main\n\n"
@@ -64,7 +66,7 @@ if [[ ! -f /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg ]]; then
 fi
 
 repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
-ppa libtorrent.org 1.2-daily jammy --keyid 32309D6B9E009EDB
+# ppa libtorrent.org 1.2-daily jammy --keyid 32309D6B9E009EDB
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         ppa graphics-drivers ppa kinetic
@@ -101,7 +103,7 @@ install "language-pack-gnome-en"
 install "language-pack-gnome-fi"
 install "libreoffice-voikko"
 install "libreoffice-l10n-fi"
-install "openoffice.org-hyphenation"
+install "hyphen-fi"
 install "hyphen-en-us"
 install "libreoffice-l10n-en-gb"
 install "firefox-locale-en"
@@ -151,7 +153,6 @@ install flatpak
 # Editor
 install neovim
 install python3-msgpack
-install python3-neovim
 
 # Neovim
 install luarocks
@@ -183,7 +184,7 @@ install cmake
 install cppcheck
 
 # Python
-install pep8
+install pycodestyle
 install pylint
 install pipenv
 install python3
@@ -222,7 +223,8 @@ install wireshark
 install clinfo
 
 install pipewire
-install pipewire-audio-client-libraries
+install pipewire-alsa
+install pipewire-jack
 install libspa-0.2-bluetooth
 install libspa-0.2-jack
 install libpipewire-0.3-common
@@ -233,7 +235,7 @@ install autoconf
 install automake
 install libboost-all-dev
 install libpulse-dev # Ponymix
-install libfreetype6-dev
+install libfreetype-dev
 install virtualenv
 # frakking-xkb
 install libxi-dev
@@ -246,7 +248,7 @@ install libssl-dev
 install wayland-protocols
 install libwayland-dev
 install libegl1-mesa-dev
-install libgles2-mesa-dev
+install libgles-dev
 install libdrm-dev
 install libgbm-dev
 install libinput-dev
@@ -276,7 +278,7 @@ install glslang-dev
 install libjson-c-dev
 install libpango1.0-dev
 install libcairo2-dev
-install libgdk-pixbuf2.0-dev
+install libgdk-pixbuf-2.0-dev
 install scdoc
 
 # swaylock
@@ -366,7 +368,7 @@ install fonts-roboto
 install xdg-desktop-portal-wlr
 
 # GPG stuff
-install gnupg2
+install gnupg
 install scdaemon
 install keybase
 install libu2f-host0
