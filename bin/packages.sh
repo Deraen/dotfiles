@@ -52,6 +52,8 @@ repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktabl
 repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
         --key-url "https://deb.beekeeperstudio.io/beekeeper.key"
 repo tailscale "# Tailscale packages for ubuntu kinetic\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu kinetic main\n\n"
+repo insync "deb http://apt.insync.io/ubuntu kinetic non-free contrib" \
+        --keyid "ACCAF35C"
 
 if [[ ! -f /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
         curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -71,7 +73,8 @@ repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-
 # ppa libtorrent.org 1.2-daily jammy --keyid 32309D6B9E009EDB
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        ppa graphics-drivers ppa kinetic
+        # Nvidia drivers
+        # ppa graphics-drivers ppa kinetic --keyid FCAE110B1118213C
         ppa lutris-team lutris kinetic --keyid 37B90EDD4E3EFAE4
 fi
 
@@ -139,6 +142,11 @@ install rename
 install universal-ctags
 install inotify-tools
 install nvme-cli
+install sshfs
+install smartmontools
+install exfat-fuse
+install exfatprogs
+install scrub
 # Edit ini files (e.g. Trolltech.conf) from CLI
 install crudini
 install john
@@ -200,7 +208,6 @@ install git-flow
 install git-lfs
 install git-revise
 install qgit
-install gh
 
 # Dev tools
 install devscripts
@@ -292,12 +299,6 @@ install libxcb-shape0-dev
 install libxcb-xfixes0-dev
 install libxkbcommon-dev
 
-# dunst
-install libxinerama-dev
-install libxrandr-dev
-install libxss-dev
-install libnotify-dev
-
 # SwayNotificationCenter
 install libgtk-3-dev
 install valac
@@ -311,8 +312,6 @@ install libpipewire-0.3-dev
 # Docker
 install docker-ce
 install docker-compose-plugin
-install google-cloud-sdk
-install awscli
 # install sops
 
 # Tessel
@@ -338,7 +337,6 @@ install gnuplot-nox
 install i3 # Tiling WM
 install i3lock
 install i3blocks
-# install dunst # Notifications
 install xss-lock
 install rofi # Runner menu
 install wofi
@@ -383,6 +381,7 @@ install calibre # Ebook library / reader
 install d-feet # Browse DBus
 install dconf-editor # Edit Dconf settings (mostly Gnome stuff)
 install dropbox
+install insync
 install feh
 install ghex # Hex editor
 install gimp
@@ -437,6 +436,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install audacity
         install lutris
         install siril
+        install radeontop
 fi
 
 # Laptop specific
@@ -456,6 +456,8 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install clamdscan
         install clamtk-gnome
         install beekeeper-studio
+        install google-cloud-sdk
+        install awscli
 fi
 
 markauto

@@ -11,7 +11,7 @@ fi
 # fi
 
 export QT_QPA_PLATFORM=wayland
-export GDK_BACKEND=wayland
+# export GDK_BACKEND=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 

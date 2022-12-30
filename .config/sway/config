@@ -163,7 +163,7 @@ for_window [app_id="org.keepassxc.KeePassXC" title=".*KeePassXC$"] move scratchp
 bindsym $mod+F6 exec toggle-keepass
 
 # Reload sway (and waybar etc.) config
-bindsym $mod+Shift+R reload
+bindsym $mod+Shift+R reload; output * dpms on
 
 # Spotify, pulseaudio
 bindsym Mod1+Delete exec playerctl play-pause
