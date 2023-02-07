@@ -1,5 +1,5 @@
 " Clojure test
-autocmd FileType clojure setlocal lispwords+=describe,it
+autocmd FileType clojure setlocal lispwords+=describe,it,are
 " Core.match
 autocmd FileType clojure setlocal lispwords+=match
 " Compojure-api

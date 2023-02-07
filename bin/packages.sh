@@ -12,10 +12,12 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # disco 19.04
 # precise 12.04 lts
 
-# check local packages (not from repo):
+## check local packages (not from repo):
 # apt list --installed | grep installed,local
-# check transitional packages:
+## check transitional packages:
 # dpkg -l | grep transitional
+## old configuration:
+# dpkg -l | grep ^rc
 
 # ppa ubuntuhandbook1 gimp jammy --keyid 4C1CBE14852541CB
 # ppa ubuntuhandbook1 apps jammy --keyid 4C1CBE14852541CB
@@ -134,7 +136,7 @@ install zsh
 install direnv
 install dos2unix
 install rename
-install exuberant-ctags
+install universal-ctags
 install inotify-tools
 install nvme-cli
 # Edit ini files (e.g. Trolltech.conf) from CLI
@@ -151,7 +153,7 @@ install apparmor-utils
 install flatpak
 
 # Editor
-install neovim
+install neovim "0.8.3" "https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb"
 install python3-msgpack
 
 # Neovim

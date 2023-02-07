@@ -250,7 +250,7 @@ au FileType clojure let b:delimitMate_quotes = "\""
 " Iced
 let g:iced_formatter = 'zprint'
 let g:iced_enable_auto_indent = v:false
-let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
+" let g:iced#nrepl#skip_evaluation_when_buffer_size_is_exceeded = v:true
 let g:iced#nrepl#enable_sideloader = v:true
 " let g:iced_enable_clj_kondo_analysis = v:true
 " let g:iced_enable_clj_kondo_local_analysis = v:true
