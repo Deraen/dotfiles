@@ -155,11 +155,9 @@ let g:switch_mapping = "<C-s>"
 
 nnoremap <silent> <C-b>    :<C-u>Clap buffers<cr>
 " Project git files
-nnoremap <silent> <C-p>    :<C-u>Clap gfiles<cr>
+nnoremap <silent> <C-p>    :<C-u>Clap! git_files<cr>
 " Any files in current working directory (usually project folder)
-nnoremap <silent> <C-P>    :<C-u>Clap files ++finder=rg --files <cr>
-" Any files in cwd parent directory
-nnoremap <silent> <M-p>    :<C-u>Clap files ++finder=rg --files ..<cr>
+nnoremap <silent> <M-p>    :<C-u>Clap! files ++finder=rg --files <cr>
 
 " Quick macro stuff
 nnoremap § qqqqq
@@ -357,28 +355,16 @@ autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
 " Clap
 
 let g:clap_layout = { 'relative': 'editor' }
-let g:clap_disable_run_rooter = 0
-" let g:clap_open_preview = 'never'
+let g:clap_disable_run_rooter = v:true
+let g:clap_popup_border = 'nil'
+let g:clap_open_preview = 'on_move'
 let g:clap_preview_direction = 'UD'
 " Close clap window using esc, instead of changing to normal mode.
 let g:clap_insert_mode_only = v:true
-let g:clap_multi_selection_warning_silent = 1
+let g:clap_multi_selection_warning_silent = v:true
+let g:clap_theme = 'seoul256'
+let g:clap_current_selection_sign = { 'text': '⮕', 'texthl': "ClapCurrentSelectionSign", "linehl": "ClapCurrentSelection"}
 
-" - Disable close window and delete buffer binds on clap input
-" - Disable change window binds
-" These would break clap floating window.
-" Even though M-w and move are only bound on normal mode, they still affect
-" clap input?
-" TODO: Move these to ftplugin after file?
-autocmd FileType clap_input inoremap <silent> <buffer> <M-q> <Esc>:<c-u>call clap#handler#exit()<CR>
-autocmd FileType clap_input inoremap <silent> <buffer> <M-w> <Esc>:<c-u>call clap#handler#exit()<CR>
-autocmd FileType clap_input inoremap <silent> <buffer> <M-h> <nop>
-autocmd FileType clap_input inoremap <silent> <buffer> <M-j> <nop>
-autocmd FileType clap_input inoremap <silent> <buffer> <M-k> <nop>
-autocmd FileType clap_input inoremap <silent> <buffer> <M-l> <nop>
-" By default only on normal mode
-" Goes to normal, invoke action, back to insert
-autocmd FileType clap_input inoremap <silent> <buffer> <S-Tab> <Esc>:<c-u>call clap#action#invoke()<CR>i
 " Note: If stuck with unfocused Clap floating window, run :Clap to return the
 " focus and close normally.
 
@@ -435,27 +421,6 @@ lua << EOF
   -- Confiure clojure-lsp setup to return parent project folder
   -- for multimodule projects, like Reitit.
   local lspconfig_util = require 'lspconfig/util'
-  local root_pattern = function(...)
-    local patterns = vim.tbl_flatten { ... }
-    local function matcher(path)
-      for _, pattern in ipairs(patterns) do
-        for _, p in ipairs(vim.fn.glob(lspconfig_util.path.join(path, pattern), true, true)) do
-          if lspconfig_util.path.exists(p) then
-            -- Unix paths only.
-            -- Ignore the deps file if path is e.g. modules/reitit-core/project.clj
-            if not p:match("modules/[^/]+/[^/]+$")
-              and not p:match("polylith/[^/]+/[^/]+/[^/]+$")
-              and not lspconfig_util.path.exists(lspconfig_util.path.join(lspconfig_util.path.dirname(p), '.vim-lsp-ignore')) then
-              return path
-            end
-          end
-        end
-      end
-    end
-    return function(startpath)
-      return lspconfig_util.search_ancestors(startpath, matcher)
-    end
-  end
 
   --Enable (broadcasting) snippet capability for completion
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -467,7 +432,13 @@ lua << EOF
     flags = {
         debounce_text_change = 150,
     },
-    root_dir = root_pattern('project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn', '.git'),
+    root_dir = function(startpath)
+      -- Search .lsp/config.edn in the folder tree, then others.
+      -- So that multi module project top level .lsp/config.edn has the priority.
+      return lspconfig_util.root_pattern('.lsp/config.edn')(startpath)
+        or lspconfig_util.root_pattern('project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn')(startpath)
+        or lspconfig_util.root_pattern('.git')(startpath)
+     end,
   }
 
   lspconfig.tailwindcss.setup {

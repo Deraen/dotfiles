@@ -136,5 +136,3 @@ aug VimIcedAutoOpenQuickfix
   au!
   au QuickFixCmdPost vim-iced cwindow
 aug END
-
-let b:ale_linters = ['clj-kondo']
