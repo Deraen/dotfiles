@@ -70,12 +70,12 @@ if [[ ! -f /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg ]]; then
 fi
 
 repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
-# ppa libtorrent.org 1.2-daily jammy --keyid 32309D6B9E009EDB
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         # Nvidia drivers
         # ppa graphics-drivers ppa kinetic --keyid FCAE110B1118213C
         ppa lutris-team lutris kinetic --keyid 37B90EDD4E3EFAE4
+        ppa deluge-team stable kinetic --keyid C5E6A5ED249AD24C
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
@@ -129,7 +129,6 @@ install ffmpeg
 install openssh-client
 install p7zip
 install powertop
-install ppa-purge
 install silversearcher-ag # Fast file searches
 install ripgrep
 install tmispell-voikko
