@@ -312,8 +312,6 @@ let g:ftplugin_sql_omni_key = '<C-j>'
 
 autocmd VimResized  *    exe "normal! \<c-w>="
 
-let g:lua_complete_omni = 1
-
 let g:vcoolor_disable_mappings = 1
 nnoremap <silent><leader>c  :VCoolor<CR>
 
@@ -336,17 +334,6 @@ if !exists('g:grepper')
   let g:grepper = {}
 endif
 let g:grepper.prompt_quote = 2
-
-let g:float_preview#docked = 0
-let g:float_preview#max_width = 70
-
-function! DisableExtras()
-  call nvim_win_set_option(g:float_preview#win, 'number', v:false)
-  call nvim_win_set_option(g:float_preview#win, 'relativenumber', v:false)
-  call nvim_win_set_option(g:float_preview#win, 'cursorline', v:false)
-endfunction
-
-autocmd User FloatPreviewWinOpen call DisableExtras()
 
 autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
 

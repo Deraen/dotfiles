@@ -100,8 +100,9 @@ if [[ $desktop == true ]]; then
     )
 
     (
-    header "Just"
+    header "Rust packages"
     cargo install just
+    cargo install fd-find
     )
 
     (
@@ -116,6 +117,7 @@ if [[ $desktop == true ]]; then
     cp extra/linux/Alacritty.desktop "$HOME/.local/share/applications/Alacritty.desktop"
     sudo mkdir -p /usr/local/share/man/man1
     gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+    gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
     )
 
     (

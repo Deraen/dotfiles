@@ -226,10 +226,6 @@
 	path = .vim/bundle/nvim-yarp
 	url = https://github.com/roxma/nvim-yarp.git
 	branch = master
-[submodule ".vim/bundle/float-preview.nvim"]
-	path = .vim/bundle/float-preview.nvim
-	url = https://github.com/ncm2/float-preview.nvim
-	branch = master
 [submodule ".vim/bundle/vim-dadbod"]
 	path = .vim/bundle/vim-dadbod
 	url = https://github.com/tpope/vim-dadbod.git

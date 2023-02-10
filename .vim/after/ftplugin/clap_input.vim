@@ -3,6 +3,7 @@ inoremap <silent> <buffer> <C-n> <C-R>=clap#navigation#linewise_scroll('down')<C
 inoremap <silent> <buffer> <C-p> <C-R>=clap#navigation#linewise_scroll('up')<CR>
 
 inoremap <silent> <buffer> <C-b> <nop>
+inoremap <silent> <buffer> <C-o> <nop>
 
 " - Disable close window and delete buffer binds on clap input
 " - Disable change window binds
