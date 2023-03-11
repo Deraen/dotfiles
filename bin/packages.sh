@@ -115,6 +115,7 @@ install "firefox-locale-en"
 
 # Devices?
 # install usb-modeswitch # for 3G usb modems
+install piper # logitech gaming mouse configration
 
 # Tools
 install curl

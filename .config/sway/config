@@ -8,6 +8,8 @@ input type:touchpad {
     events disabled
 }
 
+input "18193:2069:dotool_keyboard" xkb_layout "us"
+
 output eDP-1 scale 1 pos 0 0
 
 # Add https://git.sr.ht/~emersion/kanshi if need more configuration
