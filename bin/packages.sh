@@ -161,6 +161,7 @@ install ufw
 install libimage-exiftool-perl
 install apparmor-utils
 install flatpak
+install gnome-software-plugin-flatpak
 
 # Editor
 install neovim "0.8.3" "https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb"
@@ -306,10 +307,7 @@ install libgtk-3-dev
 install valac
 install libhandy-1-dev
 install libgtk-layer-shell-dev
-
-# Helvum
-install libgtk-4-dev
-install libpipewire-0.3-dev
+install libgee-0.8-dev
 
 # Docker
 install docker-ce
@@ -427,6 +425,8 @@ install tailscale
 install iriunwebcam "2.7" https://iriun.gitlab.io/iriunwebcam-2.7.deb
 install v4l2loopback-dkms
 
+install obsidian "1.1.16" https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.16/obsidian_1.1.16_amd64.deb
+
 # consider greetd and tuigreet for login manager
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
@@ -441,6 +441,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install lutris
         install siril
         install radeontop
+        install mullvad-vpn
 fi
 
 # Laptop specific
@@ -466,3 +467,7 @@ fi
 
 markauto
 autoremove
+
+flatpak install flathub org.pipewire.Helvum
+snap install spotify
+snap install firefox

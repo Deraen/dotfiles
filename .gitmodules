@@ -290,9 +290,6 @@
 [submodule ".local/modules/swaylock"]
 	path = .local/modules/swaylock
 	url = https://github.com/swaywm/swaylock.git
-[submodule ".local/modules/helvum"]
-	path = .local/modules/helvum
-	url = https://gitlab.freedesktop.org/pipewire/helvum.git
 [submodule ".vim/bundle/LuaSnip"]
 	path = .vim/bundle/LuaSnip
 	url = https://github.com/L3MON4D3/LuaSnip.git
@@ -314,3 +311,6 @@
 [submodule ".local/modules/idlehack"]
 	path = .local/modules/idlehack
 	url = git@github.com:loops/idlehack.git
+[submodule ".local/modules/wayland-protocols"]
+	path = .local/modules/wayland-protocols
+	url = https://gitlab.freedesktop.org/wayland/wayland-protocols.git

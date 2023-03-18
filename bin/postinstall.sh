@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 . "$HOME/.local/lib/functions.sh"
 
 desktop=false
@@ -63,27 +65,45 @@ if [[ $desktop == true ]]; then
     make -C "$HOME/.local/modules/i3-utils" -j
 
     (
+    cd "$HOME/.local/modules/wayland-protocols" || exit
+    header "Wayland-protocols"
+    if [[ ! -d build ]]; then
+        meson build
+    fi
+    ninja -C build
+    sudo ninja -C build install
+    )
+
+    (
     cd "$HOME/.local/modules/wlroots" || exit
     header "Wlroots"
-    meson build
+    if [[ ! -d build ]]; then
+        meson build
+    fi
+    ninja -C build
     sudo ninja -C build install
     )
 
     (
     cd "$HOME/.local/modules/sway" || exit
     header "Sway"
-    meson build
-    if [[ ! -f subprojects/wlroots ]]; then
+    if [[ ! -d build ]]; then
+        meson build
+    fi
+    if [[ ! -L subprojects/wlroots ]]; then
         mkdir -p subprojects
         ln -s $HOME/.local/modules/wlroots subprojects
     fi
+    ninja -C build
     sudo ninja -C build install
     )
 
     (
     cd "$HOME/.local/modules/SwayNotificationCenter" || exit
     header "SwayNC"
-    meson build
+    if [[ ! -d build ]]; then
+        meson build
+    fi
     ninja -C build
     sudo meson install -C build
     sudo cp -r /usr/local/etc/xdg/swaync /etc/xdg/
@@ -122,15 +142,6 @@ if [[ $desktop == true ]]; then
     )
 
     (
-    cd $HOME/.local/modules/helvum || exit
-    header "Helvum"
-    meson setup build --prefix=$HOME/.local
-    cd build || exit
-    meson compile
-    meson install
-    )
-
-    (
     cd $HOME/.local/modules/idlehack || exit
     header "Idlehack"
     make
@@ -151,18 +162,18 @@ if [[ $desktop == true ]]; then
     systemctl --user --now enable idlehack
 
     # Hide gnome control panels that don't work with sway
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-color-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-multitasking-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-search-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-notifications-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-online-accounts-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-sharing-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-screen-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-background-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-display-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-mouse-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-keyboard-panel.desktop
-    sudo dpkg-statoverride --update --add root root 640 /usr/share/applications/gnome-region-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-color-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-multitasking-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-search-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-notifications-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-online-accounts-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-sharing-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-screen-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-background-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-display-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-mouse-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-keyboard-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-region-panel.desktop
 fi
 
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then
