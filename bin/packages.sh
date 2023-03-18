@@ -54,6 +54,8 @@ repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
 repo tailscale "# Tailscale packages for ubuntu kinetic\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu kinetic main\n\n"
 repo insync "deb http://apt.insync.io/ubuntu kinetic non-free contrib" \
         --keyid "ACCAF35C"
+repo syncthing "deb https://apt.syncthing.net/ syncthing stable" \
+        --key-url "https://syncthing.net/release-key.gpg"
 
 if [[ ! -f /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
         curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -424,6 +426,8 @@ install tailscale
 
 install iriunwebcam "2.7" https://iriun.gitlab.io/iriunwebcam-2.7.deb
 install v4l2loopback-dkms
+
+# consider greetd and tuigreet for login manager
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         install picard # MusicBrainz audio tagger
