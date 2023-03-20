@@ -233,6 +233,7 @@ install cmatrix
 install xmlstarlet
 install wireshark
 install clinfo
+install translate-toolkit
 
 install pipewire
 install pipewire-alsa
@@ -285,6 +286,7 @@ install libxcb-res0-dev
 install libvulkan-dev
 install libseat-dev
 install glslang-dev
+install hwdata
 
 # sway
 install libjson-c-dev

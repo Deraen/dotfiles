@@ -75,5 +75,6 @@ bash <(curl -s https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/
 bash <(curl -s https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh) -b /home/juho/bin
 wget https://github.com/ko1nksm/shdotenv/releases/latest/download/shdotenv -O $HOME/.local/bin/shdotenv
 chmod +x $HOME/.local/bin/shdotenv
+curl https://get.volta.sh | bash
 
 postinstall.sh
