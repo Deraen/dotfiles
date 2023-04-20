@@ -18,7 +18,6 @@ get_lastest_tag() {
     )
 }
 
-get_lastest_tag "$NVM_DIR"
 get_lastest_tag "$HOME/.fzf"
 get_lastest_tag "$HOME/.vim/bundle/vim-clap"
 get_lastest_tag "$HOME/.vim/bundle_clojure/vim-iced"
@@ -57,7 +56,7 @@ for status in $(git submodule status); do
 done
 
 
-git add -A "$HOME/.local/modules" "$HOME/.vim/bundle*" "$HOME/.fzf" "$HOME/.nvm"
+git add -A "$HOME/.local/modules" "$HOME/.vim/bundle*" "$HOME/.fzf"
 
 if confirm -i "Update Node utils?"; then
     (

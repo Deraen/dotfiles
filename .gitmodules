@@ -203,9 +203,6 @@
 	path = .vim/bundle/auto_mkdir
 	url = https://github.com/DataWraith/auto_mkdir.git
 	branch = master
-[submodule ".nvm"]
-	path = .nvm
-	url = https://github.com/creationix/nvm.git
 [submodule ".local/modules/oh-my-zsh"]
 	path = .local/modules/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
