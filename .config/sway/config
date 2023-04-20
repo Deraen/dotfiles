@@ -8,6 +8,12 @@ input type:touchpad {
     events disabled
 }
 
+# Tex Shinobi trackpoint
+input 1241:1031:USB-HID_Keyboard_Mouse {
+    scroll_method on_button_down
+    scroll_button button2
+}
+
 input "18193:2069:dotool_keyboard" xkb_layout "us"
 
 output eDP-1 scale 1 pos 0 0
