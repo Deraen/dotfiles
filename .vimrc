@@ -413,7 +413,14 @@ lua << EOF
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+  -- vim.lsp.set_log_level 'trace'
+
+  if vim.fn.has 'nvim-0.5.1' == 1 then
+    require('vim.lsp.log').set_format_func(vim.inspect)
+  end
+
   lspconfig.clojure_lsp.setup {
+    -- cmd = { 'clojure-lsp', '--trace-level', 'verbose', 'listen' },
     capabilities = capabilities,
     on_attach = on_attach,
     flags = {
@@ -425,7 +432,7 @@ lua << EOF
       return lspconfig_util.root_pattern('.lsp/config.edn')(startpath)
         or lspconfig_util.root_pattern('project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn')(startpath)
         or lspconfig_util.root_pattern('.git')(startpath)
-     end,
+    end,
   }
 
   lspconfig.tailwindcss.setup {
@@ -590,6 +597,13 @@ lua << EOF
           fallback()
         end
       end,
+    },
+    completion = {
+      -- keyword_length = 3,
+      --autocomplete = {
+      --  cmp.TriggerEvent.TextChanged,
+      --  cmp.TriggerEvent.InsertEnter,
+      --},
     },
     sources = {
       { name = 'nvim_lsp' },
