@@ -125,7 +125,7 @@ for_window [class=".*"] border pixel 2
 
 for_window [app_id="gnome-power-statistics"] floating enable
 for_window [app_id="gnome-control-center"] floating enable
-for_window [app_id="Yad"] floating enable
+for_window [app_id="yad"] floating enable
 
 # TODO: some class rules might be obsolete
 

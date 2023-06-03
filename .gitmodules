@@ -65,6 +65,6 @@
 [submodule ".local/modules/nwg-panel"]
 	path = .local/modules/nwg-panel
 	url = git@github.com:nwg-piotr/nwg-panel.git
-[submodule ".local/modules/wl-color-picker"]
-	path = .local/modules/wl-color-picker
-	url = https://github.com/jgmdev/wl-color-picker.git
+[submodule ".local/modules/hyprpicker"]
+	path = .local/modules/hyprpicker
+	url = https://github.com/hyprwm/hyprpicker.git

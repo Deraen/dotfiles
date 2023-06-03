@@ -144,6 +144,12 @@ if [[ $desktop == true ]]; then
     make
     )
 
+    (
+    cd $HOME/.local/modules/hyprpicker || exit
+    header "Hyprpicker"
+    make
+    )
+
     go install go.mozilla.org/sops/v3/cmd/sops@latest
 
     header "Settings"
