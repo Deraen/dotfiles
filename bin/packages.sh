@@ -348,7 +348,6 @@ install i3lock
 install i3blocks
 install xss-lock
 install rofi # Runner menu
-install wofi
 # install sway
 install swaybg
 install waybar

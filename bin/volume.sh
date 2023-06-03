@@ -27,6 +27,7 @@ notify-send "${VOLUME}% " \
     -h "int:value:$VOLUME" \
     -i "$icon" \
     -h string:x-canonical-private-synchronous:volume \
+    -h string:synchronous:volume-change \
     -c volume -t 1000
 
 # Notify i3blocks to update volume block

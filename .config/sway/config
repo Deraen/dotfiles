@@ -47,7 +47,6 @@ exec /home/juho/.local/modules/sway-systemd/src/assign-cgroups.py
 # exec_always rndbg.sh
 
 # Dmenu
-# bindsym $mod+r exec wofi --show drun --insensitive
 bindsym $mod+r exec rofi -show drun
 
 bindsym $mod+Shift+F12 exec rndbg.sh
