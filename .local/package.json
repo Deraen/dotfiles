@@ -5,13 +5,13 @@
   "description": "",
   "dependencies": {
     "@emacs-grammarly/unofficial-grammarly-language-server": "0.2.2",
-    "@tailwindcss/language-server": "^0.0.12",
+    "@tailwindcss/language-server": "^0.0.13",
     "jshint": "2.13.6",
     "neovim": "4.10.1",
-    "npm-check-updates": "16.7.12",
+    "npm-check-updates": "16.10.12",
     "source-map-explorer": "2.5.3",
-    "stylelint": "15.3.0",
-    "vscode-langservers-extracted": "4.6.0",
+    "stylelint": "15.6.2",
+    "vscode-langservers-extracted": "4.7.0",
     "yarn": "^1.22.19"
   }
 }

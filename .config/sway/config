@@ -27,20 +27,24 @@ set $active #454B7F
 
 font pango:Ubuntu 8
 
-exec lock.sh --start
-exec nm-applet --indicator
-exec gnome-keyring-daemon --start --components=pkcs11,ssh
-exec import-gsettings
+# exec swaync
+# exec lock.sh --start
+# exec nm-applet --indicator
+# exec gnome-keyring-daemon --start --components=pkcs11,ssh
+# exec import-gsettings
 # For cases where gnome apps need to auth (sudo)
-exec "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
+# exec "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
 # For gnome bluetooth control panel
-exec "/usr/libexec/gsd-rfkill"
+# exec "/usr/libexec/gsd-rfkill"
 
 # These are set by sway, so not available on sway-session script?
-exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"
+# exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"
+
+exec /home/juho/.local/modules/sway-systemd/src/session.sh --with-cleanup
+exec /home/juho/.local/modules/sway-systemd/src/assign-cgroups.py
 
 # Bg needs to be set after reload
-exec_always rndbg.sh
+# exec_always rndbg.sh
 
 # Dmenu
 # bindsym $mod+r exec wofi --show drun --insensitive
@@ -201,3 +205,5 @@ bindsym $mod+Print exec screenshot.sh --select
 bar {
   swaybar_command waybar
 }
+
+exec /home/juho/.local/modules/sway-systemd/src/wait-sni-ready && systemctl --user start sway-xdg-autostart.target

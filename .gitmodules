@@ -311,3 +311,12 @@
 [submodule ".local/modules/wayland-protocols"]
 	path = .local/modules/wayland-protocols
 	url = https://gitlab.freedesktop.org/wayland/wayland-protocols.git
+[submodule ".local/modules/sway-systemd"]
+	path = .local/modules/sway-systemd
+	url = git@github.com:alebastr/sway-systemd.git
+[submodule ".local/modules/nwg-panel"]
+	path = .local/modules/nwg-panel
+	url = git@github.com:nwg-piotr/nwg-panel.git
+[submodule ".local/modules/wl-color-picker"]
+	path = .local/modules/wl-color-picker
+	url = https://github.com/jgmdev/wl-color-picker.git

@@ -1,0 +1,6 @@
+[Unit]
+Description=Wake Sway
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/swaymsg seat "*" idle_wake switch
