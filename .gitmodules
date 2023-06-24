@@ -1,88 +1,3 @@
-[submodule ".local/modules/dspmgr"]
-	path = .local/modules/dspmgr
-	url = git@github.com:Deraen/dspmgr.git
-	branch = master
-[submodule ".vim/bundle/vim-pathogen"]
-	path = .vim/bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
-	branch = master
-[submodule ".vim/bundle/switch.vim"]
-	path = .vim/bundle/switch.vim
-	url = https://github.com/AndrewRadev/switch.vim.git
-	branch = master
-	ignore = dirty
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline.git
-	branch = master
-[submodule ".vim/bundle/seoul256.vim"]
-	path = .vim/bundle/seoul256.vim
-	url = git@github.com:Deraen/seoul256.vim.git
-	branch = master
-[submodule ".vim/bundle/vim-sexp"]
-	path = .vim/bundle_clojure/vim-sexp
-	url = https://github.com/guns/vim-sexp.git
-	branch = master
-	ignore = dirty
-[submodule ".vim/bundle/xterm-color-table.vim"]
-	path = .vim/bundle/xterm-color-table.vim
-	url = https://github.com/guns/xterm-color-table.vim.git
-	branch = master
-	ignore = dirty
-[submodule ".vim/bundle/vim-pairs"]
-	path = .vim/bundle/vim-pairs
-	url = https://github.com/kurkale6ka/vim-pairs.git
-	branch = master
-	ignore = dirty
-[submodule ".vim/bundle/delimitMate"]
-	path = .vim/bundle/delimitMate
-	url = https://github.com/Raimondi/delimitMate.git
-	branch = master
-[submodule ".vim/bundle/vim-abolish"]
-	path = .vim/bundle/vim-abolish
-	url = https://github.com/tpope/vim-abolish.git
-	branch = master
-[submodule ".vim/bundle/vim-characterize"]
-	path = .vim/bundle/vim-characterize
-	url = https://github.com/tpope/vim-characterize.git
-	branch = master
-[submodule ".vim/bundle/vim-dispatch"]
-	path = .vim/bundle/vim-dispatch
-	url = https://github.com/tpope/vim-dispatch.git
-	branch = master
-[submodule ".vim/bundle/vim-eunuch"]
-	path = .vim/bundle/vim-eunuch
-	url = https://github.com/tpope/vim-eunuch.git
-	branch = master
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-	branch = master
-[submodule ".vim/bundle/vim-repeat"]
-	path = .vim/bundle/vim-repeat
-	url = https://github.com/tpope/vim-repeat.git
-	branch = master
-[submodule ".vim/bundle/vim-sexp-mappings-for-regular-people"]
-	path = .vim/bundle_clojure/vim-sexp-mappings-for-regular-people
-	url = https://github.com/tpope/vim-sexp-mappings-for-regular-people.git
-	branch = master
-[submodule ".vim/bundle/vim-sleuth"]
-	path = .vim/bundle/vim-sleuth
-	url = https://github.com/tpope/vim-sleuth.git
-	branch = master
-[submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
-	url = https://github.com/tpope/vim-surround.git
-	branch = master
-[submodule ".vim/bundle/MatchTagAlways"]
-	path = .vim/bundle/MatchTagAlways
-	url = https://github.com/Valloric/MatchTagAlways.git
-	branch = master
-	ignore = dirty
-[submodule ".vim/bundle/vim-sensible"]
-	path = .vim/bundle/vim-sensible
-	url = https://github.com/tpope/vim-sensible.git
-	branch = master
 [submodule ".local/modules/pure"]
 	path = .local/modules/pure
 	url = https://github.com/sindresorhus/pure.git
@@ -99,22 +14,6 @@
 	path = .local/modules/ponymix
 	url = https://github.com/falconindy/ponymix.git
 	branch = master
-[submodule ".vim/bundle/vim-commentary"]
-	path = .vim/bundle/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
-	branch = master
-[submodule ".vim/bundle/vim-rsi"]
-	path = .vim/bundle/vim-rsi
-	url = https://github.com/tpope/vim-rsi.git
-	branch = master
-[submodule ".vim/bundle/vim-vinegar"]
-	path = .vim/bundle/vim-vinegar
-	url = https://github.com/tpope/vim-vinegar.git
-	branch = master
-[submodule ".vim/bundle/vim-obsession"]
-	path = .vim/bundle/vim-obsession
-	url = https://github.com/tpope/vim-obsession.git
-	branch = master
 [submodule ".local/modules/pmm"]
 	path = .local/modules/pmm
 	url = git@github.com:Deraen/pmm.git
@@ -123,161 +22,25 @@
 	path = .local/modules/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
 	branch = master
-[submodule ".vim/bundle/vim-polyglot"]
-	path = .vim/bundle/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot.git
-	branch = master
-[submodule ".vim/bundle/vim-kangaroo"]
-	path = .vim/bundle/vim-kangaroo
-	url = https://github.com/tommcdo/vim-kangaroo.git
-	branch = master
-[submodule ".vim/bundle/gapply.vim"]
-	path = .vim/bundle/gapply.vim
-	url = https://github.com/AndrewRadev/gapply.vim.git
-	branch = master
-[submodule ".vim/bundle/vim-easy-align"]
-	path = .vim/bundle/vim-easy-align
-	url = https://github.com/junegunn/vim-easy-align.git
-	branch = master
-[submodule ".vim/bundle/vim-scriptease"]
-	path = .vim/bundle/vim-scriptease
-	url = https://github.com/tpope/vim-scriptease.git
-	branch = master
-[submodule ".vim/bundle/vim-unimpaired"]
-	path = .vim/bundle/vim-unimpaired
-	url = https://github.com/tpope/vim-unimpaired.git
-	branch = master
-[submodule ".vim/bundle/rainbow"]
-	path = .vim/bundle_clojure/rainbow
-	url = https://github.com/luochen1990/rainbow.git
-	branch = master
-[submodule ".local/modules/frakkin-xkb"]
-	path = .local/modules/frakkin-xkb
-	url = git@github.com:Deraen/frakkin-xkb.git
-	branch = master
-[submodule ".vim/bundle/vColoor.vim"]
-	path = .vim/bundle/vColoor.vim
-	url = https://github.com/KabbAmine/vCoolor.vim.git
-	branch = master
 [submodule ".local/modules/i3-utils"]
 	path = .local/modules/i3-utils
 	url = git@github.com:Deraen/i3-utils.git
-	branch = master
-[submodule ".vim/bundle/vim-thematic"]
-	path = .vim/bundle/vim-thematic
-	url = https://github.com/reedes/vim-thematic.git
-	branch = master
-[submodule ".vim/bundle/targets.vim"]
-	path = .vim/bundle/targets.vim
-	url = git@github.com:wellle/targets.vim.git
-	branch = master
-[submodule ".vim/bundle/vim-gitgutter"]
-	path = .vim/bundle/vim-gitgutter
-	url = git@github.com:airblade/vim-gitgutter.git
-	branch = master
-[submodule ".vim/bundle/vimagit"]
-	path = .vim/bundle/vimagit
-	url = git@github.com:jreybert/vimagit.git
-	branch = master
-[submodule ".vim/bundle/vim-grepper"]
-	path = .vim/bundle/vim-grepper
-	url = https://github.com/mhinz/vim-grepper.git
-	branch = master
-[submodule ".vim/bundle/vim-dispatch-neovim"]
-	path = .vim/bundle/vim-dispatch-neovim
-	url = https://github.com/radenling/vim-dispatch-neovim.git
-	branch = master
-[submodule ".vim/bundle/vim-airline-themes"]
-	path = .vim/bundle/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
-	branch = master
-[submodule ".vim/bundle/ReplaceWithRegister"]
-	path = .vim/bundle/ReplaceWithRegister
-	url = https://github.com/vim-scripts/ReplaceWithRegister.git
-	branch = master
-[submodule ".vim/bundle/DidYouMean"]
-	path = .vim/bundle/DidYouMean
-	url = https://github.com/EinfachToll/DidYouMean.git
-	branch = master
-[submodule ".vim/bundle/auto_mkdir"]
-	path = .vim/bundle/auto_mkdir
-	url = https://github.com/DataWraith/auto_mkdir.git
 	branch = master
 [submodule ".local/modules/oh-my-zsh"]
 	path = .local/modules/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh
 	branch = master
-[submodule ".vim/bundle/fzf.vim"]
-	path = .vim/bundle/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
-	branch = master
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf.git
 	branch = master
-[submodule ".vim/bundle_clojure/vim-iced"]
-	path = .vim/bundle_clojure/vim-iced
-	url = https://github.com/liquidz/vim-iced.git
-	branch = main
-[submodule ".vim/bundle/nvim-yarp"]
-	path = .vim/bundle/nvim-yarp
-	url = https://github.com/roxma/nvim-yarp.git
-	branch = master
-[submodule ".vim/bundle/vim-dadbod"]
-	path = .vim/bundle/vim-dadbod
-	url = https://github.com/tpope/vim-dadbod.git
-	branch = master
-[submodule ".vim/bundle/vim-jdaddy"]
-	path = .vim/bundle/vim-jdaddy
-	url = https://github.com/tpope/vim-jdaddy.git
-	branch = master
-[submodule ".vim/bundle/vim-clap"]
-	path = .vim/bundle/vim-clap
-	url = https://github.com/liuchengxu/vim-clap.git
-[submodule ".vim/bundle/vim-hexokinase"]
-	path = .vim/bundle/vim-hexokinase
-	url = https://github.com/RRethy/vim-hexokinase.git
-[submodule ".vim/bundle_clojure/vim-iced-fern-debugger"]
-	path = .vim/bundle_clojure/vim-iced-fern-debugger
-	url = https://github.com/liquidz/vim-iced-fern-debugger.git
-[submodule ".vim/bundle/fern.vim"]
-	path = .vim/bundle/fern.vim
-	url = https://github.com/lambdalisue/fern.vim.git
-	branch = main
-[submodule ".vim/bundle/FixCursorHold.nvim"]
-	path = .vim/bundle/FixCursorHold.nvim
-	url = https://github.com/antoinemadec/FixCursorHold.nvim.git
 [submodule ".local/modules/alacritty"]
 	path = .local/modules/alacritty
 	url = https://github.com/alacritty/alacritty.git
-[submodule ".vim/bundle_clojure/clojure.vim"]
-	path = .vim/bundle_clojure/clojure.vim
-	url = git@github.com:clojure-vim/clojure.vim.git
-[submodule ".vim/bundle/vim-bbye"]
-	path = .vim/bundle/vim-bbye
-	url = https://github.com/moll/vim-bbye.git
-[submodule ".vim/bundle_clojure/vim-iced-multi-session"]
-	path = .vim/bundle_clojure/vim-iced-multi-session
-	url = https://github.com/liquidz/vim-iced-multi-session.git
 [submodule ".local/modules/Font-Awesome"]
 	path = .local/modules/Font-Awesome
 	url = https://github.com/FortAwesome/Font-Awesome.git
 	shallow = true
-[submodule ".vim/bundle/nvim-lspconfig"]
-	path = .vim/bundle/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig
-[submodule ".vim/bundle/nvim-treesitter"]
-	path = .vim/bundle/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git
-[submodule ".vim/bundle/nvim-ts-rainbow"]
-	path = .vim/bundle/nvim-ts-rainbow
-	url = https://github.com/p00f/nvim-ts-rainbow.git
-[submodule ".vim/bundle/trouble.nvim"]
-	path = .vim/bundle/trouble.nvim
-	url = https://github.com/folke/trouble.nvim.git
-[submodule ".vim/bundle/plenary.nvim"]
-	path = .vim/bundle/plenary.nvim
-	url = https://github.com/nvim-lua/plenary.nvim.git
 [submodule ".local/modules/sway"]
 	path = .local/modules/sway
 	url = https://github.com/swaywm/sway.git
@@ -287,21 +50,6 @@
 [submodule ".local/modules/swaylock"]
 	path = .local/modules/swaylock
 	url = https://github.com/swaywm/swaylock.git
-[submodule ".vim/bundle/LuaSnip"]
-	path = .vim/bundle/LuaSnip
-	url = https://github.com/L3MON4D3/LuaSnip.git
-[submodule ".vim/bundle/nvim-cmp"]
-	path = .vim/bundle/nvim-cmp
-	url = https://github.com/hrsh7th/nvim-cmp.git
-[submodule ".vim/bundle/cmp-nvim-lsp"]
-	path = .vim/bundle/cmp-nvim-lsp
-	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
-[submodule ".vim/bundle/cmp_luansip"]
-	path = .vim/bundle/cmp_luansip
-	url = https://github.com/saadparwaiz1/cmp_luasnip.git
-[submodule ".vim/bundle/vim-rhubarb"]
-	path = .vim/bundle/vim-rhubarb
-	url = https://github.com/tpope/vim-rhubarb.git
 [submodule ".local/modules/SwayNotificationCenter"]
 	path = .local/modules/SwayNotificationCenter
 	url = https://github.com/ErikReider/SwayNotificationCenter.git

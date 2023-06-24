@@ -13,7 +13,6 @@ video/x-msvideo=mpv.desktop
 application/x-font-ttf=org.gnome.font-viewer.desktop
 x-scheme-handler/mailto=firefox.desktop
 x-scheme-handler/webcal=firefox.desktop
-x-scheme-handler/msteams=teams.desktop
 image/x-olympus-orf=darktable.desktop
 
 [Added Associations]

@@ -72,6 +72,10 @@ bash <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/instal
 bash <(curl -s https://raw.githubusercontent.com/greglook/cljstyle/main/script/install-cljstyle) --dir /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install) --dir /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh) -b /home/juho/bin
+
+wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+nvim.appimage --version
+
 wget https://github.com/ko1nksm/shdotenv/releases/latest/download/shdotenv -O $HOME/.local/bin/shdotenv
 chmod +x $HOME/.local/bin/shdotenv
 curl https://get.volta.sh | bash

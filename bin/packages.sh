@@ -23,7 +23,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # ppa ubuntuhandbook1 gimp jammy --keyid 4C1CBE14852541CB
 # ppa ubuntuhandbook1 apps jammy --keyid 4C1CBE14852541CB
 # ppa ubuntuhandbook1 darktable kinetic --keyid 4C1CBE14852541CB
-# ppa neovim-ppa stable kinetic --keyid 55F96FCF8231B6DD
 # ppa deraen random bionic --keyid 8EE3F468
 # ppa pipewire-debian pipewire-upstream kinetic --keyid 25088A0359807596
 # ppa pipewire-debian wireplumber-upstream kinetic --keyid 25088A0359807596
@@ -166,7 +165,6 @@ install flatpak
 install gnome-software-plugin-flatpak
 
 # Editor
-install neovim "0.8.3" "https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-linux64.deb"
 install python3-msgpack
 
 # Neovim
