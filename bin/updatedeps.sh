@@ -19,8 +19,6 @@ get_lastest_tag() {
 }
 
 get_lastest_tag "$HOME/.fzf"
-get_lastest_tag "$HOME/.vim/bundle/vim-clap"
-get_lastest_tag "$HOME/.vim/bundle_clojure/vim-iced"
 get_lastest_tag "$HOME/.local/modules/wlroots"
 get_lastest_tag "$HOME/.local/modules/sway"
 get_lastest_tag "$HOME/.local/modules/alacritty"
