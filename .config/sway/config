@@ -126,6 +126,7 @@ for_window [class=".*"] border pixel 2
 for_window [app_id="gnome-power-statistics"] floating enable
 for_window [app_id="gnome-control-center"] floating enable
 for_window [app_id="yad"] floating enable
+for_window [instance="battle.net.exe"] floating enable
 
 # TODO: some class rules might be obsolete
 
@@ -197,6 +198,7 @@ bindsym Print exec screenshot.sh --save
 bindsym Ctrl+Print exec screenshot.sh --active-window --save
 # Super => select -> clipboard
 bindsym $mod+Print exec screenshot.sh --select
+bindsym Ctrl+$mod+Print exec flameshot gui
 
 # pick color:
 # grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-
