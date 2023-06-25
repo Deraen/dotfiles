@@ -76,18 +76,6 @@ nnoremap k gk
 " Save file
 nnoremap ä :w<CR>
 
-" Change active window, Alt
-nnoremap <M-h> <C-w>h
-nnoremap <M-j> <C-w>j
-nnoremap <M-k> <C-w>k
-nnoremap <M-l> <C-w>l
-if has("nvim")
-  tnoremap <M-h> <C-\><C-n><C-w>h
-  tnoremap <M-j> <C-\><C-n><C-w>j
-  tnoremap <M-k> <C-\><C-n><C-w>k
-  tnoremap <M-l> <C-\><C-n><C-w>l
-endif
-
 " Close window
 nnoremap <M-q> <C-w>c
 inoremap <M-q> <Esc><C-w>c:echo ""<cr>
@@ -98,9 +86,6 @@ nnoremap <M-m> <C-w>s
 nnoremap <silent> <M-w> <ESC>:Bdelete<CR>
 
 " NOTE: To make windows equal size, <C-w>=
-" Resize - Ctrl + jk
-nnoremap <C-j> :res -5<cr>
-nnoremap <C-k> :res +5<cr>
 
 " Unbind Ex mode
 nnoremap Q <nop>
@@ -111,11 +96,8 @@ vmap <Enter> <Plug>(EasyAlign)
 " Vim-switch
 " let g:switch_mapping = "<C-s>"
 
-" TODO: Replace with telescope
-nnoremap <silent> <C-b>    :<C-u>Telescope buffers<cr>
 " nnoremap <silent> <C-b>    :<C-u>Clap buffers<cr>
 " Project git files
-nnoremap <silent> <C-p>    :<C-u>Telescope git_files<cr>
 " nnoremap <silent> <C-p>    :<C-u>Clap! git_files<cr>
 " Any files in current working directory (usually project folder)
 " nnoremap <silent> <M-p>    :<C-u>Clap! files ++finder=rg --files <cr>
@@ -134,65 +116,16 @@ endif
 " Split line
 nnoremap <silent> <Plug>SplitLine i<CR><Esc>k$
       \ :call repeat#set("\<Plug>SplitLine")<CR>
-nmap K <Plug>SplitLine
+" FIXME: Find new binding
+" nmap K <Plug>SplitLine
 
 " Vim-rsi (readline insertmode bindings)
 " Disable meta maps because <M-d> bindings breaks ä
 let g:rsi_no_meta=1
 
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.parse = 'ρ'
-
-" let g:airline_theme='seoul256'
-" let g:airline_exclude_preview = 1
-" let g:airline_inactive_collapse = 0
-" let g:airline_mode_map = {
-"     \ '__' : '-',
-"     \ 'n'  : 'N',
-"     \ 'i'  : 'I',
-"     \ 'R'  : 'R',
-"     \ 'c'  : 'C',
-"     \ 'v'  : 'v',
-"     \ 'V'  : 'V',
-"     \ '^V' : '^V',
-"     \ 's'  : 'S',
-"     \ 'S'  : 'S',
-"     \ '^S' : 'S',
-"     \ }
-
-" let g:airline_stl_path_style = 'short'
-
-" function! AirlineInit()
-"   let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'iminsert'])
-"   " hunks disabled because it's empty for non-active buffers
-"   let g:airline_section_b = airline#section#create(['branch'])
-"   let g:airline_section_c = airline#section#create(['%<', 'file', 'readonly'])
-"   let g:airline_section_gutter = airline#section#create(['%='])
-"   let g:airline_section_x = airline#section#create_right(['tagbar'])
-"   let g:airline_section_y = airline#section#create_right([])
-"   let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v '])
-" endfunction
-" autocmd VimEnter * call AirlineInit()
-
-" vim.diagnostic default is 10?
-let g:gitgutter_sign_priority=5
-
-" FZF
-
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
 " Clojure options
 autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
 autocmd BufNewFile,BufReadPost *.bb setfiletype clojure
-
-" ' and ` are used alone in Clojure
-" au FileType clojure let b:delimitMate_quotes = "\""
 
 " Iced
 let g:iced_formatter = 'zprint'
@@ -256,42 +189,6 @@ augroup END
 
 let g:magit_show_help=0
 
-nnoremap <leader>g :Grepper -tool git<cr>
-nnoremap <leader>a :Grepper -tool ag<cr>
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
-
-if !exists('g:grepper')
-  let g:grepper = {}
-endif
-let g:grepper.prompt_quote = 2
-
 autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
 
 autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
-
-" Clap
-
-let g:clap_layout = { 'relative': 'editor' }
-let g:clap_disable_run_rooter = v:true
-" single, double, rounded, solid, shadow
-let g:clap_popup_border = 'solid'
-let g:clap_open_preview = 'on_move'
-let g:clap_preview_direction = 'UD'
-" Close clap window using esc, instead of changing to normal mode.
-let g:clap_insert_mode_only = v:true
-let g:clap_multi_selection_warning_silent = v:true
-" let g:clap_theme = 'seoul256'
-let g:clap_current_selection_sign = {
-      \ 'text': '⮕',
-      \ 'texthl': "ClapCurrentSelectionSign",
-      \ "linehl": "ClapCurrentSelection"
-      \ }
-
-" Note: If stuck with unfocused Clap floating window, run :Clap to return the
-" focus and close normally.
-
-" nmap <Leader>z <Plug>(MaximizeWin)
-
-" nmap <silent> <Leader>B <Plug>(ClearAllWindows)
-" nmap <silent> <Leader>b <Plug>(ClearBufferList)

@@ -17,3 +17,4 @@ nashorn_code_cache/
 
 .gitconfig-work
 .vim-lsp-ignore
+.vim/lua/packer_compiled.lua
