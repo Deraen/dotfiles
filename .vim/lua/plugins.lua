@@ -85,6 +85,11 @@ return require('packer').startup(function(use)
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   }
 
+  use {
+    'nvim-telescope/telescope-frecency.nvim',
+    requires = {"kkharji/sqlite.lua"}
+  }
+
   -- Autocomplete
   -- use 'hrsh7th/nvim-cmp'
   -- use 'hrsh7th/cmp-buffer'
@@ -130,10 +135,19 @@ return require('packer').startup(function(use)
   use 'tpope/vim-eunuch'
 
   -- Git wrapper
-  -- could replace with lua version: dinhhuy258/git.nvim
+  -- could replace with lua version: dinhhuy258/git.nvim, no benefit?
   use 'tpope/vim-fugitive'
+  use "sindrets/diffview.nvim"
+  use 'jreybert/vimagit'
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require 'config/gitsigns'
+    end
+  }
   -- Github extension
   -- use 'tpope/vim-rhubarb'
+
 
   -- Support . to repeat some plugin operations
   use 'tpope/vim-repeat'
@@ -188,10 +202,6 @@ return require('packer').startup(function(use)
   -- Some text objects?
   use 'wellle/targets.vim'
 
-  -- Git gutter
-  -- use 'airblade/vim-gitgutter'
-  use 'jreybert/vimagit'
-
   -- Replace with register, `gr`
   -- use 'vim-scripts/ReplaceWithRegister'
 
@@ -222,54 +232,6 @@ return require('packer').startup(function(use)
 
   use "windwp/nvim-autopairs"
 
-  use {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require('gitsigns').setup{
-        on_attach = function(bufnr)
-          local gs = package.loaded.gitsigns
-
-          local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-          end
-
-          -- Navigation
-          map('n', ']c', function()
-            if vim.wo.diff then return ']c' end
-            vim.schedule(function() gs.next_hunk() end)
-            return '<Ignore>'
-          end, {expr=true})
-
-          map('n', '[c', function()
-            if vim.wo.diff then return '[c' end
-            vim.schedule(function() gs.prev_hunk() end)
-            return '<Ignore>'
-          end, {expr=true})
-
-          -- Actions
-          map('n', '<leader>hs', gs.stage_hunk)
-          map('n', '<leader>hr', gs.reset_hunk)
-          map('v', '<leader>hs', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-          map('v', '<leader>hr', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-          map('n', '<leader>hS', gs.stage_buffer)
-          map('n', '<leader>hu', gs.undo_stage_hunk)
-          map('n', '<leader>hR', gs.reset_buffer)
-          map('n', '<leader>hp', gs.preview_hunk)
-          map('n', '<leader>hb', function() gs.blame_line{full=true} end)
-          map('n', '<leader>tb', gs.toggle_current_line_blame)
-          map('n', '<leader>hd', gs.diffthis)
-          map('n', '<leader>hD', function() gs.diffthis('~') end)
-          map('n', '<leader>td', gs.toggle_deleted)
-
-          -- Text object
-          map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-        end
-      }
-    end
-  }
-
   use 'mrjones2014/smart-splits.nvim'
 
   -- live preview markdown on browser
@@ -283,8 +245,6 @@ return require('packer').startup(function(use)
 
   -- Better input and select UI
   use 'stevearc/dressing.nvim'
-
-  use 'sindrets/diffview.nvim'
 
   if packer_bootstrap then
     require('packer').sync()

@@ -124,6 +124,7 @@ telescope.setup{
 
 telescope.load_extension "file_browser"
 telescope.load_extension('fzf')
+telescope.load_extension("frecency")
 
 -- keymap('n', '<leader>fb', telescope.extensions.file_browser.file_browser, {})
 keymap("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<cr>", { noremap = true })
@@ -204,3 +205,16 @@ require("color-picker").setup({
 
 -- Toggle hlsearch yoh
 -- highlight word under cursor or visual with *
+
+require("diffview").setup{
+  use_icons = false,
+  icons = {
+    folder_closed = "+",
+    folder_open = "-",
+  },
+  signs = {
+    fold_closed = "+",
+    fold_open = "-",
+    done = "x",
+  }
+}

@@ -18,8 +18,6 @@ changed submodule after updating submodules: `git log -p --submodule=log` or
 |------|-------------|
 | [packages.sh](bin/packages.sh) | Install wanted packages and uninstall others
 | [postinstall.sh](bin/postinstall.sh) | Update, fetch and build external modules (git submodules). Create some system config files.
-| [dmenu.sh](bin/dmenu.sh) | Dmenu with list built from .desktop-files, sorted by most used.
-| [displays.yaml](.config/displays.yaml) | Describe different monitor setups and their settings, for [my dspmgr](https://github.com/Deraen/dspmgr).
 
 ## Installation
 
@@ -50,20 +48,4 @@ sudo apt-get update
 ```
 # Remove old packages
 dpkg -l | grep oibaf | awk '{print $2}' | xargs sudo dpkg --remove --force-all
-```
-
-### Remove automatically added Chrome search engines
-
-Only leave search engines where keyword doesn't contain dots, i.e. keyword is not the domain:
-
-```js
-settings.SearchEnginesBrowserProxyImpl.prototype.getSearchEnginesList()
-    .then(function(val) {
-        val.others.sort(function(a, b) { return b.modelIndex - a.modelIndex; });
-        val.others.forEach(function(engine) {
-            if (engine.keyword.indexOf('.') !== -1) {
-                settings.SearchEnginesBrowserProxyImpl.prototype.removeSearchEngine(engine.modelIndex);
-            }
-        });
-    });
 ```
