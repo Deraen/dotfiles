@@ -70,7 +70,13 @@ return require('packer').startup(function(use)
 
   -- File selector etc.
   -- use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
-  -- use 'mhinz/vim-grepper'
+  use 'mhinz/vim-grepper'
+
+  -- Vs. trouble?
+  use {'kevinhwang91/nvim-bqf'}
+  use {'junegunn/fzf', run = function()
+    vim.fn['fzf#install']()
+  end}
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -89,6 +95,10 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope-frecency.nvim',
     requires = {"kkharji/sqlite.lua"}
   }
+
+  use 'nvim-telescope/telescope-smart-history.nvim'
+
+
 
   -- Autocomplete
   -- use 'hrsh7th/nvim-cmp'

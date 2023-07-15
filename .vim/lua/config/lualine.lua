@@ -23,7 +23,7 @@ require('lualine').setup {
     lualine_a = {{'mode', fmt = function(s) return s:sub(1,1) end}},
     -- branch, diff
     lualine_b = {'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_c = {{'filename', path = 1}},
     -- fileformat, encoding, filetype
     lualine_x = {},
     -- progress
@@ -33,7 +33,7 @@ require('lualine').setup {
   inactive_sections = {
     lualine_a = {function() return '-' end},
     lualine_b = {'diagnostics'},
-    lualine_c = {'filename'},
+    lualine_c = {{'filename', path = 1}},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {'location'}

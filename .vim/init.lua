@@ -1,7 +1,8 @@
 require 'plugins'
-require 'treesitter'
 
+require 'config/treesitter'
 require 'config/lsp'
+require 'config/quickfix'
 
 vim.cmd 'source ~/.vim/config.vim'
 
@@ -50,10 +51,11 @@ keymap('n', '<leader>ff', tbuiltin.find_files, {})
 keymap('n', '<c-b>', tbuiltin.buffers, {})
 keymap('n', '<leader>fb', tbuiltin.buffers, {})
 
--- NOTE: Telescope doesn't support coloroutput to show the matched string
-keymap({'n', 'v'}, '<leader>gg', tbuiltin.grep_string, {})
+-- NOTE: Telescope doesn't support colored output to show the matched string
 keymap('n', '<leader>fg', tbuiltin.live_grep, {})
 keymap('n', '<leader>fh', tbuiltin.help_tags, {})
+
+-- keymap({'n', 'v'}, '<leader>gg', '<Plug>(GrepperOperator)', {})
 
 local troublet = require("trouble.providers.telescope")
 local actions = require("telescope.actions")
@@ -77,13 +79,19 @@ telescope.setup{
         ["<c-k>"] = actions.move_selection_previous,
       },
     },
+    padding = false,
     sorting_strategy = "ascending",
+    cycle_results = false,
     layout_config = {
       horizontal = {
         height = 0.6,
         prompt_position = "top",
       }
     },
+    history = {
+      path = '~/.local/share/nvim/telescope_history.sqlite3',
+      limit = 100,
+    }
   },
   pickers = {
     buffers = {
@@ -125,6 +133,7 @@ telescope.setup{
 telescope.load_extension "file_browser"
 telescope.load_extension('fzf')
 telescope.load_extension("frecency")
+telescope.load_extension('smart_history')
 
 -- keymap('n', '<leader>fb', telescope.extensions.file_browser.file_browser, {})
 keymap("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true<cr>", { noremap = true })
@@ -216,5 +225,11 @@ require("diffview").setup{
     fold_closed = "+",
     fold_open = "-",
     done = "x",
+  }
+}
+
+require("bqf").setup{
+  preview = {
+    auto_preview = false,
   }
 }
