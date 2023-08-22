@@ -54,7 +54,7 @@ for status in $(git submodule status); do
 done
 
 
-git add -A "$HOME/.local/modules" "$HOME/.vim/bundle*" "$HOME/.fzf"
+git add -A "$HOME/.local/modules" "$HOME/.fzf"
 
 if confirm -i "Update Node utils?"; then
     (
