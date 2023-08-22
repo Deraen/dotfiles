@@ -79,6 +79,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         # ppa graphics-drivers ppa kinetic --keyid FCAE110B1118213C
         # ppa lutris-team lutris lunar --keyid 37B90EDD4E3EFAE4
         ppa deluge-team stable kinetic --keyid C5E6A5ED249AD24C
+        ppa kdenlive kdenlive-stable lunar --keyid 2763B0EE7709FE97
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
@@ -160,14 +161,17 @@ install libinput-tools
 install sysfsutils
 install ufw
 install libimage-exiftool-perl
+install mediainfo
 install apparmor-utils
 install flatpak
 install gnome-software-plugin-flatpak
+install hwinfo
 
 # Editor
 install python3-msgpack
 
 # Neovim
+install neovim
 install luarocks
 install libmsgpack-dev
 install xclip
@@ -188,6 +192,7 @@ install nodejs
 # install gcc-msp430 # TI Launchpad
 # install mspdebug
 install arduino
+install esptool
 
 # C++
 install clang
@@ -228,7 +233,9 @@ install golang-1.19
 install adb
 install diffpdf
 install pdfarranger
+install dupeguru
 install gdal-bin
+install gpsbabel
 install cmatrix
 install xmlstarlet
 install wireshark
@@ -424,6 +431,12 @@ install flameshot
 install usb-creator-gtk
 install xdotool
 install slack-desktop
+install digikam
+install trilium
+
+install mesa-va-drivers
+install mesa-vdpau-drivers
+install vainfo
 
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
@@ -450,6 +463,10 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install radeontop
         # install mullvad-vpn
         install lutris 0.5.13 "https://github.com/lutris/lutris/releases/download/v0.5.13/lutris_0.5.13_all.deb"
+        # for davinci
+        install mesa-opencl-icd
+        install kdenlive
+        install davinci-resolve
 fi
 
 # Laptop specific

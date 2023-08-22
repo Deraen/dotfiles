@@ -75,6 +75,9 @@ mv ~/bin/nvim.appimage.new ~/bin/nvim.appimage
 chmod +x ~/bin/nvim.appimage
 nvim.appimage --version
 
+wget -o ~/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/download/latest/yt-dlp_linux
+chmod +x ~/bin/yt-dlp
+
 wget https://github.com/ko1nksm/shdotenv/releases/latest/download/shdotenv -O $HOME/.local/bin/shdotenv
 chmod +x $HOME/.local/bin/shdotenv
 curl https://get.volta.sh | bash
