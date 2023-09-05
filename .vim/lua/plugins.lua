@@ -107,7 +107,7 @@ return require('packer').startup(function(use)
   -- use 'L3MON4D3/LuaSnip'
   -- use 'saadparwaiz1/cmp_luasnip'
   -- Non lsp sources for lsp
-  use 'jose-elias-alvarez/null-ls.nvim'
+  -- use 'jose-elias-alvarez/null-ls.nvim'
 
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
