@@ -141,10 +141,28 @@ keymap("n", "<leader>fb", ":Telescope file_browser path=%:p:h select_buffer=true
 -- Disable autopair ' for clojure
 local npairs = require('nvim-autopairs')
 local cond = require('nvim-autopairs.conds')
+local basic = require('nvim-autopairs.rules.basic')
 
 npairs.setup {}
 npairs.get_rules("'")[1].not_filetypes = { "clojure" }
 npairs.get_rules("'")[1]:with_pair(cond.not_after_text("["))
+
+local opt = require('nvim-autopairs').config
+-- Add ( even if there is end ) already
+opt.enable_check_bracket_line = false
+npairs.add_rules({
+  basic.bracket_creator(opt)("(", ")",{"clojure", "lisp"})
+    :with_pair(cond.not_after_regex([=[[%w%%%'%[%"%.%`%$%+%-%/%*]]=])),
+  basic.bracket_creator(opt)("{", "}",{"clojure", "lisp"})
+    :with_pair(cond.not_after_regex([=[[%w%%%'%[%"%.%`%$%+%-%/%*]]=])),
+  basic.bracket_creator(opt)("[", "]",{"clojure", "lisp"})
+    :with_pair(cond.not_after_regex([=[[%w%%%'%[%"%.%`%$%+%-%/%*]]=]))
+})
+
+-- turn off the original rule for clojure and lisp
+npairs.get_rule("(")[1].not_filetypes = {"clojure",  "lisp" }
+npairs.get_rule("{")[1].not_filetypes = {"clojure",  "lisp" }
+npairs.get_rule("[")[1].not_filetypes = {"clojure",  "lisp" }
 
 local trouble = require("trouble")
 
