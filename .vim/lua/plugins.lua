@@ -1,4 +1,17 @@
 -- Alternative package manager https://github.com/folke/lazy.nvim
+--
+--[[
+TODO:
+lazy.nvim
+https://www.lazyvim.org/
+obsession -> https://github.com/folke/persistence.nvim
+vimgrepper? -> https://github.com/RRethy/vim-illuminate
+https://github.com/jose-elias-alvarez/typescript.nvim
+https://github.com/folke/which-key.nvim
+https://github.com/folke/noice.nvim
+try https://github.com/folke/tokyonight.nvim
+https://github.com/nvim-telescope/telescope.nvim/wiki/Gallery#borderless
+]]--
 
 local ensure_packer = function()
   local fn = vim.fn
@@ -89,11 +102,6 @@ return require('packer').startup(function(use)
   use {
     "nvim-telescope/telescope-file-browser.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-  }
-
-  use {
-    'nvim-telescope/telescope-frecency.nvim',
-    requires = {"kkharji/sqlite.lua"}
   }
 
   use 'nvim-telescope/telescope-smart-history.nvim'

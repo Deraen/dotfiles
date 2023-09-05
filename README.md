@@ -49,3 +49,7 @@ sudo apt-get update
 # Remove old packages
 dpkg -l | grep oibaf | awk '{print $2}' | xargs sudo dpkg --remove --force-all
 ```
+
+## TODO
+
+- Hyprland?
