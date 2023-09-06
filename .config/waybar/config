@@ -120,8 +120,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        // "on-click": "gnome-control-center sound",
-        "on-click": "pavucontrol",
+        "on-click": "gnome-control-center sound",
         "tooltip": false
     },
     "custom/swaync": {
