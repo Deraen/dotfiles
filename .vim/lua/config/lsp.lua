@@ -18,6 +18,7 @@ lsp.on_attach(function(_, bufnr)
     omit = {
       "<F2>", "<F3>", "<F4>",
       "gr",
+      "gs",
     },
   })
 

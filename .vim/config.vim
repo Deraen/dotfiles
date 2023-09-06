@@ -193,10 +193,10 @@ autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <
 
 autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
 
-" nnoremap <leader>gg :Grepper -tool git<cr>
-" nnoremap <leader>ga :Grepper -tool ag<cr>
-nmap <leader>gg <plug>(GrepperOperator)
-xmap <leader>gg <plug>(GrepperOperator)
+nnoremap <leader>gg :Grepper -tool git<cr>
+nnoremap <leader>ga :Grepper -tool ag<cr>
+nmap <leader>gs <plug>(GrepperOperator)
+xmap <leader>gs <plug>(GrepperOperator)
 
 if !exists('g:grepper')
   let g:grepper = {}
