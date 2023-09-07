@@ -5,20 +5,12 @@ if [[ -f $HOME/.profile ]]; then
   source $HOME/.profile
 fi
 
-# Nvidia hack:
-# if [[ $(hostname -s) == "juho-desktop" ]]; then
-#   export WLR_NO_HARDWARE_CURSORS=1
-# fi
-
 export QT_QPA_PLATFORM=wayland
 # export GDK_BACKEND=wayland
+# Or sway:GNOME for gnome-control-center?
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 export MOZ_ENABLE_WAYLAND=1
-
-# systemctl --user import-environment
-# systemctl --user import-environment XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP QT_QPA_PLATFORM
-# hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
 
 exec sway "$@"
 # exec systemctl --wait --user start sway.service
