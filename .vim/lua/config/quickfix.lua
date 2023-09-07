@@ -1,5 +1,6 @@
 local fn = vim.fn
 
+-- https://github.com/kevinhwang91/nvim-bqf/blob/main/README.md#format-new-quickfix
 function _G.qftf(info)
     local items
     local ret = {}
@@ -54,6 +55,9 @@ vim.o.qftf = '{info -> v:lua._G.qftf(info)}'
 
 -- Adapt fzf's delimiter in nvim-bqf
 require('bqf').setup({
+    preview = {
+        auto_preview = false,
+    },
     filter = {
         fzf = {
             extra_opts = {'--bind', 'ctrl-o:toggle-all', '--delimiter', '│'}

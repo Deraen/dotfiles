@@ -56,7 +56,7 @@ set exrc
 
 let g:seoul256_srgb = 1
 " colorschema seoul256
-colorscheme kanagawa-dragon
+" colorscheme kanagawa-dragon
 
 set termguicolors
 
@@ -65,7 +65,7 @@ set termguicolors
 " set updatetime=500
 
 " Mappings
-let mapleader = ' '
+" let mapleader = ' '
 let maplocalleader = 'ö'
 
 nnoremap ' `
@@ -118,10 +118,6 @@ nnoremap <silent> <Plug>SplitLine i<CR><Esc>k$
       \ :call repeat#set("\<Plug>SplitLine")<CR>
 " FIXME: Find new binding
 " nmap K <Plug>SplitLine
-
-" Vim-rsi (readline insertmode bindings)
-" Disable meta maps because <M-d> bindings breaks ä
-let g:rsi_no_meta=1
 
 " Clojure options
 autocmd BufNewFile,BufReadPost *.boot setfiletype clojure
@@ -192,13 +188,3 @@ let g:magit_show_help=0
 autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
 
 autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
-
-nnoremap <leader>gg :Grepper -tool git<cr>
-nnoremap <leader>ga :Grepper -tool ag<cr>
-nmap <leader>gs <plug>(GrepperOperator)
-xmap <leader>gs <plug>(GrepperOperator)
-
-if !exists('g:grepper')
-  let g:grepper = {}
-endif
-let g:grepper.prompt_quote = 2
