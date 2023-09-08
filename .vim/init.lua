@@ -24,4 +24,5 @@ require('lazy').setup('plugins')
 
 vim.cmd 'source ~/.vim/config.vim'
 
+require('config/keymaps')
 require('config/quickfix')

@@ -48,6 +48,7 @@ return {
       pickers = {
         buffers = {
           sorting_strategy = "ascending",
+          sort_lastused = true,
           mappings = {
             i = {
               ["<c-d>"] = function(...) return require('telescope.actions').delete_buffer(...) end,
@@ -85,7 +86,7 @@ return {
   {
     "nvim-telescope/telescope-file-browser.nvim",
     keys = {
-      { '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', noremap = true },
+      { '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', noremap = true, desc = 'Telescope file browser' },
     },
     config = function()
       require('telescope').load_extension('file_browser')

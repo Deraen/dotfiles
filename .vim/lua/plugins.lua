@@ -14,6 +14,7 @@ SmiteshP/nvim-navic
 https://github.com/folke/flash.nvim
 folke/todo-comments.nvim
 predefined windows layouts: https://github.com/folke/edgy.nvim
+https://github.com/gbprod/yanky.nvim
 ]]--
 
 return {
@@ -31,7 +32,7 @@ return {
   },
   {
     'Deraen/seoul256.vim',
-    disable = true,
+    enabled = false,
     init = function ()
       vim.g.seoul256_srgb = 1
       vim.cmd([[colorscheme seoul256]])
@@ -43,19 +44,61 @@ return {
   -- TODO: vimgrepper? -> https://github.com/RRethy/vim-illuminate
   -- TODO: nvim-pack/nvim-spectre search and replace in files
   {
-    'mhinz/vim-grepper',
+    'RRethy/vim-illuminate',
+    enabled = false,
+    event = { "BufReadPost", "BufNewFile" },
     keys = {
-      { '<leader>gg', '<cmd>Grepper -tool git<cr>', noremap = true },
-      { '<leader>ga', '<cmd>Grepper -tool ag<cr>', noremap = true },
-      { '<leader>gs', '<plug>(GrepperOperator)' },
-      { '<leader>gs', '<plug>(GrepperOperator)', mode = 'x' },
+      { ']]' },
+      { '[[' },
     },
-    init = function()
-      if not vim.g.grepper then
-        vim.g.grepper = {}
+    opts = {
+      delay = 200,
+      large_file_cutoff = 2000,
+      large_file_overrides = {
+        providers = { 'lsp' },
+      }
+    },
+    config = function (_, opts)
+      require("illuminate").configure(opts)
+
+      local function map(key, dir, buffer)
+        vim.keymap.set("n", key, function()
+          require("illuminate")["goto_" .. dir .. "_reference"](false)
+        end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference", buffer = buffer })
       end
-      vim.g.grepper.prompt_quote = 2
+
+      map("]]", "next")
+      map("[[", "prev")
+
+      -- also set it after loading ftplugins, since a lot overwrite [[ and ]]
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          local buffer = vim.api.nvim_get_current_buf()
+          map("]]", "next", buffer)
+          map("[[", "prev", buffer)
+        end,
+      })
     end
+  },
+  {
+    'nvim-pack/nvim-spectre',
+    cmd = 'Spectre',
+    opts = {
+      open_cmd = 'noswapfile vnew',
+    },
+    keys = {
+      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+    }
+  },
+  {
+    'mhinz/vim-grepper',
+    cmd = { 'Grepper', 'GrepperGit', 'GrepperAg', 'GrepperRg', 'GrepperGrep' },
+    keys = {
+      { '<leader>gg', ':Grepper -tool git<cr>', noremap = true, desc = 'Git grep' },
+      { '<leader>ga', ':Grepper -tool ag<cr>', noremap = true, desc = 'Ag grep' },
+      { '<leader>gs', '<plug>(GrepperOperator)', desc =  'Grep operator' },
+      { '<leader>gs', '<plug>(GrepperOperator)', mode = 'x', desc = 'Grep operator' },
+    },
   },
 
   -- Vs. trouble?
@@ -160,6 +203,7 @@ return {
 
   -- Toggle comments, `gc`
   'tpope/vim-commentary',
+  -- 'numToStr/Comment.nvim',
 
   -- Some readline stuff for insert mode
   -- TODO: Is this needed?
@@ -189,14 +233,14 @@ return {
   -- vmap <Enter> <Plug>(EasyAlign)
 
   -- Open and load etc. vimscripts
-  'tpope/vim-scriptease',
+  -- 'tpope/vim-scriptease',
 
   -- Open color editor
   -- use 'KabbAmine/vCoolor.vim'
   {
     "ziontee113/color-picker.nvim",
     keys = {
-      { '<leader>cc', '<cmd>PickColor<cr>', 'n', noremap = true, silent = true }
+      { '<leader>cc', '<cmd>PickColor<cr>', 'n', noremap = true, silent = true, desc = 'Color picker' }
       -- vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
       -- vim.keymap.set("n", "your_keymap", "<cmd>ConvertHEXandRGB<cr>", opts)
@@ -214,7 +258,7 @@ return {
   -- 'tpope/vim-unimpaired',
 
   -- Some text objects?
-  -- 'wellle/targets.vim',
+  'wellle/targets.vim',
 
   -- Replace with register, `gr`
   -- use 'vim-scripts/ReplaceWithRegister'
@@ -287,15 +331,15 @@ return {
     },
     keys = function(_, opts)
       return {
-        {'<C-h>', function (...) require('smart-splits').resize_left(...) end},
-        {'<C-j>', function (...) require('smart-splits').resize_down(...) end},
-        {'<C-k>', function (...) require('smart-splits').resize_up(...) end},
-        {'<C-l>', function (...) require('smart-splits').resize_right(...) end},
+        {'<C-h>', function (...) require('smart-splits').resize_left(...) end, desc = 'Resize left'},
+        {'<C-j>', function (...) require('smart-splits').resize_down(...) end, desc = 'Resize down'},
+        {'<C-k>', function (...) require('smart-splits').resize_up(...) end, desc = 'Resize left'},
+        {'<C-l>', function (...) require('smart-splits').resize_right(...) end, desc = 'Resize right'},
 
-        {'<A-h>', function (...) require('smart-splits').move_cursor_left(...) end},
-        {'<A-j>', function (...) require('smart-splits').move_cursor_down(...) end},
-        {'<A-k>', function (...) require('smart-splits').move_cursor_up(...) end},
-        {'<A-l>', function (...) require('smart-splits').move_cursor_right(...) end},
+        {'<A-h>', function (...) require('smart-splits').move_cursor_left(...) end, desc = 'Move to left'},
+        {'<A-j>', function (...) require('smart-splits').move_cursor_down(...) end, desc = 'Move to down'},
+        {'<A-k>', function (...) require('smart-splits').move_cursor_up(...) end, desc = 'Move to up'},
+        {'<A-l>', function (...) require('smart-splits').move_cursor_right(...) end, desc = 'Move to right'},
       }
     end,
   },
@@ -321,6 +365,43 @@ return {
         require("lazy").load({ plugins = { "dressing.nvim" } })
         return vim.ui.input(...)
       end
+    end,
+  },
+
+  -- which-key helps you remember key bindings by showing a popup
+  -- with the active keybindings of the command you started typing.
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      plugins = { spelling = true },
+      defaults = {
+        mode = { "n", "v" },
+        -- ["g"] = { name = "+goto" },
+        -- ["gz"] = { name = "+surround" },
+        -- ["]"] = { name = "+next" },
+        -- ["["] = { name = "+prev" },
+        -- ["<leader><tab>"] = { name = "+tabs" },
+        -- ["<leader>b"] = { name = "+buffer" },
+        -- ["<leader>c"] = { name = "+code" },
+        -- ["<leader>f"] = { name = "+file/find" },
+        ["<leader>h"] = { name = "+git" },
+        -- ["<leader>gh"] = { name = "+hunks" },
+        -- ["<leader>q"] = { name = "+quit/session" },
+        -- ["<leader>s"] = { name = "+search" },
+        -- ["<leader>u"] = { name = "+ui" },
+        -- ["<leader>w"] = { name = "+windows" },
+        -- ["<leader>x"] = { name = "+diagnostics/quickfix" },
+        ["<leader>x"] = { name = "+diagnostics/quickfix" },
+      },
+      show_help = false,
+    },
+    config = function(_, opts)
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+      local wk = require("which-key")
+      wk.setup(opts)
+      wk.register(opts.defaults)
     end,
   },
 }

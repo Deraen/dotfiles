@@ -109,8 +109,8 @@ return {
         keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", opts)
         keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", opts)
 
-        keymap({"n","v"}, "<leader>ca", vim.lsp.buf.code_action)
-        keymap("n", "gR", vim.lsp.buf.rename)
+        keymap({"n","v"}, "<leader>ca", vim.lsp.buf.code_action, {desc = 'Code actions'})
+        keymap("n", "gR", vim.lsp.buf.rename, {desc = 'LSP Rename'})
       end)
 
       -- Configure clojure-lsp setup to return parent project folder

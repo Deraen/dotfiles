@@ -54,44 +54,6 @@ set termguicolors
 " CursorHold autocmd & swapfile (not enabled)
 " set updatetime=500
 
-" Mappings
-
-nnoremap ' `
-nnoremap Y y$
-nnoremap j gj
-nnoremap k gk
-
-" Save file
-nnoremap ä :w<CR>
-
-" Close window
-nnoremap <M-q> <C-w>c
-inoremap <M-q> <Esc><C-w>c:echo ""<cr>
-" New windows
-nnoremap <M-n> <C-w>v
-nnoremap <M-m> <C-w>s
-
-" NOTE: To make windows equal size, <C-w>=
-
-" Unbind Ex mode
-nnoremap Q <nop>
-
-" Quick macro stuff
-nnoremap § qqqqq
-nnoremap ½ @q
-vnoremap ½ @q
-
-" One more way to exit insert mode
-inoremap <C-c> <ESC>
-if has("nvim")
-  tnoremap <Esc> <C-\><C-n>
-endif
-
-" Split line
-nnoremap <silent> <Plug>SplitLine i<CR><Esc>k$ :call repeat#set("\<Plug>SplitLine")<CR>
-" FIXME: Find new binding
-" nmap K <Plug>SplitLine
-
 " Check highlighting group of current char
 function! SynStack()
   if !exists("*synstack")
@@ -115,3 +77,8 @@ augroup END
 autocmd FileType git,gitcommit,gitrebase,fugitiveblame nnoremap <buffer> <M-w> <C-w>c
 
 autocmd BufRead,BufNewFile Jenkinsfile set ft=groovy
+
+if !exists('g:grepper')
+  let g:grepper = {}
+endif
+let g:grepper.prompt_quote = 2
