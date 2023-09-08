@@ -31,12 +31,17 @@ return {
   },
   {
     'Deraen/seoul256.vim',
-    lazy = true,
+    disable = true,
+    init = function ()
+      vim.g.seoul256_srgb = 1
+      vim.cmd([[colorscheme seoul256]])
+    end
   },
 
   -- File selector etc.
   -- use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
   -- TODO: vimgrepper? -> https://github.com/RRethy/vim-illuminate
+  -- TODO: nvim-pack/nvim-spectre search and replace in files
   {
     'mhinz/vim-grepper',
     keys = {
@@ -56,9 +61,32 @@ return {
   -- Vs. trouble?
   {
     'kevinhwang91/nvim-bqf',
-    config = function()
-      require('config/quickfix')
-    end
+    opts = {
+      preview = {
+        auto_preview = false,
+      },
+      filter = {
+        fzf = {
+          extra_opts = {'--bind', 'ctrl-o:toggle-all', '--delimiter', '│'}
+        }
+      }
+    },
+  },
+
+  -- Navigate code
+  -- ggandor/flit.nvim & ggandor/leap.nvim
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
   },
 
   -- Autocomplete
@@ -74,7 +102,10 @@ return {
   -- it own debugger system so that doesn't work.
   -- use 'puremourning/vimspector'
 
-  {'preservim/vim-markdown', ft = 'markdown'},
+  {
+    'preservim/vim-markdown', 
+    ft = 'markdown'
+  },
 
   -- Colorcodes
   -- TODO: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
@@ -95,6 +126,7 @@ return {
 
   -- Switch stuff
   -- use 'AndrewRadev/switch.vim'
+  -- let g:switch_mapping = "<C-s>"
 
   -- Text objects
   -- use 'kurkale6ka/vim-pairs'
@@ -105,33 +137,19 @@ return {
   -- Unix shell commands
   'tpope/vim-eunuch',
 
-  -- Git wrapper
-  -- could replace with lua version: dinhhuy258/git.nvim, no benefit?
-  'tpope/vim-fugitive',
-  {
-    "sindrets/diffview.nvim",
-    opts = {
-      use_icons = false,
-      icons = {
-        folder_closed = "+",
-        folder_open = "-",
-      },
-      signs = {
-        fold_closed = "+",
-        fold_open = "-",
-        done = "x",
-      }
-    }
-  },
-
   -- Support . to repeat some plugin operations
-  'tpope/vim-repeat',
+  { 'tpope/vim-repeat', event = 'VeryLazy' },
 
   -- Automatically set buffer shiftwidth etc.
   'tpope/vim-sleuth',
 
   -- change surround 'cs' operation
-  'tpope/vim-surround',
+  -- 'tpope/vim-surround',
+  {
+    'kylechui/nvim-surround',
+    version = '*',
+    event = 'VeryLazy'
+  },
 
   -- highlight matching html/xml tag
   -- TODO: Is this needed?
@@ -168,6 +186,7 @@ return {
   -- Align stuff
   -- TODO: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-align.md
   -- 'junegunn/vim-easy-align',
+  -- vmap <Enter> <Plug>(EasyAlign)
 
   -- Open and load etc. vimscripts
   'tpope/vim-scriptease',
@@ -192,10 +211,10 @@ return {
   },
 
   -- Add some mapping pairs
-  'tpope/vim-unimpaired',
+  -- 'tpope/vim-unimpaired',
 
   -- Some text objects?
-  'wellle/targets.vim',
+  -- 'wellle/targets.vim',
 
   -- Replace with register, `gr`
   -- use 'vim-scripts/ReplaceWithRegister'
@@ -215,7 +234,14 @@ return {
 
   -- Close buffers without breaking layout or closing windows
   -- TODO: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bufremove.md
-  'moll/vim-bbye',
+  -- 'moll/vim-bbye',
+  {
+    'echasnovski/mini.bufremove',
+    keys = {
+      {'<M-w>', function() require('mini.bufremove').delete(0, false) end}
+    },
+    opts = {},
+  },
 
   -- Navigate matches
   -- {
@@ -227,28 +253,51 @@ return {
   -- },
 
   -- TODO: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-pairs.md
-  -- use "windwp/nvim-autopairs"
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    opts = {
+      enable_check_bracket_line = false,
+      check_ts = true,
+      ts_config = {
+        lua = {'string', 'comment'},
+      },
+    },
+    config = function(_, opts)
+      local npairs = require('nvim-autopairs')
+
+      npairs.setup(opts)
+
+      local cond = require('nvim-autopairs.conds')
+      local basic = require('nvim-autopairs.rules.basic')
+
+      npairs.get_rules("'")[1].not_filetypes = { "clojure", "scheme", "lisp" }
+      npairs.get_rules("'")[1]:with_pair(cond.not_after_text("["))
+
+      npairs.get_rules("`")[1].not_filetypes = { "clojure" }
+      npairs.get_rules("`")[1]:with_pair(cond.not_after_text("["))
+    end
+  },
+  -- Is enabled on comments?
 
   {
     'mrjones2014/smart-splits.nvim',
     opts = {
       at_edge = 'stop',
     },
-    keys = {
-      '<C-h>', '<C-j>', '<C-k>', '<C-l>',
-      '<A-h>', '<A-j>', '<A-k>', '<A-l>',
-    },
-    config = function()
-      vim.keymap.set('n', '<C-h>', require('smart-splits').resize_left)
-      vim.keymap.set('n', '<C-j>', require('smart-splits').resize_down)
-      vim.keymap.set('n', '<C-k>', require('smart-splits').resize_up)
-      vim.keymap.set('n', '<C-l>', require('smart-splits').resize_right)
-      -- moving between splits
-      vim.keymap.set('n', '<A-h>', require('smart-splits').move_cursor_left)
-      vim.keymap.set('n', '<A-j>', require('smart-splits').move_cursor_down)
-      vim.keymap.set('n', '<A-k>', require('smart-splits').move_cursor_up)
-      vim.keymap.set('n', '<A-l>', require('smart-splits').move_cursor_right)
-    end
+    keys = function(_, opts)
+      return {
+        {'<C-h>', function (...) require('smart-splits').resize_left(...) end},
+        {'<C-j>', function (...) require('smart-splits').resize_down(...) end},
+        {'<C-k>', function (...) require('smart-splits').resize_up(...) end},
+        {'<C-l>', function (...) require('smart-splits').resize_right(...) end},
+
+        {'<A-h>', function (...) require('smart-splits').move_cursor_left(...) end},
+        {'<A-j>', function (...) require('smart-splits').move_cursor_down(...) end},
+        {'<A-k>', function (...) require('smart-splits').move_cursor_up(...) end},
+        {'<A-l>', function (...) require('smart-splits').move_cursor_right(...) end},
+      }
+    end,
   },
 
   -- live preview markdown on browser

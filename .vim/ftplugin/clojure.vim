@@ -137,3 +137,6 @@ aug VimIcedAutoOpenQuickfix
   au!
   au QuickFixCmdPost vim-iced cwindow
 aug END
+
+" Disable minipairs ' and `
+

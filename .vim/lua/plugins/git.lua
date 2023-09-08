@@ -1,7 +1,12 @@
 return {
+  -- could replace with lua version: dinhhuy258/git.nvim, no benefit?
+  'tpope/vim-fugitive',
   {
     'jreybert/vimagit',
     cmd = { 'Magit' },
+    init = function ()
+      vim.g.magit_show_help = 0
+    end
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -47,6 +52,22 @@ return {
         -- Text object
         map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
       end
+    }
+  },
+  {
+    "sindrets/diffview.nvim",
+    cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewToggleFiles', 'DiffviewFocusFiles', 'DiffviewRefresh', 'DiffviewFileHistory', 'DiffviewLog' },
+    opts = {
+      use_icons = false,
+      icons = {
+        folder_closed = "+",
+        folder_open = "-",
+      },
+      signs = {
+        fold_closed = "+",
+        fold_open = "-",
+        done = "x",
+      }
     }
   },
   -- Github extension
