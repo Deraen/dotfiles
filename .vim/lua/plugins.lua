@@ -187,18 +187,14 @@ return {
   'tpope/vim-eunuch',
 
   -- Support . to repeat some plugin operations
-  { 'tpope/vim-repeat' },
+  -- VeryLazy doesn't work, won't be registered correctly.
+  'tpope/vim-repeat',
 
   -- Automatically set buffer shiftwidth etc.
   'tpope/vim-sleuth',
 
   -- change surround 'cs' operation
-  -- 'tpope/vim-surround',
-  {
-    'kylechui/nvim-surround',
-    version = '*',
-    event = 'VeryLazy'
-  },
+  'tpope/vim-surround',
 
   -- highlight matching html/xml tag
   -- TODO: Is this needed?
