@@ -55,9 +55,6 @@ if [[ $desktop == true ]]; then
     header "Build Ponymix"
     make -C "$HOME/.local/modules/ponymix" -j
 
-    header "Build frakkin-xkb"
-    make -C "$HOME/.local/modules/frakkin-xkb" -j
-
     header "Build i3-utils"
     make -C "$HOME/.local/modules/i3-utils" -j
 
@@ -67,7 +64,7 @@ if [[ $desktop == true ]]; then
     if [[ ! -d build ]]; then
         meson build
     fi
-    ninja -C build
+    # ninja -C build
     sudo ninja -C build install
     )
 
@@ -77,7 +74,7 @@ if [[ $desktop == true ]]; then
     if [[ ! -d build ]]; then
         meson build
     fi
-    ninja -C build
+    # ninja -C build
     sudo ninja -C build install
     )
 
@@ -109,12 +106,6 @@ if [[ $desktop == true ]]; then
     (
     # Home git repo, don't show untracked files on status
     cd "$HOME" && git config status.showUntrackedFiles no
-    )
-
-    (
-    cd "$HOME/.vim/bundle/vim-clap" || exit
-    header "Vim-clap"
-    cargo build --release
     )
 
     (
