@@ -121,7 +121,13 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      modes = {
+        search = {
+          enabled = false,
+        }
+      }
+    },
     -- stylua: ignore
     keys = {
       { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
@@ -181,7 +187,7 @@ return {
   'tpope/vim-eunuch',
 
   -- Support . to repeat some plugin operations
-  { 'tpope/vim-repeat', event = 'VeryLazy' },
+  { 'tpope/vim-repeat' },
 
   -- Automatically set buffer shiftwidth etc.
   'tpope/vim-sleuth',
@@ -372,6 +378,7 @@ return {
   -- with the active keybindings of the command you started typing.
   {
     "folke/which-key.nvim",
+    enabled = false,
     event = "VeryLazy",
     opts = {
       plugins = { spelling = true },

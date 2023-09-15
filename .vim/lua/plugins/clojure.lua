@@ -25,7 +25,7 @@ return {
       -- let g:iced_enable_clj_kondo_local_analysis = v:true
       vim.g['iced#buffer#stdout.max_line'] = 10000
       vim.g['iced#selector#search_order'] = {'clap'}
-      -- vim.g['iced#source_root'] = '/home/juho/.vim/bundle_clojure/vim-iced'
+      vim.g['iced#source_root'] = vim.fn.stdpath('data') .. '/lazy/vim-iced'
     end
   },
   -- use {'liquidz/vim-iced-fern-debugger', ft = 'clojure'}
