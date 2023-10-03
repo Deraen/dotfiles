@@ -37,7 +37,7 @@ endif
 set undofile
 set undodir=~/.cache/vim/undo
 set completeopt=noinsert,menuone,noselect
-set signcolumn=number
+set signcolumn=yes:1
 
 " Terminal
 set scrollback=50000
