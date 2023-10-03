@@ -9,14 +9,13 @@ return {
       { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
       { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
     },
+    -- https://github.com/folke/trouble.nvim#setup
     opts = {
       -- for the given modes, automatically jump if there is only a single result
-      -- TODO: Disable auto_jump?
-      auto_jump = {
-        -- "workspace_diagnostics",
-        -- "lsp_references",
-        -- "lsp_definitions",
-      },
+      auto_jump = {},
+      cycle_results = false,
+      group = true,
+      auto_preview = true,
 
       icons = false,
       fold_open = "-", -- icon used for open folds

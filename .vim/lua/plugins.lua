@@ -104,9 +104,14 @@ return {
   -- Vs. trouble?
   {
     'kevinhwang91/nvim-bqf',
+    ft = 'qf',
     opts = {
+      auto_resize_height = true,
       preview = {
+        -- Toggle preview with P
         auto_preview = false,
+        border = 'single',
+        winblend = 12,
       },
       filter = {
         fzf = {
@@ -257,7 +262,7 @@ return {
   },
 
   -- Add some mapping pairs
-  -- 'tpope/vim-unimpaired',
+  'tpope/vim-unimpaired',
 
   -- Some text objects?
   'wellle/targets.vim',

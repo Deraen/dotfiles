@@ -17,9 +17,10 @@ function _G.qftf(info)
     else
         items = fn.getloclist(info.winid, {id = info.id, items = 0}).items
     end
-    local limit = 31
+    local limit = 61
     local fnameFmt1, fnameFmt2 = '%-' .. limit .. 's', '…%.' .. (limit - 1) .. 's'
     local validFmt = '%s │%5d:%-3d│%s %s'
+
     for i = info.start_idx, info.end_idx do
         local e = items[i]
         local fname = ''
@@ -42,7 +43,8 @@ function _G.qftf(info)
             local lnum = e.lnum > 99999 and -1 or e.lnum
             local col = e.col > 999 and -1 or e.col
             local qtype = e.type == '' and '' or ' ' .. e.type:sub(1, 1):upper()
-            str = validFmt:format(fname, lnum, col, qtype, e.text)
+            local s = e.text:gsub("^%s*", "")
+            str = validFmt:format(fname, lnum, col, qtype, s)
         else
             str = e.text
         end

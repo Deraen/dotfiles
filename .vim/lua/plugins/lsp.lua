@@ -3,14 +3,17 @@ return {
   -- lspsaga?
   {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     lazy = true,
-    config = function()
-      -- This is where you modify the settings for lsp-zero
-      -- Note: autocompletion settings will not take effect
-
-      require('lsp-zero.settings').preset({})
+    config = false,
+    init = function()
+      vim.g.lsp_zero_ui_float_border = 'none'
     end
+  },
+  {
+    'williamboman/mason.nvim',
+    lazy = false,
+    config = true,
   },
 
   -- Autocompletion
@@ -25,11 +28,13 @@ return {
       -- The arguments for .extend() have the same shape as `manage_nvim_cmp`:
       -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#manage_nvim_cmp
 
-      require('lsp-zero.cmp').extend()
+      local lsp_zero = require('lsp-zero')
+
+      lsp_zero.extend_cmp()
 
       -- And you can configure cmp even more, if you want to.
       local cmp = require('cmp')
-      local cmp_action = require('lsp-zero.cmp').action()
+      local cmp_action = lsp_zero.cmp_action()
 
       cmp.setup({
         sources = {
@@ -58,38 +63,30 @@ return {
     end
   },
 
-    -- LSP
+  -- LSP
   {
     'neovim/nvim-lspconfig',
-    cmd = 'LspInfo',
+    cmd = {'LspInfo', 'LspInstall', 'LspStart'},
     event = {'BufReadPre', 'BufNewFile'},
     dependencies = {
       {'hrsh7th/cmp-nvim-lsp'},
       {'williamboman/mason-lspconfig.nvim'},
-      {'williamboman/mason.nvim'},
     },
     config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup {
-        ensure_installed = {
-          "lua_ls",
-          "rust_analyzer",
-          "clojure_lsp",
-          "tailwindcss",
-          "grammarly",
-          "tsserver",
-        },
-      }
+      local lsp_zero = require('lsp-zero')
+      lsp_zero.extend_lspconfig()
 
-      local lsp = require('lsp-zero')
-
-      lsp.on_attach(function(client, bufnr)
-        lsp.default_keymaps({
+      lsp_zero.on_attach(function(client, bufnr)
+        -- lsp-zero won't overwrite mappings
+        -- https://github.com/VonHeikemen/lsp-zero.nvim/tree/v3.x#keybindings
+        lsp_zero.default_keymaps({
           buffer = bufnr,
           omit = {
-            "<F2>", "<F3>", "<F4>",
-            "gr",
-            "gs",
+            "<F2>", -- Default "Rename all references to the symbl" binding, used with code-actions
+            "<F3>", -- Default "Format code in current buffer"
+            "<F4>", -- Default "Code action" replaced with <leader>ca
+            -- "gr", -- replaced by Trouble references bind below
+            "gs", -- Default "display signature information" - conflicts with something?
           },
         })
 
@@ -101,7 +98,8 @@ return {
 
         -- https://github.com/folke/trouble.nvim
         -- Replace references list with trouble
-        keymap("n", "gr", "<cmd>TroubleToggle lsp_references<CR>", opts)
+        -- Trouble is keeping data per buffer, so go back to the basic quickfix
+        -- keymap("n", "gr", "<cmd>TroubleToggle lsp_references<CR>", opts)
 
         keymap("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
         keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", opts)
@@ -164,18 +162,6 @@ return {
             includeLanguages = {
               clojure = "html"
             },
-            --[[
-      experimental = {
-        classRegex = {
-          -- Try enabling emmetCompletions for Hiccup style keys
-          -- ":div.([^ ]+)",
-          -- Clojure :class "my-2"
-          :class \"([^\"]*)\"",
-          -- Clojure #tw reader tag
-          "#tw \"([^\"]*)\""
-        }
-      }
-      --]]
           }
         }
       }
@@ -192,9 +178,22 @@ return {
       }
 
       -- (Optional) Configure lua language server for neovim
-      lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+      lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
 
-      lsp.setup()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "lua_ls",
+          "rust_analyzer",
+          "clojure_lsp",
+          "tailwindcss",
+          "grammarly",
+          "tsserver",
+        },
+        handlers = {
+          lsp_zero.default_setup,
+        }
+      })
+
     end
   }
 }

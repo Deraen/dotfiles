@@ -26,3 +26,6 @@ vim.cmd 'source ~/.vim/config.vim'
 
 require('config/keymaps')
 require('config/quickfix')
+
+-- TODO: cpr or <leader>r on lua files (~/.vim/lua/) to run:
+-- package.loaded(path) = nil & require(path)
