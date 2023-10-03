@@ -82,4 +82,9 @@ wget https://github.com/ko1nksm/shdotenv/releases/latest/download/shdotenv -O $H
 chmod +x $HOME/.local/bin/shdotenv
 curl https://get.volta.sh | bash
 
+SOPS_VERSION=$(wget -q -O - https://api.github.com/repos/getsops/sops/releases/latest | jq -r '.name')
+wget -O ~/.local/bin/sops.new "https://github.com/getsops/sops/releases/download/$SOPS_VERSION/sops-$SOPS_VERSION.linux.amd64"
+mv ~/.local/bin/sops.new ~/.local/bin/sops
+chmod +x $HOME/.local/bin/sops
+
 postinstall.sh

@@ -141,8 +141,6 @@ if [[ $desktop == true ]]; then
     make
     )
 
-    go install go.mozilla.org/sops/v3/cmd/sops@latest
-
     header "Settings"
     gsettings set org.gnome.desktop.background show-desktop-icons false
     crudini --set "$HOME/.config/Trolltech.conf" Qt style GTK+
