@@ -216,6 +216,7 @@ colors:
 # - Copy (TODO)
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
+  - { mouse: Middle, mods: Control, action: Paste }
 
 mouse:
   # Click settings

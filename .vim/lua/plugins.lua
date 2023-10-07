@@ -3,18 +3,16 @@
 --[[
 TODO:
 https://github.com/jose-elias-alvarez/typescript.nvim
-https://github.com/folke/which-key.nvim
 messages, cmdline and popupmenu: https://github.com/folke/noice.nvim
 try https://github.com/folke/tokyonight.nvim
 https://github.com/nvim-telescope/telescope.nvim/wiki/Gallery#borderless
-show key: 'folke/which-key.nvim'
-https://github.com/echasnovski/mini.indentscope
 goolord/alpha-nvim
 SmiteshP/nvim-navic
-https://github.com/folke/flash.nvim
 folke/todo-comments.nvim
 predefined windows layouts: https://github.com/folke/edgy.nvim
 https://github.com/gbprod/yanky.nvim
+https://github.com/mfussenegger/nvim-lint if lsp linter isn't available
+https://github.com/lewis6991/hover.nvim for non-lsp actions
 ]]--
 
 return {
