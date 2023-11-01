@@ -40,8 +40,9 @@ font pango:Ubuntu 8
 # These are set by sway, so not available on sway-session script?
 # exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"
 
-exec /home/juho/.local/modules/sway-systemd/src/session.sh --with-cleanup
+exec /home/juho/.local/modules/sway-systemd/src/session.sh
 exec /home/juho/.local/modules/sway-systemd/src/assign-cgroups.py
+exec /home/juho/.local/modules/sway-systemd/src/wait-sni-ready && systemctl --user start sway-xdg-autostart.target
 
 # Bg needs to be set after reload
 # exec_always rndbg.sh
