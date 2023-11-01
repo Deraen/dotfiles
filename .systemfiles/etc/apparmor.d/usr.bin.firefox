@@ -1,0 +1,213 @@
+# Last Modified: Wed Nov  1 10:46:49 2023
+include <tunables/global>
+
+@{MOZ_LIBDIR} = /usr/lib/firefox
+
+# vim:syntax=apparmor
+# Author: Jamie Strandboge <jamie@canonical.com>
+# Declare an apparmor variable to help with overrides
+# We want to confine the binaries that match:
+#  /usr/lib/firefox/firefox
+#  /usr/lib/firefox/firefox
+# but not:
+#  /usr/lib/firefox/firefox.sh
+
+
+profile firefox /usr/lib/firefox/firefox{,*[^s][^h]} {
+  include <abstractions/audio>
+  include <abstractions/cups-client>
+  include <abstractions/dbus-accessibility-strict>
+  include <abstractions/dbus-session-strict>
+  include <abstractions/dbus-session>
+  include <abstractions/dbus-strict>
+  include <abstractions/dconf>
+  include <abstractions/gnome>
+  include <abstractions/ibus>
+  include <abstractions/nameservice>
+  include <abstractions/openssl>
+  include <abstractions/p11-kit>
+  include <abstractions/ubuntu-browsers.d/firefox>
+  include <abstractions/ubuntu-unity7-base>
+  include <abstractions/ubuntu-unity7-launcher>
+  include <local/usr.bin.firefox>
+
+  deny capability sys_admin,
+
+  network inet stream,
+  network inet6 stream,
+
+  dbus (receive send) bus=accessibility,
+  dbus (receive send) bus=session path=/org/freedesktop/portal/{desktop,documents}{,/**} interface=org.freedesktop.DBus.Properties peer=(label=unconfined),
+  dbus (receive send) bus=session path=/org/freedesktop/portal/{desktop,documents}{,/**} interface=org.freedesktop.portal.* peer=(label=unconfined),
+  dbus (receive send) bus=session path=/org/mozilla/firefox/Remote interface=org.mozilla.firefox member=OpenURL peer=(label=firefox),
+  dbus bind bus=session name=org.mozilla.firefox.*,
+  dbus receive bus=session interface=org.a11y.atspi**,
+  dbus receive bus=system path=/org/freedesktop/NetworkManager,
+  dbus send bus=session interface=org.gtk.gio.DesktopAppInfo member=Launched,
+  dbus send bus=session path=/org/freedesktop/DBus interface=org.freedesktop.DBus member=RequestName peer=(name=org.freedesktop.DBus),
+  dbus send bus=session path=/org/freedesktop/FileManager1 interface=org.freedesktop.FileManager1 member=ShowItems,
+  dbus send bus=session path=/org/gnome/GConf/Database/* member={AddMatch,AddNotify,AllEntries,LookupExtended,RemoveNotify} peer=(label=unconfined),
+  dbus send bus=session path=/org/gnome/GConf/Server member=GetDefaultDatabase peer=(label=unconfined),
+  dbus send bus=session path=/org/gnome/SessionManager interface=org.gnome.SessionManager member={Inhibit,Uninhibit} peer=(label=unconfined),
+  dbus send bus=session path=/org/gtk/vfs/mounttracker interface=org.gtk.vfs.MountTracker member=ListMountableInfo peer=(label=unconfined),
+  dbus send bus=session path=/{,ScreenSaver} interface=org.{gnome.ScreenSaver,kde.screensaver,cinnamon.ScreenSaver} member=SimulateUserActivity peer=(label=unconfined),
+  dbus send bus=session path=/{,org/freedesktop/,org.gnome/}Screen{s,S}aver interface=org.freedesktop.ScreenSaver member={Inhibit,UnInhibit,SimulateUserActivity} peer=(label=unconfined),
+  dbus send bus=session peer=(name=org.a11y.Bus),
+  dbus send bus=system path=/com/canonical/Unity/Screen interface=com.canonical.Unity.Screen member={keepDisplayOn,removeDisplayOnRequest} peer=(label=unconfined),
+  dbus send bus=system path=/com/canonical/Unity/Screen interface=org.freedesktop.DBus.Introspectable member=Introspect peer=(label=unconfined),
+  dbus send bus=system path=/org/freedesktop/NetworkManager member=state,
+  dbus send bus=system path=/org/freedesktop/RealtimeKit1,
+  dbus send bus=system path=/org/freedesktop/UPower interface=org.freedesktop.UPower member=EnumerateDevices peer=(label=unconfined),
+  dbus send bus=system path=/org/freedesktop/hostname[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
+  dbus send bus=system path=/org/freedesktop/timedate[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
+  dbus send bus=system path=/ interface=org.freedesktop.DBus.Peer member=Ping peer=(name=org.freedesktop.Avahi),
+  dbus send bus=system path=/ interface=org.freedesktop.Avahi.Server peer=(name=org.freedesktop.Avahi),
+  dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=PropertiesChanged,
+
+  ptrace trace peer=firefox,
+
+  deny /.suspended r,
+  deny /boot/initrd.img* r,
+  deny /boot/vmlinuz* r,
+  deny /run/udev/data/** r,
+  deny /usr/bin/gconftool-2 x,
+  deny /usr/lib/firefox-addons/** w,
+  deny /usr/lib/mozilla/extensions/**/ w,
+  deny /usr/lib/xulrunner-*/components/*.tmp w,
+  deny /usr/lib/xulrunner-addons/** w,
+  deny /usr/lib/xulrunner-addons/extensions/**/ w,
+  deny /usr/share/mozilla/ w,
+  deny /usr/share/mozilla/extensions/**/ w,
+  deny /var/cache/fontconfig/ w,
+  deny @{HOME}/.local/share/recently-used.xbel r,
+  deny @{MOZ_LIBDIR}/** w,
+  deny @{MOZ_LIBDIR}/update.test w,
+
+  / r,
+  /**/ r,
+  /bin/ps rUx,
+  /bin/uname rUx,
+  /bin/which rix,
+  /etc/ r,
+  /etc/firefox*/ r,
+  /etc/firefox*/** r,
+  /etc/fstab r,
+  /etc/gre.d/ r,
+  /etc/gre.d/* r,
+  /etc/igfx_user_feature.txt r,
+  /etc/igfx_user_feature_next.txt r,
+  /etc/lsb-release r,
+  /etc/mailcap r,
+  /etc/mime.types r,
+  /etc/mtab r,
+  /etc/timezone r,
+  /etc/udev/udev.conf r,
+  /etc/wildmidi/wildmidi.cfg r,
+  /etc/xdg/*buntu/applications/defaults.list r, # for all derivatives
+  /etc/xfce4/defaults.list r,
+  /etc/xul-ext/** r,
+  /etc/xulrunner-2.0*/ r,
+  /etc/xulrunner-2.0*/** r,
+  /opt/ r,
+  /opt/** r,
+  /proc/sys/dev/i915/perf_stream_paranoid r,
+  /sbin/killall5 rix,
+  /sys/devices/** r,
+  /sys/devices/pci*/**/{,subsystem_}device r,
+  /sys/devices/pci*/**/{,subsystem_}vendor r,
+  /sys/devices/pci*/**/{busnum,idVendor,idProduct} r,
+  /sys/devices/pci[0-9]*/**/{uevent,resource,irq,class} r,
+  /sys/devices/platform/**/uevent r,
+  /sys/devices/system/cpu/** r,
+  /sys/devices/system/node/node[0-9]*/meminfo r,
+  /sys/fs/cgroup/user.slice/**.max r,
+  /tmp/.X[0-9]*-lock r,
+  /usr/ r,
+  /usr/** r,
+  /usr/bin/basename rix,
+  /usr/bin/dirname rix,
+  /usr/bin/expr ix,
+  /usr/bin/lsb_release rCx -> lsb_release,
+  /usr/bin/mkfifo rUx, # investigate
+  /usr/bin/pwd rix,
+  /usr/bin/speech-dispatcher mrix,
+  /usr/bin/tr rix,
+  /usr/share/xubuntu/applications/defaults.list r,
+  /var/lib/snapd/desktop/applications/*.desktop r,
+  /var/lib/snapd/desktop/applications/mimeinfo.cache r,
+  @{MOZ_LIBDIR}/** rix,
+  @{PROC}/ r,
+  @{PROC}/[0-9]*/cmdline r,
+  @{PROC}/[0-9]*/mountinfo r,
+  @{PROC}/[0-9]*/net/arp r,
+  @{PROC}/[0-9]*/net/dev r,
+  @{PROC}/[0-9]*/net/if_inet6 r,
+  @{PROC}/[0-9]*/net/ipv6_route r,
+  @{PROC}/[0-9]*/net/wireless r,
+  @{PROC}/[0-9]*/stat r,
+  @{PROC}/[0-9]*/status r,
+  @{PROC}/filesystems r,
+  @{PROC}/sys/vm/overcommit_memory r,
+  owner /home/*/.cache/fontconfig/* k,
+  owner /home/*/.cache/mesa_shader_cache/**.tmp k,
+  owner /home/*/.mozilla/firefox/**.so m,
+  owner /proc/*/* w,
+  owner /proc/*/cgroup r,
+  owner /proc/*/task/** r,
+  owner /run/user/*/gvfsd/* rw,
+  owner /run/user/*/speech-dispatcher/speechd.sock rw,
+  owner /tmp/** m,
+  owner /var/tmp/** m,
+  owner /{,var/}run/shm/shmfd-* rw,
+  owner /{,var/}run/user/*/dconf/user w,
+  owner /{dev,run}/shm/org.{chromium,mozilla}.* rwk,
+  owner /{dev,run}/shm/wayland.mozilla.ipc.[0-9]* rw,
+  owner @{HOME}/ r,
+  owner @{HOME}/.cache/mozilla/firefox/** rw,
+  owner @{HOME}/.cache/mozilla/firefox/**/*.sqlite k,
+  owner @{HOME}/.cache/mozilla/{,firefox/} rw,
+  owner @{HOME}/.cache/thumbnails/** rw,
+  owner @{HOME}/.config/dconf/user w,
+  owner @{HOME}/.config/gtk-3.0/bookmarks r,
+  owner @{HOME}/.gnome2/firefox* rwk,
+  owner @{HOME}/.local/share/applications/defaults.list r,
+  owner @{HOME}/.local/share/applications/mimeapps.list r,
+  owner @{HOME}/.local/share/applications/mimeinfo.cache r,
+  owner @{HOME}/.mozilla/**/extensions/** mrix,
+  owner @{HOME}/.{firefox,mozilla}/ rw,
+  owner @{HOME}/.{firefox,mozilla}/** rw,
+  owner @{HOME}/.{firefox,mozilla}/**/*.{db,parentlock,sqlite}* k,
+  owner @{HOME}/.{firefox,mozilla}/**/plugins/** mr,
+  owner @{HOME}/.{firefox,mozilla}/plugins/** mr,
+  owner @{HOME}/Downloads/ r,
+  owner @{HOME}/Downloads/* rw,
+  owner @{HOME}/Public/ r,
+  owner @{HOME}/Public/* r,
+  owner @{PROC}/[0-9]*/auxv r,
+  owner @{PROC}/[0-9]*/environ r,
+  owner @{PROC}/[0-9]*/smaps r,
+  owner @{PROC}/[0-9]*/statm r,
+  owner @{PROC}/[0-9]*/task/[0-9]*/stat r,
+
+
+  profile lsb_release {
+    include <abstractions/base>
+    include <abstractions/evince>
+    include <abstractions/python>
+
+    deny /tmp/gtalkplugin.log w,
+
+    /bin/dash rix,
+    /etc/debian_version r,
+    /etc/lsb-release r,
+    /usr/bin/ r,
+    /usr/bin/dpkg-query rix,
+    /usr/bin/lsb_release r,
+    /usr/bin/python3.[0-9] mr,
+    /usr/include/python2.[4567]/pyconfig.h r,
+    /usr/local/lib/python3.[0-9]/dist-packages/ r,
+    /usr/share/distro-info/*.csv r,
+    /var/lib/dpkg/** r,
+
+  }
+}

@@ -27,6 +27,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # ppa pipewire-debian pipewire-upstream kinetic --keyid 25088A0359807596
 # ppa pipewire-debian wireplumber-upstream kinetic --keyid 25088A0359807596
 ppa papirus papirus lunar --keyid E58A9D36647CAE7F
+ppa mozillateam ppa lunar --keyid 9BDB3D89CE49EC21
 # ppa mozillateam ppa lunar --keyid 9BDB3D89CE49EC21
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
@@ -120,6 +121,7 @@ install "firefox-locale-en"
 # Devices?
 # install usb-modeswitch # for 3G usb modems
 install piper # logitech gaming mouse configration
+install solaar
 
 # Tools
 install curl
@@ -171,7 +173,6 @@ install hwinfo
 install python3-msgpack
 
 # Neovim
-install neovim
 install luarocks
 install libmsgpack-dev
 install xclip
@@ -405,6 +406,7 @@ install gimp-gmic
 install darktable
 install google-chrome-stable
 install google-chrome-beta
+install firefox
 # install meld
 install gparted
 install inkscape
@@ -431,8 +433,8 @@ install flameshot
 install usb-creator-gtk
 install xdotool
 install slack-desktop
-install digikam
-install trilium
+# install digikam
+# install trilium
 
 install mesa-va-drivers
 install mesa-vdpau-drivers
@@ -446,7 +448,7 @@ install tailscale
 install iriunwebcam "2.7" https://iriun.gitlab.io/iriunwebcam-2.7.deb
 install v4l2loopback-dkms
 
-install obsidian "1.1.16" https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.16/obsidian_1.1.16_amd64.deb
+install obsidian "1.4.16" https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/obsidian_1.4.16_amd64.deb
 
 # consider greetd and tuigreet for login manager
 
@@ -488,6 +490,8 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install beekeeper-studio
         install google-cloud-sdk
         install awscli
+
+        install cnrdrvcups-ufr2-uk
 fi
 
 markauto
@@ -495,4 +499,3 @@ autoremove
 
 # flatpak install flathub org.pipewire.Helvum
 snap install spotify
-snap install firefox
