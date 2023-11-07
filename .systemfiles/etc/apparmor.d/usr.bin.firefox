@@ -63,6 +63,7 @@ profile firefox /usr/lib/firefox/firefox{,*[^s][^h]} {
   dbus send bus=system path=/ interface=org.freedesktop.DBus.Peer member=Ping peer=(name=org.freedesktop.Avahi),
   dbus send bus=system path=/ interface=org.freedesktop.Avahi.Server peer=(name=org.freedesktop.Avahi),
   dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=PropertiesChanged,
+  dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.login1.Manager member=PrepareForSleep,
 
   ptrace trace peer=firefox,
 
