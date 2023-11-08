@@ -63,7 +63,9 @@ profile firefox /usr/lib/firefox/firefox{,*[^s][^h]} {
   dbus send bus=system path=/ interface=org.freedesktop.DBus.Peer member=Ping peer=(name=org.freedesktop.Avahi),
   dbus send bus=system path=/ interface=org.freedesktop.Avahi.Server peer=(name=org.freedesktop.Avahi),
   dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=PropertiesChanged,
+  dbus send bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
   dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.login1.Manager member=PrepareForSleep,
+  dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.login1.Manager member=UserRemoved,
 
   ptrace trace peer=firefox,
 
@@ -204,6 +206,7 @@ profile firefox /usr/lib/firefox/firefox{,*[^s][^h]} {
     /usr/bin/ r,
     /usr/bin/dpkg-query rix,
     /usr/bin/lsb_release r,
+    /usr/bin/getopt rix,
     /usr/bin/python3.[0-9] mr,
     /usr/include/python2.[4567]/pyconfig.h r,
     /usr/local/lib/python3.[0-9]/dist-packages/ r,

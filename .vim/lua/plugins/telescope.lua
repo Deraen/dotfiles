@@ -49,6 +49,7 @@ return {
         buffers = {
           sorting_strategy = "ascending",
           sort_lastused = true,
+          sort_mru = true,
           mappings = {
             i = {
               ["<c-d>"] = function(...) return require('telescope.actions').delete_buffer(...) end,
