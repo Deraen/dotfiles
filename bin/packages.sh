@@ -6,6 +6,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
+# mantic 23.10
 # lunar 23.04
 # kinetic 22.10
 # jammy 22.04 lts
@@ -26,9 +27,9 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # ppa deraen random bionic --keyid 8EE3F468
 # ppa pipewire-debian pipewire-upstream kinetic --keyid 25088A0359807596
 # ppa pipewire-debian wireplumber-upstream kinetic --keyid 25088A0359807596
-ppa papirus papirus lunar --keyid E58A9D36647CAE7F
-ppa mozillateam ppa lunar --keyid 9BDB3D89CE49EC21
-# ppa mozillateam ppa lunar --keyid 9BDB3D89CE49EC21
+ppa papirus papirus mantic --keyid E58A9D36647CAE7F
+ppa mozillateam ppa mantic --keyid 9BDB3D89CE49EC21
+# ppa mozillateam ppa mantic --keyid 9BDB3D89CE49EC21
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
@@ -37,7 +38,7 @@ repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise st
         --keyid B05498B7
 repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian jammy non-free contrib" \
         --keyid A2F683C52980AECF
-repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu lunar stable" \
+repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu mantic stable" \
         --keyid 0EBFCD88
 repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
@@ -53,8 +54,8 @@ repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktabl
 #         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
         --key-url "https://deb.beekeeperstudio.io/beekeeper.key"
-repo tailscale "# Tailscale packages for ubuntu lunar\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu lunar main\n\n"
-repo insync "deb http://apt.insync.io/ubuntu lunar non-free contrib" \
+repo tailscale "# Tailscale packages for ubuntu mantic\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu mantic main\n\n"
+repo insync "deb http://apt.insync.io/ubuntu mantic non-free contrib" \
         --keyid "ACCAF35C"
 repo syncthing "deb https://apt.syncthing.net/ syncthing stable" \
         --key-url "https://syncthing.net/release-key.gpg"
@@ -78,14 +79,16 @@ repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         # Nvidia drivers
         # ppa graphics-drivers ppa kinetic --keyid FCAE110B1118213C
-        # ppa lutris-team lutris lunar --keyid 37B90EDD4E3EFAE4
+        # ppa lutris-team lutris mantic --keyid 37B90EDD4E3EFAE4
         ppa deluge-team stable kinetic --keyid C5E6A5ED249AD24C
-        ppa kdenlive kdenlive-stable lunar --keyid 2763B0EE7709FE97
+        ppa kdenlive kdenlive-stable mantic --keyid 2763B0EE7709FE97
+        repo amdgpu "deb https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n#deb-src https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n"
+        repo rocm "deb [arch=amd64] https://repo.radeon.com/rocm/apt/5.7 jammy main\n"
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
-        ppa linrunner tlp lunar --keyid 2B3F92F902D65EFF
-        # ppa oibaf graphics-drivers lunar --keyid 957D2708A03A4626
+        ppa linrunner tlp mantic --keyid 2B3F92F902D65EFF
+        # ppa oibaf graphics-drivers mantic --keyid 957D2708A03A4626
 
 fi
 
@@ -99,6 +102,7 @@ install ubuntu-restricted-addons
 install ubuntu-artwork
 install lsb-base
 install linux-generic
+install linux-lowlatency
 install build-essential
 install libnss-myhostname # Why doesn't systemd-services require this...?
 # install linux-signed
@@ -433,8 +437,6 @@ install flameshot
 install usb-creator-gtk
 install xdotool
 install slack-desktop
-# install digikam
-# install trilium
 
 install mesa-va-drivers
 install mesa-vdpau-drivers
@@ -459,9 +461,10 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install jack-rack
         install qjackctl
         install guitarix
-        install youtube-dl
+        install yt-dlp
         install audacity
         install siril
+        install digikam
         install radeontop
         # install mullvad-vpn
         install lutris 0.5.13 "https://github.com/lutris/lutris/releases/download/v0.5.13/lutris_0.5.13_all.deb"
