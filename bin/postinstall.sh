@@ -72,7 +72,7 @@ if [[ $desktop == true ]]; then
     cd "$HOME/.local/modules/wlroots" || exit
     header "Wlroots"
     if [[ ! -d build ]]; then
-        meson build
+        meson -Dexamples=false build
     fi
     # ninja -C build
     sudo ninja -C build install
@@ -82,7 +82,7 @@ if [[ $desktop == true ]]; then
     cd "$HOME/.local/modules/sway" || exit
     header "Sway"
     if [[ ! -d build ]]; then
-        meson build
+        meson -D werror=false build
     fi
     if [[ ! -L subprojects/wlroots ]]; then
         mkdir -p subprojects
