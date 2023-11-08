@@ -412,6 +412,7 @@ install google-chrome-stable
 install google-chrome-beta
 install firefox
 # install meld
+install fdisk
 install gparted
 install inkscape
 install keepassxc # Password manager
