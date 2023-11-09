@@ -1,0 +1,9 @@
+[Unit]
+Description=gsd-rfkill
+
+[Service]
+Type=simple
+ExecStart=/usr/libexec/gsd-rfkill
+Restart=on-failure
+RestartSec=10
+KillMode=process

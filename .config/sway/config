@@ -17,39 +17,23 @@ input 1241:1031:USB-HID_Keyboard_Mouse {
 input "18193:2069:dotool_keyboard" xkb_layout "us"
 
 output eDP-1 scale 1 pos 0 0
-
 # Add https://git.sr.ht/~emersion/kanshi if need more configuration
 
-# Preferences
-set $mod Mod4
-set $bg #121212
-set $active #454B7F
+set {
+    $mod Mod4
+    $bg #121212
+    $active #454B7F
+}
 
 font pango:Ubuntu 8
 
-# exec swaync
-# exec lock.sh --start
-# exec nm-applet --indicator
-# exec gnome-keyring-daemon --start --components=pkcs11,ssh
-# exec import-gsettings
-# For cases where gnome apps need to auth (sudo)
-# exec "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
-# For gnome bluetooth control panel
-# exec "/usr/libexec/gsd-rfkill"
+exec {
+    /home/juho/.local/modules/sway-systemd/src/session.sh
+    /home/juho/.local/modules/sway-systemd/src/assign-cgroups.py
+    /home/juho/.local/modules/sway-systemd/src/wait-sni-ready && systemctl --user start sway-xdg-autostart.target
+}
 
-# These are set by sway, so not available on sway-session script?
-# exec "systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK"
-
-exec /home/juho/.local/modules/sway-systemd/src/session.sh
-exec /home/juho/.local/modules/sway-systemd/src/assign-cgroups.py
-exec /home/juho/.local/modules/sway-systemd/src/wait-sni-ready && systemctl --user start sway-xdg-autostart.target
-
-# Bg needs to be set after reload
-# exec_always rndbg.sh
-
-# Dmenu
 bindsym $mod+r exec rofi -show drun
-
 bindsym $mod+Shift+F12 exec rndbg.sh
 
 # class                 border  backgr. text    indicator child_border
@@ -124,11 +108,17 @@ bindsym $mod+e exec workspace.sh --rename
 for_window [app_id=".*"] border pixel 2
 for_window [class=".*"] border pixel 2
 
-for_window [app_id="gnome-power-statistics"] floating enable
-for_window [app_id="gnome-control-center"] floating enable
-for_window [app_id="yad"] floating enable
 for_window [instance="battle.net.exe"] floating enable
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
+for_window {
+    [title="firewall-applet"] floating enable
+    [app_id="nm-connection-editor"] floating enable
+    [app_id="firewall-config"] floating enable
+    [app_id="org.gnome.Settings"] floating enable
+    [app_id="gnome-power-statistics"] floating enable
+    [app_id="yad"] floating enable
+}
 
 # Try to fix firefox notifications
 # Might break other stuff?

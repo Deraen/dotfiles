@@ -165,7 +165,9 @@ install webp
 install jpegoptim
 install libinput-tools
 install sysfsutils
-install ufw
+install firewalld
+install firewall-applet
+install firewall-config
 install libimage-exiftool-perl
 install mediainfo
 install apparmor-utils
