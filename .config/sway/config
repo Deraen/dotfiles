@@ -118,6 +118,7 @@ for_window {
     [app_id="org.gnome.Settings"] floating enable
     [app_id="gnome-power-statistics"] floating enable
     [app_id="yad"] floating enable
+    [app_id="update-manager"] floating enable
 }
 
 # Try to fix firefox notifications
