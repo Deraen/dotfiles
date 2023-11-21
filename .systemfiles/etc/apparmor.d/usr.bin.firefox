@@ -64,8 +64,7 @@ profile firefox /usr/lib/firefox/firefox{,*[^s][^h]} {
   dbus send bus=system path=/ interface=org.freedesktop.Avahi.Server peer=(name=org.freedesktop.Avahi),
   dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=PropertiesChanged,
   dbus send bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
-  dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.login1.Manager member=PrepareForSleep,
-  dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.login1.Manager member=UserRemoved,
+  dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.login1.Manager member={PrepareForSleep,UserRemoved,SessionRemoved},
 
   ptrace trace peer=firefox,
 
@@ -135,6 +134,7 @@ profile firefox /usr/lib/firefox/firefox{,*[^s][^h]} {
   /usr/bin/pwd rix,
   /usr/bin/speech-dispatcher mrix,
   /usr/bin/tr rix,
+  /usr/bin/which.debianutils rix,
   /usr/share/xubuntu/applications/defaults.list r,
   /var/lib/snapd/desktop/applications/*.desktop r,
   /var/lib/snapd/desktop/applications/mimeinfo.cache r,

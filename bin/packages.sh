@@ -25,18 +25,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # ppa ubuntuhandbook1 apps jammy --keyid 4C1CBE14852541CB
 # ppa ubuntuhandbook1 darktable kinetic --keyid 4C1CBE14852541CB
 # ppa deraen random bionic --keyid 8EE3F468
-# ppa pipewire-debian pipewire-upstream kinetic --keyid 25088A0359807596
-# ppa pipewire-debian wireplumber-upstream kinetic --keyid 25088A0359807596
 ppa papirus papirus mantic --keyid E58A9D36647CAE7F
 ppa mozillateam ppa mantic --keyid 9BDB3D89CE49EC21
-# ppa mozillateam ppa mantic --keyid 9BDB3D89CE49EC21
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
         --keyid 6494C6D6997C215E
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
-repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian jammy non-free contrib" \
+repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian jammy contrib" \
         --keyid A2F683C52980AECF
 repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu mantic stable" \
         --keyid 0EBFCD88

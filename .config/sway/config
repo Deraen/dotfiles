@@ -112,7 +112,7 @@ for_window [instance="battle.net.exe"] floating enable
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 
 for_window {
-    [title="firewall-applet"] floating enable
+    [app_id="python3" title="firewall-applet"] floating enable
     [app_id="nm-connection-editor"] floating enable
     [app_id="firewall-config"] floating enable
     [app_id="org.gnome.Settings"] floating enable
