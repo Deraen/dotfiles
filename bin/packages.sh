@@ -171,6 +171,7 @@ install apparmor-utils
 install flatpak
 install gnome-software-plugin-flatpak
 install hwinfo
+install lxpolkit
 
 # Editor
 install python3-msgpack

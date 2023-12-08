@@ -27,6 +27,10 @@ remove() {
     fi
 }
 
+if [[ $SHELL != "/usr/bin/zsh" ]]; then
+    sudo usermod -s /bin/zsh juho
+fi
+
 sudo cp -vRa /usr/share/pipewire /etc/
 
 install "/etc/sysctl.d/90-local.conf"
