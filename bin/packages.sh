@@ -171,6 +171,7 @@ install apparmor-utils
 install flatpak
 install gnome-software-plugin-flatpak
 install hwinfo
+install libfuse2
 install lxpolkit
 
 # Editor
@@ -234,7 +235,7 @@ install shellcheck
 install golang-go
 install golang-doc
 install golang-src
-install golang-1.19
+install golang-1.21
 install adb
 install diffpdf
 install pdfarranger
@@ -305,6 +306,7 @@ install libpango1.0-dev
 install libcairo2-dev
 install libgdk-pixbuf-2.0-dev
 install scdoc
+install libxcb-ewmh-dev
 
 # swaylock
 install libpam0g-dev
@@ -314,13 +316,6 @@ install libxcb-render0-dev
 install libxcb-shape0-dev
 install libxcb-xfixes0-dev
 install libxkbcommon-dev
-
-# SwayNotificationCenter
-install libgtk-3-dev
-install valac
-install libhandy-1-dev
-install libgtk-layer-shell-dev
-install libgee-0.8-dev
 
 # Sway cgroups script
 install python3-dbus-next
@@ -363,6 +358,7 @@ install swaybg
 install waybar
 install swaylock
 install swayidle
+install sway-notification-center
 install wf-recorder
 install wdisplays
 install grim
@@ -483,6 +479,9 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
                 install thinkfan
         fi
         if grep -q i9-10885H /proc/cpuinfo; then
+                install thinkfan
+        fi
+        if grep -q "Ryzen 7 PRO 7840U" /proc/cpuinfo; then
                 install thinkfan
         fi
         install tlp

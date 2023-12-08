@@ -95,17 +95,6 @@ if [[ $desktop == true ]]; then
     )
 
     (
-    cd "$HOME/.local/modules/SwayNotificationCenter" || exit
-    header "SwayNC"
-    if [[ ! -d build ]]; then
-        meson build
-    fi
-    ninja -C build
-    sudo meson install -C build
-    sudo cp -r /usr/local/etc/xdg/swaync /etc/xdg/
-    )
-
-    (
     # Home git repo, don't show untracked files on status
     cd "$HOME" && git config status.showUntrackedFiles no
     )
@@ -147,7 +136,7 @@ if [[ $desktop == true ]]; then
     gsettings set org.gnome.desktop.background show-desktop-icons false
     crudini --set "$HOME/.config/Trolltech.conf" Qt style GTK+
 
-    systemctl --user --now disable pulseaudio.service pulseaudio.socket
+    # systemctl --user --now disable pulseaudio.service pulseaudio.socket
     systemctl --user --now enable pipewire pipewire-pulse
     systemctl --user --now enable wireplumber
 
@@ -162,7 +151,7 @@ if [[ $desktop == true ]]; then
     sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-notifications-panel.desktop
     sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-online-accounts-panel.desktop
     sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-sharing-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-screen-panel.desktop
+    # sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-screen-panel.desktop
     sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-background-panel.desktop
     sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-display-panel.desktop
     sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-mouse-panel.desktop

@@ -90,10 +90,12 @@ chmod +x $HOME/.local/bin/sops
 
 (
 cd .fonts
-curl -s 'https://api.github.com/repos/be5invis/Iosevka/releases/latest' | jq -r ".assets[] | .browser_download_url" | grep -E 'ttf-iosevka-(term-)?ss06'  | xargs -n 1 curl -L -O --fail --silent --show-error
+curl -s 'https://api.github.com/repos/be5invis/Iosevka/releases/latest' | jq -r ".assets[] | .browser_download_url" | grep -E 'ttf-iosevka-(term-)?ss06' | xargs -n 1 curl -L -O --fail --silent --show-error
 rm Iosevka*.ttf ttf-iosevka*.ttf
-unzip ttf-iosevka*.zip
-rm ttf-iosevka*.zip
+for i in ttf-iosevka*.zip; do
+    unzip $i
+    rm  $i
+done
 )
 
 postinstall.sh

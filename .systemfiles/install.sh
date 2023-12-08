@@ -3,19 +3,25 @@
 . "$HOME/.local/lib/functions.sh"
 
 install() {
-    if [[ -f "$1" ]] && sudo diff "$1" "$HOME/.systemfiles$1" >/dev/null; then
-        echo "[OK] $1"
+    SOURCE=$1
+    TARGET=$2
+    if [[ -z $TARGET ]]; then
+        TARGET=$1
+    fi
+
+    if [[ -f "$1" ]] && sudo diff "$TARGET" "$HOME/.systemfiles$SOURCE" >/dev/null; then
+        echo "[OK] $TARGET"
     else
-        if [[ -f "$1" ]]; then
-            sudo diff -u "$1" "$HOME/.systemfiles$1"
-            if confirm "[Change] $1: replace?"; then
-                sudo mkdir -p "$(dirname "$1")"
-                sudo cp "$HOME/.systemfiles$1" "$1"
+        if [[ -f "$TARGET" ]]; then
+            sudo diff -u "$TARGET" "$HOME/.systemfiles$SOURCE"
+            if confirm "[Change] $TARGET: replace?"; then
+                sudo mkdir -p "$(dirname "$TARGET")"
+                sudo cp "$HOME/.systemfiles$SOURCE" "$TARGET"
             fi
         else
-            echo "[Change] $1 missing, copying..."
-            sudo mkdir -p "$(dirname "$1")"
-            sudo cp "$HOME/.systemfiles$1" "$1"
+            echo "[Change] $TARGET missing, copying..."
+            sudo mkdir -p "$(dirname "$TARGET")"
+            sudo cp "$HOME/.systemfiles$SOURCE" "$TARGET"
         fi
     fi
 }
@@ -65,8 +71,13 @@ if [[ $(hostname -s) =~ juho-laptop ]]; then
 
     # P1 G3
     if grep -q i9-10885H /proc/cpuinfo; then
-        install "/etc/thinkfan.yaml"
+        install "/etc/thinkfan-p1.yaml" "/etc/thinkfan.yaml"
         install "/etc/tlp.d/100-nvme.conf"
+    fi
+
+    # P14 Gen 4
+    if grep -q "Ryzen 7 PRO 7840U" /proc/cpuinfo; then
+        install "/etc/thinkfan-p14s.yaml" "/etc/thinkfan.yaml"
     fi
 
     remove "/etc/NetworkManager/dispatcher.d/99nfs"
