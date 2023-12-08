@@ -80,6 +80,7 @@ chmod +x ~/bin/yt-dlp
 
 wget https://github.com/ko1nksm/shdotenv/releases/latest/download/shdotenv -O $HOME/.local/bin/shdotenv
 chmod +x $HOME/.local/bin/shdotenv
+
 curl https://get.volta.sh | bash
 
 SOPS_VERSION=$(wget -q -O - https://api.github.com/repos/getsops/sops/releases/latest | jq -r '.name')

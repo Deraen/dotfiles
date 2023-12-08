@@ -17,6 +17,8 @@ git submodule update --init --recursive
 
 header "NPM Utils"
 
+curl https://get.volta.sh | bash
+
 (
 cd "$HOME/.local" || exit
 
