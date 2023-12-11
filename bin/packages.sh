@@ -380,6 +380,9 @@ install qt5-gtk-platformtheme
 install 1password
 install policykit-1-gnome
 install fonts-roboto
+install fonts-font-awesome
+install fonts-powerline
+install fonts-material-design-icons-iconfont
 
 install xdg-desktop-portal-wlr
 
@@ -424,7 +427,6 @@ install playerctl
 install steam-launcher
 install deluge
 install virtualbox-7.0
-install typecatcher # Install Google webfonts
 install cheese # Webcam
 install yad # Zenity alternative with proper color picker
 install wine-development

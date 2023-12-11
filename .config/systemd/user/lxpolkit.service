@@ -1,0 +1,9 @@
+[Unit]
+Description=LXPolkit
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/lxpolkit
+Restart=on-failure
+RestartSec=10
+KillMode=process

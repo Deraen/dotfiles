@@ -201,8 +201,9 @@ bindsym Ctrl+$mod+Print exec flameshot gui --raw | wl-copy -t image/png
 # pick color:
 # grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-
 
-bar {
-  swaybar_command waybar
-}
+# Started by systemd service
+# bar {
+#   swaybar_command waybar
+# }
 
 exec /home/juho/.local/modules/sway-systemd/src/wait-sni-ready && systemctl --user start sway-xdg-autostart.target
