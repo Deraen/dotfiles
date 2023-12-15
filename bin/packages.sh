@@ -359,6 +359,7 @@ install waybar
 install swaylock
 install swayidle
 install sway-notification-center
+install kanshi
 install wf-recorder
 install wdisplays
 install grim

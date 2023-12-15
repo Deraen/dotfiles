@@ -77,9 +77,9 @@
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ", // Not used?
-        "format-not-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󱰻",
+        "format-not-charging": "{capacity}% 󰁾",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
