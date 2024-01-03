@@ -135,6 +135,7 @@ profile firefox /usr/lib/firefox/firefox{,*[^s][^h]} {
   /usr/bin/speech-dispatcher mrix,
   /usr/bin/tr rix,
   /usr/bin/which.debianutils rix,
+  /usr/lib/x86_64-linux-gnu/glib-2.0/gio-launch-desktop rix,
   /usr/share/xubuntu/applications/defaults.list r,
   /var/lib/snapd/desktop/applications/*.desktop r,
   /var/lib/snapd/desktop/applications/mimeinfo.cache r,

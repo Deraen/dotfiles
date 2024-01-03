@@ -4,5 +4,5 @@ profile p14s-internal {
 
 profile p14s+dell {
   output "Samsung Display Corp. 0x4193 Unknown" scale 1.5 position 0,0
-  output "Dell Inc. DELL UP3216Q 4NCD077K060P" position 1920,0 subpixel rgb
+  output "Dell Inc. DELL UP3216Q 4NCD077K060P" position 1920,0
 }

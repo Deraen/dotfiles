@@ -9,7 +9,7 @@ install() {
         TARGET=$1
     fi
 
-    if [[ -f "$1" ]] && sudo diff "$TARGET" "$HOME/.systemfiles$SOURCE" >/dev/null; then
+    if [[ -f "$TARGET" ]] && sudo diff "$TARGET" "$HOME/.systemfiles$SOURCE" >/dev/null; then
         echo "[OK] $TARGET"
     else
         if [[ -f "$TARGET" ]]; then
