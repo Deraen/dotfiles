@@ -64,6 +64,7 @@ if confirm -i "Update Node utils?"; then
     )
 fi
 
+# TODO: Rest should be on postinstall
 bash <(curl -s https://raw.githubusercontent.com/borkdude/jet/master/install) /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo) --dir /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install) --dir /home/juho/bin
@@ -80,8 +81,6 @@ chmod +x ~/bin/yt-dlp
 
 wget https://github.com/ko1nksm/shdotenv/releases/latest/download/shdotenv -O $HOME/.local/bin/shdotenv
 chmod +x $HOME/.local/bin/shdotenv
-
-curl https://get.volta.sh | bash
 
 SOPS_VERSION=$(wget -q -O - https://api.github.com/repos/getsops/sops/releases/latest | jq -r '.name')
 wget -O ~/.local/bin/sops.new "https://github.com/getsops/sops/releases/download/$SOPS_VERSION/sops-$SOPS_VERSION.linux.amd64"
