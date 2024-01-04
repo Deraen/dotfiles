@@ -37,8 +37,8 @@ repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debi
         --keyid A2F683C52980AECF
 repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu mantic stable" \
         --keyid 0EBFCD88
-repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
-        --key-url https://keybase.io/docs/server_security/code_signing_key.asc
+# repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
+#         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
         --keyid B53DC80D13EDEF05
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
@@ -51,22 +51,29 @@ repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktabl
 #         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
         --key-url "https://deb.beekeeperstudio.io/beekeeper.key"
+
+# -s check to check if file is present and non-empty
+if [[ ! -s /usr/share/keyrings/tailscale-archive-keyring.gpg ]]; then
+        curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+fi
+
 repo tailscale "# Tailscale packages for ubuntu mantic\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu mantic main\n\n"
+
 repo insync "deb http://apt.insync.io/ubuntu mantic non-free contrib" \
         --keyid "ACCAF35C"
 repo syncthing "deb https://apt.syncthing.net/ syncthing stable" \
         --key-url "https://syncthing.net/release-key.gpg"
 
-if [[ ! -f /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
+if [[ ! -s /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
         curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
 fi
 
-if [[ ! -f /etc/debsig/policies/AC2D62742012EA22/1password.pol ]]; then
+if [[ ! -s /etc/debsig/policies/AC2D62742012EA22/1password.pol ]]; then
         sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
         curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
 fi
 
-if [[ ! -f /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg ]]; then
+if [[ ! -s /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg ]]; then
         sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
         curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 fi
@@ -390,7 +397,7 @@ install xdg-desktop-portal-wlr
 # GPG stuff
 install gnupg
 install scdaemon
-install keybase
+# install keybase
 install libu2f-host0
 install pinentry-gtk2
 install pcscd
@@ -430,7 +437,7 @@ install deluge
 install virtualbox-7.0
 install cheese # Webcam
 install yad # Zenity alternative with proper color picker
-install wine-development
+# install wine-development
 install mesa-utils
 install nemo
 install flameshot
@@ -497,7 +504,7 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install google-cloud-sdk
         install awscli
 
-        install cnrdrvcups-ufr2-uk
+        install cnrdrvcups-ufr2-uk "5.70-1.18" "/home/juho/Downloads/linux-UFRII-drv-v570-m17n/x64/Debian/cnrdrvcups-ufr2-uk_5.70-1.18_amd64.deb"
 fi
 
 markauto
