@@ -158,6 +158,11 @@ if [[ $desktop == true ]]; then
     sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-mouse-panel.desktop
     sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-keyboard-panel.desktop
     sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-region-panel.desktop
+
+    if [[ -f /usr/lib/slack/resources/app.asar ]]; then
+        header "Modify Slack binary to allow PipeWire"
+        sudo sed -i 's|,"WebRTCPipeWireCapturer"|,"xxxxxxxxxxxxxxxxxxxxxx"|' /usr/lib/slack/resources/app.asar
+    fi
 fi
 
 if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then
