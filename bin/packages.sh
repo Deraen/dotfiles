@@ -455,7 +455,7 @@ install stoken
 install tailscale
 
 install iriunwebcam "2.7" https://iriun.gitlab.io/iriunwebcam-2.7.deb
-install v4l2loopback-dkms
+# install v4l2loopback-dkms
 
 install obsidian "1.4.16" https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/obsidian_1.4.16_amd64.deb
 
