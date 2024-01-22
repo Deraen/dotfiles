@@ -89,7 +89,9 @@ return {
     }
   },
   {
-    'mhinz/vim-grepper',
+    -- 'mhinz/vim-grepper',
+    -- Fork:
+    'andrew-grechkin/vim-grepper',
     cmd = { 'Grepper', 'GrepperGit', 'GrepperAg', 'GrepperRg', 'GrepperGrep' },
     keys = {
       { '<leader>gg', ':Grepper -tool git<cr>', noremap = true, desc = 'Git grep' },
