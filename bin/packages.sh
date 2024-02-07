@@ -261,6 +261,7 @@ install libspa-0.2-bluetooth
 install libspa-0.2-jack
 install libpipewire-0.3-common
 install wireplumber
+install helvum
 
 # Dev dependencies
 install autoconf
@@ -423,6 +424,7 @@ install fdisk
 install gparted
 install inkscape
 install keepassxc # Password manager
+install qrencode
 # install pass
 install stress
 # install pitivi # Video editor
@@ -510,5 +512,4 @@ fi
 markauto
 autoremove
 
-# flatpak install flathub org.pipewire.Helvum
 snap install spotify

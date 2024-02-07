@@ -57,7 +57,7 @@ install "/usr/share/xsessions/custom.desktop"
 install "/usr/local/share/wayland-sessions/sway-session.desktop"
 install "/etc/apt/preferences.d/mozilla-firefox"
 install "/etc/apt/apt.conf.d/51unattended-upgrades-firefox"
-install "/etc/apparmor.d/usr.bin.firefox"
+install "/etc/apparmor.d/local/usr.bin.firefox"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
     install "/etc/X11/xorg.conf.d/metamodes.conf"

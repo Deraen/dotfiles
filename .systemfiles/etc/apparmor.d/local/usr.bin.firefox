@@ -1,0 +1,27 @@
+# profile firefox /usr/lib/firefox/firefox{,*[^s][^h]} {
+  # dbus bind bus=session name=org.mozilla.firefox.*,
+  # dbus send bus=system path=/org/freedesktop/hostname[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
+  # dbus send bus=system path=/org/freedesktop/timedate[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
+  # dbus send bus=system path=/ interface=org.freedesktop.DBus.Peer member=Ping peer=(name=org.freedesktop.Avahi),
+  # dbus send bus=system path=/ interface=org.freedesktop.Avahi.Server peer=(name=org.freedesktop.Avahi),
+  # dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=PropertiesChanged,
+  # dbus send bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
+  # dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.login1.Manager member={PrepareForSleep,UserRemoved,SessionRemoved},
+
+  # /etc/igfx_user_feature.txt r,
+  # /etc/igfx_user_feature_next.txt r,
+  # /proc/sys/dev/i915/perf_stream_paranoid r,
+  # /sys/devices/** r,
+  # /sys/devices/system/cpu/** r,
+  # /sys/fs/cgroup/user.slice/**.max r,
+  # /usr/bin/speech-dispatcher mrix,
+  # /usr/lib/x86_64-linux-gnu/glib-2.0/gio-launch-desktop rix,
+
+  # profile lsb_release {
+  #   /etc/debian_version r,
+  #   /usr/bin/dpkg-query rix,
+  #   /usr/bin/getopt rix,
+  #   /usr/bin/tr rix,
+  #   /usr/bin/cut rix,
+  # }
+# }

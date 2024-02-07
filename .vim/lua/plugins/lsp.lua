@@ -122,7 +122,8 @@ return {
       -- :lua vim.cmd('e'..vim.lsp.get_log_path())
 
       -- Find nrepl port
-      -- lua clients = vim.lsp.get_active_clients() for k, client_data in ipairs(clients) do id = client_data.id end client = vim.lsp.get_client_by_id(id) result = client.request_sync("clojure/serverInfo/raw", {}, 5000, 15) print('port = ' .. result.result.port) print('log-path = ' .. result.result['log-path'])
+      -- Get id from LspInfo
+      -- :lua vim.print(vim.lsp.get_client_by_id(1).request_sync("clojure/serverInfo/raw", {}, 5000, 15))
       lspconfig.clojure_lsp.setup {
         -- cmd = {'/home/juho/Source/clojure-lsp/clojure-lsp'},
         -- cmd = {'clojure-lsp', '--trace-level', 'verbose'},

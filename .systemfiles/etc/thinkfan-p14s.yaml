@@ -1,0 +1,27 @@
+---
+sensors:
+  # Chassis
+  - hwmon: /sys/class/hwmon
+    name: thinkpad
+    indices: [1]
+  # NVME
+  - hwmon: /sys/class/hwmon
+    name: nvme
+    indices: [1]
+    correction: [-5]
+
+fans:
+  - tpacpi: /proc/acpi/ibm/fan
+
+levels:
+  - [0, 0, 37]
+  - [1, 35, 42]
+  - [2, 40, 45]
+  - [3, 43, 47]
+  - [4, 45, 52]
+  - [5, 50, 57]
+  - [6, 55, 72]
+  - [7, 70, 82]
+  - ["level auto", 70, 100]
+  - ["level full-speed", 77, 32767]
+
