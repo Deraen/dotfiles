@@ -315,6 +315,9 @@ install libcairo2-dev
 install libgdk-pixbuf-2.0-dev
 install scdoc
 install libxcb-ewmh-dev
+install libliftoff-dev
+install libdisplay-info-dev
+install glslang-tools
 
 # swaylock
 install libpam0g-dev
@@ -438,6 +441,7 @@ install steam-launcher
 install deluge
 install virtualbox-7.0
 install cheese # Webcam
+install guvcview
 install yad # Zenity alternative with proper color picker
 # install wine-development
 install mesa-utils

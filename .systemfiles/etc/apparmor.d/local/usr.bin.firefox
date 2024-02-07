@@ -4,9 +4,16 @@
   # dbus send bus=system path=/org/freedesktop/timedate[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
   # dbus send bus=system path=/ interface=org.freedesktop.DBus.Peer member=Ping peer=(name=org.freedesktop.Avahi),
   # dbus send bus=system path=/ interface=org.freedesktop.Avahi.Server peer=(name=org.freedesktop.Avahi),
-  # dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=PropertiesChanged,
-  # dbus send bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
-  # dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.login1.Manager member={PrepareForSleep,UserRemoved,SessionRemoved},
+  dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=PropertiesChanged,
+  dbus send bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.DBus.Properties member=GetAll,
+  dbus receive bus=system path=/org/freedesktop/login[0-9]* interface=org.freedesktop.login1.Manager member={PrepareForSleep,UserRemoved,SessionRemoved},
+
+
+  # allow firefox to adjust its out of memory killer scroe
+  @{PROC}/[0-9]*/oom_score_adj rw,
+
+  # allow firefox to retrieve information about its own cgroups
+  @{PROC}/[0-9]*/cgroup r,
 
   # /etc/igfx_user_feature.txt r,
   # /etc/igfx_user_feature_next.txt r,

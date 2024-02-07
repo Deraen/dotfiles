@@ -5,13 +5,13 @@
   "description": "",
   "dependencies": {
     "jshint": "2.13.6",
-    "neovim": "4.10.1",
-    "npm-check-updates": "16.12.3",
+    "neovim": "4.11.0",
+    "npm-check-updates": "16.14.14",
     "source-map-explorer": "2.5.3",
-    "stylelint": "15.10.3",
-    "svgo": "^3.0.2",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.1.6",
-    "yarn": "^1.22.19"
+    "stylelint": "16.2.1",
+    "svgo": "^3.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "yarn": "^1.22.21"
   }
 }
