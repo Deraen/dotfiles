@@ -6,6 +6,8 @@ PartOf=graphical-session.target
 [Service]
 Type=simple
 ExecStart=/home/juho/bin/lock.sh --start
+Restart=on-failure
+RestartSec=10
 
 [Install]
 WantedBy=sway-session.target
