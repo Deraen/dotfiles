@@ -94,6 +94,11 @@ if [[ $(hostname -s) =~ juho-laptop ]]; then
         ppa linrunner tlp mantic --keyid 2B3F92F902D65EFF
         # ppa oibaf graphics-drivers mantic --keyid 957D2708A03A4626
 
+        if [[ ! -s /etc/apt/keyrings/kubernetes-apt-keyring.gpg ]]; then
+                curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+        fi
+        repo kubernetes "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /"
+
 fi
 
 updateRepos
@@ -338,6 +343,7 @@ install python3-psutil
 install docker-ce
 install docker-compose-plugin
 # install sops
+install confftest 0.49.1 "https://github.com/open-policy-agent/conftest/releases/download/v0.49.1/conftest_0.49.1_linux_amd64.deb"
 
 # Tessel
 install libusb-1.0-0-dev
@@ -428,6 +434,8 @@ install gparted
 install inkscape
 install keepassxc # Password manager
 install qrencode
+install pass
+install qtpass
 # install pass
 install stress
 # install pitivi # Video editor
@@ -509,6 +517,7 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install beekeeper-studio
         install google-cloud-sdk
         install awscli
+        install kubectl
 
         install cnrdrvcups-ufr2-uk "5.70-1.18" "/home/juho/Downloads/linux-UFRII-drv-v570-m17n/x64/Debian/cnrdrvcups-ufr2-uk_5.70-1.18_amd64.deb"
 fi
