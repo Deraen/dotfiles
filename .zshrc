@@ -24,6 +24,9 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 
+# Fzf-tab should be initialized after compinit, but before other possible plugins which wrap widgets
+[[ -f /home/juho/.local/modules/fzf-tab/fzf-tab.plugin.zsh ]] && source /home/juho/.local/modules/fzf-tab/fzf-tab.plugin.zsh
+
 # You can use bindkey to view current bindings, with -M to select the keymap
 # Search history
 bindkey '^R' history-incremental-search-backward
@@ -38,6 +41,7 @@ bindkey '^j' down-history
 # bindkey '^r' history-incremental-search-backward
 
 zmodload zsh/complist
+# NOTE: zsh-tab overrides regular tab-completion, but ^f does work if needed.
 # Replace next-char binding to trigger menu-complete widget
 bindkey '^f' menu-complete
 # Enable tab etc. to use menu-complete widget instead of list
