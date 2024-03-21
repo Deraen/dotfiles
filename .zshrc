@@ -24,6 +24,7 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 
+# You can use bindkey to view current bindings, with -M to select the keymap
 # Search history
 bindkey '^R' history-incremental-search-backward
 
@@ -35,6 +36,16 @@ bindkey '^j' down-history
 # bindkey '^h' backward-delete-char
 # bindkey '^w' backward-kill-word
 # bindkey '^r' history-incremental-search-backward
+
+zmodload zsh/complist
+# Replace next-char binding to trigger menu-complete widget
+bindkey '^f' menu-complete
+# Enable tab etc. to use menu-complete widget instead of list
+set menu_complete
+# Enable search in menuselect -
+# these both init the search and are used to go forward/backards in the search results.
+bindkey -M menuselect '^F' history-incremental-search-forward
+bindkey -M menuselect '^R' history-incremental-search-backward
 
 # Backward delete to slash
 autoload -U select-word-style
@@ -61,9 +72,6 @@ zstyle ':completion::complete:*' use-cache on
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(direnv hook zsh)"
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
 
 # Color commands
 source $HOME/.local/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

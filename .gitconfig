@@ -7,8 +7,8 @@
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	undo-commit = reset --soft HEAD^
 	stats = diff --shortstat
-	branch-status = !sh -c 'branch-status.sh'
 	submodule-log = log -p --submodule=log
+	co = checkout
 [color]
 	ui = auto
 [push]

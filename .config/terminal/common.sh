@@ -39,6 +39,9 @@ addPath /usr/local/cuda-5.5/bin
 # Python Poetry
 addPath "$HOME/.poetry/bin"
 # addPath "$HOME/.platformio/penv/bin"
+addPath "$HOME/.krew/bin"
+addPath "$HOME/.volta/bin"
+exportIfExists VOLTA_HOME "$HOME/.volta"
 
 addPath "$HOME/bin"
 addPath "$HOME/.local/bin"
