@@ -401,6 +401,7 @@ install fonts-roboto
 install fonts-font-awesome
 install fonts-powerline
 install fonts-material-design-icons-iconfont
+install gammastep
 
 install xdg-desktop-portal-wlr
 
