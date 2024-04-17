@@ -24,6 +24,8 @@ for dump in ~/.zcompdump(N.mh+24); do
 done
 compinit -C
 
+export FZF_DEFAULT_OPTS="--bind=tab:accept"
+zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
 # Fzf-tab should be initialized after compinit, but before other possible plugins which wrap widgets
 [[ -f /home/juho/.local/modules/fzf-tab/fzf-tab.plugin.zsh ]] && source /home/juho/.local/modules/fzf-tab/fzf-tab.plugin.zsh
 
