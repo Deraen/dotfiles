@@ -68,6 +68,6 @@
 [submodule ".local/modules/hyprpicker"]
 	path = .local/modules/hyprpicker
 	url = https://github.com/hyprwm/hyprpicker.git
-[submodule "/home/juho/.local/modules/fzf-tab"]
-	path = /home/juho/.local/modules/fzf-tab
+[submodule ".local/modules/fzf-tab"]
+	path = .local/modules/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab.git
