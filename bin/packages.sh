@@ -520,7 +520,6 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install clamtk-gnome
         install beekeeper-studio
         install google-cloud-sdk
-        install awscli
         install kubectl
 
         install cnrdrvcups-ufr2-uk "5.70-1.18" "/home/juho/Downloads/linux-UFRII-drv-v570-m17n/x64/Debian/cnrdrvcups-ufr2-uk_5.70-1.18_amd64.deb"
@@ -530,3 +529,4 @@ markauto
 autoremove
 
 snap install spotify
+snap install aws-cli --classic
