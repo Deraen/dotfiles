@@ -81,12 +81,12 @@ return {
         -- https://github.com/VonHeikemen/lsp-zero.nvim/tree/v3.x#keybindings
         lsp_zero.default_keymaps({
           buffer = bufnr,
-          omit = {
+          exclude = {
             "<F2>", -- Default "Rename all references to the symbl" binding, used with code-actions
             "<F3>", -- Default "Format code in current buffer"
             "<F4>", -- Default "Code action" replaced with <leader>ca
             -- "gr", -- replaced by Trouble references bind below
-            "gs", -- Default "display signature information" - conflicts with something?
+            -- "gs", -- Default "display signature information" - conflicts with something?
           },
         })
 
