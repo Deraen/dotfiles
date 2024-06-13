@@ -6,7 +6,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
-# mantic 23.10
+# noble 24.04
+# noble 23.10
 # lunar 23.04
 # kinetic 22.10
 # jammy 22.04 lts
@@ -25,8 +26,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # ppa ubuntuhandbook1 apps jammy --keyid 4C1CBE14852541CB
 # ppa ubuntuhandbook1 darktable kinetic --keyid 4C1CBE14852541CB
 # ppa deraen random bionic --keyid 8EE3F468
-ppa papirus papirus mantic --keyid E58A9D36647CAE7F
-ppa mozillateam ppa mantic --keyid 9BDB3D89CE49EC21
+ppa papirus papirus noble --keyid E58A9D36647CAE7F
+ppa mozillateam ppa noble --keyid 9BDB3D89CE49EC21
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
@@ -35,12 +36,12 @@ repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise st
         --keyid B05498B7
 repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian jammy contrib" \
         --keyid A2F683C52980AECF
-repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu mantic stable" \
+repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu noble stable" \
         --keyid 0EBFCD88
 # repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
 #         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
 repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
-        --keyid B53DC80D13EDEF05
+        --keyid C0BA5CE6DC6315A3
 repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
         --keyid C6ABDCF64DB9A0B2
 repo github-cli "deb https://cli.github.com/packages stable main" \
@@ -57,9 +58,9 @@ if [[ ! -s /usr/share/keyrings/tailscale-archive-keyring.gpg ]]; then
         curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
 fi
 
-repo tailscale "# Tailscale packages for ubuntu mantic\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu mantic main\n\n"
+repo tailscale "# Tailscale packages for ubuntu noble\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu noble main\n\n"
 
-repo insync "deb http://apt.insync.io/ubuntu mantic non-free contrib" \
+repo insync "deb http://apt.insync.io/ubuntu noble non-free contrib" \
         --keyid "ACCAF35C"
 repo syncthing "deb https://apt.syncthing.net/ syncthing stable" \
         --key-url "https://syncthing.net/release-key.gpg"
@@ -83,16 +84,16 @@ repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         # Nvidia drivers
         # ppa graphics-drivers ppa kinetic --keyid FCAE110B1118213C
-        # ppa lutris-team lutris mantic --keyid 37B90EDD4E3EFAE4
+        # ppa lutris-team lutris noble --keyid 37B90EDD4E3EFAE4
         ppa deluge-team stable kinetic --keyid C5E6A5ED249AD24C
-        ppa kdenlive kdenlive-stable mantic --keyid 2763B0EE7709FE97
+        ppa kdenlive kdenlive-stable noble --keyid 2763B0EE7709FE97
         repo amdgpu "deb https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n#deb-src https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n"
         repo rocm "deb [arch=amd64] https://repo.radeon.com/rocm/apt/5.7 jammy main\n"
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
-        ppa linrunner tlp mantic --keyid 2B3F92F902D65EFF
-        # ppa oibaf graphics-drivers mantic --keyid 957D2708A03A4626
+        ppa linrunner tlp noble --keyid 2B3F92F902D65EFF
+        # ppa oibaf graphics-drivers noble --keyid 957D2708A03A4626
 
         if [[ ! -s /etc/apt/keyrings/kubernetes-apt-keyring.gpg ]]; then
                 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
@@ -343,7 +344,7 @@ install python3-psutil
 install docker-ce
 install docker-compose-plugin
 # install sops
-install confftest 0.49.1 "https://github.com/open-policy-agent/conftest/releases/download/v0.49.1/conftest_0.49.1_linux_amd64.deb"
+# install confftest 0.49.1 "https://github.com/open-policy-agent/conftest/releases/download/v0.49.1/conftest_0.49.1_linux_amd64.deb"
 
 # Tessel
 install libusb-1.0-0-dev
@@ -477,6 +478,8 @@ install obsidian "1.4.16" https://github.com/obsidianmd/obsidian-releases/releas
 # consider greetd and tuigreet for login manager
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
+        install amdgpu-lib
+
         install picard # MusicBrainz audio tagger
         # install luminance-hdr # HDR images
         # install hugin # Panorama stitcher
@@ -489,7 +492,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install digikam
         install radeontop
         # install mullvad-vpn
-        install lutris 0.5.13 "https://github.com/lutris/lutris/releases/download/v0.5.13/lutris_0.5.13_all.deb"
+        install lutris 0.5.17 "https://github.com/lutris/lutris/releases/download/v0.5.17/lutris_0.5.17_all.deb"
         # for davinci
         install mesa-opencl-icd
         install kdenlive
