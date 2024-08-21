@@ -382,7 +382,7 @@ install i3lock
 install i3blocks
 install xss-lock
 install rofi # Runner menu
-# install sway
+install sway
 install swaybg
 install waybar
 install swaylock
@@ -414,6 +414,7 @@ install fonts-font-awesome
 install fonts-powerline
 install fonts-material-design-icons-iconfont
 install gammastep
+install alacritty
 
 install xdg-desktop-portal-wlr
 

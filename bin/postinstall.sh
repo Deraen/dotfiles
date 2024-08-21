@@ -61,39 +61,40 @@ if [[ $desktop == true ]]; then
     header "Build i3-utils"
     make -C "$HOME/.local/modules/i3-utils" -j
 
-    (
-    cd "$HOME/.local/modules/wayland-protocols" || exit
-    header "Wayland-protocols"
-    if [[ ! -d build ]]; then
-        meson build
-    fi
-    # ninja -C build
-    sudo ninja -C build install
-    )
+    # (
+    # cd "$HOME/.local/modules/wayland-protocols" || exit
+    # header "Wayland-protocols"
+    # if [[ ! -d build ]]; then
+    #     meson setup build
+    # fi
+    # # ninja -C build
+    # sudo ninja -C build install
+    # )
 
-    (
-    cd "$HOME/.local/modules/wlroots" || exit
-    header "Wlroots"
-    if [[ ! -d build ]]; then
-        meson -Dexamples=false build
-    fi
-    # ninja -C build
-    sudo ninja -C build install
-    )
+    # (
+    # cd "$HOME/.local/modules/wlroots" || exit
+    # header "Wlroots"
+    # if [[ ! -d build ]]; then
+    #     meson setup -Dexamples=false build
+    # fi
+    # # ninja -C build
+    # sudo ninja -C build install
+    # )
 
-    (
-    cd "$HOME/.local/modules/sway" || exit
-    header "Sway"
-    if [[ ! -d build ]]; then
-        meson -D werror=false build
-    fi
-    if [[ ! -L subprojects/wlroots ]]; then
-        mkdir -p subprojects
-        ln -s $HOME/.local/modules/wlroots subprojects
-    fi
-    ninja -C build
-    sudo ninja -C build install
-    )
+    # Installed from apt
+    # (
+    # cd "$HOME/.local/modules/sway" || exit
+    # header "Sway"
+    # if [[ ! -d build ]]; then
+    #     meson setup -D werror=false build
+    # fi
+    # if [[ ! -L subprojects/wlroots ]]; then
+    #     mkdir -p subprojects
+    #     ln -s $HOME/.local/modules/wlroots subprojects
+    # fi
+    # ninja -C build
+    # sudo ninja -C build install
+    # )
 
     (
     # Home git repo, don't show untracked files on status
@@ -106,20 +107,21 @@ if [[ $desktop == true ]]; then
     cargo install fd-find
     )
 
-    (
-    cd "$HOME/.local/modules/alacritty" || exit
-    header "Alacritty"
-    cargo build --release
-    sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
-    cp target/release/alacritty "$HOME/.local/bin/alacritty.new"
-    mv "$HOME/.local/bin/alacritty.new" "$HOME/.local/bin/alacritty"
-    mkdir -p "$HOME/.local/share/pixmaps/"
-    cp extra/logo/alacritty-term.svg "$HOME/.local/share/pixmaps/Alacritty.svg"
-    cp extra/linux/Alacritty.desktop "$HOME/.local/share/applications/Alacritty.desktop"
-    sudo mkdir -p /usr/local/share/man/man1
-    gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
-    gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
-    )
+    # Installed from apt
+    # (
+    # cd "$HOME/.local/modules/alacritty" || exit
+    # header "Alacritty"
+    # cargo build --release
+    # sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+    # cp target/release/alacritty "$HOME/.local/bin/alacritty.new"
+    # mv "$HOME/.local/bin/alacritty.new" "$HOME/.local/bin/alacritty"
+    # mkdir -p "$HOME/.local/share/pixmaps/"
+    # cp extra/logo/alacritty-term.svg "$HOME/.local/share/pixmaps/Alacritty.svg"
+    # cp extra/linux/Alacritty.desktop "$HOME/.local/share/applications/Alacritty.desktop"
+    # sudo mkdir -p /usr/local/share/man/man1
+    # gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+    # gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
+    # )
 
     (
     cd $HOME/.local/modules/idlehack || exit
