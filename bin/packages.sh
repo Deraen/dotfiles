@@ -27,7 +27,19 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # ppa ubuntuhandbook1 darktable kinetic --keyid 4C1CBE14852541CB
 # ppa deraen random bionic --keyid 8EE3F468
 ppa papirus papirus noble --keyid E58A9D36647CAE7F
-ppa mozillateam ppa noble --keyid 9BDB3D89CE49EC21
+# ppa mozillateam ppa noble --keyid 9BDB3D89CE49EC21
+
+if [[ ! -s /etc/apt/keyrings/packages.mozilla.org.asc ]]; then
+        wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+fi
+repo mozilla "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main"
+
+echo '
+Package: *
+Pin: origin packages.mozilla.org
+Pin-Priority: 1000
+' | sudo tee /etc/apt/preferences.d/mozilla
+
 repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
@@ -46,8 +58,8 @@ repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out 
         --keyid C6ABDCF64DB9A0B2
 repo github-cli "deb https://cli.github.com/packages stable main" \
         --key-url https://cli.github.com/packages/githubcli-archive-keyring.gpg
-repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_23.04/ /" \
-        --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_23.04/Release.key"
+repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_24.04/ /" \
+        --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_24.04/Release.key"
 # repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ kinetic main" \
 #         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
 repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
@@ -92,7 +104,6 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
-        ppa linrunner tlp noble --keyid 2B3F92F902D65EFF
         # ppa oibaf graphics-drivers noble --keyid 957D2708A03A4626
 
         if [[ ! -s /etc/apt/keyrings/kubernetes-apt-keyring.gpg ]]; then
