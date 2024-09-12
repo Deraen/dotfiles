@@ -7,7 +7,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 . "$DIR/../.local/modules/pmm/init.sh"
 
 # noble 24.04
-# noble 23.10
+# mantic 23.10
 # lunar 23.04
 # kinetic 22.10
 # jammy 22.04 lts
@@ -92,6 +92,7 @@ if [[ ! -s /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg ]]; then
 fi
 
 repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
+ppa phoerious keepassxc noble --keyid 61922AB60068FCD6
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         # Nvidia drivers
@@ -141,7 +142,6 @@ install "libreoffice-l10n-fi"
 install "hyphen-fi"
 install "hyphen-en-us"
 install "libreoffice-l10n-en-gb"
-install "firefox-locale-en"
 
 # Devices?
 # install usb-modeswitch # for 3G usb modems
@@ -446,6 +446,7 @@ install firefox
 install fdisk
 install gparted
 install inkscape
+install python3-scour # svg optimizer used by inkscape
 install keepassxc # Password manager
 install qrencode
 install pass
@@ -533,6 +534,7 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install beekeeper-studio
         install google-cloud-sdk
         install kubectl
+        install kubectx
 
         install cnrdrvcups-ufr2-uk "5.70-1.18" "/home/juho/Downloads/linux-UFRII-drv-v570-m17n/x64/Debian/cnrdrvcups-ufr2-uk_5.70-1.18_amd64.deb"
 fi

@@ -11,7 +11,8 @@
  ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
  :aliases {:clojurescript-cli {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.60"}}
                                :main-opts ["-m" "cljs.main"]}
-           :local-cljs {:extra-deps {org.clojure/clojurescript {:local/root "/home/juho/Source/clojurescript"}}}}
+           :local-cljs {:extra-deps {org.clojure/clojurescript {:local/root "/home/juho/Source/clojurescript"}}}
+           :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.3.0"}}}}
 
  ;; Provider attributes
 

@@ -19,6 +19,8 @@ return {
   { "nvim-lua/plenary.nvim", lazy = true },
   { 'folke/zen-mode.nvim', cmd = { 'ZenMode' } },
 
+  'junegunn/fzf',
+
   -- Theme
   -- 'tjdevries/colorbuddy.nvim',
   {

@@ -4,9 +4,9 @@
 # somewhere on your $PATH, like ~/bin. The rest of Leiningen will be
 # installed upon first run into the ~/.lein/self-installs directory.
 
-export LEIN_VERSION="2.10.0"
+export LEIN_VERSION="2.11.2"
 # Must be sha256sum, will be replaced by bin/release
-export LEIN_CHECKSUM='d27299bad34075ac2864d0bd0559f835c6e2c476c0b0a283bcbdb574fdadbb34'
+export LEIN_CHECKSUM='7d31ae23ae769e927438b0cd55d15a93e7dabab09fd4fc15877979161e108774'
 
 case $LEIN_VERSION in
     *SNAPSHOT) SNAPSHOT="YES" ;;
@@ -328,7 +328,16 @@ do
 done
 
 # User init
-export LEIN_HOME="${LEIN_HOME:-"$HOME/.lein"}"
+if [ "$LEIN_HOME" = "" ]; then
+    # Prefer the old location if present
+    if [ -d "$HOME/.lein" ]; then
+        export LEIN_HOME="$HOME/.lein"
+    elif [ -d "$XDG_CACHE_HOME/leiningen" ]; then
+        export LEIN_HOME="$XDG_CACHE_HOME/leiningen"
+    else
+        export LEIN_HOME="$HOME/.lein"
+    fi
+fi
 
 for f in "/etc/leinrc" "$LEIN_HOME/leinrc" ".leinrc"; do
   if [ -e "$f" ]; then
@@ -437,7 +446,7 @@ if $cygterm; then
   stty -icanon min 1 -echo > /dev/null 2>&1
 fi
 
-# TODO: investigate http://skife.org/java/unix/2011/06/20/really_executable_jars.html
+# TODO: investigate http://skife.org/java/unix/2.11.26/20/really_executable_jars.html
 # If you're packaging this for a package manager (.deb, homebrew, etc)
 # you need to remove the self-install and upgrade functionality or see lein-pkg.
 if [ "$1" = "self-install" ]; then

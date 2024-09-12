@@ -37,7 +37,7 @@ rustup override set stable
 rustup update stable
 
 header "Install clojure"
-clojure_tool_version=1.11.0.1100
+clojure_tool_version=1.12.0.1479
 clojure_bin=$HOME/.local/bin/clojure
 
 if [[ ! -f $clojure_bin ]] || ! grep -q "# Version = $clojure_tool_version" "$clojure_bin"; then
