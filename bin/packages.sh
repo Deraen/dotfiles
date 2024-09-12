@@ -186,6 +186,7 @@ install webp
 install jpegoptim
 install libinput-tools
 install sysfsutils
+install traceroute
 install firewalld
 install firewall-applet
 install firewall-config
