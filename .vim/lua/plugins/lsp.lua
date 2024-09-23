@@ -167,16 +167,7 @@ return {
         }
       }
 
-      require'lspconfig'.tsserver.setup{}
-
-      lspconfig.grammarly.setup {
-        autostart = false,
-        filetypes = { "markdown" },
-        settings = {
-          grammarly = {
-          }
-        }
-      }
+      require'lspconfig'.ts_ls.setup{}
 
       -- (Optional) Configure lua language server for neovim
       lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
@@ -187,8 +178,7 @@ return {
           "rust_analyzer",
           "clojure_lsp",
           "tailwindcss",
-          "grammarly",
-          "tsserver",
+          "ts_ls",
         },
         handlers = {
           lsp_zero.default_setup,
