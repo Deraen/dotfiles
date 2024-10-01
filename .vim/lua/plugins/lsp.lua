@@ -168,6 +168,7 @@ return {
       }
 
       require'lspconfig'.ts_ls.setup{}
+      require'lspconfig'.eslint.setup{}
 
       -- (Optional) Configure lua language server for neovim
       lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
@@ -179,6 +180,7 @@ return {
           "clojure_lsp",
           "tailwindcss",
           "ts_ls",
+          "eslint"
         },
         handlers = {
           lsp_zero.default_setup,
