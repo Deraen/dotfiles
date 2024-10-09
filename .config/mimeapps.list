@@ -15,6 +15,7 @@ x-scheme-handler/mailto=firefox.desktop
 x-scheme-handler/webcal=firefox.desktop
 image/x-olympus-orf=darktable.desktop
 application/pdf=org.gnome.Evince.desktop
+image/jpeg=org.gnome.eog.desktop
 
 [Added Associations]
 video/quicktime=vlc.desktop;mpv.desktop;
@@ -37,7 +38,7 @@ image/x-eps=inkscape.desktop;
 image/png=gimp.desktop;
 image/svg+xml=inkscape.desktop;
 application/x-java-archive=org.gnome.FileRoller.desktop;
-image/jpeg=gimp.desktop;darktable.desktop;
+image/jpeg=gimp.desktop;darktable.desktop;org.gnome.eog.desktop;
 application/epub+zip=calibre-ebook-viewer.desktop;
 image/x-olympus-orf=darktable.desktop;
 application/json=org.gnome.gedit.desktop;
