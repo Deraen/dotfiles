@@ -1,12 +1,27 @@
 return {
   -- could replace with lua version: dinhhuy258/git.nvim, no benefit?
   'tpope/vim-fugitive',
+  -- {
+  --   'jreybert/vimagit',
+  --   cmd = { 'Magit' },
+  --   init = function ()
+  --     vim.g.magit_show_help = 0
+  --   end
+  -- },
   {
-    'jreybert/vimagit',
-    cmd = { 'Magit' },
-    init = function ()
-      vim.g.magit_show_help = 0
-    end
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "sindrets/diffview.nvim",        -- optional - Diff integration
+
+      -- Only one of these is needed.
+      --"nvim-telescope/telescope.nvim", -- optional
+      "ibhagwan/fzf-lua",              -- optional
+      --"echasnovski/mini.pick",         -- optional
+    },
+    opts = {
+      graph_style = "unicode",
+    }
   },
   {
     "lewis6991/gitsigns.nvim",

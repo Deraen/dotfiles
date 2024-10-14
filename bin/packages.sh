@@ -40,14 +40,16 @@ Pin: origin packages.mozilla.org
 Pin-Priority: 1000
 ' | sudo tee /etc/apt/preferences.d/mozilla
 
-repo dropbox "deb [arch=i386,amd64] http://linux.dropbox.com/ubuntu disco main" \
+repo dropbox "deb [arch=i386,amd64 signed-by=/etc/apt/keyrings/dropbox.asc] http://linux.dropbox.com/ubuntu noble main\n\n" \
         --keyid FC918B335044912E
 repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
         --keyid 6494C6D6997C215E
 repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
         --keyid B05498B7
-repo virtualbox "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian jammy contrib" \
-        --keyid A2F683C52980AECF
+if [[ ! -s /usr/share/keyrings/oracle-virtualbox-2016.gpg ]]; then
+        curl -sS https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
+fi
+repo virtualbox "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian noble contrib"
 repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu noble stable" \
         --keyid 0EBFCD88
 # repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
@@ -100,8 +102,8 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         # ppa lutris-team lutris noble --keyid 37B90EDD4E3EFAE4
         ppa deluge-team stable kinetic --keyid C5E6A5ED249AD24C
         ppa kdenlive kdenlive-stable noble --keyid 2763B0EE7709FE97
-        repo amdgpu "deb https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n#deb-src https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n"
-        repo rocm "deb [arch=amd64] https://repo.radeon.com/rocm/apt/5.7 jammy main\n"
+        # repo amdgpu "deb https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n#deb-src https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n"
+        # repo rocm "deb [arch=amd64] https://repo.radeon.com/rocm/apt/5.7 jammy main\n"
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
@@ -144,7 +146,6 @@ install "hyphen-en-us"
 install "libreoffice-l10n-en-gb"
 
 # Devices?
-# install usb-modeswitch # for 3G usb modems
 install piper # logitech gaming mouse configration
 install solaar
 
@@ -196,8 +197,9 @@ install apparmor-utils
 install flatpak
 install gnome-software-plugin-flatpak
 install hwinfo
-install libfuse2
+install libfuse2t64
 install lxpolkit
+install tlp
 
 # Editor
 install python3-msgpack
@@ -212,7 +214,8 @@ install openjdk-8-jdk
 install openjdk-8-dbg
 install openjdk-11-jdk # LTS
 install openjdk-17-jdk # LTS
-# 21 is the next LTS
+install openjdk-21-jdk # LTS
+# 25 is the next LTS
 install maven
 install ant
 
@@ -463,11 +466,12 @@ install smplayer
 install playerctl
 install steam-launcher
 install deluge
-install virtualbox-7.0
+install virtualbox-7.1
 install cheese # Webcam
 install guvcview
 install yad # Zenity alternative with proper color picker
-# install wine-development
+install wine
+install winetricks
 install mesa-utils
 install nemo
 install flameshot
@@ -484,20 +488,17 @@ install openvpn
 install stoken
 install tailscale
 
-install iriunwebcam "2.7" https://iriun.gitlab.io/iriunwebcam-2.7.deb
+install iriunwebcam "2.8.3" https://iriun.gitlab.io/iriunwebcam-2.8.3.deb
 # install v4l2loopback-dkms
 
-install obsidian "1.4.16" https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/obsidian_1.4.16_amd64.deb
+install obsidian "1.6.7" https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb
 
 # consider greetd and tuigreet for login manager
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-        install amdgpu-lib
-
         install picard # MusicBrainz audio tagger
         # install luminance-hdr # HDR images
         # install hugin # Panorama stitcher
-        install jack-rack
         install qjackctl
         install guitarix
         install yt-dlp
@@ -520,13 +521,14 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         if grep -q i7-2640 /proc/cpuinfo; then
                 install thinkfan
         fi
+        # P1 g3
         if grep -q i9-10885H /proc/cpuinfo; then
                 install thinkfan
         fi
+        # P14s g4
         if grep -q "Ryzen 7 PRO 7840U" /proc/cpuinfo; then
                 install thinkfan
         fi
-        install tlp
         install acpid
         install libgl1:i386
         install libgl1-mesa-dri:i386
