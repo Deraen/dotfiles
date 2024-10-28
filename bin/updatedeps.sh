@@ -71,6 +71,7 @@ bash <(curl -s https://raw.githubusercontent.com/borkdude/clj-kondo/master/scrip
 bash <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install) --dir /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/greglook/cljstyle/main/script/install-cljstyle) --dir /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh) -b /home/juho/bin
+bash <(curl -s https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install) --dir /home/juho/bin
 
 wget -O ~/bin/nvim.appimage.new https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 mv ~/bin/nvim.appimage.new ~/bin/nvim.appimage

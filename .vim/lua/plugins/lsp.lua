@@ -3,7 +3,7 @@ return {
   -- lspsaga?
   {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v3.x',
+    branch = 'v4.x',
     lazy = true,
     config = false,
     init = function()
@@ -28,13 +28,9 @@ return {
       -- The arguments for .extend() have the same shape as `manage_nvim_cmp`:
       -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#manage_nvim_cmp
 
-      local lsp_zero = require('lsp-zero')
-
-      lsp_zero.extend_cmp()
-
       -- And you can configure cmp even more, if you want to.
       local cmp = require('cmp')
-      local cmp_action = lsp_zero.cmp_action()
+      local cmp_action = require('lsp-zero').cmp_action()
 
       cmp.setup({
         sources = {
@@ -43,10 +39,16 @@ return {
           -- {name = 'buffer', keyword_length = 3},
           {name = 'luasnip', keyword_length = 2},
         },
-        mapping = {
+        mapping = cmp.mapping.preset.insert({
           ['<CR>'] = cmp.mapping.confirm({select = false}),
           ['<Tab>'] = cmp_action.luasnip_supertab(),
           ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
+        }),
+        snippet = {
+          expand = function(args)
+            -- You need Neovim v0.10 to use vim.snippet
+            vim.snippet.expand(args.body)
+          end,
         },
         enabled = function()
           -- disable completion in comments
@@ -73,43 +75,53 @@ return {
       {'williamboman/mason-lspconfig.nvim'},
     },
     config = function()
-      local lsp_zero = require('lsp-zero')
-      lsp_zero.extend_lspconfig()
+      local lspconfig_defaults = require('lspconfig').util.default_config
+      lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+        'force',
+        lspconfig_defaults.capabilities,
+        require('cmp_nvim_lsp').default_capabilities()
+      )
 
-      lsp_zero.on_attach(function(client, bufnr)
-        -- lsp-zero won't overwrite mappings
-        -- https://github.com/VonHeikemen/lsp-zero.nvim/tree/v3.x#keybindings
-        lsp_zero.default_keymaps({
-          buffer = bufnr,
-          exclude = {
-            "<F2>", -- Default "Rename all references to the symbl" binding, used with code-actions
-            "<F3>", -- Default "Format code in current buffer"
-            "<F4>", -- Default "Code action" replaced with <leader>ca
-            -- "gr", -- replaced by Trouble references bind below
-            -- "gs", -- Default "display signature information" - conflicts with something?
-          },
-        })
+      vim.api.nvim_create_autocmd('LspAttach', {
+        desc = 'LSP actions',
+        callback = function(event)
+          local keymap = vim.keymap.set
 
-        -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#default_keymapsopts
+          local opts = {buffer = event.buf, silent = true, noremap = true}
 
-        local keymap = vim.keymap.set
+          -- https://github.com/folke/trouble.nvim
+          -- Replace references list with trouble
+          -- Trouble is keeping data per buffer, so go back to the basic quickfix
+          -- keymap("n", "gr", "<cmd>TroubleToggle lsp_references<CR>", opts)
 
-        local opts = {silent = true, noremap = true}
+          keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+          keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+          keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+          keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+          keymap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
 
-        -- https://github.com/folke/trouble.nvim
-        -- Replace references list with trouble
-        -- Trouble is keeping data per buffer, so go back to the basic quickfix
-        -- keymap("n", "gr", "<cmd>TroubleToggle lsp_references<CR>", opts)
+          keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+          -- "gs", -- Default "display signature information" - conflicts with something?
+          -- keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
 
-        keymap("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
-        keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", opts)
-        keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", opts)
-        keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", opts)
-        keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", opts)
+          -- "<F2>", -- Default "Rename all references to the symbl" binding, replaced with gR
+          -- keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+          -- "<F3>", -- Default "Format code in current buffer"
+          -- keymap({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+          -- replaced with ca
+          -- keymap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 
-        keymap({"n","v"}, "<leader>ca", vim.lsp.buf.code_action, {desc = 'Code actions'})
-        keymap("n", "gR", vim.lsp.buf.rename, {desc = 'LSP Rename'})
-      end)
+          keymap("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
+          keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", opts)
+          keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", opts)
+          keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", opts)
+          keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", opts)
+
+          keymap({"n","v"}, "<leader>ca", vim.lsp.buf.code_action, {desc = 'Code actions'})
+          keymap("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>", {desc = 'LSP Rename'})
+          keymap("n", "gF", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", {desc = 'LSP format'})
+        end,
+      })
 
       -- Configure clojure-lsp setup to return parent project folder
       -- for multimodule projects, like Reitit.
@@ -167,12 +179,6 @@ return {
         }
       }
 
-      require'lspconfig'.ts_ls.setup{}
-      require'lspconfig'.eslint.setup{}
-
-      -- (Optional) Configure lua language server for neovim
-      lspconfig.lua_ls.setup(lsp_zero.nvim_lua_ls())
-
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
@@ -180,13 +186,26 @@ return {
           "clojure_lsp",
           "tailwindcss",
           "ts_ls",
-          "eslint"
+          "eslint",
+          "bashls"
         },
         handlers = {
-          lsp_zero.default_setup,
+          function(server_name)
+            require('lspconfig')[server_name].setup({})
+          end,
+
+          clojure_lsp = function() end,
+          tailwindcss = function() end,
+
+          lua_ls = function()
+            lspconfig.lua_ls.setup({
+              on_init = function(client)
+                require('lsp-zero').nvim_lua_settings(client, {})
+              end,
+            })
+          end,
         }
       })
-
     end
   }
 }

@@ -20,6 +20,7 @@ return {
   { 'folke/zen-mode.nvim', cmd = { 'ZenMode' } },
 
   'junegunn/fzf',
+  "ibhagwan/fzf-lua",
 
   -- Theme
   -- 'tjdevries/colorbuddy.nvim',
