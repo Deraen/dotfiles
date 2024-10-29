@@ -13,9 +13,20 @@ predefined windows layouts: https://github.com/folke/edgy.nvim
 https://github.com/gbprod/yanky.nvim
 https://github.com/mfussenegger/nvim-lint if lsp linter isn't available
 https://github.com/lewis6991/hover.nvim for non-lsp actions
+https://github.com/monaqa/dial.nvim for better increment/decrement
 ]]--
 
 return {
+  -- load colorscheme first and ensure it is not loaded lazily
+  {
+    'rebelot/kanagawa.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme kanagawa-dragon]])
+    end
+  },
+
   { "nvim-lua/plenary.nvim", lazy = true },
   { 'folke/zen-mode.nvim', cmd = { 'ZenMode' } },
 
@@ -24,13 +35,6 @@ return {
 
   -- Theme
   -- 'tjdevries/colorbuddy.nvim',
-  {
-    'rebelot/kanagawa.nvim',
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme kanagawa-dragon]])
-    end
-  },
   {
     'Deraen/seoul256.vim',
     enabled = false,
@@ -363,19 +367,7 @@ return {
   -- Better input and select UI
   {
     "stevearc/dressing.nvim",
-    lazy = true,
-    init = function()
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.select = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.select(...)
-      end
-      ---@diagnostic disable-next-line: duplicate-set-field
-      vim.ui.input = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.input(...)
-      end
-    end,
+    event = 'VeryLazy',
   },
 
   -- which-key helps you remember key bindings by showing a popup

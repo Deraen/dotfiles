@@ -8,6 +8,9 @@ endfunc
 
 let g:vim_json_syntax_conceal = 0
 
+" Disable sql ft default completion maps (<C-c> by default)
+let g:omni_sql_no_default_maps = 1
+
 autocmd VimResized * exe "normal! \<c-w>="
 
 augroup markdown
