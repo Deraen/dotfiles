@@ -105,3 +105,7 @@ require('config/quickfix')
 
 -- TODO: cpr or <leader>r on lua files (~/.vim/lua/) to run:
 -- package.loaded(path) = nil & require(path)
+
+vim.diagnostic.config({
+--  update_in_insert = true,
+})

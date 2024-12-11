@@ -140,3 +140,4 @@ aug END
 
 " Disable minipairs ' and `
 
+set shiftwidth=2

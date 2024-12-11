@@ -478,6 +478,7 @@ install flameshot
 install usb-creator-gtk
 install xdotool
 install slack-desktop
+install synaptic
 
 install mesa-va-drivers
 install mesa-vdpau-drivers

@@ -111,11 +111,11 @@ return {
           -- replaced with ca
           -- keymap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
 
-          keymap("n", "<leader>xx", "<cmd>TroubleToggle<CR>", opts)
-          keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<CR>", opts)
-          keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<CR>", opts)
-          keymap("n", "<leader>xl", "<cmd>TroubleToggle loclist<CR>", opts)
-          keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<CR>", opts)
+          -- keymap("n", "<leader>xx", "<cmd>Trouble<CR>", opts)
+          keymap("n", "<leader>xw", "<cmd>Trouble diagnostics toggle<CR>", opts)
+          keymap("n", "<leader>xd", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", opts)
+          keymap("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", opts)
+          keymap("n", "<leader>xq", "<cmd>Trouble qflist toggle<CR>", opts)
 
           keymap({"n","v"}, "<leader>ca", vim.lsp.buf.code_action, {desc = 'Code actions'})
           keymap("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>", {desc = 'LSP Rename'})
@@ -140,7 +140,7 @@ return {
         -- cmd = {'/home/juho/Source/clojure-lsp/clojure-lsp'},
         -- cmd = {'clojure-lsp', '--trace-level', 'verbose'},
         flags = {
-          debounce_text_change = 150,
+          -- debounce_text_change = 150,
         },
         root_dir = function(startpath)
           -- Search .lsp/config.edn in the folder tree, then others.
@@ -207,5 +207,5 @@ return {
         }
       })
     end
-  }
+  },
 }
