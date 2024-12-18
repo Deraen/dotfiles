@@ -16,6 +16,7 @@ x-scheme-handler/webcal=firefox.desktop
 image/x-olympus-orf=darktable.desktop
 application/pdf=org.gnome.Evince.desktop
 image/jpeg=org.gnome.eog.desktop
+x-scheme-handler/slack=slack.desktop
 
 [Added Associations]
 video/quicktime=vlc.desktop;mpv.desktop;
@@ -43,3 +44,4 @@ application/epub+zip=calibre-ebook-viewer.desktop;
 image/x-olympus-orf=darktable.desktop;
 application/json=org.gnome.gedit.desktop;
 text/plain=org.gnome.gedit.desktop;
+x-scheme-handler/slack=slack.desktop
