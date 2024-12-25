@@ -148,18 +148,20 @@ if [[ $desktop == true ]]; then
     systemctl --user --now enable idlehack
 
     # Hide gnome control panels that don't work with sway
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-color-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-multitasking-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-search-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-notifications-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-online-accounts-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-sharing-panel.desktop
-    # sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-screen-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-background-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-display-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-mouse-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-keyboard-panel.desktop
-    sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-region-panel.desktop
+    # This would break the CC now so just remove the overrides?
+    # sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-color-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-color-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-multitasking-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-search-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-notifications-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-online-accounts-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-sharing-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-screen-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-background-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-display-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-mouse-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-keyboard-panel.desktop
+    sudo dpkg-statoverride --remove /usr/share/applications/gnome-region-panel.desktop
 
     if [[ -f /usr/lib/slack/resources/app.asar ]]; then
         header "Modify Slack binary to allow PipeWire"
