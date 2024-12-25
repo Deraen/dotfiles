@@ -91,14 +91,6 @@ chmod +x $HOME/.local/bin/sops
 
 BIN_DIR="$HOME/.local/bin" curl -s https://fluxcd.io/install.sh | bash
 
-(
-cd .fonts
-curl -s 'https://api.github.com/repos/be5invis/Iosevka/releases/latest' | jq -r ".assets[] | .browser_download_url" | grep -E 'PkgTTF-Iosevka(Term)?SS06' | xargs -n 1 curl -L -O --fail --silent --show-error
-rm Iosevka*.ttf
-for i in PkgTTF-*.zip; do
-    unzip $i
-    rm  $i
-done
-)
+installfonts.sh
 
 postinstall.sh
