@@ -6,6 +6,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
+# oracular 24.10
 # noble 24.04
 # mantic 23.10
 # lunar 23.04
@@ -22,50 +23,22 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ## old configuration:
 # dpkg -l | grep ^rc
 
-# ppa ubuntuhandbook1 gimp jammy --keyid 4C1CBE14852541CB
-# ppa ubuntuhandbook1 apps jammy --keyid 4C1CBE14852541CB
-# ppa ubuntuhandbook1 darktable kinetic --keyid 4C1CBE14852541CB
-# ppa deraen random bionic --keyid 8EE3F468
-ppa papirus papirus noble --keyid E58A9D36647CAE7F
-# ppa mozillateam ppa noble --keyid 9BDB3D89CE49EC21
+# NOTE: New deb822 format sources are managed with the systemfiles script
+# TODO: Move the rest to that
 
 if [[ ! -s /etc/apt/keyrings/packages.mozilla.org.asc ]]; then
         wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
 fi
 repo mozilla "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main"
 
-echo '
-Package: *
-Pin: origin packages.mozilla.org
-Pin-Priority: 1000
-' | sudo tee /etc/apt/preferences.d/mozilla
-
 repo dropbox "deb [arch=i386,amd64 signed-by=/etc/apt/keyrings/dropbox.asc] http://linux.dropbox.com/ubuntu noble main\n\n" \
         --keyid FC918B335044912E
-repo google-chrome "### THIS FILE IS AUTOMATICALLY CONFIGURED ###\n# You may comment out this entry, but any other modifications may be lost.\ndeb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main\n" \
-        --keyid 6494C6D6997C215E
-repo steam "deb [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam\ndeb-src [arch=amd64,i386] http://repo.steampowered.com/steam/ precise steam" \
-        --keyid B05498B7
 if [[ ! -s /usr/share/keyrings/oracle-virtualbox-2016.gpg ]]; then
         curl -sS https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
 fi
-repo virtualbox "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian noble contrib"
-repo docker "deb [arch=amd64] https://download.docker.com/linux/ubuntu noble stable" \
-        --keyid 0EBFCD88
+repo virtualbox "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian oracular contrib"
 # repo keybase "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb http://prerelease.keybase.io/deb stable main\n\n" \
 #         --key-url https://keybase.io/docs/server_security/code_signing_key.asc
-repo cloud-sdk "deb http://packages.cloud.google.com/apt cloud-sdk-disco main" \
-        --keyid C0BA5CE6DC6315A3
-repo slack "### THIS FILE IS AUTOMATICALLY CONFIGURED \n### You may comment out this entry, but any other modifications may be lost.\ndeb https://packagecloud.io/slacktechnologies/slack/debian/ jessie main\n\n" \
-        --keyid C6ABDCF64DB9A0B2
-repo github-cli "deb https://cli.github.com/packages stable main" \
-        --key-url https://cli.github.com/packages/githubcli-archive-keyring.gpg
-repo darktable "deb http://download.opensuse.org/repositories/graphics:/darktable/xUbuntu_24.04/ /" \
-        --key-url "https://download.opensuse.org/repositories/graphics:darktable/xUbuntu_24.04/Release.key"
-# repo winehq "deb https://dl.winehq.org/wine-builds/ubuntu/ kinetic main" \
-#         --key-url "https://dl.winehq.org/wine-builds/winehq.key"
-repo beekeeper-studio-app "deb https://deb.beekeeperstudio.io stable main" \
-        --key-url "https://deb.beekeeperstudio.io/beekeeper.key"
 
 # -s check to check if file is present and non-empty
 if [[ ! -s /usr/share/keyrings/tailscale-archive-keyring.gpg ]]; then
@@ -73,11 +46,6 @@ if [[ ! -s /usr/share/keyrings/tailscale-archive-keyring.gpg ]]; then
 fi
 
 repo tailscale "# Tailscale packages for ubuntu noble\ndeb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu noble main\n\n"
-
-repo insync "deb http://apt.insync.io/ubuntu noble non-free contrib" \
-        --keyid "ACCAF35C"
-repo syncthing "deb https://apt.syncthing.net/ syncthing stable" \
-        --key-url "https://syncthing.net/release-key.gpg"
 
 if [[ ! -s /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
         curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -94,7 +62,6 @@ if [[ ! -s /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg ]]; then
 fi
 
 repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
-ppa phoerious keepassxc noble --keyid 61922AB60068FCD6
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
         # Nvidia drivers
@@ -110,7 +77,7 @@ if [[ $(hostname -s) =~ juho-laptop ]]; then
         # ppa oibaf graphics-drivers noble --keyid 957D2708A03A4626
 
         if [[ ! -s /etc/apt/keyrings/kubernetes-apt-keyring.gpg ]]; then
-                curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+                curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
         fi
         repo kubernetes "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.29/deb/ /"
 
@@ -124,7 +91,7 @@ install ubuntu-minimal
 install ubuntu-standard
 install ubuntu-restricted-addons
 install ubuntu-artwork
-install lsb-base
+install sysvinit-utils
 install linux-generic
 install linux-lowlatency
 install build-essential
@@ -135,6 +102,7 @@ install grub-efi-amd64-signed
 install nfs-common
 install lvm2
 install cryptsetup
+install lm-sensors
 
 # Language stuff
 install "language-pack-gnome-en"
@@ -160,7 +128,7 @@ install jq # JSON processor
 install yamllint
 install ffmpeg
 install openssh-client
-install p7zip
+install 7zip
 install powertop
 install silversearcher-ag # Fast file searches
 install ripgrep
@@ -192,6 +160,7 @@ install firewalld
 install firewall-applet
 install firewall-config
 install libimage-exiftool-perl
+install gifsicle
 install mediainfo
 install apparmor-utils
 install flatpak
@@ -206,7 +175,6 @@ install python3-msgpack
 
 # Neovim
 install luarocks
-install libmsgpack-dev
 install xclip
 
 # Java
@@ -263,7 +231,6 @@ install shellcheck
 install golang-go
 install golang-doc
 install golang-src
-install golang-1.21
 install adb
 install diffpdf
 install pdfarranger
@@ -451,7 +418,7 @@ install fdisk
 install gparted
 install inkscape
 install python3-scour # svg optimizer used by inkscape
-install keepassxc # Password manager
+install keepassxc-full # Password manager
 install qrencode
 install pass
 install qtpass

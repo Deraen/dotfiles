@@ -39,6 +39,22 @@ fi
 
 sudo cp -vRa /usr/share/pipewire /etc/
 
+install "/etc/apt/preferences.d/mozilla-firefox"
+
+install "/etc/apt/sources.list.d/beekeeper-studio-app.sources"
+install "/etc/apt/sources.list.d/cloud-sdk.sources"
+install "/etc/apt/sources.list.d/darktable.sources"
+install "/etc/apt/sources.list.d/docker.sources"
+install "/etc/apt/sources.list.d/github-cli.sources"
+install "/etc/apt/sources.list.d/google-chrome.sources"
+install "/etc/apt/sources.list.d/insync.sources"
+install "/etc/apt/sources.list.d/papirus-papirus-noble.sources"
+install "/etc/apt/sources.list.d/phoerious-keepassxc-noble.sources"
+install "/etc/apt/sources.list.d/slack.sources"
+install "/etc/apt/sources.list.d/steam.sources"
+install "/etc/apt/sources.list.d/syncthing.sources"
+# install "/etc/apt/sources.list.d/"
+
 install "/etc/sysctl.d/90-local.conf"
 install "/etc/default/keyboard"
 install "/etc/pam.d/swaylock"
@@ -55,12 +71,11 @@ install "/etc/udev/rules.d/95-controllers.rules"
 install "/etc/modprobe.d/thinkpad_acpi.conf"
 install "/usr/share/xsessions/custom.desktop"
 install "/usr/local/share/wayland-sessions/sway-session.desktop"
-install "/etc/apt/preferences.d/mozilla-firefox"
 install "/etc/apt/apt.conf.d/51unattended-upgrades-firefox"
 install "/etc/apparmor.d/local/usr.bin.firefox"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-    install "/etc/X11/xorg.conf.d/metamodes.conf"
+    remove "/etc/X11/xorg.conf.d/metamodes.conf"
 fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
