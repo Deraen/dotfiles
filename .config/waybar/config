@@ -78,13 +78,23 @@
         },
         "format": "{capacity}% {icon}",
         "format-charging": "{capacity}% 󰂄",
-        "format-plugged": "{capacity}% 󱰻",
-        "format-not-charging": "{capacity}% 󰁾",
+        "format-plugged": "{capacity}% 󰂄",
+        "format-not-charging": "{capacity}% {icon}",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         // Low to high percent
-        "format-icons": ["", "", "", "", ""],
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂"
+        ],
         "on-click": "gnome-power-statistics",
         "tooltip": false
     },

@@ -3,10 +3,10 @@ gtk-icon-theme-name = "Yaru"
 
 style "foofonts"
 {
-    font_name = "Ubuntu 10"
+    font_name = "Ubuntu Sans 10"
 }
 widget_class "*" style "foofonts"
-gtk-font-name = "Ubuntu 10"
+gtk-font-name = "Ubuntu Sans 10"
 
 style "vimfix" {
   bg[NORMAL] = "#171717" # this matches my gvim theme 'Normal' bg color.
