@@ -12,7 +12,12 @@
  :aliases {:clojurescript-cli {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.60"}}
                                :main-opts ["-m" "cljs.main"]}
            :local-cljs {:extra-deps {org.clojure/clojurescript {:local/root "/home/juho/Source/clojurescript"}}}
-           :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.3.0"}}}}
+           :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.3.0"}}}
+           :user/repl {:extra-deps {cider/cider-nrepl             {:mvn/version "0.44.0"}
+                                    refactor-nrepl/refactor-nrepl {:mvn/version "3.9.1"}
+                                    iced-repl/iced-repl {:local/root "/home/juho/.local/share/nvim/lazy/vim-iced"}}
+                       :main-opts  ["-m" "nrepl.cmdline" "--middleware"
+                                    "[cider.nrepl/cider-middleware refactor-nrepl.middleware/wrap-refactor]"]}}
 
  ;; Provider attributes
 
