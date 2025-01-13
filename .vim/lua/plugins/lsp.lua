@@ -82,31 +82,48 @@ return {
       -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
       -- See the full "keymap" documentation for information on defining your own keymap.
       keymap = {
-        preset = 'enter',
+        preset = 'none',
 
+        ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-e>'] = { 'hide', 'fallback' },
+        ['<CR>'] = { 'accept', 'fallback' },
         ["<Tab>"] = {
           function(cmp)
-            return cmp.select_next()
+            if cmp.snippet_active() then return cmp.accept()
+            else return cmp.select_and_accept() end
           end,
           "snippet_forward",
           "fallback",
         },
         ["<S-Tab>"] = {
-          function(cmp)
-            return cmp.select_prev()
-          end,
+          -- function(cmp)
+          --   return cmp.select_prev()
+          -- end,
           "snippet_backward",
           "fallback",
         },
+
+        ['<Up>'] = { 'select_prev', 'fallback' },
+        ['<Down>'] = { 'select_next', 'fallback' },
+        ['<C-p>'] = { 'select_prev', 'fallback' },
+        ['<C-n>'] = { 'select_next', 'fallback' },
+
+        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
       },
 
       completion = {
         documentation = {
           auto_show = true,
-          auto_show_delay_ms = 250,
+          auto_show_delay_ms = 500,
           treesitter_highlighting = true,
           window = { border = "none" },
         },
+        list = {
+          selection = {
+            preselect = false,
+          }
+        }
       },
 
       -- Experimental signature help support
@@ -230,7 +247,7 @@ return {
         root_dir = function(startpath)
           -- Search .lsp/config.edn in the folder tree, then others.
           -- So that multi module project top level .lsp/config.edn has the priority.
-          return lspconfig_util.root_pattern('.lsp/config.edn')(startpath)
+          return lspconfig_util.root_pattern('.clojure-lsp/config.edn', '.lsp/config.edn')(startpath)
             or lspconfig_util.root_pattern('project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn')(startpath)
             or lspconfig_util.root_pattern('.git')(startpath)
         end,
