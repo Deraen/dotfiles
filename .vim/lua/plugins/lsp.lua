@@ -142,6 +142,10 @@ return {
         nerd_font_variant = 'mono'
       },
 
+      -- Disable cmdline completion for now
+      cmdline = {
+        sources = {}
+      },
       sources = {
         default = {
           'lsp',
@@ -149,8 +153,6 @@ return {
           'snippets',
           -- 'buffer'
         },
-        -- Disable cmdline completion for now
-        cmdline = {},
         providers = {
           lsp = {
             score_offset = 0,
