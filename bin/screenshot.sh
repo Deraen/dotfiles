@@ -16,7 +16,7 @@ while [[ $# -gt 0 ]]; do
       shift
       ;;
     -s|--save)
-      output="$(xdg-user-dir PICTURES)/Screenshots/$(date +'Screenshot_%s.png')"
+      output="$HOME/Pictures/Screenshots/$(date +'Screenshot_%s.png')"
       shift
       ;;
   esac

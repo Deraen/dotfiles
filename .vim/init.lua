@@ -70,7 +70,7 @@ vim.opt.formatoptions:remove({ "t", "c" })
 
 -- Save vim undo history to file, so history persists through sessions
 vim.o.undofile = true
-vim.o.undodir = '~/.cache/vim/undo'
+vim.o.undodir = vim.fs.normalize('~/.cache/vim/undo')
 vim.opt.completeopt = { 'noinsert', 'menuone', 'noselect' }
 vim.opt.signcolumn = 'yes:1'
 

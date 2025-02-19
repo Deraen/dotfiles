@@ -63,15 +63,14 @@ fi
 
 repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
 
-if [[ $(hostname -s) == "juho-desktop" ]]; then
+# if [[ $(hostname -s) == "juho-desktop" ]]; then
         # Nvidia drivers
         # ppa graphics-drivers ppa kinetic --keyid FCAE110B1118213C
         # ppa lutris-team lutris noble --keyid 37B90EDD4E3EFAE4
-        ppa deluge-team stable kinetic --keyid C5E6A5ED249AD24C
-        ppa kdenlive kdenlive-stable noble --keyid 2763B0EE7709FE97
+        # ppa kdenlive kdenlive-stable noble --keyid 2763B0EE7709FE97
         # repo amdgpu "deb https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n#deb-src https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n"
         # repo rocm "deb [arch=amd64] https://repo.radeon.com/rocm/apt/5.7 jammy main\n"
-fi
+# fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
         # ppa oibaf graphics-drivers noble --keyid 957D2708A03A4626
@@ -475,10 +474,10 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install digikam
         install radeontop
         # install mullvad-vpn
-        install lutris 0.5.17 "https://github.com/lutris/lutris/releases/download/v0.5.17/lutris_0.5.17_all.deb"
+        install lutris 0.5.17-1 "https://github.com/lutris/lutris/releases/download/v0.5.18/lutris_0.5.18_all.deb"
         # for davinci
         install mesa-opencl-icd
-        install kdenlive
+        # install kdenlive
         install davinci-resolve
 fi
 

@@ -41,6 +41,8 @@ sudo cp -vRa /usr/share/pipewire /etc/
 
 install "/etc/apt/preferences.d/mozilla-firefox"
 
+remove "/etc/apt/sources.list.d/phoerious-keepassxc-noble.sources"
+
 install "/etc/apt/sources.list.d/beekeeper-studio-app.sources"
 install "/etc/apt/sources.list.d/cloud-sdk.sources"
 install "/etc/apt/sources.list.d/darktable.sources"
@@ -49,10 +51,13 @@ install "/etc/apt/sources.list.d/github-cli.sources"
 install "/etc/apt/sources.list.d/google-chrome.sources"
 install "/etc/apt/sources.list.d/insync.sources"
 install "/etc/apt/sources.list.d/papirus-papirus-noble.sources"
-install "/etc/apt/sources.list.d/phoerious-keepassxc-noble.sources"
+install "/etc/apt/sources.list.d/keepassxc.sources"
 install "/etc/apt/sources.list.d/slack.sources"
 install "/etc/apt/sources.list.d/steam.sources"
 install "/etc/apt/sources.list.d/syncthing.sources"
+if [[ $(hostname -s) == "juho-desktop" ]]; then
+  install "/etc/apt/sources.list.d/deluge.sources"
+fi
 # install "/etc/apt/sources.list.d/"
 
 install "/etc/sysctl.d/90-local.conf"
