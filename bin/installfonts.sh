@@ -16,7 +16,7 @@ fi
 
 if [[ ! -d ~/Downloads/font-patcher/ ]]; then
     (
-    curl https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip \
+    curl --location https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip \
         -o ~/Downloads/FontPatcher.zip
     mkdir -p ~/Downloads/font-patcher/
     cd ~/Downloads/font-patcher/ || exit
@@ -24,8 +24,13 @@ if [[ ! -d ~/Downloads/font-patcher/ ]]; then
     )
 fi
 
-if [[ ! -f ~/Downloads/NerdFontsSymbolsOnly.zip ]]; then
-    curl --location https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/NerdFontsSymbolsOnly.zip \
-        -o ~/Downloads/NerdFontsSymbolsOnly.zip
-fi
+~/Downloads/FontForge-2023-01-01-a1dad3e-x86_64.AppImage \
+    -script ~/Downloads/font-patcher/font-patcher \
+    -c --mono \
+    ~/.fonts/IosevkaSS06-Regular.ttf \
+    -out ~/.fonts
+
+curl --location https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/NerdFontsSymbolsOnly.zip \
+    -o ~/Downloads/NerdFontsSymbolsOnly.zip
+rm SymbolsNerdFont*.ttf
 unzip ~/Downloads/NerdFontsSymbolsOnly.zip
