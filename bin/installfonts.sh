@@ -1,6 +1,11 @@
 #!/bin/bash
 
 cd ~/.fonts || exit
+
+# TODO: Split fonts into subfolders, easier to manage downloads and generated files
+# TODO: Load and generate new files in a tmp folder so it is possible to
+# replace files without removing fonts for the runtime of the script.
+
 curl -s 'https://api.github.com/repos/be5invis/Iosevka/releases/latest' | jq -r ".assets[] | .browser_download_url" | grep -E 'PkgTTF-Iosevka(Term)?SS06' | xargs -n 1 curl -L -O --fail --silent --show-error
 rm Iosevka*.ttf
 for i in PkgTTF-*.zip; do
@@ -33,4 +38,4 @@ fi
 curl --location https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/NerdFontsSymbolsOnly.zip \
     -o ~/Downloads/NerdFontsSymbolsOnly.zip
 rm SymbolsNerdFont*.ttf
-unzip ~/Downloads/NerdFontsSymbolsOnly.zip
+unzip -f ~/Downloads/NerdFontsSymbolsOnly.zip

@@ -73,12 +73,12 @@ bash <(curl -s https://raw.githubusercontent.com/greglook/cljstyle/main/script/i
 bash <(curl -s https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh) -b /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install) --dir /home/juho/bin
 
-wget -O ~/bin/nvim.appimage.new https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+wget -O ~/bin/nvim.appimage.new https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
 mv ~/bin/nvim.appimage.new ~/bin/nvim.appimage
 chmod +x ~/bin/nvim.appimage
 nvim.appimage --version
 
-wget -o ~/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/download/latest/yt-dlp_linux
+wget -O ~/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux
 chmod +x ~/bin/yt-dlp
 
 wget https://github.com/ko1nksm/shdotenv/releases/latest/download/shdotenv -O $HOME/.local/bin/shdotenv
