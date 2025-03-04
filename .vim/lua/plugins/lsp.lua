@@ -144,7 +144,7 @@ return {
 
       -- Disable cmdline completion for now
       cmdline = {
-        sources = {}
+        enabled = false,
       },
       sources = {
         default = {
