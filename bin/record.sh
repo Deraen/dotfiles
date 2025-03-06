@@ -6,6 +6,10 @@
 
 name=$(xdg-user-dir VIDEOS)/$(date +'Recording_%s.mp4')
 
-wf-recorder -g "$(slurp)" -f "$name"
+# Keep proper colors
+# https://trac.ffmpeg.org/wiki/Capture/Desktop#LosslessRecording
+wf-recorder \
+  -c libx264rgb -p crf=0 -p preset=ultrafast \
+  -g "$(slurp)" -f "$name"
 
 echo "$name"
