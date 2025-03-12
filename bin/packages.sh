@@ -168,6 +168,7 @@ install hwinfo
 install libfuse2t64
 install lxpolkit
 install tlp
+install httrack
 
 # Editor
 install python3-msgpack

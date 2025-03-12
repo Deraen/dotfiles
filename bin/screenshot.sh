@@ -19,8 +19,17 @@ while [[ $# -gt 0 ]]; do
       output="$HOME/Pictures/Screenshots/$(date +'Screenshot_%s.png')"
       shift
       ;;
+    -w|--wait)
+      wait=$2
+      shift
+      shift
+      ;;
   esac
 done
+
+if [[ -n $wait ]]; then
+  sleep "$wait"
+fi
 
 if [[ -n $output ]]; then
     grim -g "$geometry" "$output"
