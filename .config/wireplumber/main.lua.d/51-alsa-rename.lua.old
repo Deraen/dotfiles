@@ -1,3 +1,7 @@
+-- FIXME: lua configuration not supported by wireplumber 0.5+
+-- Check which of these rules are required and migrate:
+-- https://pipewire.pages.freedesktop.org/wireplumber/daemon/configuration/migration.html
+
 -- Disable non-existing input on DAC
 rule = {
   matches = {

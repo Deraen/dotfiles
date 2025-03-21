@@ -247,6 +247,7 @@ install pipewire
 install pipewire-jack
 install libspa-0.2-bluetooth
 install libspa-0.2-jack
+install libspa-0.2-libcamera
 install libpipewire-0.3-common
 install wireplumber
 install helvum
