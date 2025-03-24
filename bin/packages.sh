@@ -251,6 +251,7 @@ install libspa-0.2-libcamera
 install libpipewire-0.3-common
 install wireplumber
 install helvum
+install easyeffects
 
 # Dev dependencies
 install autoconf
@@ -447,6 +448,7 @@ install usb-creator-gtk
 install xdotool
 install slack-desktop
 install synaptic
+install audacity
 
 install mesa-va-drivers
 install mesa-vdpau-drivers
@@ -460,7 +462,8 @@ install tailscale
 install iriunwebcam "2.8.3" https://iriun.gitlab.io/iriunwebcam-2.8.3.deb
 # install v4l2loopback-dkms
 
-install obsidian "1.6.7" https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb
+OBSIDIAN="1.8.9"
+install obsidian "$OBSIDIAN" "https://github.com/obsidianmd/obsidian-releases/releases/download/v$OBSIDIAN/obsidian_${OBSIDIAN}_amd64.deb"
 
 # consider greetd and tuigreet for login manager
 
@@ -471,7 +474,6 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install qjackctl
         install guitarix
         install yt-dlp
-        install audacity
         install siril
         install digikam
         install radeontop
