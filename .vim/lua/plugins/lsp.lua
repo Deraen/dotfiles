@@ -201,11 +201,14 @@ return {
           keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
           keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
           keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-          keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-          keymap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+          -- gri default
+          -- keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+          -- keymap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
 
-          keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+          -- grr default
+          -- keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
           -- "gs", -- Default "display signature information" - conflicts with something?
+          -- ctrl-s default
           -- keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
 
           -- "<F2>", -- Default "Rename all references to the symbl" binding, replaced with gR
@@ -221,8 +224,10 @@ return {
           keymap("n", "<leader>xl", "<cmd>Trouble loclist toggle<CR>", opts)
           keymap("n", "<leader>xq", "<cmd>Trouble qflist toggle<CR>", opts)
 
+          -- also gra in default nvim bindings
           keymap({"n","v"}, "<leader>ca", vim.lsp.buf.code_action, {desc = 'Code actions'})
-          keymap("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>", {desc = 'LSP Rename'})
+          -- grn default
+          -- keymap("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>", {desc = 'LSP Rename'})
           keymap("n", "gF", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", {desc = 'LSP format'})
         end,
       })

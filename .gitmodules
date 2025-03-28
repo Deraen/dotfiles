@@ -71,3 +71,6 @@
 [submodule ".local/modules/fzf-tab"]
 	path = .local/modules/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab.git
+[submodule ".local/modules/cameractrls"]
+	path = .local/modules/cameractrls
+	url = https://github.com/soyersoyer/cameractrls.git
