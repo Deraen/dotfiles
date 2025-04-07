@@ -193,7 +193,7 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
 # Desktop -> save
 bindsym Print exec screenshot.sh --save
 # Active window -> save
-bindsym Ctrl+Print exec screenshot.sh --active-window --save
+bindsym Ctrl+Print exec screenshot.sh --ask
 # Super => select -> clipboard
 bindsym $mod+Print exec screenshot.sh --select
 bindsym Ctrl+$mod+Print exec flameshot gui --raw | wl-copy -t image/png

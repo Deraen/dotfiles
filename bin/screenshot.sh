@@ -24,6 +24,33 @@ while [[ $# -gt 0 ]]; do
       shift
       shift
       ;;
+    --ask)
+      ASK=$(yad --title "Screenshot" --homogeneous --form --separator "|" \
+        --field "Take a screenshot":LBL \
+        --field "Select area":CHK TRUE \
+        --field "Select active window":CHK FALSE \
+        --field "Wait":NUM 0 \
+        --field "Save to a file":CHK FALSE \
+        --field "Folder":CDIR "$HOME/Pictures/Screenshots" \
+        --width 300 --borders 20)
+      if [[ "$?" != "0" ]]; then
+        echo "Cancelled"
+        break
+      fi
+
+      shift
+
+      if [[ $(echo "$ASK" | cut -d"|" -f2) == "TRUE" ]]; then
+        geometry=$(slurp)
+      fi
+      if [[ $(echo "$ASK" | cut -d"|" -f3) == "TRUE" ]]; then
+        geometry=$(swaymsg -t get_tree | jq -j '.. | select(.type?) | select(.focused).rect | "\(.x),\(.y) \(.width)x\(.height)"')
+      fi
+      wait=$(echo "$ASK" | cut -d"|" -f4)
+      if [[ $(echo "$ASK" | cut -d"|" -f5) == "TRUE" ]]; then
+        output="$(echo "$ASK" | cut -d"|" -f6)/$(date +'Screenshot_%s.png')"
+      fi
+      ;;
   esac
 done
 
