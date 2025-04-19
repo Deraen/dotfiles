@@ -459,11 +459,14 @@ install openvpn
 install stoken
 install tailscale
 
-install iriunwebcam "2.8.3" https://iriun.gitlab.io/iriunwebcam-2.8.3.deb
+# install iriunwebcam "2.8.5" "https://iriun.gitlab.io/iriunwebcam-2.8.5.deb"
 # install v4l2loopback-dkms
 
 OBSIDIAN="1.8.9"
 install obsidian "$OBSIDIAN" "https://github.com/obsidianmd/obsidian-releases/releases/download/v$OBSIDIAN/obsidian_${OBSIDIAN}_amd64.deb"
+
+install obs-studio
+
 
 # consider greetd and tuigreet for login manager
 

@@ -78,7 +78,7 @@ mv ~/bin/nvim.appimage.new ~/bin/nvim.appimage
 chmod +x ~/bin/nvim.appimage
 nvim.appimage --version
 
-wget -O ~/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp_linux
+curl --location -o ~/bin/yt-dlp https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
 chmod +x ~/bin/yt-dlp
 
 wget https://github.com/ko1nksm/shdotenv/releases/latest/download/shdotenv -O $HOME/.local/bin/shdotenv
