@@ -26,7 +26,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     --ask)
       ASK=$(yad --title "Screenshot" --homogeneous --form --separator "|" \
-        --field "Take a screenshot":LBL \
+        --field "Take a screenshot":LBL "" \
         --field "Select area":CHK TRUE \
         --field "Select active window":CHK FALSE \
         --field "Wait":NUM 0 \

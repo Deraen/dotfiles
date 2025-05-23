@@ -14,6 +14,7 @@
            :local-cljs {:extra-deps {org.clojure/clojurescript {:local/root "/home/juho/Source/clojurescript"}}}
            :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "1.3.0"}}}
            :user/repl {:extra-deps {cider/cider-nrepl             {:mvn/version "0.44.0"}
+                                    cider/piggieback {:mvn/version "0.6.0"}
                                     refactor-nrepl/refactor-nrepl {:mvn/version "3.9.1"}
                                     iced-repl/iced-repl {:local/root "/home/juho/.local/share/nvim/lazy/vim-iced"}}
                        :main-opts  ["-m" "nrepl.cmdline" "--middleware"

@@ -6,6 +6,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
+# plucky 25.04
 # oracular 24.10
 # noble 24.04
 # mantic 23.10
