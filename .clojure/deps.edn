@@ -18,7 +18,12 @@
                                     refactor-nrepl/refactor-nrepl {:mvn/version "3.9.1"}
                                     iced-repl/iced-repl {:local/root "/home/juho/.local/share/nvim/lazy/vim-iced"}}
                        :main-opts  ["-m" "nrepl.cmdline" "--middleware"
-                                    "[cider.nrepl/cider-middleware refactor-nrepl.middleware/wrap-refactor]"]}}
+                                    "[cider.nrepl/cider-middleware refactor-nrepl.middleware/wrap-refactor]"]}
+
+           :user/mcp {:extra-deps {org.slf4j/slf4j-nop {:mvn/version "2.0.16"}
+                                   io.github.bhauman/clojure-mcp {:local/root "/home/juho/Source/clojure-mcp/"}}
+                      :exec-fn clojure-mcp.main/start-mcp-server
+                      :exec-args {:port 7888}}}
 
  ;; Provider attributes
 

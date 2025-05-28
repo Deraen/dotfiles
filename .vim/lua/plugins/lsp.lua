@@ -70,6 +70,10 @@ return {
   {
     'saghen/blink.cmp',
     version = '*',
+    dependencies = {
+      'Kaiser-Yang/blink-cmp-avante',
+      -- ... Other dependencies
+    },
 
     -- optional: provides snippets for the snippet source
     -- dependencies = 'rafamadriz/friendly-snippets',
@@ -151,11 +155,20 @@ return {
           'lsp',
           'path',
           'snippets',
+          'avante',
           -- 'buffer'
+        },
+        per_filetype = {
+          codecompanion = { "codecompanion" },
         },
         providers = {
           lsp = {
             score_offset = 0,
+          },
+          avante = {
+            module = 'blink-cmp-avante',
+            name = 'Avante',
+            opts = {}
           }
         }
       },

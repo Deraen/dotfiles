@@ -1,18 +1,18 @@
 profile p14s-internal {
-  output "Samsung Display Corp. 0x4193 Unknown" scale 1.5 position 0,0
+  output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
 }
 
 profile p14s+dell {
-  output "Samsung Display Corp. 0x4193 Unknown" scale 1.5 position 0,0
+  output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
   output "Dell Inc. DELL UP3216Q 4NCD077K060P" position 1920,0
 }
 
 profile p14s+dell-home {
-  output "Samsung Display Corp. 0x4193 Unknown" scale 1.5 position 0,0
+  output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
   output "Dell Inc. DELL U3219Q 88GK413" position 1920,0
 }
 
 profile p14s+hdmi {
-  output "Samsung Display Corp. 0x4193 Unknown" scale 1.5 position 0,0
+  output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
   output HDMI-A-1 position 1920,0
 }

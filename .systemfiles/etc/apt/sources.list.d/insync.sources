@@ -1,6 +1,6 @@
 Types: deb
 URIs: http://apt.insync.io/ubuntu
-Suites: oracular
+Suites: plucky
 Components: contrib non-free
 Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
  .

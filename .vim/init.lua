@@ -36,6 +36,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.showmode = false
 vim.o.showcmd = false
+vim.o.laststatus = 3
 
 -- Display whitespaces as nice unicode chars
 vim.o.list = true

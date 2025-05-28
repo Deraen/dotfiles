@@ -1,6 +1,6 @@
 Types: deb
 URIs: http://ppa.launchpad.net/papirus/papirus/ubuntu
-Suites: oracular
+Suites: plucky
 Components: main
 Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
  .
