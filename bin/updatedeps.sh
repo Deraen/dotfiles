@@ -4,6 +4,10 @@
 
 declare -A old_version
 
+ignore() {
+    old_version[$1]=1
+}
+
 get_lastest_tag() {
     old_version[$1]=1
     (
@@ -23,7 +27,9 @@ get_lastest_tag "$HOME/.local/modules/wlroots"
 get_lastest_tag "$HOME/.local/modules/sway"
 get_lastest_tag "$HOME/.local/modules/alacritty"
 get_lastest_tag "$HOME/.local/modules/SwayNotificationCenter"
-get_lastest_tag "$HOME/.local/modules/hyprpicker"
+
+ignore "$HOME/.local/modules/hyprpicker"
+# get_lastest_tag "$HOME/.local/modules/hyprpicker"
 
 declare -a paths
 

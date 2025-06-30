@@ -170,6 +170,7 @@ install libfuse2t64
 install lxpolkit
 install tlp
 install httrack
+install moreutils
 
 # Editor
 install python3-msgpack
@@ -319,6 +320,10 @@ install libxcb-shape0-dev
 install libxcb-xfixes0-dev
 install libxkbcommon-dev
 
+# hyprpicker
+install libhyprutils-dev
+install hyprwayland-scanner
+
 # Sway cgroups script
 install python3-dbus-next
 install python3-i3ipc
@@ -358,6 +363,7 @@ install xss-lock
 install rofi # Runner menu
 install sway
 install swaybg
+install swayimg
 install waybar
 install swaylock
 install swayidle
@@ -411,7 +417,7 @@ install feh
 install ghex # Hex editor
 install gimp
 install gimp-plugin-registry
-install gimp-gmic
+# install gimp-gmic
 install darktable
 install google-chrome-stable
 install google-chrome-beta
@@ -460,6 +466,7 @@ install openvpn
 install stoken
 install tailscale
 
+install iriunwebcam
 # install iriunwebcam "2.8.5" "https://iriun.gitlab.io/iriunwebcam-2.8.5.deb"
 # install v4l2loopback-dkms
 
@@ -482,7 +489,7 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install digikam
         install radeontop
         # install mullvad-vpn
-        install lutris 0.5.17-1 "https://github.com/lutris/lutris/releases/download/v0.5.18/lutris_0.5.18_all.deb"
+        install lutris 0.5.19-1 "https://github.com/lutris/lutris/releases/download/v0.5.19/lutris_0.5.19_all.deb"
         # for davinci
         install mesa-opencl-icd
         # install kdenlive

@@ -84,4 +84,4 @@ source $HOME/.local/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zprof
 
-eval "$(~/.local/bin/mise activate zsh)"
+[ -f ~/.local/bin/mise ] && eval "$(~/.local/bin/mise activate zsh)"

@@ -132,7 +132,9 @@ if [[ $desktop == true ]]; then
     (
     cd $HOME/.local/modules/hyprpicker || exit
     header "Hyprpicker"
-    make
+    cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
+    cmake --build ./build --config Release --target hyprpicker -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
+    # cmake --install ./build
     )
 
     header "Settings"
