@@ -323,6 +323,7 @@ install libxkbcommon-dev
 # hyprpicker
 install libhyprutils-dev
 install hyprwayland-scanner
+install ninja-build
 
 # Sway cgroups script
 install python3-dbus-next
