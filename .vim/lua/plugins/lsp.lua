@@ -1,20 +1,5 @@
 return {
-  -- TODO: lsp-zero is unncessary?
   -- lspsaga?
-  {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v4.x',
-    lazy = true,
-    config = false,
-    init = function()
-      vim.g.lsp_zero_ui_float_border = 'none'
-    end
-  },
-  {
-    'williamboman/mason.nvim',
-    lazy = false,
-    config = true,
-  },
 
   -- Autocompletion
   --[[
@@ -27,11 +12,9 @@ return {
     config = function()
       -- Here is where you configure the autocompletion settings.
       -- The arguments for .extend() have the same shape as `manage_nvim_cmp`:
-      -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#manage_nvim_cmp
 
       -- And you can configure cmp even more, if you want to.
       local cmp = require('cmp')
-      local cmp_action = require('lsp-zero').cmp_action()
 
       cmp.setup({
         sources = {
@@ -69,7 +52,7 @@ return {
 
   {
     'saghen/blink.cmp',
-    version = '*',
+    version = '1.*',
     dependencies = {
       'Kaiser-Yang/blink-cmp-avante',
       -- ... Other dependencies
@@ -178,27 +161,14 @@ return {
 
   -- LSP
   {
-    'neovim/nvim-lspconfig',
+    'mason-org/mason-lspconfig.nvim',
     cmd = {'LspInfo', 'LspInstall', 'LspStart'},
     event = {'BufReadPre', 'BufNewFile'},
     dependencies = {
-      -- {'hrsh7th/cmp-nvim-lsp'},
-      {'williamboman/mason-lspconfig.nvim'},
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
     },
     config = function()
-      local lspconfig_defaults = require('lspconfig').util.default_config
-      -- lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-      --   'force',
-      --   lspconfig_defaults.capabilities,
-      --   require('cmp_nvim_lsp').default_capabilities()
-      -- )
-
-      lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-        'force',
-        lspconfig_defaults.capabilities,
-        require('blink.cmp').get_lsp_capabilities()
-      )
-
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP actions',
         callback = function(event)
@@ -245,12 +215,6 @@ return {
         end,
       })
 
-      -- Configure clojure-lsp setup to return parent project folder
-      -- for multimodule projects, like Reitit.
-      local lspconfig_util = require 'lspconfig/util'
-
-      local lspconfig = require 'lspconfig'
-
       -- To enable debugging
       -- vim.lsp.set_log_level("debug")
       -- :lua vim.cmd('e'..vim.lsp.get_log_path())
@@ -258,21 +222,8 @@ return {
       -- Find nrepl port
       -- Get id from LspInfo
       -- :lua vim.print(vim.lsp.get_client_by_id(1).request_sync("clojure/serverInfo/raw", {}, 5000, 15))
-      lspconfig.clojure_lsp.setup {
-        -- cmd = {'/home/juho/Source/clojure-lsp/clojure-lsp'},
-        -- cmd = {'clojure-lsp', '--trace-level', 'verbose'},
-        flags = {
-          -- debounce_text_change = 150,
-        },
-        root_dir = function(startpath)
-          -- Search .lsp/config.edn in the folder tree, then others.
-          -- So that multi module project top level .lsp/config.edn has the priority.
-          return lspconfig_util.root_pattern('.clojure-lsp/config.edn', '.lsp/config.edn')(startpath)
-            or lspconfig_util.root_pattern('project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn')(startpath)
-            or lspconfig_util.root_pattern('.git')(startpath)
-        end,
-      }
 
+      --[[
       lspconfig.tailwindcss.setup {
         -- Only enable if config found in the project, not for every clojure project
         root_dir = lspconfig_util.root_pattern('tailwind.config.js'),
@@ -300,6 +251,7 @@ return {
           }
         }
       }
+      ]]--
 
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -311,23 +263,36 @@ return {
           "eslint",
           "bashls"
         },
-        handlers = {
-          function(server_name)
-            require('lspconfig')[server_name].setup({})
-          end,
-
-          clojure_lsp = function() end,
-          tailwindcss = function() end,
-
-          lua_ls = function()
-            lspconfig.lua_ls.setup({
-              on_init = function(client)
-                require('lsp-zero').nvim_lua_settings(client, {})
-              end,
-            })
-          end,
+        automatic_enable = {
+          exclude = {
+            "clojure_lsp",
+            "tailwindcss"
+          }
         }
       })
+
+      vim.lsp.config('clojure', {
+        -- TODO: Use mason binary?
+        cmd = {'clojure-lsp'},
+        filetypes = {'clojure', 'edn'},
+        -- cmd = {'/home/juho/Source/clojure-lsp/clojure-lsp'},
+        -- cmd = {'clojure-lsp', '--trace-level', 'verbose'},
+        root_markers = {
+          '.clojure-lsp/config.edn', '.lsp/config.edn',
+          'project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn',
+          '.git'
+        },
+        -- root_dir = function(startpath)
+        --   -- Search .lsp/config.edn in the folder tree, then others.
+        --   -- So that multi module project top level .lsp/config.edn has the priority.
+        --   return lspconfig_util.root_pattern('.clojure-lsp/config.edn', '.lsp/config.edn')(startpath)
+        --     or lspconfig_util.root_pattern('project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn')(startpath)
+        --     or lspconfig_util.root_pattern('.git')(startpath)
+        -- end,
+      })
+
+      vim.lsp.enable('clojure')
+
     end
   },
 }

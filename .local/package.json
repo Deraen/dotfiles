@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "eslint": "^9.31.0",
     "jshint": "2.13.6",
-    "mcp-hub": "^4.0.0",
+    "mcp-hub": "^4.2.0",
     "neovim": "5.3.0",
     "npm-check-updates": "17.1.15",
     "source-map-explorer": "2.5.3",
