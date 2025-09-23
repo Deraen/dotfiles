@@ -375,6 +375,7 @@ install wdisplays
 install grim
 install slurp
 install xsettingsd
+install keyd
 install pavucontrol
 # install mako-notifier
 install qtwayland5

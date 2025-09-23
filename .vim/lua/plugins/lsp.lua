@@ -278,17 +278,34 @@ return {
         -- cmd = {'/home/juho/Source/clojure-lsp/clojure-lsp'},
         -- cmd = {'clojure-lsp', '--trace-level', 'verbose'},
         root_markers = {
-          '.clojure-lsp/config.edn', '.lsp/config.edn',
+          -- would use .lsp as the root folder
+          -- '.clojure-lsp/config.edn', '.lsp/config.edn',
           'project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn',
           '.git'
         },
-        -- root_dir = function(startpath)
-        --   -- Search .lsp/config.edn in the folder tree, then others.
-        --   -- So that multi module project top level .lsp/config.edn has the priority.
-        --   return lspconfig_util.root_pattern('.clojure-lsp/config.edn', '.lsp/config.edn')(startpath)
-        --     or lspconfig_util.root_pattern('project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn')(startpath)
-        --     or lspconfig_util.root_pattern('.git')(startpath)
-        -- end,
+        -- see:
+        root_dir = function(_bufnr, on_dir)
+          local lsp_file_config = vim.fs.find({'.clojure-lsp/config.edn', '.lsp/config.edn'}, {
+            upward = true,
+            type = "file",
+            path = vim.fn.getcwd(),
+          })[1]
+
+          local root_path = (lsp_file_config and vim.fs.normalize(vim.fs.joinpath(vim.fs.dirname(lsp_file_config), '../fixme')))
+          or vim.fs.find({'project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn'}, {
+            upward = true,
+            type = "file",
+            path = vim.fn.getcwd(),
+          })[1] or vim.fs.find('.git', {
+            upward = true,
+            type = "file",
+            path = vim.fn.getcwd(),
+          })[1]
+
+          if root_path then
+            on_dir(vim.fn.fnamemodify(root_path, ":h"))
+          end
+        end,
       })
 
       vim.lsp.enable('clojure')

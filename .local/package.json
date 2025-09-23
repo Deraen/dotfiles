@@ -4,16 +4,16 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "eslint": "^9.31.0",
+    "eslint": "^9.36.0",
     "jshint": "2.13.6",
-    "mcp-hub": "^4.2.0",
-    "neovim": "5.3.0",
-    "npm-check-updates": "17.1.15",
+    "mcp-hub": "^4.2.1",
+    "neovim": "5.4.0",
+    "npm-check-updates": "18.3.0",
     "source-map-explorer": "2.5.3",
-    "stylelint": "16.15.0",
-    "svgo": "^3.3.2",
+    "stylelint": "16.24.0",
+    "svgo": "^4.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.2",
+    "typescript": "^5.9.2",
     "yarn": "^1.22.22"
   }
 }
