@@ -3,4 +3,5 @@
                   [lein-pprint "1.3.2"]
                   [com.github.johnnyjayjay/lein-licenses "0.2.0"]]
         :dependencies []}
+ :perf {:dependencies [[criterium "0.4.6"]]}
  :auth {:repository-auth #=(eval (read-string (slurp (clojure.java.io/file (System/getProperty "user.home") ".lein/credentials.clj"))))}}
