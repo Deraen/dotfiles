@@ -443,6 +443,7 @@ install mpv
 install smplayer
 install playerctl
 install steam-launcher
+install python3-legacy-cgi # needed for deluge for some reason?
 install deluge
 install virtualbox-7.1
 install cheese # Webcam
