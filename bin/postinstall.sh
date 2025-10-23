@@ -105,6 +105,7 @@ if [[ $desktop == true ]]; then
     header "Rust packages"
     cargo install just
     cargo install fd-find
+    cargo install --locked tree-sitter-cli
     )
 
     # Installed from apt

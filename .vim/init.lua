@@ -112,3 +112,10 @@ vim.diagnostic.config({
   virtual_text = true,
   -- virtual_lines = true,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'clojure' },
+  callback = function()
+    -- vim.treesitter.start()
+  end,
+})

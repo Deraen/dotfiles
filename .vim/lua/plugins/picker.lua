@@ -1,13 +1,15 @@
 return {
+  -- use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
+  -- Replaced with Snacks.nvim for now
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
+    enabled = false,
     cmd = 'Telescope',
+    version = false, -- telescope did only one release, so use HEAD for now
     keys = {
       {'<c-p>', '<cmd>Telescope git_files<cr>'},
       {'<leader>ff', '<cmd>Telescope find_files<cr>'},
       {'<c-b>', '<cmd>Telescope buffers<cr>'},
-      -- {'<leader>fb', '<cmd>Telescope buffers<cr>'},
       -- NOTE: Telescope doesn't support colored output to show the matched string
       {'<leader>fg', '<cmd>Telescope live_grep<cr>'},
       {'<leader>fh', '<cmd>Telescope help_tags<cr>'},
@@ -86,6 +88,7 @@ return {
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
+    enabled = false,
     keys = {
       { '<leader>fb', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', noremap = true, desc = 'Telescope file browser' },
     },
@@ -95,6 +98,7 @@ return {
   },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
+    enabled = false,
     build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
     event = 'VeryLazy',
     config = function()
@@ -103,6 +107,7 @@ return {
   },
   {
     'nvim-telescope/telescope-smart-history.nvim',
+    enabled = false,
     dependencies = {
       "kkharji/sqlite.lua",
     },
@@ -110,5 +115,54 @@ return {
     config = function()
       require('telescope').load_extension('smart_history')
     end
+  },
+  {
+    "folke/snacks.nvim",
+    keys = {
+      {'<c-p>', function() Snacks.picker.git_files() end},
+      {'<leader>ff', function() Snacks.picker.files() end},
+      {'<c-b>', function() Snacks.picker.buffers() end},
+      -- NOTE: Telescope doesn't support colored output to show the matched string
+      {'<leader>fg', function() Snacks.picker.grep() end},
+      {'<leader>fh', function() Snacks.picker.help() end},
+    },
+    ---@type snacks.Config
+    opts = {
+      picker = {
+        matcher = {
+          -- sort_empty = true,
+          frecency = true, -- frecency bonus
+          history_bonus = true, -- give more weight to chronological order
+        },
+        win = {
+          input = {
+            keys = {
+              ["<Esc>"] = { "close", mode = { "n", "i" } },
+            }
+          }
+        },
+        sources = {
+          buffers = {
+            matcher = {
+              sort_empty = true,
+            },
+            win = {
+              input = {
+                keys = {
+                  -- In addition to <C-x> close buffers with <M-w>
+                  ["<M-w>"] = { "bufdelete", mode = { "n", "i" } },
+                }
+              }
+            }
+          }
+        }
+      },
+      -- ui_select = true, -- replace `vim.ui.select` with the snacks picker
+      -- icons = {
+      --   files = {
+      --     enabled = false,
+      --   }
+      -- }
+    }
   }
 }

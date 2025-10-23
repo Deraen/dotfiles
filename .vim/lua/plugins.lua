@@ -27,27 +27,15 @@ return {
     end
   },
 
-  { "nvim-lua/plenary.nvim", lazy = true },
+  -- Util libs
+  { 'nvim-lua/plenary.nvim', lazy = true },
+
   { 'folke/zen-mode.nvim', cmd = { 'ZenMode' } },
 
   'junegunn/fzf',
-  "ibhagwan/fzf-lua",
+  'ibhagwan/fzf-lua',
 
-  -- Theme
-  -- 'tjdevries/colorbuddy.nvim',
-  {
-    'Deraen/seoul256.vim',
-    enabled = false,
-    init = function ()
-      vim.g.seoul256_srgb = 1
-      vim.cmd([[colorscheme seoul256]])
-    end
-  },
-
-  -- File selector etc.
-  -- use {'liuchengxu/vim-clap', run = ':Clap install-binary'}
-  -- TODO: vimgrepper? -> https://github.com/RRethy/vim-illuminate
-  -- TODO: nvim-pack/nvim-spectre search and replace in files
+  -- https://github.com/RRethy/vim-illuminate
   {
     'RRethy/vim-illuminate',
     enabled = false,
@@ -85,30 +73,7 @@ return {
       })
     end
   },
-  {
-    'nvim-pack/nvim-spectre',
-    cmd = 'Spectre',
-    opts = {
-      open_cmd = 'noswapfile vnew',
-    },
-    keys = {
-      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
-    }
-  },
-  {
-    -- 'mhinz/vim-grepper',
-    -- Fork:
-    'andrew-grechkin/vim-grepper',
-    cmd = { 'Grepper', 'GrepperGit', 'GrepperAg', 'GrepperRg', 'GrepperGrep' },
-    keys = {
-      { '<leader>gg', ':Grepper -tool git<cr>', noremap = true, desc = 'Git grep' },
-      { '<leader>ga', ':Grepper -tool ag<cr>', noremap = true, desc = 'Ag grep' },
-      { '<leader>gs', '<plug>(GrepperOperator)', desc =  'Grep operator' },
-      { '<leader>gs', '<plug>(GrepperOperator)', mode = 'x', desc = 'Grep operator' },
-    },
-  },
 
-  -- Vs. trouble?
   {
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
@@ -150,39 +115,13 @@ return {
     },
   },
 
-  -- Autocomplete
-  -- use 'hrsh7th/cmp-buffer'
-  -- use 'saadparwaiz1/cmp_luasnip'
-
-  -- Typescript
-  {'windwp/nvim-ts-autotag', ft = 'typescript'},
-  -- For formatting - needs prettier
-  -- use 'MunifTanjim/prettier.nvim'
-
   -- vimspector supports vscode debug adapters, but calva has
   -- it own debugger system so that doesn't work.
   -- use 'puremourning/vimspector'
 
   {
-    'preservim/vim-markdown', 
+    'preservim/vim-markdown',
     ft = 'markdown'
-  },
-
-  -- Colorcodes
-  -- TODO: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
-  {
-    'NvChad/nvim-colorizer.lua',
-    opts = {
-      filetypes = {
-        '*'; -- Highlight all files, but customize some others.
-        css = {
-          css_fn = true;
-        };
-        clojure = {
-          css_fn = true;
-        };
-      }
-    }
   },
 
   -- Switch stuff
@@ -208,13 +147,6 @@ return {
   -- change surround 'cs' operation
   'tpope/vim-surround',
 
-  -- highlight matching html/xml tag
-  -- TODO: Is this needed?
-  -- 'Valloric/MatchTagAlways',
-
-  -- TODO: Is this needed with neovim?
-  -- use 'tpope/vim-sensible'
-
   -- Toggle comments, `gc`
   'tpope/vim-commentary',
   -- 'numToStr/Comment.nvim',
@@ -233,13 +165,18 @@ return {
   'tpope/vim-vinegar',
 
   -- Sessions
-  -- TODO: https://github.com/folke/persistence.nvim
-  -- TODO: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-sessions.md
-  'tpope/vim-obsession',
-
-  -- Collection of ftplugin
-  -- TODO: Is this up to date anymore?
-  -- 'sheerun/vim-polyglot',
+  -- 'tpope/vim-obsession',
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    opts = {},
+    keys = {
+      { "<leader>qs", function() require("persistence").load() end, desc = "Restore Session" },
+      { "<leader>qS", function() require("persistence").select() end,desc = "Select Session" },
+      { "<leader>ql", function() require("persistence").load({ last = true }) end, desc = "Restore Last Session" },
+      { "<leader>qd", function() require("persistence").stop() end, desc = "Don't Save Current Session" },
+    },
+  },
 
   -- Align stuff
   -- TODO: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-align.md
@@ -249,33 +186,11 @@ return {
   -- Open and load etc. vimscripts
   -- 'tpope/vim-scriptease',
 
-  -- Open color editor
-  -- use 'KabbAmine/vCoolor.vim'
-  {
-    "ziontee113/color-picker.nvim",
-    keys = {
-      { '<leader>cc', '<cmd>PickColor<cr>', 'n', noremap = true, silent = true, desc = 'Color picker' }
-      -- vim.keymap.set("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
-
-      -- vim.keymap.set("n", "your_keymap", "<cmd>ConvertHEXandRGB<cr>", opts)
-      -- vim.keymap.set("n", "your_keymap", "<cmd>ConvertHEXandHSL<cr>", opts)
-    },
-    opts = {
-      -- r changes color type
-      -- o changes output color type
-      ["icons"] = { "", "" },
-      ["border"] = "single",
-    },
-  },
-
   -- Add some mapping pairs
   'tpope/vim-unimpaired',
 
   -- Some text objects?
   'wellle/targets.vim',
-
-  -- Replace with register, `gr`
-  -- use 'vim-scripts/ReplaceWithRegister'
 
   -- Wrong file?
   -- use 'EinfachToll/DidYouMean'
@@ -291,15 +206,15 @@ return {
   -- use 'tpope/vim-jdaddy'
 
   -- Close buffers without breaking layout or closing windows
-  -- TODO: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-bufremove.md
   -- 'moll/vim-bbye',
-  {
-    'echasnovski/mini.bufremove',
-    keys = {
-      {'<M-w>', function() require('mini.bufremove').delete(0, false) end}
-    },
-    opts = {},
-  },
+  -- {
+  --   'echasnovski/mini.bufremove',
+  --   keys = {
+  --     {'<M-w>', function() require('mini.bufremove').delete(0, false) end}
+  --   },
+  --   opts = {},
+  -- },
+  -- Now: Snacks
 
   -- Navigate matches
   -- {
@@ -327,7 +242,7 @@ return {
       npairs.setup(opts)
 
       local cond = require('nvim-autopairs.conds')
-      local basic = require('nvim-autopairs.rules.basic')
+      -- local basic = require('nvim-autopairs.rules.basic')
 
       npairs.get_rules("'")[1].not_filetypes = { "clojure", "scheme", "lisp" }
       npairs.get_rules("'")[1]:with_pair(cond.not_after_text("["))
@@ -338,26 +253,6 @@ return {
   },
   -- Is enabled on comments?
 
-  {
-    'mrjones2014/smart-splits.nvim',
-    opts = {
-      at_edge = 'stop',
-    },
-    keys = function(_, opts)
-      return {
-        {'<C-h>', function (...) require('smart-splits').resize_left(...) end, desc = 'Resize left'},
-        {'<C-j>', function (...) require('smart-splits').resize_down(...) end, desc = 'Resize down'},
-        {'<C-k>', function (...) require('smart-splits').resize_up(...) end, desc = 'Resize left'},
-        {'<C-l>', function (...) require('smart-splits').resize_right(...) end, desc = 'Resize right'},
-
-        {'<A-h>', function (...) require('smart-splits').move_cursor_left(...) end, desc = 'Move to left'},
-        {'<A-j>', function (...) require('smart-splits').move_cursor_down(...) end, desc = 'Move to down'},
-        {'<A-k>', function (...) require('smart-splits').move_cursor_up(...) end, desc = 'Move to up'},
-        {'<A-l>', function (...) require('smart-splits').move_cursor_right(...) end, desc = 'Move to right'},
-      }
-    end,
-  },
-
   -- live preview markdown on browser
   -- use 'iamcco/markdown-preview.nvim'
 
@@ -365,46 +260,25 @@ return {
   -- use 'mrjones2014/legendary.nvim'
 
   -- Better input and select UI
+  -- {
+  --   "stevearc/dressing.nvim",
+  --   event = 'VeryLazy',
+  -- },
   {
-    "stevearc/dressing.nvim",
-    event = 'VeryLazy',
-  },
-
-  -- which-key helps you remember key bindings by showing a popup
-  -- with the active keybindings of the command you started typing.
-  {
-    "folke/which-key.nvim",
-    enabled = false,
-    event = "VeryLazy",
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
     opts = {
-      plugins = { spelling = true },
-      defaults = {
-        mode = { "n", "v" },
-        -- ["g"] = { name = "+goto" },
-        -- ["gz"] = { name = "+surround" },
-        -- ["]"] = { name = "+next" },
-        -- ["["] = { name = "+prev" },
-        -- ["<leader><tab>"] = { name = "+tabs" },
-        -- ["<leader>b"] = { name = "+buffer" },
-        -- ["<leader>c"] = { name = "+code" },
-        -- ["<leader>f"] = { name = "+file/find" },
-        ["<leader>h"] = { name = "+git" },
-        -- ["<leader>gh"] = { name = "+hunks" },
-        -- ["<leader>q"] = { name = "+quit/session" },
-        -- ["<leader>s"] = { name = "+search" },
-        -- ["<leader>u"] = { name = "+ui" },
-        -- ["<leader>w"] = { name = "+windows" },
-        -- ["<leader>x"] = { name = "+diagnostics/quickfix" },
-        ["<leader>x"] = { name = "+diagnostics/quickfix" },
-      },
-      show_help = false,
+      bigfile = { enabled = true },
+      dashboard = { enabled = true },
+      input = { enabled = true },
+      picker = { enabled = true },
+      quickfile = { enabled = true },
+      notifier = { enabled = true },
     },
-    config = function(_, opts)
-      vim.o.timeout = true
-      vim.o.timeoutlen = 500
-      local wk = require("which-key")
-      wk.setup(opts)
-      wk.register(opts.defaults)
-    end,
+    keys = {
+      {'<M-w>', function () Snacks.bufdelete() end, { desc = "Delete buffer" }}
+    }
   },
 }

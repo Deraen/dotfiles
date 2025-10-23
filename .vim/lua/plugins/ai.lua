@@ -18,7 +18,7 @@ return {
 
   {
     "yetone/avante.nvim",
-    enabled = false,
+    enabled = true,
 
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
@@ -26,11 +26,16 @@ return {
       -- add any opts here
       -- for example
       provider = "claude",
-      claude = {
-        endpoint = "https://api.anthropic.com",
-        model = "claude-3-5-sonnet-20241022",
-        temperature = 0,
-        max_tokens = 4096,
+      providers = {
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          model = "claude-sonnet-4-20250514",
+          timeout = 30000,
+          extra_request_body = {
+            temperature = 0,
+            max_tokens = 2048,
+          }
+        },
       },
       disabled_tools = {
         "list_files",    -- Built-in file operations
@@ -50,7 +55,7 @@ return {
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
+      -- "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
@@ -81,6 +86,8 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
+    enabled = false,
+
     opts = {},
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -100,9 +107,16 @@ return {
           mcphub = {
             callback = "mcphub.extensions.codecompanion",
             opts = {
-              make_vars = true,
-              make_slash_commands = true,
-              show_result_in_chat = true
+              -- MCP Tools
+              make_tools = true,              -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
+              show_server_tools_in_chat = true, -- Show individual tools in chat completion (when make_tools=true)
+              add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
+              show_result_in_chat = true,      -- Show tool results directly in chat buffer
+              format_tool = nil,               -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
+              -- MCP Resources
+              make_vars = true,                -- Convert MCP resources to #variables for prompts
+              -- MCP Prompts
+              make_slash_commands = true,      -- Add MCP prompts as /slash commands
             }
           }
         }
@@ -121,10 +135,40 @@ return {
           -- avante = {
           --   make_slash_commands = true,
           -- }
-        }
+        },
+        auto_approve = function(params)
+          -- Auto-approve GitHub issue reading
+          -- if params.server_name == "github" and params.tool_name == "get_issue" then
+          --   return true -- Auto approve
+          -- end
+
+          -- Block access to private repos
+          if params.arguments.repo == "private" then
+            return "You can't access my private repo" -- Error message
+          end
+
+          -- Auto-approve safe file operations in current project
+          if params.tool_name == "read_file" then
+            local path = params.arguments.path or ""
+            if path:match("^" .. vim.fn.getcwd()) then
+              return true -- Auto approve
+            end
+          end
+
+          if params.server_name == "clojure_mcp" and
+            (params.tool_name == "grep" or params.tool_name == "") then
+            return true
+          end
+
+          -- Check if tool is configured for auto-approval in servers.json
+          if params.is_auto_approved_in_server then
+            return true -- Respect servers.json configuration
+          end
+
+          return false -- Show confirmation prompt
+        end,
       })
 
-      --[[
       require("avante").setup({
         -- system_prompt as function ensures LLM always has latest MCP server state
         -- This is evaluated for every message, even in existing chats
@@ -139,7 +183,6 @@ return {
           }
         end,
       })
-      ]]--
     end
   }
   -- https://ravitemer.github.io/mcphub.nvim/extensions/codecompanion.html

@@ -1,5 +1,11 @@
 return {
   {
+    'linrongbin16/lsp-progress.nvim',
+    config = function()
+      require('lsp-progress').setup()
+    end
+  },
+  {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
     opts = {
@@ -72,7 +78,11 @@ return {
           },
         },
         -- progress
-        lualine_y = {},
+        lualine_y = {
+          function()
+            return require('lsp-progress').progress()
+          end,
+        },
         lualine_z = {'location'}
       },
       inactive_sections = {
