@@ -6,12 +6,11 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 . "$DIR/../.local/modules/pmm/init.sh"
 
+# resolute 26.04
+# question 25.10
 # plucky 25.04
 # oracular 24.10
-# noble 24.04
-# mantic 23.10
-# lunar 23.04
-# kinetic 22.10
+# noble 24.04 lts
 # jammy 22.04 lts
 # focal 20.04 lts
 # disco 19.04
@@ -65,12 +64,8 @@ fi
 repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
 
 # if [[ $(hostname -s) == "juho-desktop" ]]; then
-        # Nvidia drivers
-        # ppa graphics-drivers ppa kinetic --keyid FCAE110B1118213C
         # ppa lutris-team lutris noble --keyid 37B90EDD4E3EFAE4
         # ppa kdenlive kdenlive-stable noble --keyid 2763B0EE7709FE97
-        # repo amdgpu "deb https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n#deb-src https://repo.radeon.com/amdgpu/5.7/ubuntu jammy main\n"
-        # repo rocm "deb [arch=amd64] https://repo.radeon.com/rocm/apt/5.7 jammy main\n"
 # fi
 
 if [[ $(hostname -s) =~ juho-laptop ]]; then
@@ -235,6 +230,8 @@ install golang-doc
 install golang-src
 install adb
 install diffpdf
+install kdiff3
+install meld
 install pdfarranger
 install dupeguru
 install gdal-bin
@@ -438,6 +435,7 @@ install stress
 # install pitivi # Video editor
 install xsane
 install qgit
+install gh
 install simplescreenrecorder
 install mpv
 install smplayer
@@ -464,6 +462,8 @@ install mesa-va-drivers
 install mesa-vdpau-drivers
 install vainfo
 
+install network-manager-applet
+install network-manager-strongswan
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
 install stoken

@@ -143,8 +143,9 @@ return {
         },
         sources = {
           buffers = {
+            sort_lastused = true,
             matcher = {
-              sort_empty = true,
+              -- sort_empty = true,
             },
             win = {
               input = {

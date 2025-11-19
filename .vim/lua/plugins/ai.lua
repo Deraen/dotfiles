@@ -7,7 +7,7 @@ return {
       "Avante", "codecompanion"
     },
     opts = {
-      file_types = { "markdown", "Avante", "codecompanion" },
+      file_types = { "Avante", "codecompanion" },
       render_modes = { 'n', 'c', 't' },
       bullet = {
         icons = { '●', '○', '◆', '◇' },
