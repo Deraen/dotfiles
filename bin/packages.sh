@@ -7,7 +7,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 . "$DIR/../.local/modules/pmm/init.sh"
 
 # resolute 26.04
-# question 25.10
+# questing 25.10
 # plucky 25.04
 # oracular 24.10
 # noble 24.04 lts
@@ -464,6 +464,7 @@ install vainfo
 
 install network-manager-applet
 install network-manager-strongswan
+install libstrongswan-extra-plugins
 install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
 install stoken

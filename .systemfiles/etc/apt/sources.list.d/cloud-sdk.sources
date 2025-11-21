@@ -1,6 +1,6 @@
 Types: deb
 URIs: http://packages.cloud.google.com/apt
-Suites: cloud-sdk-disco
+Suites: cloud-sdk
 Components: main
 Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
  .
