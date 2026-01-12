@@ -48,6 +48,7 @@ if [[ ! -f $clojure_bin ]] || ! grep -q "# Version = $clojure_tool_version" "$cl
     rm /tmp/clojure-installer.sh
 fi
 
+# 0.67.0 vs 0.60.3 on APT
 header "Update FZF"
 ./.fzf/install --update-rc --completion --key-bindings
 
@@ -103,9 +104,12 @@ if [[ $desktop == true ]]; then
 
     (
     header "Rust packages"
-    cargo install just
-    cargo install fd-find
+    # 0.26.3 vs 0.22.6 on APT
     cargo install --locked tree-sitter-cli
+
+    # Now installed from APT
+    [[ -f ~/.cargo/bin/fd ]] && cargo uninstall fd-find || echo "Fd already uninstalled"
+    [[ -f ~/.cargo/bin/just ]] && cargo uninstall just || echo "Just already uninstalled"
     )
 
     # Installed from apt

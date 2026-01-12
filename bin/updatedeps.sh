@@ -75,7 +75,7 @@ fi
 bash <(curl -s https://raw.githubusercontent.com/borkdude/jet/master/install) /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/borkdude/clj-kondo/master/script/install-clj-kondo) --dir /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/babashka/babashka/master/install) --dir /home/juho/bin
-bash <(curl -s https://raw.githubusercontent.com/greglook/cljstyle/main/script/install-cljstyle) --dir /home/juho/bin
+bash <(curl -s https://raw.githubusercontent.com/greglook/cljstyle/main/util/install-cljstyle) --dir /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh) -b /home/juho/bin
 bash <(curl -s https://raw.githubusercontent.com/clojure-lsp/clojure-lsp/master/install) --dir /home/juho/bin
 

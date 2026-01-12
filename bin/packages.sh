@@ -126,6 +126,7 @@ install openssh-client
 install 7zip
 install powertop
 install silversearcher-ag # Fast file searches
+install fd-find
 install ripgrep
 install tmispell-voikko
 install tmux
@@ -436,6 +437,7 @@ install stress
 install xsane
 install qgit
 install gh
+install just # task runner
 install simplescreenrecorder
 install mpv
 install smplayer
@@ -447,8 +449,6 @@ install virtualbox-7.1
 install cheese # Webcam
 install guvcview
 install yad # Zenity alternative with proper color picker
-install wine
-install winetricks
 install mesa-utils
 install nemo
 install flameshot
@@ -458,9 +458,18 @@ install slack-desktop
 install synaptic
 install audacity
 
+install wine
+install winetricks
+install umu-launcher
+install python3-umu-launcher
+install dxvk
+install dxvk-wine64
+install lutris
+
 install mesa-va-drivers
 install mesa-vdpau-drivers
 install vainfo
+install vulkan-tools
 
 install network-manager-applet
 install network-manager-strongswan
@@ -493,7 +502,6 @@ if [[ $(hostname -s) == "juho-desktop" ]]; then
         install digikam
         install radeontop
         # install mullvad-vpn
-        install lutris 0.5.19-1 "https://github.com/lutris/lutris/releases/download/v0.5.19/lutris_0.5.19_all.deb"
         # for davinci
         install mesa-opencl-icd
         # install kdenlive
@@ -522,6 +530,8 @@ if [[ $(hostname -s) =~ "juho-laptop" ]]; then
         install clamtk-gnome
         install beekeeper-studio
         install google-cloud-sdk
+        install google-cloud-cli-gke-gcloud-auth-plugin
+        install google-cloud-sdk-gke-gcloud-auth-plugin
         install kubectl
         install kubectx
 
