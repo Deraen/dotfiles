@@ -460,6 +460,7 @@ install audacity
 
 install wine
 install winetricks
+# TODO: Needs urls? https://github.com/Open-Wine-Components/umu-launcher/releases
 install umu-launcher
 install python3-umu-launcher
 install dxvk
@@ -478,6 +479,7 @@ install network-manager-openconnect-gnome # Cisco VPN
 install openvpn
 install stoken
 install tailscale
+install wakeonlan
 
 install iriunwebcam
 # install iriunwebcam "2.8.5" "https://iriun.gitlab.io/iriunwebcam-2.8.5.deb"
