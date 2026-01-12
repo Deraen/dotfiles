@@ -165,9 +165,18 @@ return {
   'tpope/vim-vinegar',
 
   -- Sessions
-  -- 'tpope/vim-obsession',
+  {
+    'tpope/vim-obsession',
+    keys = {
+      {
+        "<leader>qs", function() vim.cmd 'source Session.vim' end, desc = "Restore Session" },
+      { "<leader>qo", function() vim.cmd 'Obsession'          end, desc = "Start recording current session" },
+      { "<leader>qd", function() vim.cmd 'Obsession!'         end, desc = "Remove current session" },
+    },
+  },
   {
     "folke/persistence.nvim",
+    enabled = false,
     event = "BufReadPre",
     opts = {},
     keys = {
