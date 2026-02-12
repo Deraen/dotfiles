@@ -167,6 +167,7 @@ return {
   -- Sessions
   {
     'tpope/vim-obsession',
+    event = "BufEnter",
     keys = {
       {
         "<leader>qs", function() vim.cmd 'source Session.vim' end, desc = "Restore Session" },
