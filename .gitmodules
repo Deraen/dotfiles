@@ -74,3 +74,6 @@
 [submodule ".local/modules/cameractrls"]
 	path = .local/modules/cameractrls
 	url = https://github.com/soyersoyer/cameractrls.git
+[submodule ".local/modules/kanshi"]
+	path = .local/modules/kanshi
+	url = https://gitlab.freedesktop.org/emersion/kanshi.git

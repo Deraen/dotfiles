@@ -142,6 +142,16 @@ if [[ $desktop == true ]]; then
     # cmake --install ./build
     )
 
+    (
+    cd $HOME/.local/modules/kanshi/ || exit
+    header "Kanshi"
+    if [[ ! -d build ]]; then
+        meson setup build/ --wrap-mode=default
+    fi
+    ninja -C build/
+    # Built bin symlinked into ~/.local/bin
+    )
+
     header "Settings"
     gsettings set org.gnome.desktop.background show-desktop-icons false
     crudini --set "$HOME/.config/Trolltech.conf" Qt style GTK+

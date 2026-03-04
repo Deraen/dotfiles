@@ -1,18 +1,30 @@
-profile p14s-internal {
-  output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
+# Defaults
+output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
+
+output "Dell Inc.*" position 1920,0
+
+output "Dell Inc. DELL U3225QE\*" mode 3840x2160@120Hz
+
+profile p14s {
+  output "Lenovo Group Limited 0x4149 Unknown"
 }
 
-profile p14s+dell {
-  output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
-  output "Dell Inc. DELL UP3216Q 4NCD077K060P" position 1920,0
+profile p14s-up3216 {
+  output "Lenovo Group Limited 0x4149 Unknown"
+  output "Dell Inc. DELL UP3216Q*"
 }
 
-profile p14s+dell-home {
-  output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
-  output "Dell Inc. DELL U3219Q 88GK413" position 1920,0
+profile p14s-u3219 {
+  output "Lenovo Group Limited 0x4149 Unknown"
+  output "Dell Inc. DELL U3219Q*"
 }
 
-profile p14s+hdmi {
-  output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
+profile p14s-u3225 {
+  output "Lenovo Group Limited 0x4149 Unknown"
+  output "Dell Inc. DELL U3225QE\*"
+}
+
+profile p14s-hdmi {
+  output "Lenovo Group Limited 0x4149 Unknown"
   output HDMI-A-1 position 1920,0
 }

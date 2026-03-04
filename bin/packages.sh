@@ -90,6 +90,7 @@ install sysvinit-utils
 install linux-generic
 install linux-lowlatency
 install build-essential
+install meson
 install libnss-myhostname # Why doesn't systemd-services require this...?
 # install linux-signed
 install shim-signed
