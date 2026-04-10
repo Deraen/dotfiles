@@ -5,16 +5,16 @@
   "description": "",
   "dependencies": {
     "acp-claude-code": "^0.8.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.2.0",
     "jshint": "2.13.6",
     "mcp-hub": "^4.2.1",
     "neovim": "5.4.0",
-    "npm-check-updates": "19.3.1",
+    "npm-check-updates": "20.0.1",
     "source-map-explorer": "2.5.3",
-    "stylelint": "16.26.1",
-    "svgo": "^4.0.0",
+    "stylelint": "17.6.0",
+    "svgo": "^4.0.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.2",
     "yarn": "^1.22.22"
   }
 }

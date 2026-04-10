@@ -131,7 +131,8 @@ if [[ $desktop == true ]]; then
     (
     cd $HOME/.local/modules/idlehack || exit
     header "Idlehack"
-    make
+    cmake -B build
+    cmake --build build
     )
 
     (

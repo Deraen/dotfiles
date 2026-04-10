@@ -267,6 +267,8 @@ install libxi-dev
 install libjson-glib-dev
 # vim-clap
 install libssl-dev
+# idlehack
+install libdbus-1-dev
 
 # wlroots
 install wayland-protocols

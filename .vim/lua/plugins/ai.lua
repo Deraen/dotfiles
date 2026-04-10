@@ -18,7 +18,7 @@ return {
 
   {
     "yetone/avante.nvim",
-    enabled = true,
+    enabled = false,
 
     event = "VeryLazy",
     version = false, -- Never set this value to "*"! Never!
@@ -126,6 +126,7 @@ return {
   },
   {
     "ravitemer/mcphub.nvim",
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
