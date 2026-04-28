@@ -370,6 +370,7 @@ install waybar
 install swaylock
 install swayidle
 install sway-notification-center
+install wl-present
 install kanshi
 install wf-recorder
 install wdisplays

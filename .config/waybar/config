@@ -1,9 +1,12 @@
 {
     // vim: ft=jsonc
+    // reload with
+    // pkill -USR2 waybar
+    //
     "layer": "top", // Waybar at top layer
     // "height": 30, // Waybar height (to be removed for auto height)
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": [],
+    "modules-center": ["custom/mirror-status"],
     // backlight?
     "modules-right": ["idle_inhibitor", "bluetooth", "pulseaudio", "network", "battery", "tray", "custom/swaync", "clock"],
     // Modules configuration
@@ -157,5 +160,11 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
+    },
+    "custom/mirror-status": {
+        "exec": "/home/juho/bin/mirror.sh status",
+        "interval": "once",
+        "signal": 1,
+        "hide-empty-text": true
     }
 }
