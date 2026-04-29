@@ -10,6 +10,7 @@
     "mcp-hub": "^4.2.1",
     "neovim": "5.4.0",
     "npm-check-updates": "20.0.1",
+    "opencode-ai": "^1.14.19",
     "source-map-explorer": "2.5.3",
     "stylelint": "17.6.0",
     "svgo": "^4.0.1",
