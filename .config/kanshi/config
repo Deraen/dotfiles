@@ -1,30 +1,29 @@
 # Defaults
-output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0
+output "Samsung Display Corp. 0x4193 Unknown" scale 1.5 position 0,0 alias $p14s
+# output "Lenovo Group Limited 0x4149 Unknown" scale 1.5 position 0,0 alias $p14s
 
-output "Dell Inc.*" position 1920,0
 
-output "Dell Inc. DELL U3225QE\*" mode 3840x2160@120Hz
+output "Dell Inc. DELL U3225QE\*" mode 3840x2160@120Hz position 1920,0 alias $dell2
+
+output "Dell Inc.\*" position 1920,0 alias $dell
 
 profile p14s {
-  output "Lenovo Group Limited 0x4149 Unknown"
+  output $p14s
 }
 
-profile p14s-up3216 {
-  output "Lenovo Group Limited 0x4149 Unknown"
-  output "Dell Inc. DELL UP3216Q*"
+# Try first the more specific 120hz config
+profile p14s-dell2 {
+  output $p14s
+  output $dell2
 }
 
-profile p14s-u3219 {
-  output "Lenovo Group Limited 0x4149 Unknown"
-  output "Dell Inc. DELL U3219Q*"
-}
-
-profile p14s-u3225 {
-  output "Lenovo Group Limited 0x4149 Unknown"
-  output "Dell Inc. DELL U3225QE\*"
+# Then any dell
+profile p14s-dell {
+  output $p14s
+  output $dell
 }
 
 profile p14s-hdmi {
-  output "Lenovo Group Limited 0x4149 Unknown"
+  output $p14s
   output HDMI-A-1 position 1920,0
 }
