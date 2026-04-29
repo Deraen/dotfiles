@@ -51,7 +51,14 @@ return {
         sexp_move_to_next_element_tail = '',
         sexp_raise_list =                '<LocalLeader>o',
         sexp_raise_element =             '<LocalLeader>O',
+        p = '<LocalLeader>p',
+        P = '<LocalLeader>P',
+        gp = '<LocalLeader>p',
+        gP = '<LocalLeader>gP',
       }
+
+      vim.g.sexp_regput_tele_motion = 2
+      vim.g.sexp_regput_invalid_register_action = 2
     end
   },
   {'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure'},
