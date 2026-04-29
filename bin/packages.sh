@@ -371,8 +371,10 @@ install swaylock
 install swayidle
 install sway-notification-center
 install wl-present
-install kanshi
+# installed locally currently
+# install kanshi
 install wf-recorder
+install wl-mirror
 install wdisplays
 install grim
 install slurp
@@ -397,7 +399,7 @@ install fonts-roboto
 install fonts-font-awesome
 install fonts-powerline
 install fonts-material-design-icons-iconfont
-install gammastep
+# install gammastep
 install alacritty
 
 install xdg-desktop-portal-wlr
