@@ -58,7 +58,7 @@ return {
       }
 
       vim.g.sexp_regput_tele_motion = 2
-      vim.g.sexp_regput_invalid_register_action = 2
+      -- vim.g.sexp_regput_invalid_register_action = 2
     end
   },
   {'tpope/vim-sexp-mappings-for-regular-people', ft = 'clojure'},
