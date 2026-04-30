@@ -2,6 +2,7 @@ Types: deb
 URIs: https://apt.syncthing.net/
 Suites: syncthing
 Components: stable
+Architectures: amd64
 Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
  .
  mQENBFShFd8BCADHQq9byO6uehb51iieKKi2KEwudhkbV74r8ZsGp0Q3asmv6cPl

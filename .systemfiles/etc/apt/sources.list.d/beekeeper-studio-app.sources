@@ -2,6 +2,7 @@ Types: deb
 URIs: https://deb.beekeeperstudio.io
 Suites: stable
 Components: main
+Architectures: amd64
 Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
  .
  mQGNBGAknFwBDADDeG2uKjgAzuLPNV8Oy5QQgJ2GgbFhUMA2bBgSNYRwTP8NVbEH

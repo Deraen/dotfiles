@@ -1,7 +1,8 @@
 Types: deb
 URIs: http://apt.insync.io/ubuntu
-Suites: questing
+Suites: resolute
 Components: contrib non-free
+Architectures: amd64
 Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
  .
  mQENBFBNZQMBCADhvMmAAuYnB1rxzvGzz3rdYDT9pg6QCSI7gqTrimVS+SqkTVnj

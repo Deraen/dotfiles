@@ -2,6 +2,7 @@ Types: deb deb-src
 URIs: http://repo.steampowered.com/steam/
 Suites: precise
 Components: steam
+Architectures: amd64
 Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
  .
  mQENBFDBPfgBCADWEjO8rbwGE7/4II9aZ+gNNarD58/n8PFRerOsUKpo6EvGGr2i

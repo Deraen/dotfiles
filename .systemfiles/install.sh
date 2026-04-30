@@ -55,6 +55,7 @@ install "/etc/apt/sources.list.d/keepassxc.sources"
 install "/etc/apt/sources.list.d/slack.sources"
 install "/etc/apt/sources.list.d/steam.sources"
 install "/etc/apt/sources.list.d/syncthing.sources"
+install "/etc/apt/sources.list.d/obsproject-ubuntu-obs-studio-oracular.sources"
 if [[ $(hostname -s) == "juho-desktop" ]]; then
   install "/etc/apt/sources.list.d/deluge.sources"
 fi
@@ -80,6 +81,7 @@ install "/etc/apt/apt.conf.d/51unattended-upgrades-firefox"
 install "/etc/apparmor.d/local/usr.bin.firefox"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
+    install "/etc/apt/apt.conf.d/99amd64v3"
     remove "/etc/X11/xorg.conf.d/metamodes.conf"
 fi
 

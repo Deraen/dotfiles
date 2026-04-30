@@ -2,6 +2,7 @@ Types: deb
 URIs: https://cli.github.com/packages
 Suites: stable
 Components: main
+Architectures: amd64
 Signed-By: -----BEGIN PGP PUBLIC KEY BLOCK-----
  .
  mQINBGMXLooBEADPmB8Gfd9kLqkIKnAnOktQqRwjjOWLTRV9fhGPlkuVQCffhu1b
