@@ -37,10 +37,6 @@
 [submodule ".local/modules/alacritty"]
 	path = .local/modules/alacritty
 	url = https://github.com/alacritty/alacritty.git
-[submodule ".local/modules/Font-Awesome"]
-	path = .local/modules/Font-Awesome
-	url = https://github.com/FortAwesome/Font-Awesome.git
-	shallow = true
 [submodule ".local/modules/sway"]
 	path = .local/modules/sway
 	url = https://github.com/swaywm/sway.git
@@ -74,6 +70,3 @@
 [submodule ".local/modules/cameractrls"]
 	path = .local/modules/cameractrls
 	url = https://github.com/soyersoyer/cameractrls.git
-[submodule ".local/modules/kanshi"]
-	path = .local/modules/kanshi
-	url = https://gitlab.freedesktop.org/emersion/kanshi.git

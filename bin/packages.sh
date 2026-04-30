@@ -371,8 +371,7 @@ install swaylock
 install swayidle
 install sway-notification-center
 install wl-present
-# installed locally currently
-# install kanshi
+install kanshi
 install wf-recorder
 install wdisplays
 install grim
@@ -380,7 +379,6 @@ install slurp
 install xsettingsd
 install keyd
 install pavucontrol
-# install mako-notifier
 install qtwayland5
 install brightnessctl
 install wl-clipboard
