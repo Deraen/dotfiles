@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Log off
-Exec=i3-msg exit
+Exec=swaymsg exit

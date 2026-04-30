@@ -7,3 +7,4 @@ URIs: https://dl.google.com/linux/chrome-stable/deb/
 Suites: stable
 Components: main
 Signed-By: /usr/share/keyrings/google-chrome.gpg
+Architectures: amd64

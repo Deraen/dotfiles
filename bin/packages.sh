@@ -358,10 +358,10 @@ install biber
 install gnuplot-nox
 
 # Desktop env
-install i3 # Tiling WM
-install i3lock
-install i3blocks
-install xss-lock
+# install i3 # Tiling WM
+# install i3lock
+# install i3blocks
+# install xss-lock
 install rofi # Runner menu
 install sway
 install swaybg
@@ -374,7 +374,6 @@ install wl-present
 # installed locally currently
 # install kanshi
 install wf-recorder
-install wl-mirror
 install wdisplays
 install grim
 install slurp
@@ -393,7 +392,7 @@ install papirus-icon-theme
 # install polybar
 install qt5-style-plugins
 install qt5-gtk-platformtheme
-install 1password
+# install 1password
 install policykit-1-gnome
 install fonts-roboto
 install fonts-font-awesome
@@ -435,16 +434,15 @@ install inkscape
 install python3-scour # svg optimizer used by inkscape
 install keepassxc-full # Password manager
 install qrencode
-install pass
-install qtpass
 # install pass
+# install qtpass
 install stress
 # install pitivi # Video editor
 install xsane
 install qgit
 install gh
 install just # task runner
-install simplescreenrecorder
+# install simplescreenrecorder
 install mpv
 install smplayer
 install playerctl

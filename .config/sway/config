@@ -32,6 +32,7 @@ exec {
     /home/juho/.local/modules/sway-systemd/src/assign-cgroups.py
     /home/juho/.local/modules/sway-systemd/src/wait-sni-ready && systemctl --user start sway-xdg-autostart.target
 }
+exec nm-applet
 
 bindsym $mod+r exec rofi -show drun
 bindsym $mod+Shift+F12 exec rndbg.sh
@@ -173,7 +174,7 @@ for_window [app_id="org.keepassxc.KeePassXC" title=".*KeePassXC$"] move scratchp
 bindsym $mod+F6 exec toggle-keepass
 
 # Reload sway (and waybar etc.) config
-bindsym $mod+Shift+R reload; output * dpms on; exec pkill -SIGHUP kanshi
+bindsym $mod+Shift+R reload; output * dpms on; exec pkill -SIGHUP kanshi; exec pkill -SIGUSR2 waybar
 
 # Spotify, pulseaudio
 bindsym Mod1+Delete exec playerctl play-pause
@@ -205,5 +206,3 @@ bindsym Ctrl+$mod+Print exec flameshot gui --raw | wl-copy -t image/png
 # bar {
 #   swaybar_command waybar
 # }
-
-exec /home/juho/.local/modules/sway-systemd/src/wait-sni-ready && systemctl --user start sway-xdg-autostart.target
