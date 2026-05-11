@@ -29,7 +29,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "<span size='22pt' rise='-4pt'>{icon}</span>",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -107,20 +107,20 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         // {signalStrength}
-        "format-wifi": "{essid} ",
+        "format-wifi": "{essid} <span size='22pt' rise='-4pt'></span>",
         "format-ethernet": "",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-linked": "{ifname} (No IP) <span size='22pt' rise='-4pt'></span>",
+        "format-disconnected": "Disconnected <span size='22pt' rise='-4pt'>⚠</span>",
         "tooltip": false,
         "on-click": "gnome-control-center network"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         // {format_source}
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format": "{volume}% <span size='22pt' rise='-4pt'>{icon}</span> {format_source}",
+        "format-bluetooth": "{volume}% <span size='22pt' rise='-4pt'>{icon}</span> {format_source}",
+        "format-bluetooth-muted": " <span size='22pt' rise='-4pt'>{icon}</span> {format_source}",
+        "format-muted": "<span size='22pt' rise='-4pt'>\uf466</span> {format_source}",
         // "format-source": " ",
         // "format-source-muted": " ",
         "format-source": "",

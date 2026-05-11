@@ -81,7 +81,7 @@ install "/etc/apt/apt.conf.d/51unattended-upgrades-firefox"
 install "/etc/apparmor.d/local/usr.bin.firefox"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-    install "/etc/apt/apt.conf.d/99amd64v3"
+    install "/etc/apt/apt.conf.d/99enable-amd64v3"
     remove "/etc/X11/xorg.conf.d/metamodes.conf"
 fi
 
@@ -100,6 +100,7 @@ if [[ $(hostname -s) =~ juho-laptop ]]; then
     # P14 Gen 4
     if grep -q "Ryzen 7 PRO 7840U" /proc/cpuinfo; then
         install "/etc/thinkfan-p14s.yaml" "/etc/thinkfan.yaml"
+        install "/etc/apt/apt.conf.d/99enable-amd64v3"
     fi
 
     remove "/etc/NetworkManager/dispatcher.d/99nfs"

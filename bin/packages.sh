@@ -47,22 +47,6 @@ fi
 
 repo tailscale "# Tailscale packages for ubuntu noble\ndeb [arch=amd64 signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/ubuntu noble main\n\n"
 
-if [[ ! -s /usr/share/keyrings/1password-archive-keyring.gpg ]]; then
-        curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-fi
-
-if [[ ! -s /etc/debsig/policies/AC2D62742012EA22/1password.pol ]]; then
-        sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
-        curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
-fi
-
-if [[ ! -s /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg ]]; then
-        sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
-        curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
-fi
-
-repo 1password "deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main"
-
 # if [[ $(hostname -s) == "juho-desktop" ]]; then
         # ppa lutris-team lutris noble --keyid 37B90EDD4E3EFAE4
         # ppa kdenlive kdenlive-stable noble --keyid 2763B0EE7709FE97
@@ -423,7 +407,6 @@ install gimp-plugin-registry
 # install gimp-gmic
 install darktable
 install google-chrome-stable
-install google-chrome-beta
 install firefox
 # install meld
 install fdisk
