@@ -530,3 +530,5 @@ autoremove
 
 snap install spotify
 snap install aws-cli --classic
+snap disable firefox
+snap refresh --hold=forever firefox
