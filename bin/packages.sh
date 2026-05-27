@@ -100,7 +100,6 @@ install solaar
 # Tools
 install curl
 install acpi # View ACPI info, e.g. CPU temp (on laptop)
-# install apache2-utils # htpasswd
 install atop # IO top
 install htop
 install iotop
@@ -206,7 +205,6 @@ install qgit
 install devscripts
 install ubuntu-dev-tools
 install sqlite3
-# install httpie
 install ansible
 install rlwrap
 install cloc
@@ -249,8 +247,6 @@ install virtualenv
 install libxi-dev
 # i3-utils
 install libjson-glib-dev
-# vim-clap
-install libssl-dev
 # idlehack
 install libdbus-1-dev
 
@@ -319,8 +315,6 @@ install python3-psutil
 # Docker
 install docker-ce
 install docker-compose-plugin
-# install sops
-# install confftest 0.49.1 "https://github.com/open-policy-agent/conftest/releases/download/v0.49.1/conftest_0.49.1_linux_amd64.deb"
 
 # Tessel
 install libusb-1.0-0-dev
@@ -342,10 +336,6 @@ install biber
 install gnuplot-nox
 
 # Desktop env
-# install i3 # Tiling WM
-# install i3lock
-# install i3blocks
-# install xss-lock
 install rofi # Runner menu
 install sway
 install swaybg
@@ -372,9 +362,6 @@ install unity-services
 install suckless-tools
 install papirus-icon-theme
 # install polybar
-install qt5-style-plugins
-install qt5-gtk-platformtheme
-# install 1password
 install policykit-1-gnome
 install fonts-roboto
 install fonts-font-awesome
@@ -415,8 +402,6 @@ install inkscape
 install python3-scour # svg optimizer used by inkscape
 install keepassxc-full # Password manager
 install qrencode
-# install pass
-# install qtpass
 install stress
 # install pitivi # Video editor
 install xsane
@@ -452,8 +437,8 @@ install dxvk
 install dxvk-wine64
 install lutris
 
-install mesa-va-drivers
-install mesa-vdpau-drivers
+# install mesa-va-drivers
+# install mesa-vdpau-drivers
 install vainfo
 install vulkan-tools
 
