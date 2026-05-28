@@ -18,6 +18,7 @@ application/pdf=org.gnome.Evince.desktop
 image/jpeg=org.gnome.eog.desktop
 x-scheme-handler/slack=slack.desktop
 video/x-flv=mpv.desktop
+x-scheme-handler/figma=figma-linux-next.desktop
 
 [Added Associations]
 video/quicktime=vlc.desktop;mpv.desktop;
