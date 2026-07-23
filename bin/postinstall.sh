@@ -139,19 +139,19 @@ if [[ $desktop == true ]]; then
     cd $HOME/.local/modules/hyprpicker || exit
     header "Hyprpicker"
     cmake --no-warn-unused-cli -DCMAKE_BUILD_TYPE:STRING=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr -S . -B ./build
-    cmake --build ./build --config Release --target hyprpicker -j`nproc 2>/dev/null || getconf _NPROCESSORS_CONF`
+    cmake --build ./build --config Release --target hyprpicker -j"$(nproc 2>/dev/null || getconf _NPROCESSORS_CONF)"
     # cmake --install ./build
     )
 
-    (
-    cd $HOME/.local/modules/kanshi/ || exit
-    header "Kanshi"
-    if [[ ! -d build ]]; then
-        meson setup build/ --wrap-mode=default
-    fi
-    ninja -C build/
-    # Built bin symlinked into ~/.local/bin
-    )
+    # (
+    # cd $HOME/.local/modules/kanshi/ || exit
+    # header "Kanshi"
+    # if [[ ! -d build ]]; then
+    #     meson setup build/ --wrap-mode=default
+    # fi
+    # ninja -C build/
+    # # Built bin symlinked into ~/.local/bin
+    # )
 
     header "Settings"
     gsettings set org.gnome.desktop.background show-desktop-icons false
@@ -168,18 +168,18 @@ if [[ $desktop == true ]]; then
     # Hide gnome control panels that don't work with sway
     # This would break the CC now so just remove the overrides?
     # sudo dpkg-statoverride --force-statoverride-add --update --add root root 640 /usr/share/applications/gnome-color-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-color-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-multitasking-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-search-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-notifications-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-online-accounts-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-sharing-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-screen-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-background-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-display-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-mouse-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-keyboard-panel.desktop
-    sudo dpkg-statoverride --remove /usr/share/applications/gnome-region-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-color-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-multitasking-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-search-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-notifications-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-online-accounts-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-sharing-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-screen-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-background-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-display-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-mouse-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-keyboard-panel.desktop
+    sudo dpkg-statoverride --force-statoverride-remove --remove /usr/share/applications/gnome-region-panel.desktop
 
     if [[ -f /usr/lib/slack/resources/app.asar ]]; then
         header "Modify Slack binary to allow PipeWire"
@@ -187,7 +187,9 @@ if [[ $desktop == true ]]; then
     fi
 fi
 
-if [[ $desktop == true ]] && confirm -i "Install systemfiles?"; then
+if [[ $desktop == true ]]; then
     header "Systemfiles"
-    . "$HOME/.systemfiles/install.sh"
+    if confirm -i "Install systemfiles?"; then
+        . "$HOME/.systemfiles/install.sh"
+    fi
 fi

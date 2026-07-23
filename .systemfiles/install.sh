@@ -75,13 +75,14 @@ install "/etc/udev/rules.d/90-backlight.rules"
 remove "/etc/udev/rules.d/91-pulseaudio.rules"
 install "/etc/udev/rules.d/95-controllers.rules"
 install "/etc/modprobe.d/thinkpad_acpi.conf"
+install "/etc/modules-load.d/ntsync.conf"
 install "/usr/share/xsessions/custom.desktop"
 install "/usr/local/share/wayland-sessions/sway-session.desktop"
 install "/etc/apt/apt.conf.d/51unattended-upgrades-firefox"
 install "/etc/apparmor.d/local/usr.bin.firefox"
 
 if [[ $(hostname -s) == "juho-desktop" ]]; then
-    install "/etc/apt/apt.conf.d/99enable-amd64v3"
+    install "/etc/apt/apt.conf.d/99amd64v3"
     remove "/etc/X11/xorg.conf.d/metamodes.conf"
 fi
 
