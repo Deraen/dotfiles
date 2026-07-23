@@ -305,6 +305,7 @@ install libxkbcommon-dev
 install libhyprutils-dev
 install hyprwayland-scanner
 install ninja-build
+install libjpeg-dev
 
 # Sway cgroups script
 install python3-dbus-next

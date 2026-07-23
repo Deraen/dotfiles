@@ -28,8 +28,7 @@ get_lastest_tag "$HOME/.local/modules/sway"
 get_lastest_tag "$HOME/.local/modules/alacritty"
 get_lastest_tag "$HOME/.local/modules/SwayNotificationCenter"
 
-ignore "$HOME/.local/modules/hyprpicker"
-# get_lastest_tag "$HOME/.local/modules/hyprpicker"
+get_lastest_tag "$HOME/.local/modules/hyprpicker"
 
 declare -a paths
 
