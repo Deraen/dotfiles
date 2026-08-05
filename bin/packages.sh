@@ -451,6 +451,7 @@ install openvpn
 install stoken
 install tailscale
 install wakeonlan
+install safeeyes
 
 install iriunwebcam
 # install iriunwebcam "2.8.5" "https://iriun.gitlab.io/iriunwebcam-2.8.5.deb"
