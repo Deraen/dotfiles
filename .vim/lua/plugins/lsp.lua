@@ -1,15 +1,16 @@
 return {
   {
     'mason-org/mason-lspconfig.nvim',
-    cmd = {'LspInfo', 'LspInstall', 'LspStart'},
-    event = {'BufReadPre', 'BufNewFile'},
+    cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       {
         'mason-org/mason.nvim',
-        cmd = {'Mason', 'MasonInstall', 'MasonLog', 'MasonUpdate', 'MasonUninstall', 'MasonUninstallAll'},
+        cmd = { 'Mason', 'MasonInstall', 'MasonLog', 'MasonUpdate', 'MasonUninstall', 'MasonUninstallAll' },
         opts = {},
       },
       "neovim/nvim-lspconfig",
+      "lukas-reineke/lsp-format.nvim"
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -17,7 +18,7 @@ return {
         callback = function(event)
           local keymap = vim.keymap.set
 
-          local opts = {buffer = event.buf, silent = true, noremap = true}
+          local opts = { buffer = event.buf, silent = true, noremap = true }
 
           -- https://github.com/folke/trouble.nvim
           -- Replace references list with trouble
@@ -51,11 +52,11 @@ return {
           keymap("n", "<leader>xq", "<cmd>Trouble qflist toggle<CR>", opts)
 
           -- also gra in default nvim bindings
-          keymap({"n","v"}, "<leader>ca", vim.lsp.buf.code_action, {desc = 'Code actions'})
+          keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = 'Code actions' })
           -- grn default
           -- keymap("n", "gR", "<cmd>lua vim.lsp.buf.rename()<cr>", {desc = 'LSP Rename'})
-          keymap("n", "gR", ":IncRename ", {desc = 'LSP Rename'})
-          keymap("n", "gF", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", {desc = 'LSP format'})
+          keymap("n", "gR", ":IncRename ", { desc = 'LSP Rename' })
+          keymap("n", "gF", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", { desc = 'LSP format' })
         end,
       })
 
@@ -95,7 +96,7 @@ return {
           }
         }
       }
-      ]]--
+      ]] --
 
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -117,8 +118,8 @@ return {
 
       vim.lsp.config('clojure', {
         -- TODO: Use mason binary?
-        cmd = {'clojure-lsp'},
-        filetypes = {'clojure', 'edn'},
+        cmd = { 'clojure-lsp' },
+        filetypes = { 'clojure', 'edn' },
         -- cmd = {'/home/juho/Source/clojure-lsp/clojure-lsp'},
         -- cmd = {'clojure-lsp', '--trace-level', 'verbose'},
         root_markers = {
@@ -129,31 +130,32 @@ return {
         },
         -- see:
         root_dir = function(_bufnr, on_dir)
-          local lsp_file_config = vim.fs.find({'.clojure-lsp/config.edn', '.lsp/config.edn'}, {
+          local lsp_file_config = vim.fs.find({ '.clojure-lsp/config.edn', '.lsp/config.edn' }, {
             upward = true,
             type = "file",
             path = vim.fn.getcwd(),
           })[1]
 
           local root_path = (lsp_file_config and vim.fs.normalize(vim.fs.joinpath(vim.fs.dirname(lsp_file_config), '../fixme')))
-          or vim.fs.find({'project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn'}, {
-            upward = true,
-            type = "file",
-            path = vim.fn.getcwd(),
-          })[1] or vim.fs.find('.git', {
-            upward = true,
-            type = "file",
-            path = vim.fn.getcwd(),
-          })[1]
+              or vim.fs.find({ 'project.clj', 'deps.edn', 'build.boot', 'shadow-cljs.edn' }, {
+                upward = true,
+                type = "file",
+                path = vim.fn.getcwd(),
+              })[1] or vim.fs.find('.git', {
+                upward = true,
+                type = "file",
+                path = vim.fn.getcwd(),
+              })[1]
 
           if root_path then
             on_dir(vim.fn.fnamemodify(root_path, ":h"))
           end
         end,
+        // Format clojure on save, async
+        on_attach = require('lsp-format').on_attach
       })
 
       vim.lsp.enable('clojure')
-
     end
   },
 

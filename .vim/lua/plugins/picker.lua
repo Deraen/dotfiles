@@ -121,7 +121,7 @@ return {
     keys = {
       {'<c-p>', function() Snacks.picker.git_files() end},
       {'<leader>ff', function() Snacks.picker.files() end},
-      {'<c-b>', function() Snacks.picker.buffers() end},
+      {'<c-b>', function() Snacks.picker.buffers({}) end},
       -- NOTE: Telescope doesn't support colored output to show the matched string
       {'<leader>fg', function() Snacks.picker.grep() end},
       {'<leader>fh', function() Snacks.picker.help() end},
@@ -146,6 +146,9 @@ return {
             sort_lastused = true,
             matcher = {
               -- sort_empty = true,
+            },
+            layout = {
+              preview = false,
             },
             win = {
               input = {
