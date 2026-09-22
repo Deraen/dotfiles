@@ -151,7 +151,7 @@ return {
             on_dir(vim.fn.fnamemodify(root_path, ":h"))
           end
         end,
-        // Format clojure on save, async
+        -- Format clojure on save, async
         on_attach = require('lsp-format').on_attach
       })
 
