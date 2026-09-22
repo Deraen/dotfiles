@@ -37,5 +37,6 @@ fi
 
 curl --location https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/NerdFontsSymbolsOnly.zip \
     -o ~/Downloads/NerdFontsSymbolsOnly.zip
-rm SymbolsNerdFont*.ttf
-unzip -f ~/Downloads/NerdFontsSymbolsOnly.zip
+rm -f SymbolsNerdFont*.ttf
+unzip -u ~/Downloads/NerdFontsSymbolsOnly.zip
+rm -f LICENSE README.md
