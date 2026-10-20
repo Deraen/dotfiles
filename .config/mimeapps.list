@@ -19,6 +19,9 @@ image/jpeg=org.gnome.eog.desktop
 x-scheme-handler/slack=slack.desktop
 video/x-flv=mpv.desktop
 x-scheme-handler/figma=figma-linux-next.desktop
+x-scheme-handler/github-app=github-handler.desktop
+x-scheme-handler/ghapp=github-handler.desktop
+x-scheme-handler/gh=github-handler.desktop
 
 [Added Associations]
 video/quicktime=vlc.desktop;mpv.desktop;

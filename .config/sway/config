@@ -206,3 +206,9 @@ bindsym Ctrl+$mod+Print exec flameshot gui --raw | wl-copy -t image/png
 # bar {
 #   swaybar_command waybar
 # }
+
+
+mode passthrough {
+  bindsym $mod+Insert mode default
+}
+bindsym $mod+Insert mode passthrough
