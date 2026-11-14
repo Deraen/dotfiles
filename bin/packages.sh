@@ -351,6 +351,7 @@ install waybar
 install swaylock
 install swayidle
 install sway-notification-center
+install wayvnc
 install wl-present
 install kanshi
 install wf-recorder
