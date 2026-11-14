@@ -62,6 +62,12 @@ if [[ $(hostname -s) =~ juho-laptop ]]; then
 
 fi
 
+if [[ ! -s /usr/share/keyrings/claude-desktop-archive-keyring.asc ]]; then
+        curl -fsSLo /usr/share/keyrings/claude-desktop-archive-keyring.asc https://downloads.claude.ai/claude-desktop/key.asc
+fi
+
+repo claude-desktop "deb [arch=amd64,arm64 signed-by=/usr/share/keyrings/claude-desktop-archive-keyring.asc] https://downloads.claude.ai/claude-desktop/apt/stable stable main"
+
 updateRepos
 
 # BASE
@@ -462,6 +468,7 @@ install obsidian "$OBSIDIAN" "https://github.com/obsidianmd/obsidian-releases/re
 
 install obs-studio
 
+install claude-desktop
 
 # consider greetd and tuigreet for login manager
 

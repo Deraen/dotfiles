@@ -22,6 +22,7 @@ x-scheme-handler/figma=figma-linux-next.desktop
 x-scheme-handler/github-app=github-handler.desktop
 x-scheme-handler/ghapp=github-handler.desktop
 x-scheme-handler/gh=github-handler.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 
 [Added Associations]
 video/quicktime=vlc.desktop;mpv.desktop;
