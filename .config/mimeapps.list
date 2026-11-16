@@ -24,6 +24,7 @@ x-scheme-handler/ghapp=github-handler.desktop
 x-scheme-handler/gh=github-handler.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 x-scheme-handler/wowup=wowup.desktop
+x-scheme-handler/codex=chatgpt.desktop
 
 [Added Associations]
 video/quicktime=vlc.desktop;mpv.desktop;
